@@ -12,9 +12,9 @@ ifndef::env-github[]
 image::images/Ui.png[width="600"]
 endif::[]
 
-* Extensive: Tracks finances, calorie intake, workouts
-* Detailed Data Representation: Displays graphs and charts for clients
-* Save Time: Show summary at an instance
+* Extensive: Tracks finances, calorie intake, workouts.
+* Detailed Data Representation: Displays graphs and charts for clients.
+* Save Time: Show summary at an instance.
 * Tailored for single-user.
 * This is a desktop application for a gym manager to manage his clients. It has a GUI but most of the user interactions happen using a CLI (Command Line Interface).
 
