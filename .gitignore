@@ -25,3 +25,4 @@ src/test/data/sandbox/
 .project
 .settings
 /bin
+.vscode
