@@ -4,53 +4,49 @@
 :imagesDir: images
 :stylesDir: stylesheets
 
-AddressBook - Level 3 was developed by the https://se-edu.github.io/docs/Team.html[se-edu] team. +
-_{The dummy content given below serves as a placeholder to be used by future forks of the project.}_ +
+FitBiz was developed by 5 passionate software engineering students who aim to help fitness coaches +
+managed their clients in a dynamic and innovative way. +
 {empty} +
 We are a team based in the http://www.comp.nus.edu.sg[School of Computing, National University of Singapore].
 
 == Project Team
 
-=== John Doe
-image::damithc.jpg[width="150", align="left"]
-{empty}[http://www.comp.nus.edu.sg/~damithch[homepage]] [https://github.com/damithc[github]] [<<johndoe#, portfolio>>]
+=== Choo Qi Le Aaron
+image::aaron.jpg[width="150", align="left"]
+{empty}[https://github.com/AaronCQL[github]]
 
-Role: Project Advisor
-
-'''
-
-=== John Roe
-image::lejolly.jpg[width="150", align="left"]
-{empty}[http://github.com/lejolly[github]] [<<johndoe#, portfolio>>]
-
-Role: Team Lead +
-Responsibilities: UI
+Role: Developer
 
 '''
 
-=== Johnny Doe
-image::yijinl.jpg[width="150", align="left"]
-{empty}[http://github.com/yijinl[github]] [<<johndoe#, portfolio>>]
+=== Fong Yong Jie
+image::yongjie.jpg[width="150", align="left"]
+{empty}[https://github.com/Yonggiee[github]]
+
+Role: Developer
+
+'''
+
+=== Li Zi Ying
+image::ziying.jpg[width="150", align="left"]
+{empty}[https://github.com/ziyingli[github]]
+
+Role: Developer
+
+'''
+
+=== Ng Ming Liang
+image::mingliang.jpg[width="150", align="left"]
+{empty}[https://github.com/Dban1[github]]
 
 Role: Developer +
-Responsibilities: Data
 
 '''
 
-=== Johnny Roe
-image::m133225.jpg[width="150", align="left"]
-{empty}[http://github.com/m133225[github]] [<<johndoe#, portfolio>>]
+=== Toh Ker Wei
+image::kerwei.jpg[width="150", align="left"]
+{empty}[https://github.com/tohkerwei[github]]
 
 Role: Developer +
-Responsibilities: Dev Ops + Threading
-
-'''
-
-=== Benson Meier
-image::yl_coder.jpg[width="150", align="left"]
-{empty}[http://github.com/yl-coder[github]] [<<johndoe#, portfolio>>]
-
-Role: Developer +
-Responsibilities: UI
 
 '''
