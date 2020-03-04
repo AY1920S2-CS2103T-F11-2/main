@@ -163,7 +163,7 @@ Examples:
 
 Filters the client list by the specified keyword(s) that matches the name or any attributes the client has.
 
-Format: `find KEYWORD [MORE_KEYWORDS]`
+Format: `filter-c KEYWORD [MORE_KEYWORDS]`
 
 * The search is case insensitive. e.g `push ups` will match `Push Ups`
 * The order of the keywords does not matter (e.g. `Push Pull` will match `Pull Push`)
