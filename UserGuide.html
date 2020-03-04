@@ -1,9 +1,9 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>AddressBook Level 3 - User Guide</title><link rel="stylesheet" href="stylesheets/gh-pages.css">
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>FitBiz - User Guide</title><link rel="stylesheet" href="stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link active" href="index.html">AB-3</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">AddressBook-Level3</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link active" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/se-edu/addressbook-level3"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>AddressBook Level 3 - User Guide</h1></div><div id="content"><div id="preamble">
+<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link active" href="index.html">AB-3</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">AddressBook-Level3</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link active" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/se-edu/addressbook-level3"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>FitBiz - User Guide</h1></div><div id="content"><div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>By: <code>Team SE-EDU</code>      Since: <code>Jun 2016</code>      Licence: <code>MIT</code></p>
+<p>By: <code>CS2103T-F11-2</code> Since: <code>Feb 2020</code> Licence: <code>MIT</code></p>
 </div>
 </div>
 <div id="toc" class="toc">
@@ -11,22 +11,24 @@
 <ul class="sectlevel1">
 <li><a href="#introduction">1. Introduction</a></li>
 <li><a href="#quick-start">2. Quick Start</a></li>
-<li><a href="#Features">3. Features</a>
+<li><a href="#features">3. Features</a>
 <ul class="sectlevel2">
-<li><a href="#viewing-help-code-help-code">3.1. Viewing help : <code>help</code></a></li>
-<li><a href="#adding-a-person-code-add-code">3.2. Adding a person: <code>add</code></a></li>
-<li><a href="#listing-all-persons-code-list-code">3.3. Listing all persons : <code>list</code></a></li>
-<li><a href="#editing-a-person-code-edit-code">3.4. Editing a person : <code>edit</code></a></li>
-<li><a href="#locating-persons-by-name-code-find-code">3.5. Locating persons by name: <code>find</code></a></li>
-<li><a href="#deleting-a-person-code-delete-code">3.6. Deleting a person : <code>delete</code></a></li>
-<li><a href="#clearing-all-entries-code-clear-code">3.7. Clearing all entries : <code>clear</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code">3.8. Exiting the program : <code>exit</code></a></li>
-<li><a href="#saving-the-data">3.9. Saving the data</a></li>
-<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.10. Encrypting data files <code>[coming in v2.0]</code></a></li>
+<li><a href="#view-help-code-help-code">3.1. View help: <code>help</code></a></li>
+<li><a href="#add-a-new-client-profile-code-add-c-code">3.2. Add a new client profile: <code>add-c</code></a></li>
+<li><a href="#view-a-client-profile-code-view-c-code">3.3. View a client profile: <code>view-c</code></a></li>
+<li><a href="#edit-a-client-s-profile-code-edit-c-code">3.4. Edit a client’s profile: <code>edit-c</code></a></li>
+<li><a href="#delete-a-client-code-delete-c-code">3.5. Delete a client: <code>delete-c</code></a></li>
+<li><a href="#list-all-clients-code-list-c-code">3.6. List all clients: <code>list-c</code></a></li>
+<li><a href="#record-a-client-s-exercise-code-add-e-code">3.7. Record a client&#8217;s exercise: <code>add-e</code></a></li>
+<li><a href="#start-a-timer-code-time-code">3.8. Start a timer: <code>time</code></a></li>
+<li><a href="#sort-clients-based-on-attribute-code-filter-c-code">3.9. Sort clients based on attribute: <code>filter-c</code></a></li>
+<li><a href="#view-personal-best-code-view-pb-code">3.10. View personal best: <code>view-pb</code></a></li>
+<li><a href="#view-schedule-for-the-day-week-code-view-s-code">3.11. View schedule for the day/week: <code>view-s</code></a></li>
+<li><a href="#export-as-csv-code-export-code">3.12. Export as CSV: <code>export</code></a></li>
+<li><a href="#display-visualisations-of-training-progress-code-graph-code">3.13. Display visualisations of training progress: <code>graph</code></a></li>
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
-<li><a href="#command-summary">5. Command Summary</a></li>
 </ul>
 </div>
 </div>
@@ -34,7 +36,10 @@
 <h2 id="introduction"><a class="link" href="#introduction">1. Introduction</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>AddressBook Level 3 (AB3) is for those who <strong>prefer to use a desktop app for managing contacts</strong>. More importantly, AB3 is <strong>optimized for those who prefer to work with a Command Line Interface</strong> (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, AB3 can get your contact management tasks done faster than traditional GUI apps. Interested? Jump to the <a href="#quick-start">Section 2, &#8220;Quick Start&#8221;</a> to get started. Enjoy!</p>
+<p>FitBiz is a business management tool tailor made for fitness coaches to manage their clients. From managing your client&#8217;s profile to tracking your business finances to planning your schedules, FitBiz will surely ease the pain and monotony of managing a small to medium client portfolio.</p>
+</div>
+<div class="paragraph">
+<p>This program is primarily a desktop application and optimised for those who prefer to work with a Command Line Interface (CLI). If you can type fast, and have clients to train and manage, FitBiz is definitely for you!</p>
 </div>
 </div>
 </div>
@@ -44,101 +49,74 @@
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Ensure you have Java <code>11</code> or above installed in your Computer.</p>
+<p>Ensure you have Java 11 or above installed in your Computer</p>
 </li>
 <li>
-<p>Download the latest <code>addressbook.jar</code> <a href="https://github.com/se-edu/addressbook-level3/releases">here</a>.</p>
+<p>Download the latest <code>FitBiz.jar</code> <a href="https://github.com/AY1920S2-CS2103T-F11-2/main/releases">here</a></p>
 </li>
 <li>
-<p>Copy the file to the folder you want to use as the home folder for your Address Book.</p>
+<p>Copy the file to the folder you want to use as the home folder for your Fitness Manager</p>
 </li>
 <li>
-<p>Double-click the file to start the app. The GUI should appear in a few seconds.</p>
-<div class="imageblock">
-<div class="content">
-<img src="images/Ui.png" alt="Ui" width="790">
-</div>
-</div>
+<p>Double-click the file to start the app. The GUI should appear in a few seconds</p>
 </li>
 <li>
-<p>Type the command in the command box and press <kbd>Enter</kbd> to execute it.<br>
-e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> will open the help window.</p>
+<p>Type the command in the command box and press Enter to execute it. e.g. typing help and pressing Enter will open the help window.</p>
 </li>
 <li>
 <p>Some example commands you can try:</p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong><code>list</code></strong> : lists all contacts</p>
+<p><code>list</code> : lists all clients</p>
 </li>
 <li>
-<p><strong><code>add</code></strong><code>n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01</code> : adds a contact named <code>John Doe</code> to the Address Book.</p>
+<p><code>add client n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01</code>
+: adds a contact named John Doe to the Address Book</p>
 </li>
 <li>
-<p><strong><code>delete</code></strong><code>3</code> : deletes the 3rd contact shown in the current list</p>
-</li>
-<li>
-<p><strong><code>exit</code></strong> : exits the app</p>
+<p><code>exit</code> : exits the app</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p>Refer to <a href="#Features">Section 3, &#8220;Features&#8221;</a> for details of each command.</p>
+<p>Refer to <a href="#features">Section 3, &#8220;Features&#8221;</a> below for details of each command</p>
 </li>
 </ol>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="Features"><a class="link" href="#Features">3. Features</a></h2>
+<h2 id="features"><a class="link" href="#features">3. Features</a></h2>
 <div class="sectionbody">
-<div class="exampleblock">
-<div class="content">
 <div class="paragraph">
-<p><strong>Command Format</strong></p>
+<p><strong>Format of Commands</strong></p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Words in <code>UPPER_CASE</code> are the parameters to be supplied by the user e.g. in <code>add n/NAME</code>, <code>NAME</code> is a parameter which can be used as <code>add n/John Doe</code>.</p>
+<p>Words in <code>UPPER_SNAKE_CASE</code> are the parameters to be supplied by the user
+e.g. in <code>add n/NAME</code>, <code>NAME</code> is a parameter which can be used as <code>add n/John Doe</code></p>
 </li>
 <li>
-<p>Items in square brackets are optional e.g <code>n/NAME [t/TAG]</code> can be used as <code>n/John Doe t/friend</code> or as <code>n/John Doe</code>.</p>
+<p>Items in square brackets are optional e.g <code>n/NAME [t/TAG]</code> can be used as <code>n/John Doe t/friend</code> or as <code>n/John Doe</code></p>
 </li>
 <li>
-<p>Items with <code>…</code>​ after them can be used multiple times including zero times e.g. <code>[t/TAG]&#8230;&#8203;</code> can be used as <code>&#160;</code> (i.e. 0 times), <code>t/friend</code>, <code>t/friend t/family</code> etc.</p>
+<p>Items with <code>…</code> after them can be used multiple times including zero times e.g. <code>[t/TAG]…</code> can be used as (i.e. 0 times), <code>t/friend</code>, <code>t/friend t/family</code> etc.</p>
 </li>
 <li>
-<p>Parameters can be in any order e.g. if the command specifies <code>n/NAME p/PHONE_NUMBER</code>, <code>p/PHONE_NUMBER n/NAME</code> is also acceptable.</p>
+<p>Parameters can be in any order e.g. if the command specifies <code>n/NAME p/PHONE_NUMBER</code>, <code>p/PHONE_NUMBER n/NAME</code> is also acceptable</p>
 </li>
 </ul>
 </div>
-</div>
-</div>
 <div class="sect2">
-<h3 id="viewing-help-code-help-code"><a class="link" href="#viewing-help-code-help-code">3.1. Viewing help : <code>help</code></a></h3>
+<h3 id="view-help-code-help-code"><a class="link" href="#view-help-code-help-code">3.1. View help: <code>help</code></a></h3>
 <div class="paragraph">
-<p>Format: <code>help</code></p>
+<p>Lists all available commands and a short description of what they do. Specify the command for more detailed explanation.</p>
 </div>
-</div>
-<div class="sect2">
-<h3 id="adding-a-person-code-add-code"><a class="link" href="#adding-a-person-code-add-code">3.2. Adding a person: <code>add</code></a></h3>
 <div class="paragraph">
-<p>Adds a person to the address book<br>
-Format: <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;</code></p>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-A person can have any number of tags (including 0)
-</td>
-</tr>
-</table>
+<p>Format: <code>help [c/COMMAND]</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -146,49 +124,51 @@ A person can have any number of tags (including 0)
 <div class="ulist">
 <ul>
 <li>
-<p><code>add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01</code></p>
-</li>
-<li>
-<p><code>add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Prison p/1234567 t/criminal</code></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="listing-all-persons-code-list-code"><a class="link" href="#listing-all-persons-code-list-code">3.3. Listing all persons : <code>list</code></a></h3>
-<div class="paragraph">
-<p>Shows a list of all persons in the address book.<br>
-Format: <code>list</code></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="editing-a-person-code-edit-code"><a class="link" href="#editing-a-person-code-edit-code">3.4. Editing a person : <code>edit</code></a></h3>
-<div class="paragraph">
-<p>Edits an existing person in the address book.<br>
-Format: <code>edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;&#8203;</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
+<p><code>help</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p>Edits the person at the specified <code>INDEX</code>. The index refers to the index number shown in the displayed person list. The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+<p>Lists all commands</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
-<p>At least one of the optional fields must be provided.</p>
-</li>
+<p><code>help add client</code></p>
+<div class="ulist">
+<ul>
 <li>
-<p>Existing values will be updated to the input values.</p>
+<p>Shows a detailed explanation of the <code>add client</code> command</p>
 </li>
-<li>
-<p>When editing tags, the existing tags of the person will be removed i.e adding of tags is not cumulative.</p>
-</li>
-<li>
-<p>You can remove all the person&#8217;s tags by typing <code>t/</code> without specifying any tags after it.</p>
+</ul>
+</div>
 </li>
 </ul>
 </div>
 </div>
+<div class="sect2">
+<h3 id="add-a-new-client-profile-code-add-c-code"><a class="link" href="#add-a-new-client-profile-code-add-c-code">3.2. Add a new client profile: <code>add-c</code></a></h3>
+<div class="paragraph">
+<p>Initialises and adds a new client profile.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>add-c n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…</code></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>n/NAME</code> is case insensitive. e.g <code>hans</code> will match <code>Hans</code></p>
+</li>
+<li>
+<p>The order of words will matter. e.g <code>Hans Ong</code> will not match <code>Ong Hans</code></p>
+</li>
+<li>
+<p>Only exact match will be shown. e.g. <code>Hans</code> will not match <code>Hans Ong</code></p>
+</li>
+<li>
+<p>A person can have any number of tags (including 0)</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -196,44 +176,45 @@ Format: <code>edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;
 <div class="ulist">
 <ul>
 <li>
-<p><code>edit 1 p/91234567 e/johndoe@example.com</code><br>
-Edits the phone number and email address of the 1st person to be <code>91234567</code> and <code>johndoe@example.com</code> respectively.</p>
+<p><code>add-c n/Ming Liang p/98765432 e/johnd@example.com a/John street, block 123, #01-01</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Adds a new client: Ming Liang with the above information</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
-<p><code>edit 2 n/Betsy Crower t/</code><br>
-Edits the name of the 2nd person to be <code>Betsy Crower</code> and clears all existing tags.</p>
+<p><code>add-c n/Low Tah Kiow, John t/powerlifter e/betsycrowe@example.com a/some street p/1234567 t/strongman</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Adds a new client: Low Tah Kiow, John with the above information</p>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="locating-persons-by-name-code-find-code"><a class="link" href="#locating-persons-by-name-code-find-code">3.5. Locating persons by name: <code>find</code></a></h3>
+<h3 id="view-a-client-profile-code-view-c-code"><a class="link" href="#view-a-client-profile-code-view-c-code">3.3. View a client profile: <code>view-c</code></a></h3>
 <div class="paragraph">
-<p>Finds persons whose names contain any of the given keywords.<br>
-Format: <code>find KEYWORD [MORE_KEYWORDS]</code></p>
+<p>Shows all available information of the client at the specified index.</p>
 </div>
-<div class="sidebarblock">
-<div class="content">
+<div class="paragraph">
+<p>Format: <code>view-c INDEX</code></p>
+</div>
 <div class="ulist">
 <ul>
 <li>
-<p>The search is case insensitive. e.g <code>hans</code> will match <code>Hans</code></p>
+<p><code>INDEX</code> refers to the index number shown in the displayed client list</p>
 </li>
 <li>
-<p>The order of the keywords does not matter. e.g. <code>Hans Bo</code> will match <code>Bo Hans</code></p>
-</li>
-<li>
-<p>Only the name is searched.</p>
-</li>
-<li>
-<p>Only full words will be matched e.g. <code>Han</code> will not match <code>Hans</code></p>
-</li>
-<li>
-<p>Persons matching at least one keyword will be returned (i.e. <code>OR</code> search). e.g. <code>Hans Bo</code> will return <code>Hans Gruber</code>, <code>Bo Yang</code></p>
+<p><code>INDEX</code> must be a positive integer (ie. 1, 2, 3, &#8230;&#8203;)</p>
 </li>
 </ul>
-</div>
-</div>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -241,38 +222,54 @@ Format: <code>find KEYWORD [MORE_KEYWORDS]</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>find John</code><br>
-Returns <code>john</code> and <code>John Doe</code></p>
+<p><code>view client 3</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Shows information about the 3rd client</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
-<p><code>find Betsy Tim John</code><br>
-Returns any person having names <code>Betsy</code>, <code>Tim</code>, or <code>John</code></p>
+<p><code>view client 45</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Shows information about the 45th client</p>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-person-code-delete-code"><a class="link" href="#deleting-a-person-code-delete-code">3.6. Deleting a person : <code>delete</code></a></h3>
+<h3 id="edit-a-client-s-profile-code-edit-c-code"><a class="link" href="#edit-a-client-s-profile-code-edit-c-code">3.4. Edit a client’s profile: <code>edit-c</code></a></h3>
 <div class="paragraph">
-<p>Deletes the specified person from the address book.<br>
-Format: <code>delete INDEX</code></p>
+<p>Edits the client’s personal details by specifying the attribute and the new value.</p>
 </div>
-<div class="sidebarblock">
-<div class="content">
+<div class="paragraph">
+<p>Format: <code>edit-c INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;&#8203;</code></p>
+</div>
 <div class="ulist">
 <ul>
 <li>
-<p>Deletes the person at the specified <code>INDEX</code>.</p>
+<p><code>INDEX</code> refers to the index number shown in the displayed client list</p>
 </li>
 <li>
-<p>The index refers to the index number shown in the displayed person list.</p>
+<p><code>INDEX</code> must be a positive integer (ie. 1, 2, 3, &#8230;&#8203;)</p>
 </li>
 <li>
-<p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+<p>At least one of the optional fields must be provided</p>
+</li>
+<li>
+<p>When editing tags, the existing tags of the person will be removed i.e adding of tags is not cumulative</p>
+</li>
+<li>
+<p>You can remove all the person’s tags by typing <code>t/`</code> without specifying any tags after it</p>
 </li>
 </ul>
-</div>
-</div>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -280,43 +277,335 @@ Format: <code>delete INDEX</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>list</code><br>
-<code>delete 2</code><br>
-Deletes the 2nd person in the address book.</p>
-</li>
+<p><code>edit-c 1 n/Ming Liang a/age v/60 a/gender v/male</code></p>
+<div class="ulist">
+<ul>
 <li>
-<p><code>find Betsy</code><br>
-<code>delete 1</code><br>
-Deletes the 1st person in the results of the <code>find</code> command.</p>
+<p>Edits the name of the 1st client to Ming Liang, age to 60, and gender to male.</p>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">3.7. Clearing all entries : <code>clear</code></a></h3>
+<h3 id="delete-a-client-code-delete-c-code"><a class="link" href="#delete-a-client-code-delete-c-code">3.5. Delete a client: <code>delete-c</code></a></h3>
 <div class="paragraph">
-<p>Clears all entries from the address book.<br>
-Format: <code>clear</code></p>
+<p>Deletes the client at the specified index from the program.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>delete-c INDEX</code></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>INDEX</code> refers to the index number shown in the displayed client list</p>
+</li>
+<li>
+<p><code>INDEX</code> must be a positive integer (ie. 1, 2, 3, &#8230;&#8203;)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>delete-c 4</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Deletes the 4th client from the program</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.8. Exiting the program : <code>exit</code></a></h3>
+<h3 id="list-all-clients-code-list-c-code"><a class="link" href="#list-all-clients-code-list-c-code">3.6. List all clients: <code>list-c</code></a></h3>
 <div class="paragraph">
-<p>Exits the program.<br>
-Format: <code>exit</code></p>
+<p>Shows all clients currently entered in this program.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Note that this is the default view when you first launch FitBiz</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Format: <code>list-c</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.9. Saving the data</a></h3>
+<h3 id="record-a-client-s-exercise-code-add-e-code"><a class="link" href="#record-a-client-s-exercise-code-add-e-code">3.7. Record a client&#8217;s exercise: <code>add-e</code></a></h3>
 <div class="paragraph">
-<p>Address book data are saved in the hard disk automatically after any command that changes the data.<br>
-There is no need to save manually.</p>
+<p>Adds and records an exercise to a client at the specified index.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>add-e CLIENT_INDEX e/EXERCISE_NAME [d/DATE] [r/REMARKS]</code></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>CLIENT_INDEX</code> refers to the index number shown in the displayed client list</p>
+</li>
+<li>
+<p><code>CLIENT_INDEX</code> must be a positive integer (ie. 1, 2, 3, &#8230;&#8203;)</p>
+</li>
+<li>
+<p>If <code>DATE</code> is not specified, it will be defaulted to the current day</p>
+</li>
+<li>
+<p><code>DATE</code> must be of the form <code>DD-MM-YYYY</code> (ie. 02-07-2020 for 2nd July 2020)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>add-e 2 e/Push Ups d/25-02-2020 r/50 Reps</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Adds an exercise called "Push Ups" with remarks "50 reps" on 2nd July 2020 to the 2nd client</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.10. Encrypting data files <code>[coming in v2.0]</code></a></h3>
+<h3 id="start-a-timer-code-time-code"><a class="link" href="#start-a-timer-code-time-code">3.8. Start a timer: <code>time</code></a></h3>
 <div class="paragraph">
-<p><em>{explain how the user can enable/disable data encryption}</em></p>
+<p>Starts a timer which will notify you when it ends.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>time [h/HOURS] [m/MINUTES] [s/SECONDS]</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>time m/4 s/40</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Starts a timer for 4 minutes and 40 seconds</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="sort-clients-based-on-attribute-code-filter-c-code"><a class="link" href="#sort-clients-based-on-attribute-code-filter-c-code">3.9. Sort clients based on attribute: <code>filter-c</code></a></h3>
+<div class="paragraph">
+<p>Filters the client list by the specified keyword(s) that matches the name or any attributes the client has.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>filter-c KEYWORD [MORE_KEYWORDS]</code></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The search is case insensitive. e.g <code>push ups</code> will match <code>Push Ups</code></p>
+</li>
+<li>
+<p>The order of the keywords does not matter (e.g. <code>Push Pull</code> will match <code>Pull Push</code>)</p>
+</li>
+<li>
+<p>Only full words will be matched e.g. <code>Push</code> will not match <code>Push Pull</code></p>
+</li>
+<li>
+<p>Clients matching at least one keyword will be returned (i.e. <code>OR</code> search). e.g. <code>Hans Bo</code> will return <code>Hans Gruber, Bo Yang</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>filter-c Johnny</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Returns a client list of <code>Johnny Tim</code> and <code>johnny</code></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="view-personal-best-code-view-pb-code"><a class="link" href="#view-personal-best-code-view-pb-code">3.10. View personal best: <code>view-pb</code></a></h3>
+<div class="paragraph">
+<p>Displays the personal best of all exercises of the client at the specified index.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>view-pb INDEX</code></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>INDEX</code> refers to the index number shown in the displayed client list</p>
+</li>
+<li>
+<p><code>INDEX</code> must be a positive integer (ie. 1, 2, 3, &#8230;&#8203;)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>view-pb 6</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Shows the personal best for all exercises done by the 6th client</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="view-schedule-for-the-day-week-code-view-s-code"><a class="link" href="#view-schedule-for-the-day-week-code-view-s-code">3.11. View schedule for the day/week: <code>view-s</code></a></h3>
+<div class="paragraph">
+<p>Shows the schedule for today or the time specified.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>view-s TYPE</code></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>TYPE</code> must be either <code>today</code>, <code>week</code> or <code>month</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>view schedule today</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Shows the schedule for today</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>view schedule week</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Shows the schedule of the current week</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="export-as-csv-code-export-code"><a class="link" href="#export-as-csv-code-export-code">3.12. Export as CSV: <code>export</code></a></h3>
+<div class="paragraph">
+<p>Exports a client’s training record to a CSV file.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>export INDEX</code></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>INDEX</code> refers to the index number shown in the displayed client list</p>
+</li>
+<li>
+<p><code>INDEX</code> must be a positive integer (ie. 1, 2, 3, &#8230;&#8203;)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>export 6</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Exports training records of the 6th client</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="display-visualisations-of-training-progress-code-graph-code"><a class="link" href="#display-visualisations-of-training-progress-code-graph-code">3.13. Display visualisations of training progress: <code>graph</code></a></h3>
+<div class="paragraph">
+<p>Shows visualisations of a client’s exercise progress.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>graph e/EXERCISE_NAME [s/START] [e/END]</code></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Generates a graphical representation of the client’s progress</p>
+</li>
+<li>
+<p>If <code>START</code> or <code>END</code> is not specified, it will default to the current month</p>
+</li>
+<li>
+<p>Date format of <code>[s/START]</code>, <code>[e/END]</code> is <code>DD-MM-YYYY</code></p>
+</li>
+<li>
+<p>This command can only be used while viewing a client (ie. right after <code>view-c</code> is used)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>graph e/Push Ups</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Shows a graph of Ming Liang’s Push Ups progress over the current month</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -326,41 +615,7 @@ There is no need to save manually.</p>
 <div class="sectionbody">
 <div class="paragraph">
 <p><strong>Q</strong>: How do I transfer my data to another Computer?<br>
-<strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous Address Book folder.</p>
+<strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous FitBiz folder.</p>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="command-summary"><a class="link" href="#command-summary">5. Command Summary</a></h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Add</strong> <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;</code><br>
-e.g. <code>add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague</code></p>
-</li>
-<li>
-<p><strong>Clear</strong> : <code>clear</code></p>
-</li>
-<li>
-<p><strong>Delete</strong> : <code>delete INDEX</code><br>
-e.g. <code>delete 3</code></p>
-</li>
-<li>
-<p><strong>Edit</strong> : <code>edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;&#8203;</code><br>
-e.g. <code>edit 2 n/James Lee e/jameslee@example.com</code></p>
-</li>
-<li>
-<p><strong>Find</strong> : <code>find KEYWORD [MORE_KEYWORDS]</code><br>
-e.g. <code>find James Jake</code></p>
-</li>
-<li>
-<p><strong>List</strong> : <code>list</code></p>
-</li>
-<li>
-<p><strong>Help</strong> : <code>help</code></p>
-</li>
-</ul>
-</div>
-</div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-04 13:51:05 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-04 14:35:03 UTC</div></div></div></body></html>
