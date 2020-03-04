@@ -128,6 +128,8 @@ Examples:
 
 Shows all clients currently entered in this program.
 
+* Note that this is the default view when you first launch FitBiz
+
 Format: `list-c`
 
 === Record a client's exercise: `add-e`
@@ -157,20 +159,25 @@ Examples:
 * `time m/4 s/40`
 ** Starts a timer for 4 minutes and 40 seconds
 
-=== Sort clients based on attribute: `sort-c`
+=== Sort clients based on attribute: `filter-c`
 
-Sorts clients by descending order based on the specified attribute.
+Filters the client list by the specified keyword(s) that matches the name or any attributes the client has.
 
-Format: `sort clients a/ATTRIBUTE`
+Format: `find KEYWORD [MORE_KEYWORDS]`
+
+* The search is case insensitive. e.g `push ups` will match `Push Ups`
+* The order of the keywords does not matter (e.g. `Push Pull` will match `Pull Push`)
+* Only full words will be matched e.g. `Push` will not match `Push Pull`
+* Clients matching at least one keyword will be returned (i.e. `OR` search). e.g. `Hans Bo` will return `Hans Gruber, Bo Yang`
 
 Examples:
 
-* `sort clients a/Height`
-** returns a sorted list of all clients in descending order
+* `filter-c Johnny`
+** Returns a client list of `Johnny Tim` and `johnny`
 
 === View personal best: `view-pb`
 
-Displays the personal best of all exercises of a client at the specified index.
+Displays the personal best of all exercises of the client at the specified index.
 
 Format: `view-pb INDEX`
 
