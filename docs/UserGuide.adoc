@@ -158,7 +158,7 @@ Examples:
 * `time m/4 s/40`
 ** Starts a timer for 4 minutes and 40 seconds
 
-=== Sort clients based on attribute: `filter-c`
+=== Filter clients based on attribute: `filter-c`
 
 Filters the client list by the specified keyword(s) that matches the name or any attributes the client has.
 

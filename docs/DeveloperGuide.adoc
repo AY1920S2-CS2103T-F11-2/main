@@ -1,4 +1,4 @@
-= AddressBook Level 3 - Developer Guide
+= FitBiz - Developer Guide
 :site-section: DeveloperGuide
 :toc:
 :toc-title:
@@ -14,7 +14,7 @@ ifdef::env-github[]
 endif::[]
 :repoURL: https://github.com/AY1920S2-CS2103T-F11-2/main
 
-By: `AY1920S2-CS2103T-F11-2`   Since: `Jun 2016`      Licence: `MIT`
+By: `AY1920S2-CS2103T-F11-2`   Since: `Feb 2020`      Licence: `MIT`
 
 == Setting up
 
@@ -297,38 +297,37 @@ Priorities: High (must have) - `* * \*`, Medium (nice to have) - `* \*`, Low (un
 [width="59%",cols="22%,<30%,<35%,<50%",options="header",]
 |=======================================================================
 |Priority |As a ... |I want to ... |So that I can...
-|`* * *` |coach for fitness competitors |I can record the personal bests of my clients|monitor their progress.
-|`* * *` |coach for fitness competitors |record the food intake of my clients|know if they are following my diet plan for them
-|`* * *` |coach for fitness competitors |record the exercise type and intensity my clients have done for the day| know if they are on track for their competitions.
-|`* * *` |coach for fitness competitors |record the date and time of my clients’ training sessions |
-|`* * *` |coach with many fitness competitors | view my overall schedule for the day/week |
-|`* * *`| coach that communicates with my clients| display visualisations(graphs/charts) | convey the client's training progress better
-|`* * *`| coach with many clients | calculate the caloric deficit or surplus for the day | plan the following dietary needs of my clients.
-|`* * *`|  coach with many clients |  reminded of my daily schedule at the start of the day | will not forget my appointments.
-|`* * *`| coach with many clients |   add new profiles to the app to keep track of new clients|
-|`* * *`| coach | manage the total training hours/payment day of the clients | charge them accordingly
-|`* * *`| coach| list all my clients |  view a summary of all my clients
-|`* * *`| coach |  delete my client|
-|`* * *`| coach |look for user help |  get help on how to use the features.
-|`* * *`| coach | find my client by typing their name |  find my client’s information easily.
-|`* *`| coach for fitness competitors | view incoming competitions of my clients | be reminded to focus on them more
-|`* *`| forgetful coach with many clients | look at my records on clients |  know what exercises they are weak in or require more assistance
-|`* *`| coach with a tight schedule | display my open slots | plan for training more effectively.
-|`* *`| coach with clients all over SG |  find the nearest gym based on where my client stays. |
-|`* *`| coach with many clients |  set personalised goals for my clients | I can plan a workout routine that is achievable
-|`* *`| coach with many clients| pre-set standard meal profiles my clients take every day  | daily caloric intake is automated
-|`* *`| coach with a tight schedule |opt to switch the app to a minimised view to present to me just the important data of the app|
-|`* *`| coach with many different clients| easily export the data of a client (to a CSV file) | client can also backup and store that data for themselves.
-|`* *`| coach |track my clients’ macros |  I can tell if my client is eating right with the right proportions.
-|`* *`| coach | track my total earnings from all my clients.|
-|`* *`| coach | track who is going for a competition by using the competition tag. |
-|`*` |  coach that likes to vary my clients’ training| choose from a list of different exercises with the same purposes |
-|`*` | coach who wants to visually track the progress of my clients| store photos to monitor the changes in my client’s physique. |
-|`*` | coach| check if the gym I am going to is closed|
-|`*` | coach| use the timer in the app|  I can seamlessly execute the time interval of the workout planned.
-|`*` | coach|  book the facilities required by the workout.|
-|`*` | coach |see upcoming competitions or meet  |  I can plan for my clients to attend them.
-
+|`* * *` |coach for fitness competitors |record the personal bests of my clients |monitor their progress
+|`* * *` |coach for fitness competitors |record the exercise type and intensity my clients have done for the day |know if they are on track for their competitions
+|`* * *` |coach for fitness competitors|record the date and time of my clients’ training sessions and keep track of which day they work out|
+|`* * *` |coach with many fitness competitors |view my overall schedule for the day/week|
+|`* * *` |coach that communicates with my clients |display visualisations(graphs/charts) |convey the client's training progress better
+|`* * *` |coach |add new profiles to the app to keep track of new clients|
+|`* * *` |coach |list all my clients|
+|`* * *` |coach |edit a client’s details |change and update an existing client’s details
+|`* * *` |coach |delete my client|
+|`* * *` |coach |search my client by typing their name |find my client’s information easily
+|`* * *` |coach |add, edit and delete new exercises that are not found in the application|
+|`* * *`| coach |look for user help |get help on how to use the features
+|`* *` |coach with many clients |be reminded of my daily schedule at the start of the day |track my appointments
+|`* *` |forgetful coach with many clients |look at my records on clients |know what exercises they are weak in or require more assistance
+|`* *` |coach with a tight schedule |display my open slots |plan for training more effectively
+|`* *` |coach with many clients |set personalised goals for my clients |plan a workout routine that is achievable
+|`* *` |coach with many different clients |easily export the data of a client (to a CSV file) |backup and store that data in another format
+|`* *` |coach |track my clients by using a tag |easily view the clients I want to
+|`*` |coach with clients all over SG |find the nearest gym based on where my client stays|
+|`*` |coach with a tight schedule |view a summary page to present to me just the important data, configurable by me|
+|`*` |coach |track my total earnings from all my clients|
+|`*` |coach that likes to vary my clients’ training |choose from a list of different exercises with the same purposes|
+|`*` |coach for fitness competitors |view incoming competitions of my clients |be reminded to focus on them more
+|`*` |coach who wants to visually track the progress of my clients |store photos to monitor the changes in my client’s physique|
+|`*` |coach |check if the gym I am going to is closed|
+|`*` |coach |use the timer in the application |seamlessly execute the time interval of the workout planned
+|`*` |coach |book the facilities required by the workout|
+|`*` |coach |see upcoming competitions or meet |plan for my clients to attend them
+|`*` |coach for fitness competitors |record the food intake of my clients |know if they are following my diet plan for them
+|`*` |coach |monitor my clients caloric intake |know he is meeting his dietary requirements
+|`*` |coach |manage the payment fee/payment day of the clients |charge them accordingly
 |=======================================================================
 
 _{More to be added}_
@@ -336,17 +335,89 @@ _{More to be added}_
 [appendix]
 == Use Cases
 
-(For all use cases below, the *System* is the `AddressBook` and the *Actor* is the `user`, unless specified otherwise)
+(For all use cases below, the *System* is the `FitBiz` and the *Actor* is the `user`, unless specified otherwise)
 
 [discrete]
-=== Use case: Delete person
+=== Use case 1: Add client
 
 *MSS*
 
-1.  User requests to list persons
-2.  AddressBook shows a list of persons
-3.  User requests to delete a specific person in the list
-4.  AddressBook deletes the person
+1.  User requests to add a client
+2.  FitBiz adds the client
++
+Use case ends.
+
+*Extensions*
+
+[none]
+* 2a.  The input format is invalid.
++
+[none]
+** 2a1.  FitBiz shows an error message
++
+Use case resumes at step 1.
+
+[discrete]
+=== Use case 2: View client
+
+*MSS*
+
+1.  User requests to view all the available information of client
+2.  FitBiz shows a list of clients
+3.  User requests to view a specific client in the list
+4.  FitBiz shows all available information of the client
++
+Use case ends.
+
+*Extensions*
+
+[none]
+* 2a.  The list is empty.
++
+Use case ends.
+
+* 3a.  The given name is invalid.
++
+[none]
+** 3a1. FitBiz shows an error message.
++
+Use case resumes at step 2.
+
+[discrete]
+=== Use case 3: Edit client
+
+*MSS*
+
+1.  User requests to edit a client's personal details
+2.  FitBiz shows a list of clients
+3.  User requests to edit a specific client in the list and inputs the attributes and values
+4.  FitBiz edits client's details
++
+Use case ends.
+
+*Extensions*
+
+[none]
+* 2a.  The list is empty.
++
+Use case ends.
+
+* 3a.  The input format is invalid.
++
+[none]
+** 3a1. FitBiz shows an error message.
++
+Use case resumes at step 2.
+
+[discrete]
+=== Use case 4: Delete client
+
+*MSS*
+
+1.  User requests to delete a client
+2.  FitBiz shows a list of clients
+3.  User requests to delete a specific client in the list
+4.  FitBiz deletes the client
 +
 Use case ends.
 
@@ -357,10 +428,194 @@ Use case ends.
 +
 Use case ends.
 
-* 3a. The given index is invalid.
+* 3a. The given format is invalid.
 +
 [none]
-** 3a1. AddressBook shows an error message.
+** 3a1. FitBiz shows an error message.
++
+Use case resumes at step 2.
+
+[discrete]
+=== Use case 5: List clients
+
+*MSS*
+
+1.  User requests to list all existing clients
+2.  FitBiz lists all existing clients
++
+Use case ends.
+
+*Extensions*
+
+[none]
+* 2a.  The input format is invalid.
++
+[none]
+** 2a1.  FitBiz shows an error message.
++
+Use case resumes at step 1.
+
+[discrete]
+=== Use case 6: Add exercise
+
+*MSS*
+
+1.  User requests to add an exercise to a client
+2.  FitBiz shows a list of clients
+3.  User requests to add exercise to a specific client in the list
+4.  FitBiz add exercise to the client
++
+Use case ends.
+
+*Extensions*
+
+[none]
+* 2a.  The list is empty.
++
+Use case ends.
+
+* 3a.  The given name is invalid.
++
+[none]
+** 3a1. FitBiz shows an error message.
++
+Use case resumes at step 2.
+
+[discrete]
+=== Use case 7: Start timer
+
+*MSS*
+
+1.  User requests to start a timer
+2.  FitBiz starts a timer for the specified duration
++
+Use case ends.
+
+*Extensions*
+
+[none]
+* 2a.  The input format is invalid.
++
+[none]
+** 2a1.  FitBiz shows an error message.
++
+Use case resumes at step 1.
+
+[discrete]
+=== Use case 8: Filter clients
+
+*MSS*
+
+1.  User requests to filter clients based on an attribute
+2.  FitBiz filters clients based on specified attribute
++
+Use case ends.
+
+*Extensions*
+
+[none]
+* 2a.  The input format is invalid.
++
+[none]
+** 2a1.  FitBiz shows an error message.
++
+Use case resumes at step 1.
+
+[discrete]
+=== Use case 9: View personal best
+
+*MSS*
+
+1.  User requests to view a client's personal best
+2.  FitBiz lists all clients
+3.  User requests to view the personal best of a specific client on the list
+3.  FitBiz displays the personal best
++
+Use case ends.
+
+*Extensions*
+
+[none]
+* 2a.  The list is empty.
++
+Use case ends.
+
+* 3a.  The input format is invalid.
++
+[none]
+** 3a1. FitBiz shows an error message.
++
+Use case resumes at step 2.
+
+[discrete]
+=== Use case 10: View schedule
+
+*MSS*
+
+1.  User requests to view schedule for the day or the time specified
+2.  FitBiz shows the schedule
++
+Use case ends.
+
+*Extensions*
+
+[none]
+* 2a.  The input format is invalid.
++
+[none]
+** 2a1.  FitBiz shows an error message.
++
+Use case resumes at step 1.
+
+[discrete]
+=== Use case 11: Export data
+
+*MSS*
+
+1.  User requests to export a client's training record to a CSV file
+2.  FitBiz shows a list of clients
+3.  User requests to export a specific client's training record in the list
+4.  FitBiz exports the client's training records
++
+Use case ends.
+
+*Extensions*
+
+[none]
+* 2a.  The list is empty.
++
+Use case ends.
+
+* 3a.  The given name is invalid.
++
+[none]
+** 3a1. FitBiz shows an error message.
++
+Use case resumes at step 2.
+
+[discrete]
+=== Use case 12: View visualisations
+
+*MSS*
+
+1.  User requests to view graph visualisations of a client's progress
+2.  FitBiz shows a list of clients
+3.  User requests to view the training graph of a specific client in the list
+4.  Fitbiz shows the training graph of the client
++
+Use case ends.
+
+*Extensions*
+
+[none]
+* 2a.  The list is empty.
++
+Use case ends.
+
+* 3a.  The given name is invalid.
++
+[none]
+** 3a1. FitBiz shows an error message.
 +
 Use case resumes at step 2.
 
