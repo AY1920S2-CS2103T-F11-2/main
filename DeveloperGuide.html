@@ -874,25 +874,160 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <h2 id="use-cases"><a class="link" href="#use-cases">Appendix C: Use Cases</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>(For all use cases below, the <strong>System</strong> is the <code>AddressBook</code> and the <strong>Actor</strong> is the <code>user</code>, unless specified otherwise)</p>
+<p>(For all use cases below, the <strong>System</strong> is the <code>FitBiz</code> and the <strong>Actor</strong> is the <code>user</code>, unless specified otherwise)</p>
 </div>
-<h3 id="use-case-delete-person" class="discrete">Use case: Delete person</h3>
+<h3 id="use-case-1-add-client" class="discrete">Use case 1: Add client</h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User requests to list persons</p>
+<p>User requests to add a client</p>
 </li>
 <li>
-<p>AddressBook shows a list of persons</p>
+<p>FitBiz adds the client</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a.  The input format is invalid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a1.  FitBiz shows an error message</p>
+<div class="paragraph">
+<p>Use case resumes at step 1.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-2-view-client" class="discrete">Use case 2: View client</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to view all the available information of client</p>
 </li>
 <li>
-<p>User requests to delete a specific person in the list</p>
+<p>FitBiz shows a list of clients</p>
 </li>
 <li>
-<p>AddressBook deletes the person</p>
+<p>User requests to view a specific client in the list</p>
+</li>
+<li>
+<p>FitBiz shows all available information of the client</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a.  The list is empty.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+<li>
+<p>3a.  The given name is invalid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3a1. FitBiz shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 2.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-3-edit-client" class="discrete">Use case 3: Edit client</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to edit a client&#8217;s personal details</p>
+</li>
+<li>
+<p>FitBiz shows a list of clients</p>
+</li>
+<li>
+<p>User requests to edit a specific client in the list and inputs the attributes and values</p>
+</li>
+<li>
+<p>FitBiz edits client&#8217;s details</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a.  The list is empty.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+<li>
+<p>3a.  The input format is invalid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3a1. FitBiz shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 2.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-4-delete-client" class="discrete">Use case 4: Delete client</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to delete a client</p>
+</li>
+<li>
+<p>FitBiz shows a list of clients</p>
+</li>
+<li>
+<p>User requests to delete a specific client in the list</p>
+</li>
+<li>
+<p>FitBiz deletes the client</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -911,11 +1046,355 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </li>
 <li>
-<p>3a. The given index is invalid.</p>
+<p>3a. The given format is invalid.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>3a1. AddressBook shows an error message.</p>
+<p>3a1. FitBiz shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 2.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-5-list-clients" class="discrete">Use case 5: List clients</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to list all existing clients</p>
+</li>
+<li>
+<p>FitBiz lists all existing clients</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a.  The input format is invalid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a1.  FitBiz shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 1.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-6-add-exercise" class="discrete">Use case 6: Add exercise</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to add an exercise to a client</p>
+</li>
+<li>
+<p>FitBiz shows a list of clients</p>
+</li>
+<li>
+<p>User requests to add exercise to a specific client in the list</p>
+</li>
+<li>
+<p>FitBiz add exercise to the client</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a.  The list is empty.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+<li>
+<p>3a.  The given name is invalid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3a1. FitBiz shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 2.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-7-start-timer" class="discrete">Use case 7: Start timer</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to start a timer</p>
+</li>
+<li>
+<p>FitBiz starts a timer for the specified duration</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a.  The input format is invalid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a1.  FitBiz shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 1.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-8-filter-clients" class="discrete">Use case 8: Filter clients</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to filter clients based on an attribute</p>
+</li>
+<li>
+<p>FitBiz filters clients based on specified attribute</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a.  The input format is invalid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a1.  FitBiz shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 1.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-9-view-personal-best" class="discrete">Use case 9: View personal best</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to view a client&#8217;s personal best</p>
+</li>
+<li>
+<p>FitBiz lists all clients</p>
+</li>
+<li>
+<p>User requests to view the personal best of a specific client on the list</p>
+</li>
+<li>
+<p>FitBiz displays the personal best</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a.  The list is empty.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+<li>
+<p>3a.  The input format is invalid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3a1. FitBiz shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 2.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-10-view-schedule" class="discrete">Use case 10: View schedule</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to view schedule for the day or the time specified</p>
+</li>
+<li>
+<p>FitBiz shows the schedule</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a.  The input format is invalid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a1.  FitBiz shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 1.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-11-export-data" class="discrete">Use case 11: Export data</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to export a client&#8217;s training record to a CSV file</p>
+</li>
+<li>
+<p>FitBiz shows a list of clients</p>
+</li>
+<li>
+<p>User requests to export a specific client&#8217;s training record in the list</p>
+</li>
+<li>
+<p>FitBiz exports the client&#8217;s training records</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a.  The list is empty.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+<li>
+<p>3a.  The given name is invalid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3a1. FitBiz shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 2.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-12-view-visualisations" class="discrete">Use case 12: View visualisations</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to view graph visualisations of a client&#8217;s progress</p>
+</li>
+<li>
+<p>FitBiz shows a list of clients</p>
+</li>
+<li>
+<p>User requests to view the training graph of a specific client in the list</p>
+</li>
+<li>
+<p>Fitbiz shows the training graph of the client</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a.  The list is empty.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+<li>
+<p>3a.  The given name is invalid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3a1. FitBiz shows an error message.</p>
 <div class="paragraph">
 <p>Use case resumes at step 2.</p>
 </div>
@@ -1148,4 +1627,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-05 02:14:25 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-05 02:15:15 UTC</div></div></div></body></html>
