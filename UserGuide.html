@@ -71,8 +71,8 @@
 <p><code>list</code> : lists all clients</p>
 </li>
 <li>
-<p><code>add client n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01</code>
-: adds a contact named John Doe to the Address Book</p>
+<p><code>add-c n/John Doe g/Male p/98765432 e/johnd@example.com a/John street, block 123, #01-01 b/24-12-1997 h/170 cw/70 tw/75</code>
+: adds a client named John Doe to FitBiz</p>
 </li>
 <li>
 <p><code>exit</code> : exits the app</p>
@@ -91,13 +91,14 @@
 <h2 id="features"><a class="link" href="#features">3. Features</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><strong>Format of Commands</strong></p>
+<p>s
+<strong>Format of Commands</strong></p>
 </div>
 <div class="ulist">
 <ul>
 <li>
 <p>Words in <code>UPPER_SNAKE_CASE</code> are the parameters to be supplied by the user
-e.g. in <code>add n/NAME</code>, <code>NAME</code> is a parameter which can be used as <code>add n/John Doe</code></p>
+e.g. in <code>add-c n/NAME</code>, <code>NAME</code> is a parameter which can be used as <code>add-c n/John Doe</code></p>
 </li>
 <li>
 <p>Items in square brackets are optional e.g <code>n/NAME [t/TAG]</code> can be used as <code>n/John Doe t/friend</code> or as <code>n/John Doe</code></p>
@@ -134,11 +135,11 @@ e.g. in <code>add n/NAME</code>, <code>NAME</code> is a parameter which can be 
 </div>
 </li>
 <li>
-<p><code>help add client</code></p>
+<p><code>help add-c</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p>Shows a detailed explanation of the <code>add client</code> command</p>
+<p>Shows a detailed explanation of the <code>add-c</code> command</p>
 </li>
 </ul>
 </div>
@@ -152,7 +153,7 @@ e.g. in <code>add n/NAME</code>, <code>NAME</code> is a parameter which can be 
 <p>Initialises and adds a new client profile.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>add-c n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…</code></p>
+<p>Format: <code>add-c n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [g/GENDER] [h/HEIGHT] [cw/CURRENT_WEIGHT] [tw/TARGET_WEIGHT] [r/REMARK] [s/SPORT]… [t/TAG]…</code></p>
 </div>
 <div class="ulist">
 <ul>
@@ -222,7 +223,7 @@ e.g. in <code>add n/NAME</code>, <code>NAME</code> is a parameter which can be 
 <div class="ulist">
 <ul>
 <li>
-<p><code>view client 3</code></p>
+<p><code>view-c 3</code></p>
 <div class="ulist">
 <ul>
 <li>
@@ -232,7 +233,7 @@ e.g. in <code>add n/NAME</code>, <code>NAME</code> is a parameter which can be 
 </div>
 </li>
 <li>
-<p><code>view client 45</code></p>
+<p><code>view-c 45</code></p>
 <div class="ulist">
 <ul>
 <li>
@@ -250,7 +251,7 @@ e.g. in <code>add n/NAME</code>, <code>NAME</code> is a parameter which can be 
 <p>Edits the client’s cliental details by specifying the attribute and the new value.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>edit-c INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;&#8203;</code></p>
+<p>Format: <code>edit-c INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [g/GENDER] [h/HEIGHT] [cw/CURRENT_WEIGHT] [tw/TARGET_WEIGHT] [r/REMARK] [s/SPORT]… [t/TAG]&#8230;&#8203;</code></p>
 </div>
 <div class="ulist">
 <ul>
@@ -628,4 +629,4 @@ e.g. in <code>add n/NAME</code>, <code>NAME</code> is a parameter which can be 
 <strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous FitBiz folder.</p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-19 13:03:28 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-19 13:10:38 UTC</div></div></div></body></html>
