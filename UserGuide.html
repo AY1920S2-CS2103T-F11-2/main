@@ -9,9 +9,15 @@
 <div id="toc" class="toc">
 <div id="toctitle"></div>
 <ul class="sectlevel1">
-<li><a href="#introduction">1. Introduction</a></li>
+<li><a href="#overview">1. Overview</a>
+<ul class="sectlevel2">
+<li><a href="#about-fitbiz">1.1. About FitBiz</a></li>
+<li><a href="#about-this-user-guide">1.2. About this User Guide</a></li>
+<li><a href="#miscellaneous-features">1.3. Miscellaneous Features</a></li>
+</ul>
+</li>
 <li><a href="#quick-start">2. Quick Start</a></li>
-<li><a href="#features">3. Features</a>
+<li><a href="#commands">3. Commands</a>
 <ul class="sectlevel2">
 <li><a href="#add-a-new-client-profile-code-add-c-code">3.1. Add a new client profile: <code>add-c</code></a></li>
 <li><a href="#record-a-client-s-exercise-code-add-e-code">3.2. Record a client&#8217;s exercise: <code>add-e</code></a></li>
@@ -40,13 +46,48 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="introduction"><a class="link" href="#introduction">1. Introduction</a></h2>
+<h2 id="overview"><a class="link" href="#overview">1. Overview</a></h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="about-fitbiz"><a class="link" href="#about-fitbiz">1.1. About FitBiz</a></h3>
 <div class="paragraph">
 <p>FitBiz is a business management tool tailor made for fitness coaches to manage their clients. From managing your client&#8217;s profile to planning your schedules, FitBiz will surely ease the pain and monotony of managing a small to medium client portfolio.</p>
 </div>
 <div class="paragraph">
 <p>This program is primarily a desktop application and optimised for those who prefer to work with a Command Line Interface (CLI). If you can type fast, and have clients to train and manage, FitBiz is definitely for you!</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="about-this-user-guide"><a class="link" href="#about-this-user-guide">1.2. About this User Guide</a></h3>
+<div class="paragraph">
+<p>This User Guide explains how to use the FitBiz CLI, as well as provides an understanding of the features and commands and some common use cases.</p>
+</div>
+<div class="paragraph">
+<p>In this guide, we cover:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Syntax of the commands available in FitBiz</p>
+</li>
+<li>
+<p>Common use cases for each command</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="miscellaneous-features"><a class="link" href="#miscellaneous-features">1.3. Miscellaneous Features</a></h3>
+<div class="paragraph">
+<p>As this is primarily a CLI based application, some features are included to make the user experience better. The following features are provided to simplify the use of FitBiz:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Command History: similar to most modern CLIs, users can press the <kbd>Up</kbd> and <kbd>Down</kbd> arrow key to cycle through their previously entered commands</p>
+</li>
+</ul>
+</div>
 </div>
 </div>
 </div>
@@ -68,14 +109,14 @@
 <p>Double-click the file to start the app. The GUI should appear in a few seconds</p>
 </li>
 <li>
-<p>Type the command in the command box and press Enter to execute it. e.g. typing help and pressing Enter will open the help window.</p>
+<p>Type the command in the command box and press <kbd>Enter</kbd> to execute it. e.g. typing <code>help</code> and pressing <kbd>Enter</kbd> will open the help window.</p>
 </li>
 <li>
 <p>Some example commands you can try:</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>list</code> : lists all clients</p>
+<p><code>list-c</code> : lists all clients</p>
 </li>
 <li>
 <p><code>add-c n/John Doe g/Male p/98765432 e/johnd@example.com a/John street, block 123, #01-01 b/24-12-1997 h/170 cw/70 tw/75</code>
@@ -88,14 +129,14 @@
 </div>
 </li>
 <li>
-<p>Refer to <a href="#features">Section 3, &#8220;Features&#8221;</a> below for details of each command</p>
+<p>Refer to <a href="#commands">Section 3, &#8220;Commands&#8221;</a> below for details of each command</p>
 </li>
 </ol>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="features"><a class="link" href="#features">3. Features</a></h2>
+<h2 id="commands"><a class="link" href="#commands">3. Commands</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p><strong>Format of Commands</strong></p>
@@ -739,4 +780,4 @@ e.g. in <code>add-c n/NAME</code>, <code>NAME</code> is a parameter which can b
 </table>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-27 09:22:27 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-29 13:41:07 UTC</div></div></div></body></html>
