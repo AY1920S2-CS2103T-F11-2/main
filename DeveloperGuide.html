@@ -24,7 +24,8 @@
 <ul class="sectlevel2">
 <li><a href="#command-history">3.1. Command History</a></li>
 <li><a href="#logging">3.2. Logging</a></li>
-<li><a href="#Implementation-Configuration">3.3. Configuration</a></li>
+<li><a href="#storage-of-clients-and-exercises">3.3. Storage of Clients and Exercises</a></li>
+<li><a href="#Implementation-Configuration">3.4. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a></li>
@@ -423,7 +424,7 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.3, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.4, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -454,7 +455,72 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.3. Configuration</a></h3>
+<h3 id="storage-of-clients-and-exercises"><a class="link" href="#storage-of-clients-and-exercises">3.3. Storage of Clients and Exercises</a></h3>
+<div class="paragraph">
+<p>This section explains the implementation and design considerations for storage of clients and exercises.</p>
+</div>
+<div class="sect3">
+<h4 id="implementation-3"><a class="link" href="#implementation-3">3.3.1. Implementation</a></h4>
+<div class="paragraph">
+<p>We have decided to store the exercises done by the client together with the same client in one JSON file. Each <code>JsonAdaptedClient</code> will have a list of <code>JsonAdaptedExercise</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ClientExerciseStorageClassDiagram.png" alt="ClientExerciseStorageClassDiagram">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.3.2. Design Considerations</a></h4>
+<div class="paragraph">
+<p>While implementing the storage for clients and exercises, we had multiple choices. We decided to save the exercises together with the client who did them. All the clients will then be stored in one JSON file.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Considerations</th>
+<th class="tableblock halign-left valign-top">Pros and Cons</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Store exercises with client and all clients in one JSON file</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Pros</strong>: Much easier to link the exercises to the client during reading and storing</p>
+<p class="tableblock"><strong>Cons</strong>: Might have one large JSON file and potentially exceed the size limit of a JSON file</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Store all exercises into a separate JSON file</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Pros</strong>: Keep exercise data separate from client data</p>
+<p class="tableblock"><strong>Cons</strong>: Hard to link the exercises to the client during reading and storing</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Store exercises with client but one JSON for each client</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Pros</strong>: Low chances of exceeding the size limit of a JSON file</p>
+<p class="tableblock"><strong>Cons</strong>: Might have too many JSON files for each client<br>
+Tough to identify which JSON file is for which client</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>We decided to use the first approach of storing the exercises with the client and all clients in one JSON file. There are multiple reasons for our choice as mentioned below.</p>
+</div>
+<div class="paragraph">
+<p>We want to keep the implementation reading and storing of data simple. The first approach is  the most simple. When reading the data, it will remove the need to associate the exercises to the client. A client might potentially have a large amount of exercises, resulting in the reading process to be extremely slow.</p>
+</div>
+<div class="paragraph">
+<p>Moreover, storing the exercise data from client data does not provide any performance benefits. Due to time constraints, we decided that the application should store all the data everytime it closes. This is regardless if the particular exercise or client data has been changed. Having to keep track of which data is edited and only overwrite those data would greatly increase the complexity of the application. Therefore, keeping exercises data separate from client data would be unnecessary and provide little additional functionality to the user.</p>
+</div>
+<div class="paragraph">
+<p>Lastly, we foresee that it is improbable for the data size of both clients and exercises to exceed the maximum size limit of a JSON file. With the target user in mind, it is unlikely that he will have an enormous amount of clients as he have to cater time for each of them. Even though each client might have many exercises, the information of each exercise is relatively small.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.4. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -749,7 +815,13 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 <p>User requests to add a client</p>
 </li>
 <li>
-<p>FitBiz adds the client</p>
+<p>FitBiz requests for details(eg. name)</p>
+</li>
+<li>
+<p>User enters the details</p>
+</li>
+<li>
+<p>FitBiz adds client to database</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -762,13 +834,17 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>2a.  The input format is invalid.</p>
+<p>3a.  The input format is invalid.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>2a1.  FitBiz shows an error message</p>
+<p>3a1.  FitBiz shows an error message</p>
+</li>
+<li>
+<p>3a2.  User enters the new details.</p>
 <div class="paragraph">
-<p>Use case resumes at step 1.</p>
+<p>Steps 3a1 to 3a2 are repeated until the data entered is correct.
+Use case resumes from step 4</p>
 </div>
 </li>
 </ul>
@@ -1482,4 +1558,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-02 15:01:25 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-02 15:08:13 UTC</div></div></div></body></html>
