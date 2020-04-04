@@ -23,11 +23,12 @@
 <li><a href="#implementation">3. Implementation</a>
 <ul class="sectlevel2">
 <li><a href="#command-history-aaron-choo">3.1. Command History --- Aaron Choo</a></li>
-<li><a href="#command-autocompletion-aaron-choo">3.2. Command Autocompletion --- Aaron Choo</a></li>
-<li><a href="#logging">3.3. Logging</a></li>
-<li><a href="#exercise-feature-yong-jie">3.4. Exercise Feature --- Yong Jie</a></li>
-<li><a href="#Implementation-Configuration">3.5. Configuration</a></li>
-<li><a href="#personal-best-li-zi-ying">3.6. Personal Best --- Li Zi Ying</a></li>
+<li><a href="#scheduling-for-a-client-ng-ming-liang">3.2. Scheduling for a Client --- Ng Ming Liang</a></li>
+<li><a href="#command-autocompletion-aaron-choo">3.3. Command Autocompletion --- Aaron Choo</a></li>
+<li><a href="#logging">3.4. Logging</a></li>
+<li><a href="#exercise-feature-yong-jie">3.5. Exercise Feature --- Yong Jie</a></li>
+<li><a href="#Implementation-Configuration">3.6. Configuration</a></li>
+<li><a href="#personal-best-li-zi-ying">3.7. Personal Best --- Li Zi Ying</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a></li>
@@ -427,12 +428,116 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 </div>
 </div>
 <div class="sect2">
-<h3 id="command-autocompletion-aaron-choo"><a class="link" href="#command-autocompletion-aaron-choo">3.2. Command Autocompletion --- Aaron Choo</a></h3>
+<h3 id="scheduling-for-a-client-ng-ming-liang"><a class="link" href="#scheduling-for-a-client-ng-ming-liang">3.2. Scheduling for a Client --- Ng Ming Liang</a></h3>
+<div class="paragraph">
+<p>This feature allows for a user to assign a weekly schedule to a client. Timings are represented in the 24-hour format <code>HHmm</code>. Each client can have none or multiple schedules that do not have overlapping timings. Multiple clients are allowed to have overlapping timings with each other.</p>
+</div>
+<div class="sect3">
+<h4 id="implementation-3"><a class="link" href="#implementation-3">3.2.1. Implementation</a></h4>
+<div class="paragraph">
+<p>This scheduling mechanism is facilitated by <code>ScheduleList</code>, which is a wrapper class for an <code>ArrayList</code> of <code>Schedule</code> objects. Each <code>Client</code> contains one <code>ScheduleList</code> attribute to keep track of all <code>Schedule</code> assigned to it. If there are no assigned <code>Schedule</code> for the <code>Client</code>, then the <code>ScheduleList</code> contains an empty <code>ArrayList</code> of <code>Schedule</code>.</p>
+</div>
+<div class="paragraph">
+<p><code>Schedule</code> comprises three attributes:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Day</code></p>
+</li>
+<li>
+<p><code>StartTime</code></p>
+</li>
+<li>
+<p><code>EndTime</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><code>Day</code> wraps the enum <code>DayEnum.Weekday</code> and represents the day of the week the schedule takes place on.
+<code>StartTime</code> and <code>EndTime</code> represent the start time and end time of the schedule in the "HHmm" format respectively. The relations between these classes are shown in the class diagram below.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ScheduleClassDiagram.png" alt="ScheduleClassDiagram">
+</div>
+</div>
+<div class="paragraph">
+<p>These attributes are bounded by these characteristics:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Each <code>Client</code> can only contain unique <code>Schedule</code>, that is, there are no overlaps in timings between any two <code>Schedule</code> in the <code>ScheduleList</code>. This is ensured by <code>ScheduleCommandParser#checkIfOverlaps()</code></p>
+</li>
+<li>
+<p>Overlapping timings between the <code>Schedule</code> of different <code>Client</code> is allowed</p>
+</li>
+<li>
+<p>The maximum timeframe between <code>StartTime</code> and <code>EndTime</code> is from <code>0000</code> to <code>2359</code></p>
+</li>
+<li>
+<p><code>StartTime</code> cannot be later than <code>EndTime</code></p>
+</li>
+<li>
+<p><code>Day</code> can only take up the 7 values of the week (MON/TUE/WED/THU/FRI/SAT/SUN)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>In the following sequence diagram, we trace the execution for when the user decides to enter the command <code>schedule 1 day/mon st/1100 et/1200</code> into FitBiz:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ScheduleSequenceDiagram.png" alt="ScheduleSequenceDiagram">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.2.2. Design Considerations</a></h4>
+<div class="paragraph">
+<p>In designing this feature, we had to consider the alternative ways in which we can choose to store the information of a schedule. One option of storing the relevant information (day, start, end times) for a schedule was simply to concatenate these values into a single String, for example, <code>"monday-1100-1200"</code>. However, we found that this did not exploit the desirable principles of Object-Oriented Programming. As respective sanity checks had to be done for the day
+and timing, wrapping each of these properties into their wrapper classes allowed for better modularity and organisation of these attributes. For example, <code>Day#isValidDay</code> handles the validation of the input for day and <code>Time#isValidTimingFormat</code> handles the validation of time.</p>
+</div>
+<div class="paragraph">
+<p>Considerations also then had to be made for how to contain multiple <code>Schedule</code>. The current implementation uses the <code>ArrayList</code> data structure to hold multiple <code>Schedule</code>. Other considered alternative for <code>ScheduleList</code> was <code>HashSet</code>.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Data Structure</th>
+<th class="tableblock halign-left valign-top">Pros and Cons</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ArrayList</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Pros</strong>: Elements can be sorted and retrieved in ascending order</p>
+<p class="tableblock"><strong>Cons</strong>: Does not ensure that its elements are unique</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">HashSet</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Pros</strong>: Does not allow duplicate values</p>
+<p class="tableblock"><strong>Cons</strong>: Does not return elements in order</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>As the nature of the schedule panel was to display a sorted collection of <code>Schedule</code>, we chose <code>ArrayList</code> as the underlying data structure. In addition, we also harnessed the capability of the <code>HashSet</code> to ensure no overlaps between <code>Schedule</code> within each <code>Client</code>, which is implemented by <code>ScheduleCommandParser#checkIfOverlaps</code>.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="command-autocompletion-aaron-choo"><a class="link" href="#command-autocompletion-aaron-choo">3.3. Command Autocompletion --- Aaron Choo</a></h3>
 <div class="paragraph">
 <p>Similar to the previously mentioned "Command History" feature, this feature improves the user experience by allowing users to press the <kbd>Tab</kbd> key to autocomplete their partially entered commands.</p>
 </div>
 <div class="sect3">
-<h4 id="implementation-3"><a class="link" href="#implementation-3">3.2.1. Implementation</a></h4>
+<h4 id="implementation-4"><a class="link" href="#implementation-4">3.3.1. Implementation</a></h4>
 <div class="paragraph">
 <p>This feature is facilitated by the logic found in the <code>AutoComplete</code> class. Before we dive into the implementation, let us first define what <em>unambiguous</em> and <em>ambiguous</em> commands are. Unambiguous commands are those that can be uniquely identified by the sequence of letters that the user has entered. Ambiguous commands are those that cannot be identified by the said sequence of letters. For example, assume we only have 3 commands in our app, <code>add-c</code>, <code>add-e</code>, and <code>edit-c</code>. If the user enters <code>e</code> and presses <kbd>Tab</kbd>, we say that this is an unambiguous command since clearly only <code>edit-c</code> can be the correct command. If instead, the user enters <code>a</code> and presses <kbd>Tab</kbd>, we say that this is an ambiguous command, since both <code>add-c</code> and <code>add-e</code> are possible choices. Again, let us start by defining the behaviour (which also has been implemented to mimic most modern CLIs):</p>
 </div>
@@ -479,7 +584,7 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.2.2. Design Considerations</a></h4>
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.3.2. Design Considerations</a></h4>
 <div class="paragraph">
 <p>For the implementation of this feature, we have decided to use a Trie data structure. Since no such data structure exists natively in Java, we had to implement our own version of it. Of course, we have also considered other much simpler alternatives like simply storing all available commands in a <code>List</code>. A quick summary of the pros and cons is given here:</p>
 </div>
@@ -516,14 +621,14 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.3. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">3.4. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.5, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.6, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -554,12 +659,12 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 </div>
 </div>
 <div class="sect2">
-<h3 id="exercise-feature-yong-jie"><a class="link" href="#exercise-feature-yong-jie">3.4. Exercise Feature --- Yong Jie</a></h3>
+<h3 id="exercise-feature-yong-jie"><a class="link" href="#exercise-feature-yong-jie">3.5. Exercise Feature --- Yong Jie</a></h3>
 <div class="paragraph">
 <p>The function of recording the clients' exercises is one of the main features of our application. This section provides its key implementation details.</p>
 </div>
 <div class="sect3">
-<h4 id="implementation-4"><a class="link" href="#implementation-4">3.4.1. Implementation</a></h4>
+<h4 id="implementation-5"><a class="link" href="#implementation-5">3.5.1. Implementation</a></h4>
 <div class="sect4">
 <h5 id="exercise-class"><a class="link" href="#exercise-class">Exercise class</a></h5>
 <div class="paragraph">
@@ -601,7 +706,7 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.4.2. Design Considerations</a></h4>
+<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">3.5.2. Design Considerations</a></h4>
 <div class="paragraph">
 <p>This section explains the our design considerations and analysis for the storage of exercises.</p>
 </div>
@@ -655,18 +760,18 @@ Tough to identify which JSON file is for which client</p></td>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.5. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.6. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="personal-best-li-zi-ying"><a class="link" href="#personal-best-li-zi-ying">3.6. Personal Best --- Li Zi Ying</a></h3>
+<h3 id="personal-best-li-zi-ying"><a class="link" href="#personal-best-li-zi-ying">3.7. Personal Best --- Li Zi Ying</a></h3>
 <div class="paragraph">
 <p>This feature allows the users (ie. gym managers) to view the personal bests of exercises done by a client. This information is displayed in a table form, after the command <code>view-c INDEX</code> is called.</p>
 </div>
 <div class="sect3">
-<h4 id="implementation-5"><a class="link" href="#implementation-5">3.6.1. Implementation</a></h4>
+<h4 id="implementation-6"><a class="link" href="#implementation-6">3.7.1. Implementation</a></h4>
 <div class="paragraph">
 <p>The personal best feature is facilitated by the model <code>PersonalBest</code>, and the logic behind it is in <code>PersonalBestFinder</code>. The behaviour of this feature determines the personal best of each exercise done by the client based on these considerations:</p>
 </div>
@@ -711,7 +816,7 @@ Tough to identify which JSON file is for which client</p></td>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">3.6.2. Design Considerations</a></h4>
+<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">3.7.2. Design Considerations</a></h4>
 <div class="paragraph">
 <p>In designing this features, we had to decide on the placement of the <code>PersonalBest</code> class in the model to comply with the OOP standards. Currently, the <code>PersonalBest</code> model has a whole-part relationship with <code>Client</code>, with <code>Client</code> being the whole and <code>PersonalBest</code> being a part of <code>Client</code>. The alternative is to consider <code>PersonalBest</code> as a part of <code>Exercise</code> instead.</p>
 </div>
@@ -1783,4 +1888,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-04 03:28:50 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-04 03:32:21 UTC</div></div></div></body></html>
