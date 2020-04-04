@@ -27,6 +27,7 @@
 <li><a href="#logging">3.3. Logging</a></li>
 <li><a href="#exercise-feature-yong-jie">3.4. Exercise Feature --- Yong Jie</a></li>
 <li><a href="#Implementation-Configuration">3.5. Configuration</a></li>
+<li><a href="#personal-best-li-zi-ying">3.6. Personal Best --- Li Zi Ying</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a></li>
@@ -657,6 +658,96 @@ Tough to identify which JSON file is for which client</p></td>
 <h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.5. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="personal-best-li-zi-ying"><a class="link" href="#personal-best-li-zi-ying">3.6. Personal Best --- Li Zi Ying</a></h3>
+<div class="paragraph">
+<p>This feature allows the users (ie. gym managers) to view the personal bests of exercises done by a client. This information is displayed in a table form, after the command <code>view-c INDEX</code> is called.</p>
+</div>
+<div class="sect3">
+<h4 id="implementation-5"><a class="link" href="#implementation-5">3.6.1. Implementation</a></h4>
+<div class="paragraph">
+<p>The personal best feature is facilitated by the model <code>PersonalBest</code>, and the logic behind it is in <code>PersonalBestFinder</code>. The behaviour of this feature determines the personal best of each exercise done by the client based on these considerations:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>If the <code>ExerciseWeight</code> attribute is recorded in the <code>Exercise</code>, then the <code>ExerciseWeight</code> is used as comparison</p>
+</li>
+<li>
+<p>If there is no <code>ExerciseWeight</code> recorded in the <code>Exercise</code>, then <code>ExerciseReps</code> will be used as comparison</p>
+</li>
+<li>
+<p>If neither of <code>ExerciseWeight</code> and <code>ExerciseReps</code> are recorded into the <code>Exercise</code>, then this particular exercise will not be put into the Exercise Personal Best table</p>
+<div class="ulist">
+<ul>
+<li>
+<p>However, if the another <code>Exercise</code> of the same name is added in the future with <code>ExerciseWeight</code> and/or <code>ExerciseReps</code> specified, then the personal best of this exercise will still be calculated and shown in the Exercise Personal Best table</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>When the user inputs <code>view-c</code>, <code>add-e</code> or <code>delete-c</code>, <code>PersonalBestFinder#generateAndSetPersonalBest</code> is called, taking the client currently in view as the parameter. <code>PersonalBestFinder#generateAndSetPersonalBest</code> then retrieves client&#8217;s list of exercises using <code>Client#getExerciseList</code> and creates a new <code>HashMap</code>, where the <code>key</code> is <code>ExerciseName</code> and the <code>value</code> is <code>Exercise</code>. Then the personal bests of each exercise of the client in view are generated using the above considerations. Finally the list of personal bests is set using <code>PersonalBest#setPersonalBest</code>.</p>
+</div>
+<div class="paragraph">
+<p>A simplified class diagram of the classes involved in this feature is given below:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/PersonalBestClassDiagram.png" alt="PersonalBestClassDiagram">
+</div>
+</div>
+<div class="paragraph">
+<p>In the following sequence diagram, we trace the execution for when the user decides to enter the command <code>view-c</code> into FitBiz:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/PersonalBestSequenceDiagram.png" alt="PersonalBestSequenceDiagram">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">3.6.2. Design Considerations</a></h4>
+<div class="paragraph">
+<p>In designing this features, we had to decide on the placement of the <code>PersonalBest</code> class in the model to comply with the OOP standards. Currently, the <code>PersonalBest</code> model has a whole-part relationship with <code>Client</code>, with <code>Client</code> being the whole and <code>PersonalBest</code> being a part of <code>Client</code>. The alternative is to consider <code>PersonalBest</code> as a part of <code>Exercise</code> instead.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Considerations</th>
+<th class="tableblock halign-left valign-top">Pros and Cons</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Put <code>PersonalBest</code> as a part of <code>Client</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Pros</strong>: Logically makes more sense, as each client has to have a list of exercises to themselves, and thus <code>PersonalBest</code> of each of these exercises</p>
+<p class="tableblock"><strong>Cons</strong>: Might have significant conflicts as the <code>Client</code> model is changed to include one more attribute</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Put <code>PersonalBest</code> as a part of <code>Exercise</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Pros</strong>: Keep <code>Exercise</code> data and methods separate from <code>Client</code> data and methods</p>
+<p class="tableblock"><strong>Cons</strong>: Actually increases coupling as the logic was flawed</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>We decided to use the first approach of placing <code>PersonalBest</code> as a part of <code>Client</code> instead of <code>Exercise</code>. There are multiple reasons for our choice as mentioned below.</p>
+</div>
+<div class="paragraph">
+<p>We want to maintain the OOP structure of the program. Logically, the personal best should belong to the client as the list of exercises belongs to the client. As the list of exercises is unique to every client, the personal best should also be so.</p>
+</div>
+<div class="paragraph">
+<p>Moreover, even though personal best is generated using the list of exercises in the client, it can be instantiated even without an exercise list. Therefore it does not require the exercise class to exist and does not have a whole-part relationship with exercise. Coupling will also be increased as the client will be relying on the exercise class to generate the personal best. Therefore, the final choice was to place the personal best under client, with every client having their own personal best attribute.</p>
+</div>
 </div>
 </div>
 </div>
@@ -1692,4 +1783,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-04 03:01:39 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-04 03:28:50 UTC</div></div></div></body></html>
