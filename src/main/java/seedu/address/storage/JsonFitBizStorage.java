@@ -45,8 +45,8 @@ public class JsonFitBizStorage implements FitBizStorage {
     public Optional<ReadOnlyFitBiz> readFitBiz(Path filePath) throws DataConversionException {
         requireNonNull(filePath);
 
-        Optional<JsonSerializableFitBiz> jsonFitBiz = JsonUtil.readJsonFile(
-                filePath, JsonSerializableFitBiz.class);
+        Optional<JsonSerializableFitBizStorage> jsonFitBiz = JsonUtil.readJsonFile(
+                filePath, JsonSerializableFitBizStorage.class);
         if (!jsonFitBiz.isPresent()) {
             return Optional.empty();
         }
@@ -74,7 +74,7 @@ public class JsonFitBizStorage implements FitBizStorage {
         requireNonNull(filePath);
 
         FileUtil.createIfMissing(filePath);
-        JsonUtil.saveJsonFile(new JsonSerializableFitBiz(fitBiz), filePath);
+        JsonUtil.saveJsonFile(new JsonSerializableFitBizStorage(fitBiz), filePath);
     }
 
 }

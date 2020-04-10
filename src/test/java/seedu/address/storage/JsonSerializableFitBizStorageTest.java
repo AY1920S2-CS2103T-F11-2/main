@@ -13,17 +13,17 @@ import seedu.address.commons.util.JsonUtil;
 import seedu.address.model.FitBiz;
 import seedu.address.testutil.TypicalClients;
 
-public class JsonSerializableFitBizTest {
+public class JsonSerializableFitBizStorageTest {
 
-    private static final Path TEST_DATA_FOLDER = Paths.get("src", "test", "data", "JsonSerializableFitBizTest");
+    private static final Path TEST_DATA_FOLDER = Paths.get("src", "test", "data", "JsonSerializableFitBizStorageTest");
     private static final Path TYPICAL_CLIENTS_FILE = TEST_DATA_FOLDER.resolve("typicalClientsFitBiz.json");
     private static final Path INVALID_CLIENT_FILE = TEST_DATA_FOLDER.resolve("invalidClientFitBiz.json");
     private static final Path DUPLICATE_CLIENT_FILE = TEST_DATA_FOLDER.resolve("duplicateClientFitBiz.json");
 
     @Test
     public void toModelType_typicalClientsFile_success() throws Exception {
-        JsonSerializableFitBiz dataFromFile = JsonUtil.readJsonFile(TYPICAL_CLIENTS_FILE,
-                JsonSerializableFitBiz.class).get();
+        JsonSerializableFitBizStorage dataFromFile = JsonUtil.readJsonFile(TYPICAL_CLIENTS_FILE,
+                JsonSerializableFitBizStorage.class).get();
         FitBiz fitBizFromFile = dataFromFile.toModelType();
         FitBiz typicalClientsFitBiz = TypicalClients.getTypicalFitBiz();
         assertEquals(fitBizFromFile, typicalClientsFitBiz);
@@ -31,16 +31,16 @@ public class JsonSerializableFitBizTest {
 
     @Test
     public void toModelType_invalidClientFile_throwsIllegalValueException() throws Exception {
-        JsonSerializableFitBiz dataFromFile = JsonUtil.readJsonFile(INVALID_CLIENT_FILE,
-                JsonSerializableFitBiz.class).get();
+        JsonSerializableFitBizStorage dataFromFile = JsonUtil.readJsonFile(INVALID_CLIENT_FILE,
+                JsonSerializableFitBizStorage.class).get();
         assertThrows(IllegalValueException.class, dataFromFile::toModelType);
     }
 
     @Test
     public void toModelType_duplicateClients_throwsIllegalValueException() throws Exception {
-        JsonSerializableFitBiz dataFromFile = JsonUtil.readJsonFile(DUPLICATE_CLIENT_FILE,
-                JsonSerializableFitBiz.class).get();
-        assertThrows(IllegalValueException.class, JsonSerializableFitBiz.MESSAGE_DUPLICATE_CLIENT,
+        JsonSerializableFitBizStorage dataFromFile = JsonUtil.readJsonFile(DUPLICATE_CLIENT_FILE,
+                JsonSerializableFitBizStorage.class).get();
+        assertThrows(IllegalValueException.class, JsonSerializableFitBizStorage.MESSAGE_DUPLICATE_CLIENT,
                 dataFromFile::toModelType);
     }
 

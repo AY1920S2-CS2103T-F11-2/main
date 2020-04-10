@@ -17,26 +17,26 @@ import seedu.address.model.client.Client;
  * An Immutable FitBiz that is serializable to JSON format.
  */
 @JsonRootName(value = "fitbiz")
-class JsonSerializableFitBiz {
+class JsonSerializableFitBizStorage {
 
     public static final String MESSAGE_DUPLICATE_CLIENT = "Clients list contains duplicate client(s).";
 
     private final List<JsonAdaptedClient> clients = new ArrayList<>();
 
     /**
-     * Constructs a {@code JsonSerializableFitBiz} with the given clients.
+     * Constructs a {@code JsonSerializableFitBizStorage} with the given clients.
      */
     @JsonCreator
-    public JsonSerializableFitBiz(@JsonProperty("clients") List<JsonAdaptedClient> clients) {
+    public JsonSerializableFitBizStorage(@JsonProperty("clients") List<JsonAdaptedClient> clients) {
         this.clients.addAll(clients);
     }
 
     /**
      * Converts a given {@code ReadOnlyFitBiz} into this class for Jackson use.
      *
-     * @param source future changes to this will not affect the created {@code JsonSerializableFitBiz}.
+     * @param source future changes to this will not affect the created {@code JsonSerializableFitBizStorage}.
      */
-    public JsonSerializableFitBiz(ReadOnlyFitBiz source) {
+    public JsonSerializableFitBizStorage(ReadOnlyFitBiz source) {
         clients.addAll(source.getClientList().stream().map(JsonAdaptedClient::new).collect(Collectors.toList()));
     }
 
