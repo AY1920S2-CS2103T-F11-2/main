@@ -4,7 +4,10 @@ import static java.util.Objects.requireNonNull;
 import static seedu.fitbiz.logic.parser.CliSyntax.PREFIX_SPORT;
 import static seedu.fitbiz.logic.parser.CliSyntax.PREFIX_TAG;
 
+import java.util.List;
+
 import seedu.fitbiz.commons.core.Messages;
+import seedu.fitbiz.logic.parser.Prefix;
 import seedu.fitbiz.model.Model;
 import seedu.fitbiz.model.client.TagAndSportContainsKeywordsPredicate;
 
@@ -14,6 +17,8 @@ import seedu.fitbiz.model.client.TagAndSportContainsKeywordsPredicate;
  * Keyword matching is case insensitive.
  */
 public class FilterCommand extends Command {
+
+    public static final List<Prefix> PREFIXES = List.of(PREFIX_TAG, PREFIX_SPORT);
 
     public static final String COMMAND_WORD = "filter-c";
 
