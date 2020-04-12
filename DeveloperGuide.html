@@ -30,6 +30,8 @@
 <li><a href="#exercise-feature-yong-jie">3.6. Exercise Feature --- Yong Jie</a></li>
 <li><a href="#personal-best-li-zi-ying">3.7. Personal Best --- Li Zi Ying</a></li>
 <li><a href="#graph-li-zi-ying">3.8. Graph --- Li Zi Ying</a></li>
+<li><a href="#filtering-the-list-of-clients-toh-ker-wei">3.9. Filtering the list of clients --- Toh Ker Wei</a></li>
+<li><a href="#viewing-the-information-of-a-client-toh-ker-wei">3.10. Viewing the information of a client --- Toh Ker Wei</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a></li>
@@ -153,13 +155,13 @@ The following class plays an important role at the architecture level:</p>
 </div>
 <h4 id="how-the-architecture-components-interact-with-each-other" class="discrete">How the architecture components interact with each other</h4>
 <div class="paragraph">
-<p>The <em>Sequence Diagram</em> below shows how the components interact with each other for the scenario where the user issues the command <code>delete 1</code>.</p>
+<p>The <em>Sequence Diagram</em> below shows how the components interact with each other for the scenario where the user issues the command <code>delete-c 1</code>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/ArchitectureSequenceDiagram.png" alt="ArchitectureSequenceDiagram">
 </div>
-<div class="title">Figure 3. Component interactions for <code>delete 1</code> command</div>
+<div class="title">Figure 3. Component interactions for <code>delete-c 1</code> command</div>
 </div>
 <div class="paragraph">
 <p>The sections below give more details of each component.</p>
@@ -211,42 +213,30 @@ The following class plays an important role at the architecture level:</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p><code>Logic</code> uses the <code>AddressBookParser</code> class to parse the user command.</p>
+<p><code>Logic</code> uses the <code>FitBizParser</code> class to parse the user command.</p>
 </li>
 <li>
 <p>This results in a <code>Command</code> object which is executed by the <code>LogicManager</code>.</p>
 </li>
 <li>
-<p>The command execution can affect the <code>Model</code> (e.g. adding a client).</p>
+<p>The command execution can affect the <code>Model</code> (e.g. adding or deleting a client).</p>
 </li>
 <li>
 <p>The result of the command execution is encapsulated as a <code>CommandResult</code> object which is passed back to the <code>Ui</code>.</p>
 </li>
 <li>
-<p>In addition, the <code>CommandResult</code> object can also instruct the <code>Ui</code> to perform certain actions, such as displaying help to the user.</p>
+<p>In addition, the <code>CommandResult</code> object can also instruct the <code>Ui</code> to perform certain actions, such as displaying the list of clients or exercise graphs.</p>
 </li>
 </ol>
 </div>
 <div class="paragraph">
-<p>Given below is the Sequence Diagram for interactions within the <code>Logic</code> component for the <code>execute("delete 1")</code> API call.</p>
+<p>Given below is the sequence diagram for interactions within the <code>Logic</code> component for the <code>execute("delete-c 1")</code> API call mentioned previously.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/DeleteSequenceDiagram.png" alt="DeleteSequenceDiagram">
 </div>
-<div class="title">Figure 6. Interactions Inside the Logic Component for the <code>delete 1</code> Command</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-The lifeline for <code>DeleteCommandParser</code> should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
-</td>
-</tr>
-</table>
+<div class="title">Figure 6. Interactions Inside the Logic Component for the <code>delete-c 1</code> Command</div>
 </div>
 </div>
 <div class="sect2">
@@ -989,6 +979,137 @@ Tough to identify which JSON file is for which client</p></td>
 </div>
 <div class="paragraph">
 <p>By considering the above two factors, despite having to put in the extra effort to create a new <code>AxisType</code> class and thus requiring extra methods like getters and setters, we decided to move with the approach of creating the <code>AxisType</code> enum class and refactor to accomodate for the additional data type.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="filtering-the-list-of-clients-toh-ker-wei"><a class="link" href="#filtering-the-list-of-clients-toh-ker-wei">3.9. Filtering the list of clients --- Toh Ker Wei</a></h3>
+<div class="paragraph">
+<p>This feature allows users to filter the list of clients by specifying the <code>Tag</code> or <code>Sport</code> of the clients they want to view.</p>
+</div>
+<div class="sect3">
+<h4 id="implementation-8"><a class="link" href="#implementation-8">3.9.1. Implementation</a></h4>
+<div class="paragraph">
+<p>This filtering mechanism is facilitated by <code>TagAndSportContainsKeywordsPredicate</code>, that implements <code>Predicate&lt;Client&gt;</code> which is a wrapper class for a boolean. <code>TagAndSportContainsKeywordsPredicate</code> contains 2 booleans:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>hasTag</code>: evaluates if the client has all the <code>Tag</code> specified</p>
+</li>
+<li>
+<p><code>hasSport</code>: evaluates if the client has all the <code>Sport</code> specified</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>If there is no keyword specified for either <code>Tag</code> or <code>Sport</code>, the corresponding boolean will return <code>true</code>. There must be at least 1 keyword specified, regardless of whether it is a <code>Tag</code> or <code>Sport</code>. <code>TagAndSportContainsKeywordsPredicate</code> will then evaluate and return the logical addition of <code>hasTag</code> and <code>hasSport</code>.</p>
+</div>
+<div class="paragraph">
+<p>In the following sequence diagram, we will be tracing the execution of the command <code>filter t/obese s/swim</code> entered by the user.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/FilterSequenceDiagram.png" alt="FilterSequenceDiagram">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-7"><a class="link" href="#design-considerations-7">3.9.2. Design Considerations</a></h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Considerations</th>
+<th class="tableblock halign-left valign-top">Pros and Cons</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Check if a client contains <code>Tag</code> and <code>Sport</code> keywords seperately before combining the results</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Pros</strong>: Code will be neater for debugging and adding more parameters to filter will be easier</p>
+<p class="tableblock"><strong>Cons</strong>: Parts of the code will be duplicated</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Combine all keywords and check if all keywords exist in the combined list of <code>Tag</code> and <code>Sport</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Pros</strong>: Lesser duplicated codes and simpler logic</p>
+<p class="tableblock"><strong>Cons</strong>: Harder to fix errors or add new attributes to filter</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>We decided to use the first approach of checking if the client contains <code>Tag</code> specified and <code>Sport</code> specified separately.</p>
+</div>
+<div class="paragraph">
+<p>Firstly, by separating the checks for each attributes, a correct implementation of checking <code>Tag</code> against the keywords will allow us to easily duplicate the check to be done for <code>Sport</code>. This makes the code easier to debug as we can simply check the hasAttribute boolean to see if it gives the correct value.</p>
+</div>
+<div class="paragraph">
+<p>Secondly, separating the checks for each attributes will allow us to add attributes of different types stored in different data structure easier. We could simply add another check on the attribute against the keyword specified then do a logical addition of the result against the others.</p>
+</div>
+<div class="paragraph">
+<p>Therefore, as we foresee us adding more attributes to be filtered increasing the need to ensure logical correctness, the first approach is the most ideal.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="viewing-the-information-of-a-client-toh-ker-wei"><a class="link" href="#viewing-the-information-of-a-client-toh-ker-wei">3.10. Viewing the information of a client --- Toh Ker Wei</a></h3>
+<div class="paragraph">
+<p>This feature allows users to view the information of a specific client using his <code>INDEX</code> in the clients list. Information displayed includes additional information of the client, exercises done and his personal best of exercises done.</p>
+</div>
+<div class="sect3">
+<h4 id="implementation-9"><a class="link" href="#implementation-9">3.10.1. Implementation</a></h4>
+<div class="paragraph">
+<p>The view client&#8217;s information feature is primarily facilitated by the model <code>Client</code>. The details for list of exercises done and personal best will be discussed in section 3.7 and not be covered here. The client&#8217;s <code>INDEX</code> in the clients list will be used to identify and retrieve his information. Additionally, only when a client&#8217;s information is being viewed, graph of his exercises can be plotted.</p>
+</div>
+<div class="paragraph">
+<p>In the following sequence diagram, we will be tracing the execution when the user enters the command <code>view-c 3</code></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ViewSequenceDiagram.png" alt="ViewSequenceDiagram">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-8"><a class="link" href="#design-considerations-8">3.10.2. Design Considerations</a></h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Considerations</th>
+<th class="tableblock halign-left valign-top">Pros and Cons</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">View client using client&#8217;s <code>INDEX</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Pros</strong>: Every client has a specific <code>INDEX</code></p>
+<p class="tableblock"><strong>Cons</strong>: User has to look through the list for client&#8217;s <code>INDEX</code> to view his information</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">View client using client&#8217;s name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Pros</strong>: User can view information by knowing the name</p>
+<p class="tableblock"><strong>Cons</strong>: Clients could have same names and thus user will have to use their <code>INDEX</code> or other information to specify whcih client to view</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>We decided to use the first approach of using the client&#8217;s <code>INDEX</code> to view his information.</p>
+</div>
+<div class="paragraph">
+<p>Firstly, as the client&#8217;s <code>INDEX</code> is unique, there will not be conflicts as to which client&#8217;s information should be displayed, making <code>view-c</code> less complex and only responsible for retrieving and displaying the client&#8217;s information.</p>
+</div>
+<div class="paragraph">
+<p>Secondly, in cases where users manage many clients and some with same names, there are functions like find and filter which allow users to scope the clients list and easily find the desired client&#8217;s <code>INDEX</code>.</p>
+</div>
+<div class="paragraph">
+<p>Therefore, viewing a client by his <code>INDEX</code> minimises the responsibility of the command and will not need to resolve conflicting clients and is the most ideal.</p>
 </div>
 </div>
 </div>
@@ -2000,4 +2121,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 12:15:59 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 12:16:30 UTC</div></div></div></body></html>
