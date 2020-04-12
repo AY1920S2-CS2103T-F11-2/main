@@ -373,12 +373,17 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 <div class="sect2">
 <h3 id="command-history-aaron-choo"><a class="link" href="#command-history-aaron-choo">3.3. Command History --- Aaron Choo</a></h3>
 <div class="paragraph">
-<p>This feature allows users to save their previously entered commands and to retrieve them using the <kbd>Up</kbd> and <kbd>Down</kbd> arrow keys, similar to what most modern CLIs offer.</p>
+<p>This feature serves to improve the user experience by allowing users to browse and retrieve their previously entered commands using the <kbd>&uarr;</kbd> and <kbd>&darr;</kbd> arrow keys, similar to what most modern CLIs offer.</p>
 </div>
 <div class="sect3">
 <h4 id="implementation-2"><a class="link" href="#implementation-2">3.3.1. Implementation</a></h4>
 <div class="paragraph">
-<p>This command history mechanism is facilitated by the logic class <code>CommandHistory</code>, which controls both the model <code>CommandHistoryState</code> and the storage <code>CommandHistoryStorage</code>. The behaviour has been implemented to mimic most modern CLIs, namely:</p>
+<p>This command history mechanism is facilitated by the logic class <code>CommandHistory</code>, which controls both the model class <code>CommandHistoryState</code> and the storage utility class <code>StorageReaderWriter</code>.</p>
+</div>
+<div class="sect4">
+<h5 id="behaviour-of-this-feature"><a class="link" href="#behaviour-of-this-feature">Behaviour of this feature</a></h5>
+<div class="paragraph">
+<p>The behaviour of this feature has been implemented to mimic most modern CLIs, namely:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -395,10 +400,10 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 <p>Number of commands should only be stored up to a well-defined maximum number (100 in this case, for performance reasons discussed in the later section)</p>
 </li>
 <li>
-<p>Pressing the <kbd>Up</kbd> arrow key should browse backwards towards the least recently entered commands</p>
+<p>Pressing the <kbd>&uarr;</kbd> arrow key should browse backwards towards the least recently entered commands</p>
 </li>
 <li>
-<p>Pressing the <kbd>Down</kbd> arrow key should browse forwards towards the most recently entered commands</p>
+<p>Pressing the <kbd>&darr;</kbd> arrow key should browse forwards towards the most recently entered commands</p>
 </li>
 <li>
 <p>The caret position should be at the end of the command string when browsing the history</p>
@@ -408,27 +413,111 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 </li>
 </ol>
 </div>
+</div>
+<div class="sect4">
+<h5 id="how-this-feature-works"><a class="link" href="#how-this-feature-works">How this feature works</a></h5>
 <div class="paragraph">
-<p>Since all user inputs, be it valid or invalid commands, should be stored, and since detection of the <kbd>Up</kbd> and <kbd>Down</kbd> arrow keys must occur in the <code>CommandBox</code> class found in the UI, we have decided to let <code>CommandBox</code> directly interact with <code>CommandHistory</code>. In other words, <code>CommandBox</code> will be responsible for calling <code>CommandHistory#addToHistory</code>, <code>CommandHistory#getNextCommand</code>, and <code>CommandHistory#getPreviousCommand</code>. A simplified class diagram of the classes involved in this feature is given below:</p>
+<p>Since all user inputs, be it valid or invalid commands, should be stored, and since detection of the <kbd>&uarr;</kbd> and <kbd>&darr;</kbd> arrow keys must occur in the JavaFX&#8217;s <code>TextField</code> class found in <code>CommandBox</code>, we have decided to let <code>CommandBox</code> directly interact with <code>CommandHistory</code>. In other words, <code>CommandBox</code> will be responsible for calling <code>CommandHistory#addToHistory</code>, <code>CommandHistory#getNextCommand</code>, and <code>CommandHistory#getPreviousCommand</code>. A simplified class diagram of the classes involved in this feature is given below:</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/CommandHistoryClassDiagram.png" alt="CommandHistoryClassDiagram">
 </div>
+<div class="title">Figure 9. Class Diagram for Command History</div>
 </div>
 <div class="paragraph">
-<p>In the following sequence diagram, we trace the execution for when the user decides to enter the command <code>list-c</code> into FitBiz:</p>
+<p>In the following sequence diagram, we trace the execution of the classes involved in the class diagram given above for when the user decides to enter the command <code>list-c</code> into FitBiz:</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/CommandHistorySequenceDiagram.png" alt="CommandHistorySequenceDiagram">
+</div>
+<div class="title">Figure 10. Sequence Diagram for Saving a User Entered Command</div>
+</div>
+<div class="paragraph">
+<p><code>CommandBox</code> simply passes the user input text to <code>CommandHistory</code>, which adds this text to the internal list within <code>CommandHistoryState</code>, retrieves the full internal list, converts it to a text-based format, and finally asks <code>FileUtil</code> to save the text to storage.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="how-the-command-history-is-persisted-on-storage"><a class="link" href="#how-the-command-history-is-persisted-on-storage">How the Command History is persisted on storage</a></h5>
+<div class="paragraph">
+<p>Each command that the user enters is essentially just a line of text. We simply use the utility class <code>FileUtil</code> to write these lines of text (where each command represents a new line of text) to a text-based file <code>command.txt</code>.</p>
+</div>
+<div class="paragraph">
+<p>Whenever FitBiz first launches, we will then try to open and read from this same <code>command.txt</code> file. If no such file exists, an empty new file will be created for use in the future.</p>
 </div>
 </div>
 </div>
 <div class="sect3">
 <h4 id="design-considerations"><a class="link" href="#design-considerations">3.3.2. Design Considerations</a></h4>
 <div class="paragraph">
-<p>In designing the model <code>CommandHistoryState</code>, we had to decide on the underlying data structure to store the command history. We currently use an <code>ArrayList&lt;String&gt;</code>, where each line of command is stored as an individual entry. Another alternative that we have considered is to store the commands in a <code>LinkedList&lt;String&gt;</code>.</p>
+<p>In designing the model <code>CommandHistoryState</code>, we had to decide on the underlying data structure to store the user&#8217;s command history. We currently use the Java native <code>ArrayList&lt;String&gt;</code>, where each line of command is stored as an individual entry. Another alternative that we have considered is to store the commands in a <code>LinkedList&lt;String&gt;</code>:</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 40%;">
+<col style="width: 40%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Considerations</th>
+<th class="tableblock halign-left valign-top">ArrayList (chosen)</th>
+<th class="tableblock halign-left valign-top">LinkedList</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Time Complexity</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Inserting to the list is O(1).</p>
+<p class="tableblock">Removal of the first item is O(n).</p>
+<p class="tableblock">Retrieval of any item is always O(1).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Inserting to the list is O(1).</p>
+<p class="tableblock">Removal of the first/last item is O(1).</p>
+<p class="tableblock">Retrieval of an item that is not the first/last item will require traversal of the list and will be more expensive than O(1).</p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Ease of Implementation</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Indices are concrete numbers and thus, are much easier to manipulate than pointers.</p>
+<p class="tableblock">The use of indices are enough to support the retrieval operations needed by this feature and is efficient since retrieval is always O(1).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pointers are arguably harder to keep track of and might be more difficult to implement.</p>
+<p class="tableblock">A custom linked list (as opposed to just using the native Java <code>LinkedList</code>) may have to be developed in order to support the retrieval operations that this feature requires while still keeping the retrieval time complexity to O(1).</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>In the interest of saving developement time and better code readability, we decided to use an <code>ArrayList</code> to store the commands. Since we have decided to cap the maximum size of the list, should this limit be exceeded, we would then need to remove the first item (or the zeroth index) from the list to free up space. Of course, doing a <code>remove(0)</code> on a n-item <code>ArrayList</code> will require that all remaining items in the list be reassigned to new indices, and thus incur an O(n) time operation. However, we found out through extensive testing that this causes no observable nor significant lag when the maximum capacity is reached.</p>
+</div>
+<div class="paragraph">
+<p>Moreover, there is also a need to overwrite the whole storage file <code>command.txt</code> whenever this maximum size is reached. Before this maximum size is reached, we can easily append to the existing file the new command that the user has just entered. However, after this limit is exceeded, we must remove the first line stored in <code>command.txt</code>, shift all remaining lines up, and then append that new line. Hard disk operations like writing to storage is many order of magnitudes slower than memory operations like the reassignment of indices as discussed above. Since the much larger bottleneck is in the storage, this effectively nullifies the time complexity comparison that a <code>LinkedList</code> is faster than an <code>ArrayList</code> in removing the first item.</p>
+</div>
+<div class="paragraph">
+<p>In choosing the maximum size of the command history, we have to take note of some important caveats:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>This number must be small enough to not cause the app to lag when the whole history is being written to storage</p>
+</li>
+<li>
+<p>This number must be big enough to satisfy the user</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Ultimately, we felt that 100 is a very generous estimate given that a user really only needs the past few commands at any point of time.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="command-autocompletion-aaron-choo"><a class="link" href="#command-autocompletion-aaron-choo">3.4. Command Autocompletion --- Aaron Choo</a></h3>
+<div class="paragraph">
+<p>Similar to the previously mentioned <a href="#command-history-aaron-choo">Command History</a> feature, this feature also serves to improve the user experience by allowing users to press the <kbd>Tab</kbd> key to autocomplete their partially entered commands.</p>
+</div>
+<div class="sect3">
+<h4 id="command-history-implementation"><a class="link" href="#command-history-implementation">3.4.1. Implementation</a></h4>
+<div class="paragraph">
+<p>This feature is facilitated by the logic found in the <code>Autocomplete</code> class. Before we dive into the implementation, let us first define what <em>unambiguous</em> and <em>ambiguous</em> commands are:</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -437,58 +526,45 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Data Structure</th>
-<th class="tableblock halign-left valign-top">Pros and Cons</th>
+<th class="tableblock halign-left valign-top">Unambiguous Commands</th>
+<th class="tableblock halign-left valign-top">Ambiguous Commands</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Array list</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Pros</strong>: Much easier to manipulate using indices</p>
-<p class="tableblock"><strong>Cons</strong>: Slower performance when list has the maximum number of commands stored and has to shift all indices back by 1 when removing the oldest command</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Linked list</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Pros</strong>: Fast removal of the oldest command</p>
-<p class="tableblock"><strong>Cons</strong>: Harder to implement as pointers have to be manipulated</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Can uniquely identify a single command using the sequence of letters that the user has entered</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cannot uniquely identify a single command using the sequence of letters that the user has entered</p></td>
 </tr>
 </tbody>
 </table>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+For example, assume we only have 3 commands in our app, <code>add-c</code>, <code>add-e</code>, and <code>edit-c</code>. If the user enters <code>e</code> and tries to autocomplete the command using <kbd>Tab</kbd>, we say that this is an unambiguous command since clearly, <code>edit-c</code> can be uniquely identified by <code>e</code>. If instead, the user enters <code>a</code> and presses <kbd>Tab</kbd> to autocomplete the command, we say that this is an ambiguous command, since both <code>add-c</code> and <code>add-e</code> are possible choices.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect4">
+<h5 id="command-history-behaviour"><a class="link" href="#command-history-behaviour">Behaviour of this feature</a></h5>
 <div class="paragraph">
-<p>In the interest of saving developement time and better code readability, we decided to use an array list to store the commands. Since we have capped the maximum size of history to be 100, there is a need to remove the first item (or the zeroth index) from the list to free up space. Of course, doing a <code>remove(0)</code> on a 100-item array list will require that all 99 remaining items in the list be reassigned to new indices. However, we found out through extensive testing that this causes no observable nor significant lag when the maximum capacity of 100 items is reached and this happens.</p>
-</div>
-<div class="paragraph">
-<p>Moreover, the implementation of <code>CommandHistoryStorage#saveCommandHistory</code> will rewrite the whole data file in storage (as opposed to appending the file with the newly entered command). This decision was made to protect the integrity of the storage file, making sure that it always has the exact same data as what is stored in the <code>CommandHistory</code> model. As such, this rewriting of the file during the maximum capacity of the array list will be the bigger bottleneck in terms of performance, as opposed to the reassignment of indices.</p>
-</div>
-<div class="paragraph">
-<p>As such, the choice of 100 as the maximum size of the command history is thus chosen. This number must be small enough to not cause the app to lag when the whole history is being written to storage, as well as be big enough to satisfy the user. Ultimately, we felt that 100 is a very generous estimate given that a user really only needs the past few commands at any point of time.</p>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="command-autocompletion-aaron-choo"><a class="link" href="#command-autocompletion-aaron-choo">3.4. Command Autocompletion --- Aaron Choo</a></h3>
-<div class="paragraph">
-<p>Similar to the previously mentioned "Command History" feature, this feature improves the user experience by allowing users to press the <kbd>Tab</kbd> key to autocomplete their partially entered commands.</p>
-</div>
-<div class="sect3">
-<h4 id="implementation-3"><a class="link" href="#implementation-3">3.4.1. Implementation</a></h4>
-<div class="paragraph">
-<p>This feature is facilitated by the logic found in the <code>AutoComplete</code> class. Before we dive into the implementation, let us first define what <em>unambiguous</em> and <em>ambiguous</em> commands are. Unambiguous commands are those that can be uniquely identified by the sequence of letters that the user has entered. Ambiguous commands are those that cannot be identified by the said sequence of letters. For example, assume we only have 3 commands in our app, <code>add-c</code>, <code>add-e</code>, and <code>edit-c</code>. If the user enters <code>e</code> and presses <kbd>Tab</kbd>, we say that this is an unambiguous command since clearly only <code>edit-c</code> can be the correct command. If instead, the user enters <code>a</code> and presses <kbd>Tab</kbd>, we say that this is an ambiguous command, since both <code>add-c</code> and <code>add-e</code> are possible choices. Again, let us start by defining the behaviour (which also has been implemented to mimic most modern CLIs):</p>
+<p>Again, this feature has also been implemented to mimic most modern CLIs, namely:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>The caret position should be at the end of the line after any successful autocompletion of commands</p>
-</li>
-<li>
-<p>Any unambiguous commands should be completed upon pressing of the <kbd>Tab</kbd> key</p>
+<p>Any unambiguous commands should be immediately completed upon pressing of the <kbd>Tab</kbd> key</p>
 </li>
 <li>
 <p>Any ambiguous commands should be completed up till the longest common prefix of all similar commands</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Using the ambiguous command example in the introduction above, when the user enters <code>a</code> and presses <kbd>Tab</kbd>, the autocompletion should return <code>add-</code> to the user</p>
+<p>Using the ambiguous command example in the introduction above, when the user enters <code>a</code> and presses <kbd>Tab</kbd>, the autocompletion should return <code>add-</code> (the longest common prefix of <code>add-e</code> and <code>add-c</code>) to the user</p>
 </li>
 </ul>
 </div>
@@ -496,61 +572,198 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 <li>
 <p>A list of all similar commands should be presented to the user should he try to autocomplete an ambiguous command</p>
 </li>
+<li>
+<p><a id="command-history-behaviour-4"></a>Pressing <kbd>Tab</kbd> when the command has already been completed will bring the user&#8217;s caret to the next prefix delimitter (<code>/</code> in our case) with wraparound</p>
+</li>
 </ol>
 </div>
+</div>
+<div class="sect4">
+<h5 id="how-the-trie-data-structure-works"><a class="link" href="#how-the-trie-data-structure-works">How the Trie data structure works</a></h5>
 <div class="paragraph">
-<p>A limitation of the current design is that we are only able to autocomplete <em>commands</em>, and not other fields/parameters like names and addresses that have been used by the user before. As such, since all commands defined in FitBiz do not have empty spaces in them, this allows us to easily determine when to disable this feature (ie. when the user has already completed the command and has moved on to entering the parameters). As such, the following code snippet is used in <code>AutoComplete#execute</code> to stop trying to autocomplete if white spaces has been detected:</p>
+<p>Since Java does not provide a native Trie data structure, we had to implement our own version of it. Moreover, Java also does not allow methods with multiple return values, and thus, we had to create a wrapper class <code>SimilarWordsResult</code> to store the multiple results returned by <code>Trie#listAllSimilarWords</code>. In this section, we shall take a more in depth look at the overall implementation of this data structure.</p>
+</div>
+<div class="paragraph">
+<p>We first look at the <code>Node</code> class provided in the same package which <code>Trie</code> relies on. Each <code>Node</code> object should contain the following attributes:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The parent node (<code>null</code> if the node is the root of the Trie)</p>
+</li>
+<li>
+<p>The current letter it represents</p>
+</li>
+<li>
+<p>The children nodes (if any)</p>
+</li>
+<li>
+<p>A boolean to know whether that node represents a completed word</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Since each node stores with it their parent node pointer, we can easily construct the word represented by a node by recursively building the word up letter by letter until the root is reached. This is implemented in <code>Node#constructWord</code>, as shown here:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="java"><span class="keyword">if</span> (currCommand.contains(WHITE_SPACE_STRING)) {
-      <span class="keyword">return</span>;
+<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> <span class="predefined-type">String</span> constructWord() {
+      <span class="keyword">if</span> (isRoot()) {
+            <span class="keyword">return</span> EMPTY_STRING;
+      }
+      <span class="keyword">return</span> parent.constructWord() + getLetter();
 }</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Similarly, since this feature relies heavily on the UI <code>CommandBox</code>, we have decided to let <code>CommandBox</code> interact with <code>AutoComplete</code> directly. <code>AutoComplete</code> makes use of the <code>Trie</code> data structure which we will discuss in the next section. As such, the following simplified class diagram shows exactly which classes are responsible for this feature:</p>
+<p>Now, let us discuss about how we implemented <code>Trie</code> to support the <a href="#command-history-behaviour">behaviours discussed above</a> by first looking at <code>Trie#getLongestPrefixNode</code>. This method takes in an argument <code>word</code> and returns in 3 distinct cases:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>If the argument <code>word</code> matches no words currently in the <code>Trie</code>: <code>null</code></p>
+</li>
+<li>
+<p>If the argument <code>word</code> is unambiguous: the <code>Node</code> whose constructed word (using <code>Node#constructWord</code>) is the longest word contained in <code>Trie</code> that can be formed from <code>word</code></p>
+</li>
+<li>
+<p>If the argument <code>word</code> is ambiguous: the <code>Node</code> whose constructed word is the longest common prefix of all words similar to <code>word</code> contained in <code>Trie</code></p>
+</li>
+</ol>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Refer to <a href="#autocomplete-activity-diagram">Figure 14, &#8220;Activity Diagram for the Autocomplete Logic&#8221;</a> given in the next section for the complete sequences of decision.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Let us move on to <code>Trie#listAllSimilarWords</code> which contains the main driver logic, and which makes use of the <code>Node</code> found by <code>Trie#getLongestPrefixNode</code>. Cases 1 and 2 discussed above are relatively trivial and we shall not discuss about how they are handled in <code>Trie#listAllSimilarWords</code>. For case 3, in order for us to find all the similar words, we have chosen to use a Depth-First Search (DFS) approach, starting the search from the <code>Node</code> returned by <code>Trie#getLongestPrefixNode</code>, as shown here:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java">Node subtrie = getLongestPrefixNode(word);
+<span class="predefined-type">ArrayList</span>&lt;<span class="predefined-type">String</span>&gt; similarWords = <span class="keyword">new</span> <span class="predefined-type">ArrayList</span>&lt;&gt;();
+
+<span class="predefined-type">Stack</span>&lt;Node&gt; stack = <span class="keyword">new</span> <span class="predefined-type">Stack</span>&lt;&gt;();
+
+stack.push(subtrie);
+
+<span class="keyword">while</span> (!stack.isEmpty()) {
+      Node current = stack.pop();
+      <span class="keyword">if</span> (current.isWordEnd()) {
+            similarWords.add(current.constructWord());
+      } <span class="keyword">else</span> {
+            stack.addAll(current.getChildren().values());
+      }
+}</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The choice of a DFS approach as opposed to a Breadth-First Search (BFS) approach is arbitrary, both should work as expected.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect4">
+<h5 id="how-this-feature-works-2"><a class="link" href="#how-this-feature-works-2">How this feature works</a></h5>
+<div class="paragraph">
+<p>Similar to <a href="#command-history-aaron-choo">Command History</a> , this feature also relies heavily on the UI class <code>CommandBox</code>, and thus we have decided to let <code>CommandBox</code> interact with <code>Autocomplete</code> directly. A simplified class diagram of the classes involved is shown here:</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/CommandAutocompleteClassDiagram.png" alt="CommandAutocompleteClassDiagram">
+</div>
+<div class="title">Figure 11. Simplified Class Diagram for Autocomplete</div>
+</div>
+<div class="paragraph">
+<p>In the following sequence diagram, we follow the execution for when the user tries to autocomplete his partially entered command <code>gra</code> (which, in the current application, is an unambiguous command, and will result in the full completion of the <code>graph</code> command as well as the prefixes):</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/CommandAutocompleteSequenceDiagram.png" alt="CommandAutocompleteSequenceDiagram">
+</div>
+<div class="title">Figure 12. Simplified Sequence Diagram for Command Autocomplete</div>
+</div>
+<div class="paragraph">
+<p><code>CommandBox</code> retrieves the user input command and caret position from the <code>TextField</code>, and calls the <code>execute</code> method from <code>Autocomplete</code> with these information. This <code>execute</code> method (shown and explained in full in the next sequence diagram) creates an <code>AutocompleteResult</code> object and returns this to <code>CommandBox</code>, which retrieves all the information required and sets the <code>TextField</code> and <code>ResultDisplay</code> accordingly.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/CommandAutocompleteSequenceDiagramRef.png" alt="CommandAutocompleteSequenceDiagramRef">
+</div>
+<div class="title">Figure 13. Sequence Diagram for the Autocomplete#execute Method</div>
+</div>
+<div class="paragraph">
+<p>Within the <code>execute</code> method, <code>Autocomplete</code> calls the <code>listAllSimilarWords</code> method from <code>Trie</code> with the user input text. <code>Trie</code>, which would already have all the commands stored, finds the longest prefix node, calls the <code>constructWord</code> method from this node, and checks if this node represents the end of a completed word. <code>Trie</code> then creates a <code>SimilarWordsResult</code> object to store these information and returns it to <code>Autocomplete</code>. Then, <code>Autocomplete</code> retrieves these information, realises that it is dealing with an unambiguous command, and constructs the corresponding prefixes. It then creates a <code>AutocompleteResult</code> object to store all the information that <code>CommandBox</code> requires, and finally returns this object to <code>CommandBox</code>.</p>
+</div>
+<div class="paragraph">
+<p>This feature currently only supports autocompletion of <em>commands</em> and <em>prefixes</em>, and not other fields/parameters like names and addresses that have been used by the user before. Implicitly, since all commands defined in FitBiz do not have empty spaces in them, this allows us to easily determine when to enable <a href="#command-history-behaviour-4">behaviour 4</a> as defined above: by simply checking for the presence of white spaces from the trimmed user input. The following activity diagram is given to show the decisions starting from the point where the user presses <kbd>Tab</kbd>:</p>
+</div>
+<div id="autocomplete-activity-diagram" class="imageblock">
+<div class="content">
+<img src="images/CommandAutocompleteActivityDiagram.png" alt="CommandAutocompleteActivityDiagram">
+</div>
+<div class="title">Figure 14. Activity Diagram for the Autocomplete Logic</div>
 </div>
 </div>
 </div>
 <div class="sect3">
 <h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.4.2. Design Considerations</a></h4>
 <div class="paragraph">
-<p>For the implementation of this feature, we have decided to use a Trie data structure. Since no such data structure exists natively in Java, we had to implement our own version of it. Of course, we have also considered other much simpler alternatives like simply storing all available commands in a <code>List</code>. A quick summary of the pros and cons is given here:</p>
+<p>As discussed in the <a href="#command-history-implementation">implementation section</a>, we have decided to use a Trie data structure. Of course, we have also considered other much simpler alternatives like simply storing all available commands in a native Java <code>List</code>. A quick summary of the pros and cons is given here:</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
+<col style="width: 20%;">
+<col style="width: 40%;">
+<col style="width: 40%;">
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Data Structure</th>
-<th class="tableblock halign-left valign-top">Pros and Cons</th>
+<th class="tableblock halign-left valign-top">Considerations</th>
+<th class="tableblock halign-left valign-top">Trie (chosen)</th>
+<th class="tableblock halign-left valign-top">List</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Trie</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Pros</strong>: Searching is relatively inexpensive, and handles behaviour number 3 discussed above efficiently</p>
-<p class="tableblock"><strong>Cons</strong>: Harder initial development of this data structure</p></td>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Time Complexity</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Searching if a word exists is O(n), where n is the number of letters in the word to search for.</p>
+<p class="tableblock">Finding the longest common prefix of an ambiguous command is O(n), where n is the number of letters in the original word.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Searching if a word exists is O(nm), where n is the number of letters in the word to search for, and m is the number of words in the list.</p>
+<p class="tableblock">Finding the longest common prefix of an ambiguous command is not linear with n and m.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">List</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Pros</strong>: Fast initial development</p>
-<p class="tableblock"><strong>Cons</strong>: Searching is computationally expensive; does not scale well with the app as the list of commands grow</p></td>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Ease of Implementation</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Initial development might be more difficult; developers might not be familiar with this data structure as it is not as common.</p>
+<p class="tableblock">Custom class means that additional, custom logic can be easily added.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Much faster initial development.</p>
+<p class="tableblock">Custom logic cannot be easily added.</p></td>
 </tr>
 </tbody>
 </table>
 <div class="paragraph">
-<p>As such, the choice of implementing our own Trie data structure is obvious. Exchanging some initial development time for future scalability of our app will ensure that we, or future developers, do not end up wasting time refactoring what could have been done in the first place. Moreover, as mentioned, the Trie data structure is effective and computationally inexpensive in finding the longest common prefix of all ambiguous commands. The same cannot be said when using just a list.</p>
+<p>As such, the choice of implementing our own Trie data structure is obvious. As this app grows bigger in the forseeable future, the number of commands as well as the number of things we would want to autocomplete would increase. Overall, we felt that the Trie data structure will scale much better as compared to a List.</p>
 </div>
 <div class="paragraph">
-<p>Also, since we have implemented our own Trie data structure, it would also allow more custom logic to be added later, and allow more creative freedom with respect to the features that future developers would want to add.</p>
+<p>Exchanging some initial development time for future scalability of our app will ensure that we, or future developers, do not end up wasting time refactoring what could have been done in the first place. Moreover, the Trie data structure is much more effective and computationally inexpensive in finding the longest common prefix of all ambiguous commands. The same cannot be said when using a List.</p>
+</div>
+<div class="paragraph">
+<p>Also, since we have implemented our own Trie data structure, it would also allow more custom logic to be added later, and allow more creative freedom with respect to the features that we, or future developers would want to add. For example, future version of this application might want to also include the autocompletion of frequently used parameters by the user.</p>
 </div>
 </div>
 </div>
@@ -560,7 +773,7 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 <p>This feature allows for a user to assign a weekly schedule to a client. Timings are represented in the 24-hour format <code>HHmm</code>. Each client can have none or multiple schedules that do not have overlapping timings. Multiple clients are allowed to have overlapping timings with each other.</p>
 </div>
 <div class="sect3">
-<h4 id="implementation-4"><a class="link" href="#implementation-4">3.5.1. Implementation</a></h4>
+<h4 id="implementation-3"><a class="link" href="#implementation-3">3.5.1. Implementation</a></h4>
 <div class="paragraph">
 <p>This scheduling mechanism is facilitated by <code>ScheduleList</code>, which is a wrapper class for an <code>ArrayList</code> of <code>Schedule</code> objects. Each <code>Client</code> contains one <code>ScheduleList</code> attribute to keep track of all <code>Schedule</code> assigned to it. If there are no assigned <code>Schedule</code> for the <code>Client</code>, then the <code>ScheduleList</code> contains an empty <code>ArrayList</code> of <code>Schedule</code>.</p>
 </div>
@@ -664,7 +877,7 @@ and timing, wrapping each of these properties into their wrapper classes allowed
 <p>This feature allows users to record the exercises done by a client. The exercises are displayed in a table form, after the <code>view-c</code> command is called.</p>
 </div>
 <div class="sect3">
-<h4 id="implementation-5"><a class="link" href="#implementation-5">3.6.1. Implementation</a></h4>
+<h4 id="implementation-4"><a class="link" href="#implementation-4">3.6.1. Implementation</a></h4>
 <div class="sect4">
 <h5 id="implementation-of-exercise-class"><a class="link" href="#implementation-of-exercise-class">Implementation of Exercise class</a></h5>
 <div class="paragraph">
@@ -939,7 +1152,7 @@ if (dateComparision &gt; 0) {
 <p>This feature allows the users (ie. gym managers) to view the personal bests of exercises done by a client. This information is displayed in a table form, after the command <code>view-c INDEX</code> is called.</p>
 </div>
 <div class="sect3">
-<h4 id="implementation-6"><a class="link" href="#implementation-6">3.7.1. Implementation</a></h4>
+<h4 id="implementation-5"><a class="link" href="#implementation-5">3.7.1. Implementation</a></h4>
 <div class="paragraph">
 <p>The personal best feature is facilitated by the model <code>PersonalBest</code>, and the logic behind it is in <code>PersonalBestFinder</code>. The behaviour of this feature determines the personal best of each exercise done by the client based on these considerations:</p>
 </div>
@@ -1038,7 +1251,7 @@ if (dateComparision &gt; 0) {
 <p>This feature allows users to see the progress graph of the current client in view. The user has to specify the exercise name, the y-axis (either weights or reps), the start date and the end date. There has to be existing exercises in the client&#8217;s exercise list for the specified axis and time period for the graph to be plotted, if no graph can be plotted, an error will be thrown.</p>
 </div>
 <div class="sect3">
-<h4 id="implementation-7"><a class="link" href="#implementation-7">3.8.1. Implementation</a></h4>
+<h4 id="implementation-6"><a class="link" href="#implementation-6">3.8.1. Implementation</a></h4>
 <div class="paragraph">
 <p>The graph mechanism is faciliated by the model class <code>Graph</code>, which contains the details of the graph. These include <code>ExerciseName</code>, <code>Axis</code>, <code>StartDate</code> and <code>EndDate</code>. The figure below is a UML class diagram to illustrate the <code>Graph</code> model.</p>
 </div>
@@ -1165,7 +1378,7 @@ if (dateComparision &gt; 0) {
 <p>This feature allows users to filter the list of clients by specifying the <code>Tag</code> or <code>Sport</code> of the clients they want to view.</p>
 </div>
 <div class="sect3">
-<h4 id="implementation-8"><a class="link" href="#implementation-8">3.9.1. Implementation</a></h4>
+<h4 id="implementation-7"><a class="link" href="#implementation-7">3.9.1. Implementation</a></h4>
 <div class="paragraph">
 <p>This filtering mechanism is facilitated by <code>TagAndSportContainsKeywordsPredicate</code>, that implements <code>Predicate&lt;Client&gt;</code> which is a wrapper class for a boolean. <code>TagAndSportContainsKeywordsPredicate</code> contains 2 booleans:</p>
 </div>
@@ -1237,7 +1450,7 @@ if (dateComparision &gt; 0) {
 <p>This feature allows users to view the information of a specific client using his <code>INDEX</code> in the clients list. Information displayed includes additional information of the client, exercises done and his personal best of exercises done.</p>
 </div>
 <div class="sect3">
-<h4 id="implementation-9"><a class="link" href="#implementation-9">3.10.1. Implementation</a></h4>
+<h4 id="implementation-8"><a class="link" href="#implementation-8">3.10.1. Implementation</a></h4>
 <div class="paragraph">
 <p>The view client&#8217;s information feature is primarily facilitated by the model <code>Client</code>. The details for list of exercises done and personal best will be discussed in section 3.7 and not be covered here. The client&#8217;s <code>INDEX</code> in the clients list will be used to identify and retrieve his information. Additionally, only when a client&#8217;s information is being viewed, graph of his exercises can be plotted.</p>
 </div>
@@ -2298,4 +2511,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 12:34:27 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 12:56:41 UTC</div></div></div></body></html>
