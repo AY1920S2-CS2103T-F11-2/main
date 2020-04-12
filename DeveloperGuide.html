@@ -29,6 +29,7 @@
 <li><a href="#scheduling-for-a-client-ng-ming-liang">3.5. Scheduling for a Client --- Ng Ming Liang</a></li>
 <li><a href="#exercise-feature-yong-jie">3.6. Exercise Feature --- Yong Jie</a></li>
 <li><a href="#personal-best-li-zi-ying">3.7. Personal Best --- Li Zi Ying</a></li>
+<li><a href="#graph-li-zi-ying">3.8. Graph --- Li Zi Ying</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a></li>
@@ -775,8 +776,8 @@ Tough to identify which JSON file is for which client</p></td>
 <div class="paragraph">
 <p>The personal best feature is facilitated by the model <code>PersonalBest</code>, and the logic behind it is in <code>PersonalBestFinder</code>. The behaviour of this feature determines the personal best of each exercise done by the client based on these considerations:</p>
 </div>
-<div class="ulist">
-<ul>
+<div class="olist arabic">
+<ol class="arabic">
 <li>
 <p>If the <code>ExerciseWeight</code> attribute is recorded in the <code>Exercise</code>, then the <code>ExerciseWeight</code> is used as comparison</p>
 </li>
@@ -785,18 +786,18 @@ Tough to identify which JSON file is for which client</p></td>
 </li>
 <li>
 <p>If neither of <code>ExerciseWeight</code> and <code>ExerciseReps</code> are recorded into the <code>Exercise</code>, then this particular exercise will not be put into the Exercise Personal Best table</p>
-<div class="ulist">
-<ul>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
 <li>
 <p>However, if the another <code>Exercise</code> of the same name is added in the future with <code>ExerciseWeight</code> and/or <code>ExerciseReps</code> specified, then the personal best of this exercise will still be calculated and shown in the Exercise Personal Best table</p>
 </li>
-</ul>
+</ol>
 </div>
 </li>
-</ul>
-</div>
-<div class="paragraph">
-<p>When the user inputs <code>view-c</code>, <code>add-e</code> or <code>delete-c</code>, <code>PersonalBestFinder#generateAndSetPersonalBest</code> is called, taking the client currently in view as the parameter. <code>PersonalBestFinder#generateAndSetPersonalBest</code> then retrieves client&#8217;s list of exercises using <code>Client#getExerciseList</code> and creates a new <code>HashMap</code>, where the <code>key</code> is <code>ExerciseName</code> and the <code>value</code> is <code>Exercise</code>. Then the personal bests of each exercise of the client in view are generated using the above considerations. Finally the list of personal bests is set using <code>PersonalBest#setPersonalBest</code>.</p>
+<li>
+<p>Note that <code>ExerciseSets</code>, although an attribute of the <code>Exercise</code> model, is not considered when checking for <code>PersonalBest</code> as the number of sets of an exercise does not contribute to a personal best record</p>
+</li>
+</ol>
 </div>
 <div class="paragraph">
 <p>A simplified class diagram of the classes involved in this feature is given below:</p>
@@ -814,33 +815,39 @@ Tough to identify which JSON file is for which client</p></td>
 <img src="images/PersonalBestSequenceDiagram.png" alt="PersonalBestSequenceDiagram">
 </div>
 </div>
+<div class="paragraph">
+<p>The explanation for the sequence diagram is as follows: when the user inputs <code>view-c</code>, <code>add-e</code>, <code>edit-c</code> or <code>delete-c</code>, <code>PersonalBestFinder#generateAndSetPersonalBest</code> is called, taking the client currently in view as the parameter. <code>PersonalBestFinder#generateAndSetPersonalBest</code> then retrieves client&#8217;s list of exercises using <code>Client#getExerciseList</code> and creates a new <code>HashMap</code>, where the <code>key</code> is <code>ExerciseName</code> and the <code>value</code> is <code>Exercise</code>. Then the personal bests of each exercise of the client in view are generated using the above considerations. Finally the list of personal bests is set using <code>PersonalBest#setPersonalBest</code>.</p>
+</div>
 </div>
 <div class="sect3">
 <h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">3.7.2. Design Considerations</a></h4>
 <div class="paragraph">
-<p>In designing this features, we had to decide on the placement of the <code>PersonalBest</code> class in the model to comply with the OOP standards. Currently, the <code>PersonalBest</code> model has a whole-part relationship with <code>Client</code>, with <code>Client</code> being the whole and <code>PersonalBest</code> being a part of <code>Client</code>. The alternative is to consider <code>PersonalBest</code> as a part of <code>Exercise</code> instead.</p>
+<p>In designing this feature, we had to decide on the placement of the <code>PersonalBest</code> class in the model to comply with the OOP standards. Currently, the <code>PersonalBest</code> model has a whole-part relationship with <code>Client</code>, with <code>Client</code> being the whole and <code>PersonalBest</code> being a part of <code>Client</code>. The alternative is to consider <code>PersonalBest</code> as a part of <code>Exercise</code> instead.</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
+<caption class="title">Table 1. Table of Design Considerations</caption>
 <colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Considerations</th>
-<th class="tableblock halign-left valign-top">Pros and Cons</th>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top">Put <code>PersonalBest</code> as a part of <code>Client</code>(Chosen)</th>
+<th class="tableblock halign-left valign-top">Put <code>PersonalBest</code> as a part of <code>Exercise</code></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Put <code>PersonalBest</code> as a part of <code>Client</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Pros</strong>: Logically makes more sense, as each client has to have a list of exercises to themselves, and thus <code>PersonalBest</code> of each of these exercises</p>
-<p class="tableblock"><strong>Cons</strong>: Might have significant conflicts as the <code>Client</code> model is changed to include one more attribute</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Adhering to OOP standards (Coupling and Cohesion)</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Increases cohesion as it logically makes more sense, currently each client has a list of exercises to themselves, and thus each client should also have a list of <code>PersonalBest</code> of each of these exercises to themselves</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Increases coupling between the logic and model as every time the commands <code>view-c</code>, <code>add-e</code>, <code>edit-e</code> and <code>delete-e</code> are called, the personal best table has to be updated, a new <code>PersonalBest</code> object has to be created. Then the <code>Client</code> will have to be dependent on this <code>PersonalBest</code> object created in the logic component, which causes unnecessary dependencies and higher coupling</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Put <code>PersonalBest</code> as a part of <code>Exercise</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Pros</strong>: Keep <code>Exercise</code> data and methods separate from <code>Client</code> data and methods</p>
-<p class="tableblock"><strong>Cons</strong>: Actually increases coupling as the logic was flawed</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Ease of Implementation</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Might have significant conflicts as the <code>Client</code> model is changed to include one more attribute</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Easier to implemention as methods related to <code>PersonalBest</code> is kept under <code>Exercise</code> model and separate from <code>Client</code> data and methods, so no refactoring is needed</p></td>
 </tr>
 </tbody>
 </table>
@@ -848,10 +855,140 @@ Tough to identify which JSON file is for which client</p></td>
 <p>We decided to use the first approach of placing <code>PersonalBest</code> as a part of <code>Client</code> instead of <code>Exercise</code>. There are multiple reasons for our choice as mentioned below.</p>
 </div>
 <div class="paragraph">
-<p>We want to maintain the OOP structure of the program. Logically, the personal best should belong to the client as the list of exercises belongs to the client. As the list of exercises is unique to every client, the personal best should also be so.</p>
+<p>We want to maintain the OOP structure of the program. Logically, the personal best should belong to the client as the list of exercises belongs to the client. As the list of exercises is unique to every client, the personal best should also be so. We also do not want to increase coupling of the program as mentioned in the table above.</p>
 </div>
 <div class="paragraph">
 <p>Moreover, even though personal best is generated using the list of exercises in the client, it can be instantiated even without an exercise list. Therefore it does not require the exercise class to exist and does not have a whole-part relationship with exercise. Coupling will also be increased as the client will be relying on the exercise class to generate the personal best. Therefore, the final choice was to place the personal best under client, with every client having their own personal best attribute.</p>
+</div>
+<div class="paragraph">
+<p>This personal best feature also leads into the <code>Graph</code> feature, which will be discussed in the next section, where we plot a graph of the client&#8217;s progress of a specified exercise.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="graph-li-zi-ying"><a class="link" href="#graph-li-zi-ying">3.8. Graph --- Li Zi Ying</a></h3>
+<div class="paragraph">
+<p>This feature allows users to see the progress graph of the current client in view. The user has to specify the exercise name, the y-axis (either weights or reps), the start date and the end date. There has to be existing exercises in the client&#8217;s exercise list for the specified axis and time period for the graph to be plotted, if no graph can be plotted, an error will be thrown.</p>
+</div>
+<div class="sect3">
+<h4 id="implementation-7"><a class="link" href="#implementation-7">3.8.1. Implementation</a></h4>
+<div class="paragraph">
+<p>The graph mechanism is faciliated by the model class <code>Graph</code>, which contains the details of the graph. These include <code>ExerciseName</code>, <code>Axis</code>, <code>StartDate</code> and <code>EndDate</code>. The figure below is a UML class diagram to illustrate the <code>Graph</code> model.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/GraphClassDiagram.png" alt="GraphClassDiagram">
+</div>
+</div>
+<div class="paragraph">
+<p>These attributes are bounded by these characteristics:
+. <code>ExerciseName</code> can only be alphanumeric characters
+. <code>Axis</code> can either be <code>reps</code> or <code>weight</code> only, case insensitive (<code>sets</code> are not considered due to the same reasoning in the above section)
+. Earliest <code>StartDate</code> possible can only be one year before the current date and cannot be after <code>EndDate</code>. <code>StartDate</code> also cannot be a future date
+. Earliest <code>EndDate</code> possible can only be one year before the current date and cannot be before <code>StartDate</code>. <code>EndDate</code> also cannot be a future date</p>
+</div>
+<div class="paragraph">
+<p>Here is an activity diagram displaying the steps taken when FitBiz receives a user input for the <code>graph</code> command:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/GraphCommandActivityDiagram.png" alt="GraphCommandActivityDiagram">
+</div>
+</div>
+<div class="paragraph">
+<p>The behaviour of this feature determines the graph plotted of the exercise specified based on these considerations:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>If there is no such exercise with the matching <code>ExerciseName</code> in the client&#8217;s exercise list from the specified <code>StartDate</code> to <code>EndDate</code>, then the graph cannot be plotted</p>
+</li>
+<li>
+<p>If the <code>Axis</code> input is <code>reps</code> and the exercise specified does not have any reps input withint the <code>StartDate</code> to <code>EndDate</code>, then the graph cannot be plot</p>
+</li>
+<li>
+<p>If the <code>Axis</code> input is <code>weight</code> and the exercise specified does not have any weight input within the <code>StartDate</code> to <code>EndDate</code>, then the graph cannot be plot</p>
+</li>
+<li>
+<p>If all of the above are fulfilled (ie. there is at least one valid exercise with the matching <code>ExerciseName</code> and has weight/reps input depending on the <code>Axis</code> specified), then the graph will be plotted, with each exercise in chronological order</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The flow of the program is illustrated using the sequence diagram below:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/GraphSequenceDiagram.png" alt="GraphSequenceDiagram">
+</div>
+</div>
+<div class="paragraph">
+<p>The explanation is as follows: when the user inputs <code>graph</code> with all relevant arguments input correctly, a new <code>GraphCommand()</code> is created, taking the newly created <code>Graph</code> object as parameter.</p>
+</div>
+<div class="paragraph">
+<p><code>GraphCommand#execute()</code> then retrieves the exercise list from the client currently in view and checks if there is at least one exercise with a matching exercise name. If there is no exercise to plot, then an error <code>GraphCommand.MESSAGE_EXERCISE_NOT_IN_LIST</code> will be thrown. Next, the list of exercises to be plot will be generated using <code>Graph#generateGraphList()</code>. Once again, there will be a sanity check to see if the list size is zero, which means that no graph cannot be plotted.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">3.8.2. Design Considerations</a></h4>
+<div class="paragraph">
+<p>In designing this feature, we had to decide on the implementation of certain classes like <code>Axis</code> to comply with the OOP standards of Abstraction.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Table 2. Table of Design Considerations</caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top">Create enum class <code>Axis Type</code>(Chosen)</th>
+<th class="tableblock halign-left valign-top">Check for <code>Axis</code> value using raw types</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Adhering to OOP standards (Abstraction)</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Increases level of abstraction as there are only two different types of axis that can be chosen</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Less abstraction and increases complexity as we will have to check for the equality of the axis type using the equality check for the <code>String</code> raw type</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Ease of Implementation</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Requires some refactoring to include <code>AxisType</code> class and the relevant getter methods</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Easier to implemention as no extra classes or methods are needed, so no refactoring is needed</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>We decided to use the approach of abstracting the axis types away into <code>AxisType</code> enum class. As the graph implementation will require a substantial amount of equality checks, especially for the attributes of <code>Graph</code> to make sure that we are drawing the correct graph for the user. As such equality checks are made, it makes it difficult to keep checking <code>String</code> equality as regular data types like <code>String</code> would allow invalid values to be assigned to a variable.</p>
+</div>
+<div class="paragraph">
+<p>As our axis values can only be <code>REPS</code>, <code>WEIGHT</code> or <code>NA</code>, we can check for each case using the switch case method instead of checking for equality using raw types. This is also much more efficient than using multiple if-else statements. For example, in the code snippet below, the method <code>fillSeries()</code> uses switch case statements to add data values depending on the <code>AxisType</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java">    <span class="directive">private</span> <span class="type">void</span> fillSeries() {
+        <span class="keyword">switch</span> (axisType) {
+        <span class="keyword">case</span> REPS:
+            fillRepsSeries();
+            yAxis.setLabel(<span class="string"><span class="delimiter">&quot;</span><span class="content">Reps</span><span class="delimiter">&quot;</span></span>);
+            <span class="keyword">break</span>;
+        <span class="keyword">case</span> WEIGHT:
+            fillWeightSeries();
+            yAxis.setLabel(<span class="string"><span class="delimiter">&quot;</span><span class="content">Weight</span><span class="delimiter">&quot;</span></span>);
+            <span class="keyword">break</span>;
+        <span class="keyword">default</span>:
+        }
+    }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Moreover, to keep in line with the OOP standards, we decided that it will be better to abstract away data types like <code>AxisType</code> into its separate class instead of storing it as a raw type in <code>Axis</code>. This ensures the code quality of our program and reduces complexity (especially in terms of equality checking as mentioned above) by abstracting away the more complex details into classes of a lower level. The consideration of abstracting details away is also used for creating <code>StartDate</code> and <code>EndDate</code> classes as attributes of <code>Graph</code>, instead of using the Java in-built <code>LocalDate</code>.</p>
+</div>
+<div class="paragraph">
+<p>By considering the above two factors, despite having to put in the extra effort to create a new <code>AxisType</code> class and thus requiring extra methods like getters and setters, we decided to move with the approach of creating the <code>AxisType</code> enum class and refactor to accomodate for the additional data type.</p>
 </div>
 </div>
 </div>
@@ -1145,10 +1282,10 @@ Tough to identify which JSON file is for which client</p></td>
 <p>User requests to add a client</p>
 </li>
 <li>
-<p>FitBiz requests for details(eg. name)</p>
+<p>FitBiz requests for details (eg. name, phone number, address, email)</p>
 </li>
 <li>
-<p>User enters the details</p>
+<p>User enters the requested details</p>
 </li>
 <li>
 <p>FitBiz adds client to database</p>
@@ -1164,14 +1301,14 @@ Tough to identify which JSON file is for which client</p></td>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>3a.  The input format is invalid.</p>
+<p>3a.  The input format is invalid</p>
 <div class="ulist none">
 <ul class="none">
 <li>
 <p>3a1.  FitBiz shows an error message</p>
 </li>
 <li>
-<p>3a2.  User enters the new details.</p>
+<p>3a2.  User enters the new details</p>
 <div class="paragraph">
 <p>Steps 3a1 to 3a2 are repeated until the data entered is correct.
 Use case resumes from step 4</p>
@@ -1211,19 +1348,30 @@ Use case resumes from step 4</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>2a.  The list is empty.</p>
+<p>2a.  The list is empty</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a1. FitBiz displays an empty client list</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
 </li>
+</ul>
+</div>
+</li>
 <li>
-<p>3a.  The given name is invalid.</p>
+<p>3a.  The given index is invalid or out of range</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>3a1. FitBiz shows an error message.</p>
+<p>3a1. FitBiz shows an error message</p>
+</li>
+<li>
+<p>3a2. User enters the new index</p>
 <div class="paragraph">
-<p>Use case resumes at step 2.</p>
+<p>Steps 3a1 to 3a2 are repeated until the data entered is correct.
+Use case resumes at step 4.</p>
 </div>
 </li>
 </ul>
@@ -1238,7 +1386,7 @@ Use case resumes from step 4</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User requests to edit a client&#8217;s cliental details</p>
+<p>User requests to edit a client&#8217;s details</p>
 </li>
 <li>
 <p>FitBiz shows a list of clients</p>
@@ -1260,19 +1408,30 @@ Use case resumes from step 4</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>2a.  The list is empty.</p>
+<p>2a.  The list is empty</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a1. FitBiz displays an empty client list</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
 </li>
+</ul>
+</div>
+</li>
 <li>
-<p>3a.  The input format is invalid.</p>
+<p>3a.  The given input is invalid</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>3a1. FitBiz shows an error message.</p>
+<p>3a1. FitBiz shows an error message</p>
+</li>
+<li>
+<p>3a2. User enters the new details</p>
 <div class="paragraph">
-<p>Use case resumes at step 2.</p>
+<p>Steps 3a1 to 3a2 are repeated until the data entered is correct.
+Use case resumes at step 4.</p>
 </div>
 </li>
 </ul>
@@ -1309,19 +1468,30 @@ Use case resumes from step 4</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>2a. The list is empty.</p>
+<p>2a.  The list is empty</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a1. FitBiz displays an empty client list</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
 </li>
+</ul>
+</div>
+</li>
 <li>
-<p>3a. The given format is invalid.</p>
+<p>3a.  The given index is invalid or out of range</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>3a1. FitBiz shows an error message.</p>
+<p>3a1. FitBiz shows an error message</p>
+</li>
+<li>
+<p>3a2. User enters the new index</p>
 <div class="paragraph">
-<p>Use case resumes at step 2.</p>
+<p>Steps 3a1 to 3a2 are repeated until the data entered is correct.
+Use case resumes at step 4.</p>
 </div>
 </li>
 </ul>
@@ -1352,13 +1522,19 @@ Use case resumes from step 4</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>2a.  The input format is invalid.</p>
+<p>1a.  The input format is invalid</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>2a1.  FitBiz shows an error message.</p>
+<p>1a1.  FitBiz shows an error message</p>
+</li>
+<li>
+<p>1a2.  User provides new input</p>
 <div class="paragraph">
-<p>Use case resumes at step 1.</p>
+<p>Steps 1a1 to 1a2 are repeated until the input entered is correct.</p>
+</div>
+<div class="paragraph">
+<p>Use case resumes at step 2.</p>
 </div>
 </li>
 </ul>
@@ -1382,7 +1558,7 @@ Use case resumes from step 4</p>
 <p>User requests to add exercise to a specific client in the list</p>
 </li>
 <li>
-<p>FitBiz add exercise to the client</p>
+<p>FitBiz adds exercise to the client</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -1395,17 +1571,71 @@ Use case resumes from step 4</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>2a.  The list is empty.</p>
+<p>2a.  The list is empty</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a1. FitBiz displays an empty client list</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
 </li>
+</ul>
+</div>
+</li>
 <li>
-<p>3a.  The given name is invalid.</p>
+<p>3a.  The input format is invalid</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>3a1. FitBiz shows an error message.</p>
+<p>3a1. FitBiz shows an error message</p>
+</li>
+<li>
+<p>3a2. User enters the new details</p>
+<div class="paragraph">
+<p>Steps 3a1 to 3a2 are repeated until the data entered is correct.
+Use case resumes at step 4.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-7-filter-clients" class="discrete">Use case 7: Filter clients</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to filter clients based on a keyword in a client&#8217;s tag and/or sports</p>
+</li>
+<li>
+<p>FitBiz filters and displays clients based on specified keywords</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a.  The input format is invalid</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1.  FitBiz shows an error message</p>
+</li>
+<li>
+<p>1a2.  User provides new input</p>
+<div class="paragraph">
+<p>Steps 1a1 to 1a2 are repeated until the input entered is correct.</p>
+</div>
 <div class="paragraph">
 <p>Use case resumes at step 2.</p>
 </div>
@@ -1415,17 +1645,23 @@ Use case resumes from step 4</p>
 </li>
 </ul>
 </div>
-<h3 id="use-case-7-start-timer" class="discrete">Use case 7: Start timer</h3>
+<h3 id="use-case-8-add-schedule" class="discrete">Use case 8: Add schedule</h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User requests to start a timer</p>
+<p>User requests to add schedule for a client</p>
 </li>
 <li>
-<p>FitBiz starts a timer for the specified duration</p>
+<p>FitBiz displays a list of clients</p>
+</li>
+<li>
+<p>Client inputs the schedule for the day or the time specified for a particular client</p>
+</li>
+<li>
+<p>FitBiz adds and displays the schedule</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -1438,50 +1674,30 @@ Use case resumes from step 4</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>2a.  The input format is invalid.</p>
+<p>2a.  The list is empty</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>2a1.  FitBiz shows an error message.</p>
-<div class="paragraph">
-<p>Use case resumes at step 1.</p>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-<h3 id="use-case-8-filter-clients" class="discrete">Use case 8: Filter clients</h3>
-<div class="paragraph">
-<p><strong>MSS</strong></p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>User requests to filter clients based on an attribute</p>
-</li>
-<li>
-<p>FitBiz filters clients based on specified attribute</p>
+<p>2a1. FitBiz displays an empty client list</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
 </li>
-</ol>
+</ul>
 </div>
-<div class="paragraph">
-<p><strong>Extensions</strong></p>
-</div>
+</li>
+<li>
+<p>3a.  The given input format is incorrect</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>2a.  The input format is invalid.</p>
-<div class="ulist none">
-<ul class="none">
+<p>3a1. FitBiz shows an error message</p>
+</li>
 <li>
-<p>2a1.  FitBiz shows an error message.</p>
+<p>3a2. User enters the new input</p>
 <div class="paragraph">
-<p>Use case resumes at step 1.</p>
+<p>Steps 3a1 to 3a2 are repeated until the data entered is correct.
+Use case resumes at step 4.</p>
 </div>
 </li>
 </ul>
@@ -1489,142 +1705,7 @@ Use case resumes from step 4</p>
 </li>
 </ul>
 </div>
-<h3 id="use-case-9-view-cliental-best" class="discrete">Use case 9: View cliental best</h3>
-<div class="paragraph">
-<p><strong>MSS</strong></p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>User requests to view a client&#8217;s cliental best</p>
-</li>
-<li>
-<p>FitBiz lists all clients</p>
-</li>
-<li>
-<p>User requests to view the cliental best of a specific client on the list</p>
-</li>
-<li>
-<p>FitBiz displays the cliental best</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><strong>Extensions</strong></p>
-</div>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>2a.  The list is empty.</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-<li>
-<p>3a.  The input format is invalid.</p>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>3a1. FitBiz shows an error message.</p>
-<div class="paragraph">
-<p>Use case resumes at step 2.</p>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-<h3 id="use-case-10-view-schedule" class="discrete">Use case 10: View schedule</h3>
-<div class="paragraph">
-<p><strong>MSS</strong></p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>User requests to view schedule for the day or the time specified</p>
-</li>
-<li>
-<p>FitBiz shows the schedule</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><strong>Extensions</strong></p>
-</div>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>2a.  The input format is invalid.</p>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>2a1.  FitBiz shows an error message.</p>
-<div class="paragraph">
-<p>Use case resumes at step 1.</p>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-<h3 id="use-case-11-export-data" class="discrete">Use case 11: Export data</h3>
-<div class="paragraph">
-<p><strong>MSS</strong></p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>User requests to export a client&#8217;s training record to a CSV file</p>
-</li>
-<li>
-<p>FitBiz shows a list of clients</p>
-</li>
-<li>
-<p>User requests to export a specific client&#8217;s training record in the list</p>
-</li>
-<li>
-<p>FitBiz exports the client&#8217;s training records</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><strong>Extensions</strong></p>
-</div>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>2a.  The list is empty.</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-<li>
-<p>3a.  The given name is invalid.</p>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>3a1. FitBiz shows an error message.</p>
-<div class="paragraph">
-<p>Use case resumes at step 2.</p>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-<h3 id="use-case-12-view-visualisations" class="discrete">Use case 12: View visualisations</h3>
+<h3 id="use-case-9-view-graph-visualisations" class="discrete">Use case 9: View graph visualisations</h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -1637,10 +1718,16 @@ Use case resumes from step 4</p>
 <p>FitBiz shows a list of clients</p>
 </li>
 <li>
-<p>User requests to view the training graph of a specific client in the list</p>
+<p>User requests to view the specified client in the list by index</p>
 </li>
 <li>
-<p>Fitbiz shows the training graph of the client</p>
+<p>Fitbiz shows all available information of the client</p>
+</li>
+<li>
+<p>User requests to view the graph of the specified exercise in the client&#8217;s exercise list</p>
+</li>
+<li>
+<p>FitBiz displays the graph of the specified exercise</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -1653,28 +1740,53 @@ Use case resumes from step 4</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>2a.  The list is empty.</p>
+<p>2a.  The list is empty</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a1. FitBiz displays an empty client list</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
 </li>
+</ul>
+</div>
+</li>
 <li>
-<p>3a.  The given name is invalid.</p>
+<p>3a.  The given index is invalid or out of range</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>3a1. FitBiz shows an error message.</p>
+<p>3a1. FitBiz shows an error message</p>
+</li>
+<li>
+<p>3a2. User enters the new index</p>
 <div class="paragraph">
-<p>Use case resumes at step 2.</p>
+<p>Steps 3a1 to 3a2 are repeated until the data entered is correct.
+Use case resumes at step 4.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>5a. The given input format is incorrect</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>5a1. FitBiz shows an error message</p>
+</li>
+<li>
+<p>5a2. User enters the new input</p>
+<div class="paragraph">
+<p>Steps 5a1 to 5a2 are repeated until the data entered is correct.
+Use case resumes at step 6.</p>
 </div>
 </li>
 </ul>
 </div>
 </li>
 </ul>
-</div>
-<div class="paragraph">
-<p><em>{More to be added}</em></p>
 </div>
 </div>
 </div>
@@ -1888,4 +2000,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 12:15:54 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 12:15:59 UTC</div></div></div></body></html>
