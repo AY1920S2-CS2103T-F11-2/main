@@ -658,31 +658,159 @@ and timing, wrapping each of these properties into their wrapper classes allowed
 <div class="sect2">
 <h3 id="exercise-feature-yong-jie"><a class="link" href="#exercise-feature-yong-jie">3.6. Exercise Feature --- Yong Jie</a></h3>
 <div class="paragraph">
-<p>The function of recording the clients' exercises is one of the main features of our application. This section provides its key implementation details.</p>
+<p>This feature allows users to record the exercises done by a client. The exercises are displayed in a table form, after the <code>view-c</code> command is called.</p>
 </div>
 <div class="sect3">
 <h4 id="implementation-5"><a class="link" href="#implementation-5">3.6.1. Implementation</a></h4>
 <div class="sect4">
-<h5 id="exercise-class"><a class="link" href="#exercise-class">Exercise class</a></h5>
+<h5 id="implementation-of-exercise-class"><a class="link" href="#implementation-of-exercise-class">Implementation of Exercise class</a></h5>
 <div class="paragraph">
-<p>We implemented the <code>Exercise</code> class to contain the details of the exercise. An example would be the use of <code>ExerciseWeight</code> class to represent the weight of the exercise. Below shows a UML class diagram which provides further understanding of <code>Exercise</code>.</p>
+<p>The <code>Exercise</code> class is facilitated by the <code>UniqueExerciseList</code>, which is a wrapper class for an <code>ObservableList</code> of <code>Exercise</code> objects. Each Client contains one <code>UniqueExerciseList</code> attribute to keep track of all <code>Exercises</code> the client has.</p>
+</div>
+<div class="paragraph">
+<p><code>Exercise</code> comprises five attributes:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>ExerciseName</code></p>
+</li>
+<li>
+<p><code>ExerciseDate</code></p>
+</li>
+<li>
+<p><code>ExerciseReps</code></p>
+</li>
+<li>
+<p><code>ExerciseWeight</code></p>
+</li>
+<li>
+<p><code>ExerciseSets</code></p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>All instances of <code>Exercise</code> of a client will be contained in the client&#8217;s <code>UniqueExerciseList</code>. There is an additional class <code>PersonalBest</code> which is also associated to <code>Exercise</code>. It is omitted and will discuss in (&#8230;&#8203;) section due to its high significance. Below shows a UML class diagram which shows <code>Exercise</code> class interactions.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/ExerciseClassDiagram.png" alt="ExerciseClassDiagram">
 </div>
 </div>
+<div class="paragraph">
+<p>An important point to note about our implementation of <code>Exercise</code> is the method, <code>isSameExercise()</code>. We will consider two <code>Exercise</code> as the same if <code>isSameExercise()</code> returns true.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Executes when adding a new <code>Exercise</code> to client&#8217;s <code>UniqueExerciseList</code>. This includes <code>add-e</code> and <code>edit-e</code>.</p>
+</li>
+<li>
+<p>Checks if the new <code>Exercise</code> is the same with an existing instance of <code>Exercise</code> in the client&#8217;s <code>UniqueExerciseList</code>.</p>
+</li>
+<li>
+<p>Two <code>Exercises</code> are the same does not mean that they are equal.
+Two <code>Exercise</code> are equal only if <strong>all</strong> attributes are equal.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Below shows an object diagram of two <code>Exercises</code> that will return true for <code>isSameExercise()</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/IsSameExerciseObjectDiagram.png" alt="IsSameExerciseObjectDiagram">
+</div>
+</div>
+<div class="paragraph">
+<p>The two <code>Exercise</code> only have different values in <code>ExerciseSets</code> but equal values in:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>ExerciseName</code></p>
+</li>
+<li>
+<p><code>ExerciseDate</code></p>
+</li>
+<li>
+<p><code>ExerciseReps</code></p>
+</li>
+<li>
+<p><code>ExerciseWeight</code></p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>This implementation is chosen as we felt that the user should increment the value in <code>ExerciseSets</code> in the existing <code>Exercise</code>. We followed the same idea as in the real life context. Exercises with the same reps and weight can be grouped together as sets.</p>
+</div>
+<div class="paragraph">
+<p>We do consider that the user might want to record the two instances separately as it might be done at different periods of the day. In the future, when adding a same <code>Exercise</code>, we can implement it such that the sets value of the exising <code>Exercise</code> gets incremented automatically instead of showing an error. For now, this implementation keeps the exercise table neat and compact for the user.</p>
+</div>
 </div>
 <div class="sect4">
-<h5 id="exercise-commands"><a class="link" href="#exercise-commands">Exercise Commands</a></h5>
+<h5 id="execution-flow-of-exercise-commands"><a class="link" href="#execution-flow-of-exercise-commands">Execution flow of Exercise Commands</a></h5>
 <div class="paragraph">
-<p>Currently, there are only 2 exercise commands. The <code>add-e</code> command adds an exercise to the client and the <code>delete-e</code> command deletes an exercise from a client. The commands follow a similar execution flow as other commands.</p>
+<p>The exercise commands edits the client&#8217;s <code>UniqueExerciseList</code>. Currently, there are 3 exercise commands.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>add-e</code> : Adds an exercise to a client</p>
+</li>
+<li>
+<p><code>edit-e</code> : Edits a client&#8217;s exercise</p>
+</li>
+<li>
+<p><code>delete-e</code> : Deletes a client&#8217;s exercise</p>
+</li>
+</ol>
 </div>
 <div class="paragraph">
-<p>For the <code>add-e</code> command, we had to pay particular attention to the index where new Exercise is added. This is such that the exercises for the client will be displayed in descending chronological order in the table after a <code>view-c</code> command. <code>TableView</code> provides sorting for dates. However, having <code>TableView</code> to do the sorting would result in mismatch of indexes of the exercises in the <code>UniqueExerciseList</code> and in the <code>TableView</code>. This would result in problems when using <code>delete-e</code> command as it deletes the exercise at the specified index.</p>
+<p>The commands follow a similar execution flow as other commands.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ExerciseCommandActivityDiagram.png" alt="ExerciseCommandActivityDiagram">
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The <code>FitBizParser</code> will create the associated exercise command parser. e.g. <code>AddExerciseCommandParser</code></p>
+</li>
+<li>
+<p>Using <code>ParserUtil</code>, the parser will extract attribute details from the input and create the <code>Command</code>. e.g. <code>AddExerciseCommand</code></p>
+</li>
+<li>
+<p>The exercise <code>Command</code> will be executed and modify the client&#8217;s <code>UniqueExerciseList</code>.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Exceptions like no client being viewed and invalid input are thrown here.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>The change will be reflected in the exercise table in GUI.</p>
+</li>
+<li>
+<p>Result box will display success message for the <code>Command</code>.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect4">
+<h5 id="adding-an-exercise-to-uniqueexerciselist"><a class="link" href="#adding-an-exercise-to-uniqueexerciselist">Adding an exercise to UniqueExerciseList</a></h5>
+<div class="paragraph">
+<p>When adding a new <code>Exercise</code> to <code>UniqueExerciseList</code>, it is important which index it is added. This is such that the exercises for the client will be displayed in descending chronological order in the table after a <code>view-c</code> command. <code>TableView</code> provides sorting for dates. However, having <code>TableView</code> to do the sorting would result in mismatch of indexes of the exercises in the <code>UniqueExerciseList</code> and in the <code>TableView</code>. This will result in problems when using exercise commands that specifies an index like <code>delete-e</code>.</p>
 </div>
 <div class="paragraph">
-<p>We will use an example of a <code>add-e</code> command to illustrate the program execution flow. Consider an instance where user inputs <code>add-e n/pushup d/12-12-2011 reps/20</code>. The <code>AddressBookParser</code> will create a <code>AddExerciseCommandParser</code>. By using <code>ParserUtil</code>, <code>AddExerciseCommandParser</code> will extract details like the reps of the exercise and pass the arguments to <code>AddExerciseCommand</code>. The sequence diagram below shows the execution flow when the AddExerciseCommand is executed. Details of exception thrown are omitted as this is a postive instance and for simplicity.</p>
+<p>To address this problem, a custom insertion sort has been written in UniqueExerciseList, under the <code>addToSorted(Exercise)</code> method. This method will do a single pass of the internal list to insert the element at the correct position. This assumes that the internal list is initially sorted (which it should be, since reading from storage will do an initial sort on it).</p>
+</div>
+<div class="paragraph">
+<p>We will use an example of a <code>add-e</code> command to illustrate the execution of <code>addToSorted(Exercise)</code>. Consider an instance where user inputs <code>add-e n/pushup d/12-12-2011 reps/20</code>. The sequence diagram below shows the execution flow when the <code>AddExerciseCommand</code> is executed. Details of exception thrown are omitted as this is a postive instance and for simplicity.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -690,7 +818,7 @@ and timing, wrapping each of these properties into their wrapper classes allowed
 </div>
 </div>
 <div class="paragraph">
-<p><code>AddExerciseCommand</code> checks if there is an client being viewed. For this instance, we will consider the positive case where indeed there is a client being viewed. <code>AddExerciseCommand</code> will retrieve the client being viewed from the <code>Model</code> so that details like the existing exercise list of the client can be obtained. The sequence diagram illustrates the execution flow of how the new exercise, <code>toAdd</code>, is added to the exercise list.</p>
+<p><code>AddExerciseCommand</code> checks if there is an client being viewed. For this instance, we will consider the positive case where indeed there is a client being viewed. <code>AddExerciseCommand</code> will retrieve the client being viewed from the <code>Model</code> so that details like the existing exercise list of the client can be obtained. The sequence diagram illustrates the execution flow of <code>addToSorted(Exercise)</code> to obtain details of the <code>Exercise</code> being added and exising <code>Exercise</code> in <code>UniqueExerciseList</code>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -698,7 +826,37 @@ and timing, wrapping each of these properties into their wrapper classes allowed
 </div>
 </div>
 <div class="paragraph">
-<p>The exercise list, <code>UniqueExerciseList</code>, will go through a loop and iterate through the exercises in the list. The date of each exercise will be compared with the date of the <code>toAdd</code> exercise. <code>toAdd</code> will then be added to the <code>UniqueExerciseList</code> at the index to keep the list sorted.</p>
+<p><code>UniqueExerciseList</code> loops through the exercises in the list. and calls <code>getExerciseDate()</code> and <code>getExerciseName()</code>. The <code>LocalDate</code> and exercise name in <code>String</code> type are then used for comparision. The sequence diagram below illustrates the conditional checks during the comparision.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/AddExerciseCommandSequenceDiagramPart3.png" alt="AddExerciseCommandSequenceDiagramPart3">
+</div>
+</div>
+<div class="paragraph">
+<p>The conditional checks are such that <code>UniqueExerciseList</code> maintain sorted by descending chronological order, followed by alphabetical order for exercises with the same dates.</p>
+</div>
+<div class="paragraph">
+<p>Below shows a code snippet of the conditional checks in <code>addToSorted(Exercise)</code>.</p>
+</div>
+<div class="listingblock small">
+<div class="content">
+<pre>int dateComparision = toAddDate.compareTo(currDate);
+if (dateComparision &gt; 0) {
+    break;
+} else if (dateComparision == 0) {
+    if (toAddName.compareTo(currName) &lt;= 0) {
+        break;
+    } else {
+        idx++;
+    }
+} else {
+    idx++;
+}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><code>Arrays.sort()</code> can be used to sort the exercises in <code>UniqueExerciseList</code> after every addition. However, the worse case time complexity of <code>Arrays.sort()</code> is <code>O(nlogn)</code>. This custom insertion sort will guarantee an <code>O(n)</code> time complexity to insert the new <code>Exercise</code> correctly. This is as efficient as it gets as any insertion will already incur an O(n) time complexity to first check if the internal list contains the same exercise. It is important to keep the time complexity low as clients can have many exercises.</p>
 </div>
 </div>
 </div>
@@ -709,31 +867,44 @@ and timing, wrapping each of these properties into their wrapper classes allowed
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
+<col style="width: 33.3333%;">
+<col style="width: 22.2222%;">
+<col style="width: 22.2222%;">
+<col style="width: 22.2223%;">
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Considerations</th>
-<th class="tableblock halign-left valign-top">Pros and Cons</th>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top">Store exercises with client and all clients in one JSON file (chosen)</th>
+<th class="tableblock halign-left valign-top">Store all exercises into a separate JSON file</th>
+<th class="tableblock halign-left valign-top">Store exercises with client but one JSON for each client</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Store exercises with client and all clients in one JSON file</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Pros</strong>: Much easier to link the exercises to the client during reading and storing</p>
-<p class="tableblock"><strong>Cons</strong>: Might have one large JSON file and potentially exceed the size limit of a JSON file</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Ease of retrieving / storing</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Easy to link the exercises to the client</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Hard to link the exercises to the client</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Hard to identify which JSON file is for which client</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Store all exercises into a separate JSON file</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Pros</strong>: Keep exercise data separate from client data</p>
-<p class="tableblock"><strong>Cons</strong>: Hard to link the exercises to the client during reading and storing</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Separation of data</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Does not keep client and exercise data separate</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Keep client data separate from exercise data</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Does not keep client and exercise data separate<br></p>
+<p class="tableblock">Might have too many JSON files, one for each client</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Store exercises with client but one JSON for each client</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Pros</strong>: Low chances of exceeding the size limit of a JSON file</p>
-<p class="tableblock"><strong>Cons</strong>: Might have too many JSON files for each client<br>
-Tough to identify which JSON file is for which client</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Size limit of JSON files</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">High chances of having one large JSON file and potentially exceed the size limit of a JSON file</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Low chances of exceeding the size limit of a JSON file</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Low chances of exceeding the size limit of a JSON file</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Separation of concerns</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Non-separate code for reading/storing exercises and clients data</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Separate code for reading/storing exercises and clients data</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Non-separate ode for reading/storing exercises and clients data</p></td>
 </tr>
 </tbody>
 </table>
@@ -746,13 +917,16 @@ Tough to identify which JSON file is for which client</p></td>
 </div>
 </div>
 <div class="paragraph">
-<p>We want to keep the implementation reading and storing of data simple. The first approach is  the most simple. When reading the data, it removes the need to associate the exercises to the client. A client might potentially have a large amount of exercises, resulting in the reading process to be extremely slow.</p>
+<p>We want to keep the implementation of reading and storing of data simple. The first approach is the most simple. When reading the data, it removes the need to associate the exercises to the client. A client might potentially have a large amount of exercises, resulting in the reading process to be extremely slow. Therefore, a bad user experience.</p>
 </div>
 <div class="paragraph">
 <p>Moreover, storing the exercise data from client data does not provide any performance benefits. Due to time constraints, we decided that the application should store all the data everytime it closes. This is regardless if the particular exercise or client data has been changed. Having to keep track of which data is edited and only overwrite those data would greatly increase the complexity of the application. Therefore, keeping exercises data separate from client data would be unnecessary and provide little additional functionality/benefits to the user.</p>
 </div>
 <div class="paragraph">
-<p>Lastly, we foresee that it is improbable for the data size of both clients and exercises to exceed the maximum size limit of a JSON file. With the target user in mind, it is unlikely that he will have an enormous amount of clients as he will have to cater time for each of them. Even though each client might have many exercises, the information of each exercise is relatively small. For now, collectively, the client and exercise data is unlikely to exceed the JSON size limit. We might consider to have multiple JSON files if the data size gets too big in future versions.</p>
+<p>Lastly, we foresee that it is improbable for the data size of both clients and exercises to exceed the maximum size limit of a JSON file. With the target user in mind, it is unlikely that he will have an enormous amount of clients. The application is meant to be used by a single user and not an organisation. Even though each client might have many exercises, the information of each exercise is relatively small. For now, collectively, the client and exercise data is unlikely to exceed the JSON size limit. We might consider to have multiple JSON files if the data size gets too big in future versions.</p>
+</div>
+<div class="paragraph">
+<p>Indeed, <code>JsonAdaptedClient</code> having a list of <code>JsonAdaptedExercise</code> would violate separation of concerns. <code>JsonAdaptedClient</code> is now in charge of the client&#8217;s information and the exercises. However, we felt that the benefits outweighted the costs and proceeded with the first choice.</p>
 </div>
 </div>
 </div>
@@ -2121,4 +2295,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 12:16:30 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 12:17:53 UTC</div></div></div></body></html>
