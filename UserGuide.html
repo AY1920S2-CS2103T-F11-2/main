@@ -23,7 +23,7 @@
 <li><a href="#view-help-code-help-code">3.1. View help: <code>help</code></a></li>
 <li><a href="#list-all-clients-code-list-c-code">3.2. List all clients: <code>list-c</code></a></li>
 <li><a href="#find-clients-by-name-code-find-c-code-yong-jie">3.3. Find clients by name: <code>find-c</code> --- Yong Jie</a></li>
-<li><a href="#add-a-new-client-profile-code-add-c-code">3.4. Add a new client profile: <code>add-c</code></a></li>
+<li><a href="#add-a-new-client-profile-code-add-c-code-toh-ker-wei">3.4. Add a new client profile: <code>add-c</code> --- Toh Ker Wei</a></li>
 <li><a href="#edit-a-client-s-profile-code-edit-c-code">3.5. Edit a client’s profile: <code>edit-c</code></a></li>
 <li><a href="#delete-a-client-code-delete-c-code">3.6. Delete a client: <code>delete-c</code></a></li>
 <li><a href="#view-c-command">3.7. View a client profile: <code>view-c</code></a></li>
@@ -32,7 +32,7 @@
 <li><a href="#delete-a-client-s-exercise-code-delete-e-code">3.10. Delete a client&#8217;s exercise: <code>delete-e</code></a></li>
 <li><a href="#schedule-trainings-for-a-client-code-schedule-code">3.11. Schedule trainings for a client: <code>schedule</code></a></li>
 <li><a href="#export-as-csv-code-export-code">3.12. Export as CSV: <code>export</code></a></li>
-<li><a href="#filter-clients-based-on-attribute-code-filter-c-code-coming-in-v1-4">3.13. Filter clients based on attribute: <code>filter-c</code> [Coming in v1.4]</a></li>
+<li><a href="#filter-clients-based-on-attribute-code-filter-c-code-toh-ker-wei">3.13. Filter clients based on attribute: <code>filter-c</code> --- Toh Ker Wei</a></li>
 <li><a href="#display-visualisations-of-training-progress-code-graph-code-coming-in-v1-4">3.14. Display visualisations of training progress: <code>graph</code> [Coming in v1.4]</a></li>
 <li><a href="#view-schedule-for-the-day-week-code-view-s-code-coming-in-v2-0">3.15. View schedule for the day/week: <code>view-s</code> [Coming in v2.0]</a></li>
 </ul>
@@ -553,55 +553,227 @@ You want to find the client named "Bryan Low" in <strong>Client List</strong>.</
 </div>
 </div>
 <div class="sect2">
-<h3 id="add-a-new-client-profile-code-add-c-code"><a class="link" href="#add-a-new-client-profile-code-add-c-code">3.4. Add a new client profile: <code>add-c</code></a></h3>
+<h3 id="add-a-new-client-profile-code-add-c-code-toh-ker-wei"><a class="link" href="#add-a-new-client-profile-code-add-c-code-toh-ker-wei">3.4. Add a new client profile: <code>add-c</code> --- Toh Ker Wei</a></h3>
 <div class="paragraph">
-<p>Initialises and adds a new client profile.</p>
+<p>After setting up the program, the first thing you might want to do is to add your client to FitBiz. You can do so by using the <code>add-c</code> command, followed by the details of your client.</p>
 </div>
+<div class="sect3">
+<h4 id="format"><a class="link" href="#format">3.4.1. Format</a></h4>
 <div class="paragraph">
-<p>Format: <code>add-c n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [g/GENDER] [h/HEIGHT] [cw/CURRENT_WEIGHT] [tw/TARGET_WEIGHT] [r/REMARK] [s/SPORT]… [t/TAG]…</code></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>n/NAME</code> is case insensitive. e.g <code>hans</code> will match <code>Hans</code></p>
-</li>
-<li>
-<p>The order of words will matter. e.g <code>Hans Ong</code> will not match <code>Ong Hans</code></p>
-</li>
-<li>
-<p>Only exact match will be shown. e.g. <code>Hans</code> will not match <code>Hans Ong</code></p>
-</li>
-<li>
-<p>A client can have any number of tags (including 0)</p>
-</li>
-</ul>
+<p>This section summarises the format and important information to note while using the <code>add-c</code> command.</p>
 </div>
 <div class="paragraph">
-<p>Examples:</p>
+<p>Format: <code>add-c n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [g/GENDER] [b/BIRTHDAY] [h/HEIGHT] [cw/CURRENT_WEIGHT] [tw/TARGET_WEIGHT] [r/REMARK] [s/SPORT]… [t/TAG]…</code></p>
 </div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 15%;">
+<col style="width: 85%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter</th>
+<th class="tableblock halign-left valign-top">Important notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">n/NAME</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>NAME</code> is the name of the client you want to add and is compulsory.<br></p>
+<p class="tableblock"><code>NAME</code> is case insensitive.<br>
+e.g <code>ray</code> will match <code>Ray</code><br></p>
+<p class="tableblock">The order of the <code>NAME</code> matters.<br>
+e.g <code>Hanson Ong</code> is not the same as <code>Ong Hanson</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">p/PHONE_NUMBER</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>PHONE_NUMBER</code> is the phone number of the client you want to add and is compulsory.<br></p>
+<p class="tableblock"><code>PHONE_NUMBER</code> must be longer than 2 digits and contain numbers only.<br>
+e.g. <code>94325321</code> or <code>933</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">e/EMAIL</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>EMAIL</code> is the email of the client you want to add and is compulsory.<br></p>
+<p class="tableblock"><code>EMAIL</code> should be in the format local-part@domain. Local-part and domain can be any value.<br>
+e.g. <code>rachelt@kmail.com</code> or <code>123@123.com</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">a/ADDRESS</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ADDRESS</code> is the address of the client you want to add and is compulsory.<br></p>
+<p class="tableblock"><code>ADDRESS</code> can be any value.<br>
+e.g. <code>Maple Ave 123 - greenland sunshine&#8217;s valley</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[g/GENDER]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>GENDER</code> is gender of the client you want to add and is optional.<br></p>
+<p class="tableblock"><code>GENDER</code> is case insensitive and the following values are accepted:<br>
+<code>male</code> or <code>m</code> for male<br>
+<code>female</code> or <code>f</code> for female<br>
+<code>others</code> or <code>o</code> for others</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[b/BIRTHDAY]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>BIRTHDAY</code> is the birthday of the client you want to add and is optional.<br></p>
+<p class="tableblock"><code>BIRTHDAY</code> should be in the format DD-MM-YYYY and must be before today&#8217;s date and after 11th April 1900.<br>
+e.g. <code>12-12-2019</code> or <code>04-04-1901</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[h/HEIGHT]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>HEIGHT</code> is the height of the client you want to add and is optional.<br></p>
+<p class="tableblock"><code>HEIGHT</code> is in cm.<br></p>
+<p class="tableblock"><code>HEIGHT</code> must be non-negative and can either be a whole number with maximum 3 digits or a decimal with maximum of 2 decimal places.<br>
+e.g. <code>164</code> or <code>180.12</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[cw/CURRENT_WEIGHT]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>CURRENT_WEIGHT</code> is the current weight of the client you want to add and is optional.<br></p>
+<p class="tableblock"><code>CURRENT_WEIGHT</code> is in kg.<br></p>
+<p class="tableblock"><code>CURRENT_WEIGHT</code> must be non-negative and can either be a whole number with maximum 3 digits or a decimal with maximum of 2 decimal places.<br>
+e.g. <code>75</code> or <code>60.50</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[tw/TARGET_WEIGHT]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>TARGET_WEIGHT</code> is the is the target weight of the client you want to add and is optioanl.<br></p>
+<p class="tableblock"><code>TARGER_WEIGHT</code> is in kg.<br></p>
+<p class="tableblock"><code>TARGET_WEIGHT</code> must be non-negative. It can either be a whole number with maximum 3 digits or a decimal with maximum of 2 decimal places.<br>
+e.g. <code>50</code> or <code>69.69</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[r/REMARK]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>REMARK</code> is the remarks of the client you want to add and is optional.<br></p>
+<p class="tableblock"><code>REMARK</code> can be any value.<br>
+e.g. <code>Need to eat 2800kcal everyday</code> or <code>severely overweight</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[s/SPORT]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>SPORT</code> is the sports participated by the client you want to add and is optional.<br></p>
+<p class="tableblock"><code>SPORT</code> should contain letters, numbers or spaces only.<br>
+e.g. <code>Ultimate frisbee</code> or <code>sumo wrestler</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[t/TAG]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>TAG</code> is the tag given to the client you want to add and is optional.<br>
+<code>TAG</code> should contain letters or numbers only.
+e.g. <code>healthy</code> or <code>doing well</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="example-2"><a class="link" href="#example-2">3.4.2. Example</a></h4>
+<div class="paragraph">
+<p>Lets say you want to add a new client with the following details:<br>
+Name: Amanda Low<br>
+Phone number: 95436543<br>
+Email: <a href="mailto:AmandaLow@dmail.com">AmandaLow@dmail.com</a><br>
+Address: West Coast Grove 69<br>
+Birthday: 5 April 1990<br>
+Sport: Swimmer<br>
+Tag: Vegetarian</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type the command below into the command box.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>add-c n/Ming Liang p/98765432 e/johnd@example.com a/John street, block 123, #01-01</code></p>
-<div class="ulist">
-<ul>
-<li>
-<p>Adds a new client: Ming Liang with the above information</p>
+<p><code>add-c n/Amanda Low p/95436543 e/AmandaLow@dmail.com a/West Coast Grove 69 s/Swimmer t/Vegetarian</code></p>
+<div class="imageblock">
+<div class="content">
+<img src="images/AddExampleCommand.png" alt="AddExampleCommand">
+</div>
+</div>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><code>add-c n/Low Tah Kiow, John t/powerlifter e/betsycrowe@example.com a/some street p/1234567 t/strongman</code></p>
-<div class="ulist">
-<ul>
-<li>
-<p>Adds a new client: Low Tah Kiow, John with the above information</p>
+<p>Press enter to execute.</p>
 </li>
-</ul>
+<li>
+<p>After Amanda has been successfully added to the clients list, the result will be displayed as shown.</p>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/AddExampleSuccess.png" alt="AddExampleSuccess">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="common-errors-problems-2"><a class="link" href="#common-errors-problems-2">3.4.3. Common errors/ problems:</a></h4>
+<div class="paragraph">
+<p>If you are facing errors or difficulty adding a client, you can refer to the common errors and problems listed below and resolve your error using the solution given.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Compulsory fields missing</strong></p>
+<div class="paragraph">
+<p>If you are adding a client and miss out any of the compulsory parameters. You will not be able to add the client.</p>
+</div>
+<div class="paragraph">
+<p>For example, when you want to add a <code>Rachel Tan</code> into FitBiz but did not include the compulsory field <code>a/ADDRESS</code></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/AddNoAddress.png" alt="AddNoAddress">
+</div>
+</div>
+<div class="paragraph">
+<p>Afterpressing enter, the following error message will be shown.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/AddNoAddressError.png" alt="AddNoAddressError">
+</div>
+</div>
+<div class="paragraph">
+<p>To solve this error, ensure that all compulsory parameters are included when adding a client. The compulsory parameters include: <code>n/NAME</code>, <code>p/PHONE</code>, <code>e/EMAIl</code> and <code>a/ADDRESS</code>. To continue with the same example, the command will now include Rachel&#8217;s address.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/AddWithAddressCommand.png" alt="AddWithAddressCommand">
+</div>
+</div>
+<div class="paragraph">
+<p>The result of successfully adding Rachel will show the following</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/AddAddressSuccess.png" alt="AddAddressSuccess">
+</div>
 </div>
 </li>
-</ul>
+<li>
+<p><strong>Adding clients with the same phone number or email</strong></p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>In FitBiz, you cannot add 2 clients with the either same phone number or email.</p>
+</div>
+<div class="paragraph">
+<p>For example, you have client with the email <code>RachelTan@dmail.com</code> and you want to add another client with the same email.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/AddSameEmailCommand.png" alt="AddSameEmailCommand">
+</div>
+</div>
+<div class="paragraph">
+<p>The following error message will be shown.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/AddSameEmailError.png" alt="AddSameEmailError">
+</div>
+</div>
+<div class="paragraph">
+<p>To solve this issue, ensure that any new client you add does not have the same phone number or email as existing client.</p>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -792,7 +964,7 @@ e.g. An exercise named <code>pushup</code> will be considered to have a differen
 </table>
 </div>
 <div class="sect3">
-<h4 id="example-2"><a class="link" href="#example-2">3.8.2. Example</a></h4>
+<h4 id="example-3"><a class="link" href="#example-3">3.8.2. Example</a></h4>
 <div class="paragraph">
 <p>Let&#8217;s say that you want to add an exercise with the following details:<br></p>
 </div>
@@ -857,7 +1029,7 @@ The sets of the exercise after <code>sets/</code><br></p></td>
 </div>
 </div>
 <div class="sect3">
-<h4 id="common-errors-problems-2"><a class="link" href="#common-errors-problems-2">3.8.3. Common errors / problems</a></h4>
+<h4 id="common-errors-problems-3"><a class="link" href="#common-errors-problems-3">3.8.3. Common errors / problems</a></h4>
 <div class="paragraph">
 <p>You might face some errors or difficulties when you use <code>add-e</code>. In this section, you will be able to understand these errors and resolve them.</p>
 </div>
@@ -962,7 +1134,7 @@ e.g. An exercise named <code>pushup</code> will be considered to have a differen
 </table>
 </div>
 <div class="sect3">
-<h4 id="example-3"><a class="link" href="#example-3">3.9.2. Example</a></h4>
+<h4 id="example-4"><a class="link" href="#example-4">3.9.2. Example</a></h4>
 <div class="paragraph">
 <p>Let&#8217;s say that you want to edit an exercise done by the client you are currently viewing. The exercise that you want to edit is the one highlighted in the photo below.</p>
 </div>
@@ -1007,7 +1179,7 @@ The weight of the exercise after <code>ew/</code><br></p></td>
 </div>
 </div>
 <div class="sect3">
-<h4 id="common-errors-problems-3"><a class="link" href="#common-errors-problems-3">3.9.3. Common errors / problems</a></h4>
+<h4 id="common-errors-problems-4"><a class="link" href="#common-errors-problems-4">3.9.3. Common errors / problems</a></h4>
 <div class="paragraph">
 <p>You might face some errors or difficulties when you use <code>edit-e</code>. In this section, you will be able to understand these errors and resolve them.</p>
 </div>
@@ -1101,7 +1273,7 @@ Deleting an exercise from FitBiz is permanent and <strong>cannot be undone</stro
 </table>
 </div>
 <div class="sect3">
-<h4 id="example-4"><a class="link" href="#example-4">3.10.2. Example</a></h4>
+<h4 id="example-5"><a class="link" href="#example-5">3.10.2. Example</a></h4>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -1132,7 +1304,7 @@ Deleting an exercise from FitBiz is permanent and <strong>cannot be undone</stro
 </div>
 </div>
 <div class="sect3">
-<h4 id="common-errors-problems-4"><a class="link" href="#common-errors-problems-4">3.10.3. Common errors/problems</a></h4>
+<h4 id="common-errors-problems-5"><a class="link" href="#common-errors-problems-5">3.10.3. Common errors/problems</a></h4>
 <div class="paragraph">
 <p>If you find that you are unable to execute this command successfully, there are a few things you can check:</p>
 </div>
@@ -1235,7 +1407,7 @@ This command can only be used when you have a client in view; make sure you know
 </div>
 </div>
 <div class="sect3">
-<h4 id="example-5"><a class="link" href="#example-5">3.12.2. Example</a></h4>
+<h4 id="example-6"><a class="link" href="#example-6">3.12.2. Example</a></h4>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -1277,7 +1449,7 @@ This command can only be used when you have a client in view; make sure you know
 </div>
 </div>
 <div class="sect3">
-<h4 id="common-errors-problems-5"><a class="link" href="#common-errors-problems-5">3.12.3. Common errors/problems</a></h4>
+<h4 id="common-errors-problems-6"><a class="link" href="#common-errors-problems-6">3.12.3. Common errors/problems</a></h4>
 <div class="paragraph">
 <p>If you find that you are unable to execute this command successfully, there are a few things you can check:</p>
 </div>
@@ -1294,45 +1466,117 @@ This command can only be used when you have a client in view; make sure you know
 </div>
 </div>
 <div class="sect2">
-<h3 id="filter-clients-based-on-attribute-code-filter-c-code-coming-in-v1-4"><a class="link" href="#filter-clients-based-on-attribute-code-filter-c-code-coming-in-v1-4">3.13. Filter clients based on attribute: <code>filter-c</code> [Coming in v1.4]</a></h3>
+<h3 id="filter-clients-based-on-attribute-code-filter-c-code-toh-ker-wei"><a class="link" href="#filter-clients-based-on-attribute-code-filter-c-code-toh-ker-wei">3.13. Filter clients based on attribute: <code>filter-c</code> --- Toh Ker Wei</a></h3>
 <div class="paragraph">
-<p>Filters the client list by the specified keyword(s) that matches the name or any attributes the client has.</p>
+<p>When you have many clients and want to filter the list of clients to view a specific group, you can use the command <code>filter-c</code> to filter clients based on their tags or their sports.</p>
+</div>
+<div class="sect3">
+<h4 id="format-2"><a class="link" href="#format-2">3.13.1. Format</a></h4>
+<div class="paragraph">
+<p>Format: `filter-c [t/TAG]&#8230;&#8203; [s/SPORT]&#8230;&#8203;</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 15%;">
+<col style="width: 85%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter</th>
+<th class="tableblock halign-left valign-top">Important notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>t/TAG</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>TAG</code> is the tag of the clients you want to match and list.<br></p>
+<p class="tableblock"><code>TAG</code> is case-insensitive.<br>
+e.g. <code>healthy</code> will match <code>Healthy</code></p>
+<p class="tableblock"><code>TAG</code> should only contain letters or numbers.<br>
+e.g. <code>monday</code> or <code>obese200kg</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>s/SPORT</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>SPORT</code> is the sport of the clients you want to match and list.<br></p>
+<p class="tableblock"><code>SPORT</code> is case-insensitive.<br>
+e.g.  <code>track and field</code> returns the same result as <code>Track And Field</code></p>
+<p class="tableblock"><code>SPORT</code> should only contain letters, numbers or spaces.
+e.g. <code>sumo wrestling</code> or <code>100m sprint</code></p>
+<p class="tableblock">Order of words in <code>SPORT</code> does not matter
+e.g. <code>track and field</code> returns the same result as <code>field and track</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="example-7"><a class="link" href="#example-7">3.13.2. Example</a></h4>
+<div class="paragraph">
+<p>Let&#8217;s say you want to filter through your list of clients and only display those with the tag <code>healthy</code> and play the sport <code>badminton</code>.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type the command <code>filter-c t/healthy s/badminton</code> into the command box.</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/FilterExampleCommand.png" alt="FilterExampleCommand">
+</div>
+</div>
+</li>
+<li>
+<p>Press enter to execute.</p>
+</li>
+<li>
+<p>The clients with the matching tag and sport will be displayed as shown.</p>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/FilterExampleSuccess.png" alt="FilterExampleSuccess">
+</div>
 </div>
 <div class="paragraph">
-<p>Format: <code>filter-c KEYWORD [MORE_KEYWORDS]</code></p>
+<p>/ photo of listed clients</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>The search is case insensitive. e.g <code>push ups</code> will match <code>Push Ups</code></p>
-</li>
-<li>
-<p>The order of the keywords does not matter (e.g. <code>Push Pull</code> will match <code>Pull Push</code>)</p>
-</li>
-<li>
-<p>Only full words will be matched e.g. <code>Push</code> will not match <code>Push Pull</code></p>
-</li>
-<li>
-<p>Clients matching at least one keyword will be returned (i.e. <code>OR</code> search). e.g. <code>Hans Bo</code> will return <code>Hans Gruber, Bo Yang</code></p>
-</li>
-</ul>
+</div>
+<div class="sect3">
+<h4 id="common-error-problem"><a class="link" href="#common-error-problem">3.13.3. Common error/ problem</a></h4>
+<div class="paragraph">
+<p><strong>Tags with spaces</strong></p>
 </div>
 <div class="paragraph">
-<p>Examples:</p>
+<p>When you want to filter the clients list with multiple tags like <code>healthy</code> and <code>sporty</code>, you might enter the command shown below.</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>filter-c Johnny</code></p>
-<div class="ulist">
-<ul>
-<li>
-<p>Returns a client list of <code>Johnny Tim</code> and <code>johnny</code></p>
-</li>
-</ul>
+<div class="imageblock">
+<div class="content">
+<img src="images/FilterTagCommand.png" alt="FilterTagCommand">
 </div>
-</li>
-</ul>
+</div>
+<div class="paragraph">
+<p>You will then encounter the error <code>Tags names should be alphanumeric</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/FilterTagError.png" alt="FilterTagError">
+</div>
+</div>
+<div class="paragraph">
+<p>This error occurs because <code>TAG</code> only accepts letters and numbers but not spaces. To solve the problem, add an additional delimiter for each tag you want to specify. Note that sports does not require multiple delimiter.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/FilterTagCorrectCommand.png" alt="FilterTagCorrectCommand">
+</div>
+</div>
+<div class="paragraph">
+<p>The list of successfully filter clients will then be displayed.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/FilterTagSuccess.png" alt="FilterTagSuccess">
+</div>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -1490,16 +1734,16 @@ This command can only be used when you have a client in view; make sure you know
 <td class="tableblock halign-left valign-top"><p class="tableblock">Edits an existing client.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>filter-c KEYWORD [MORE_KEYWORDS]</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Filters a client based on specified keywords.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>filter-c [t/TAG]&#8230;&#8203; [s/Sport]&#8230;&#8203;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Filters the list of clients based on specified tags or sports.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>list-c</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Shows the list of clients in FitBiz.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Displays the list of clients in FitBiz.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>view-c INDEX</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Shows detailed information of a client.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Displays detailed information of a client.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>schedule INDEX [day/DAY] [st/STARTTIME] [et/ENDTIME]</code></p></td>
@@ -1538,4 +1782,4 @@ This command can only be used when you have a client in view; make sure you know
 </table>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 13:22:14 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 13:22:59 UTC</div></div></div></body></html>
