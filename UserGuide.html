@@ -21,17 +21,19 @@
 <ul class="sectlevel2">
 <li><a href="#view-help-code-help-code">3.1. View help: <code>help</code></a></li>
 <li><a href="#list-all-clients-code-list-c-code">3.2. List all clients: <code>list-c</code></a></li>
-<li><a href="#add-a-new-client-profile-code-add-c-code">3.3. Add a new client profile: <code>add-c</code></a></li>
-<li><a href="#edit-a-client-s-profile-code-edit-c-code">3.4. Edit a client’s profile: <code>edit-c</code></a></li>
-<li><a href="#delete-a-client-code-delete-c-code">3.5. Delete a client: <code>delete-c</code></a></li>
-<li><a href="#view-a-client-profile-code-view-c-code">3.6. View a client profile: <code>view-c</code></a></li>
-<li><a href="#add-a-client-s-exercise-code-add-e-code">3.7. Add a client&#8217;s exercise: <code>add-e</code></a></li>
-<li><a href="#delete-a-client-s-exercise-code-delete-e-code">3.8. Delete a client&#8217;s exercise: <code>delete-e</code></a></li>
-<li><a href="#schedule-trainings-for-a-client-code-schedule-code">3.9. Schedule trainings for a client: <code>schedule</code></a></li>
-<li><a href="#export-as-csv-code-export-code-coming-in-v1-4">3.10. Export as CSV: <code>export</code> [Coming in v1.4]</a></li>
-<li><a href="#filter-clients-based-on-attribute-code-filter-c-code-coming-in-v1-4">3.11. Filter clients based on attribute: <code>filter-c</code> [Coming in v1.4]</a></li>
-<li><a href="#display-visualisations-of-training-progress-code-graph-code-coming-in-v1-4">3.12. Display visualisations of training progress: <code>graph</code> [Coming in v1.4]</a></li>
-<li><a href="#view-schedule-for-the-day-week-code-view-s-code-coming-in-v2-0">3.13. View schedule for the day/week: <code>view-s</code> [Coming in v2.0]</a></li>
+<li><a href="#find-clients-by-name-code-find-c-code-yong-jie">3.3. Find clients by name: <code>find-c</code> --- Yong Jie</a></li>
+<li><a href="#add-a-new-client-profile-code-add-c-code">3.4. Add a new client profile: <code>add-c</code></a></li>
+<li><a href="#edit-a-client-s-profile-code-edit-c-code">3.5. Edit a client’s profile: <code>edit-c</code></a></li>
+<li><a href="#delete-a-client-code-delete-c-code">3.6. Delete a client: <code>delete-c</code></a></li>
+<li><a href="#view-a-client-profile-code-view-c-code">3.7. View a client profile: <code>view-c</code></a></li>
+<li><a href="#add-a-client-s-exercise-code-add-e-code-yongjie">3.8. Add a client&#8217;s exercise: <code>add-e</code>  --- YongJie</a></li>
+<li><a href="#edit-a-client-s-exercise-code-edit-e-code-yongjie">3.9. Edit a client&#8217;s exercise: <code>edit-e</code> --- YongJie</a></li>
+<li><a href="#delete-a-client-s-exercise-code-delete-e-code">3.10. Delete a client&#8217;s exercise: <code>delete-e</code></a></li>
+<li><a href="#schedule-trainings-for-a-client-code-schedule-code">3.11. Schedule trainings for a client: <code>schedule</code></a></li>
+<li><a href="#export-as-csv-code-export-code-coming-in-v1-4">3.12. Export as CSV: <code>export</code> [Coming in v1.4]</a></li>
+<li><a href="#filter-clients-based-on-attribute-code-filter-c-code-coming-in-v1-4">3.13. Filter clients based on attribute: <code>filter-c</code> [Coming in v1.4]</a></li>
+<li><a href="#display-visualisations-of-training-progress-code-graph-code-coming-in-v1-4">3.14. Display visualisations of training progress: <code>graph</code> [Coming in v1.4]</a></li>
+<li><a href="#view-schedule-for-the-day-week-code-view-s-code-coming-in-v2-0">3.15. View schedule for the day/week: <code>view-s</code> [Coming in v2.0]</a></li>
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
@@ -242,7 +244,150 @@ Lists all available commands and a short description of what they do. Specify th
 </div>
 </div>
 <div class="sect2">
-<h3 id="add-a-new-client-profile-code-add-c-code"><a class="link" href="#add-a-new-client-profile-code-add-c-code">3.3. Add a new client profile: <code>add-c</code></a></h3>
+<h3 id="find-clients-by-name-code-find-c-code-yong-jie"><a class="link" href="#find-clients-by-name-code-find-c-code-yong-jie">3.3. Find clients by name: <code>find-c</code> --- Yong Jie</a></h3>
+<div class="paragraph">
+<p><code>find-c</code> allows you to find clients with the names that are specified in your input. You might have many clients and finding a particular client by scrolling through the entire <strong>Client List</strong> might be troublesome and difficult. <code>find-c</code> is the command for you.</p>
+</div>
+<div class="sect3">
+<h4 id="parameters"><a class="link" href="#parameters">3.3.1. Parameters</a></h4>
+<div class="paragraph">
+<p>This section acts as a summary of the important things to note when using <code>find-c</code> including their parameters.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>find-c NAME</code></p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 15%;">
+<col style="width: 85%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameters</th>
+<th class="tableblock halign-left valign-top">Important points to note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NAME</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">* Substitute <code>NAME</code> with keywords you want to search with<br></p>
+<p class="tableblock">* You can use multiple keywords for <code>NAME</code>.<br>
+e.g. You can enter <code>find-c bryan low</code>.</p>
+<p class="tableblock">* The <code>NAME</code> keywords are case insensitive.<br>
+e.g. Typing <code>find-c hans</code> will show clients even with the name <code>Hans</code>.<br>
+For a better understanding, you can refer to the example section .</p>
+<p class="tableblock">* The keywords used for <code>NAME</code> have to match at least one word in the name of the clients.<br>
+e.g. Typing <code>find-c Bry</code> will not show clients with the name <code>Bryan</code>.<br>
+For a detailed explanation, you can refer to the commons errors / problems section.</p>
+<p class="tableblock">* Clients matching at least one <code>NAME</code> keyword will be returned and does not require all the words in their name to match.<br>
+e.g. Typing <code>find-c Hans Bo</code> will show clients <code>Hans Gruber</code> and <code>Bo Yang</code> and not necessarily just client <code>Hans Bo</code>.<br>
+For a detailed explanation, you can refer to the commons errors / problems section.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="example"><a class="link" href="#example">3.3.2. Example</a></h4>
+<div class="paragraph">
+<p>Let&#8217;s say that you want to find a client named "Bryan Low" in <strong>Client List</strong>. You can simply use the <code>find-c</code> command as shown.</p>
+</div>
+<div class="paragraph">
+<p>1.Type <code>find-c bryan</code> into <strong>Command Box</strong>, and press <code>Enter</code> to execute it.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ug-findcExamplePart1.png" alt="ug findcExamplePart1">
+</div>
+</div>
+<div class="paragraph">
+<p>2.<strong>Result Box</strong> will display the message of the number of clients listed. In this case, there are 2 clients with "bryan" in their name.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ug-findcExamplePart2.png" alt="ug findcExamplePart2">
+</div>
+</div>
+<div class="paragraph">
+<p>3.You can now see the clients with "bryan" in their names. As you can see, the name you use to search does not need to be case-senstive. The client that we are looking for "Bryan Low" is in <strong>Client List</strong>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ug-findcExamplePart3.png" alt="ug findcExamplePart3">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="common-errors-problems"><a class="link" href="#common-errors-problems">3.3.3. Common errors / problems</a></h4>
+<div class="paragraph">
+<p>You might face some errors or difficulties when you <code>find-c</code>. In this section, you will be able to understand these errors and resolve them. You will also get a better understanding of the reply from the result box when using <code>find-c</code>.</p>
+</div>
+<div class="sect4">
+<h5 id="using-incomplete-names"><a class="link" href="#using-incomplete-names">Using incomplete names</a></h5>
+<div class="paragraph">
+<p>You might wonder why <code>find-c</code> do not show the clients even though the client is clearly in your client list records. It might be possible that you have entered an incomplete name and does not match any word in the name of that client. The example below might help you understand better.</p>
+</div>
+<div class="paragraph">
+<p>Example:
+You want to find the client named "Bryan Low" in <strong>Client List</strong>. Below shows that "Bryan Low" indeed exists and is recorded.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ug-findcIncompleteNamePart1.png" alt="ug findcIncompleteNamePart1">
+</div>
+</div>
+<div class="paragraph">
+<p>Type <code>find-c bry</code> into <strong>Command Box</strong>, and press <code>Enter</code> to execute it.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ug-findcIncompleteNamePart2.png" alt="ug findcIncompleteNamePart2">
+</div>
+</div>
+<div class="paragraph">
+<p>You will obtain "0 clients listed!" in <strong>Result Box</strong>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ug-findcIncompleteNamePart3.png" alt="ug findcIncompleteNamePart3">
+</div>
+</div>
+<div class="paragraph">
+<p>This is because the name that you have entered is incomplete and does not match any word in the name of any of the clients. To correct this, you have to enter <code>find-c bryan</code> as seen in the example.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="using-multiple-keywords-for-code-name-code"><a class="link" href="#using-multiple-keywords-for-code-name-code">Using multiple keywords for <code>NAME</code></a></h5>
+<div class="paragraph">
+<p>You might wonder why the application shows more clients than you intended. It might be possible that you have misunderstood how the <code>NAME</code> parameter gets the client you are finding. The application will show clients as long as one of the words of the client match a keyword you use for name. The example below might help you understand better.</p>
+</div>
+<div class="paragraph">
+<p>Example:
+You want to find the client named "Bryan Low" in <strong>Client List</strong>.</p>
+</div>
+<div class="paragraph">
+<p>Type <code>find-c bryan low</code> in to <strong>Command Box</strong>, and press <code>Enter</code> to execute it.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ug-findcMultiplePart1.png" alt="ug findcMultiplePart1">
+</div>
+</div>
+<div class="paragraph">
+<p>You will obtain clients which have <code>bryan</code> in their name or <code>low</code> in the name. In the case below, there are 3 clients. <code>Bryan Low</code>, <code>Bryan Tan</code> and <code>Alice Low</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ug-findcMultiplePart2.png" alt="ug findcMultiplePart2">
+</div>
+</div>
+<div class="paragraph">
+<p>You can try to enter keywords for <code>NAME</code> that are more specific to the client you are looking for. This will help to keep your search more scoped.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="add-a-new-client-profile-code-add-c-code"><a class="link" href="#add-a-new-client-profile-code-add-c-code">3.4. Add a new client profile: <code>add-c</code></a></h3>
 <div class="paragraph">
 <p>Initialises and adds a new client profile.</p>
 </div>
@@ -294,7 +439,7 @@ Lists all available commands and a short description of what they do. Specify th
 </div>
 </div>
 <div class="sect2">
-<h3 id="edit-a-client-s-profile-code-edit-c-code"><a class="link" href="#edit-a-client-s-profile-code-edit-c-code">3.4. Edit a client’s profile: <code>edit-c</code></a></h3>
+<h3 id="edit-a-client-s-profile-code-edit-c-code"><a class="link" href="#edit-a-client-s-profile-code-edit-c-code">3.5. Edit a client’s profile: <code>edit-c</code></a></h3>
 <div class="paragraph">
 <p>Edits the client’s cliental details by specifying the attribute and the new value.</p>
 </div>
@@ -339,7 +484,7 @@ Lists all available commands and a short description of what they do. Specify th
 </div>
 </div>
 <div class="sect2">
-<h3 id="delete-a-client-code-delete-c-code"><a class="link" href="#delete-a-client-code-delete-c-code">3.5. Delete a client: <code>delete-c</code></a></h3>
+<h3 id="delete-a-client-code-delete-c-code"><a class="link" href="#delete-a-client-code-delete-c-code">3.6. Delete a client: <code>delete-c</code></a></h3>
 <div class="paragraph">
 <p>Deletes the client at the specified index from the program.</p>
 </div>
@@ -375,7 +520,7 @@ Lists all available commands and a short description of what they do. Specify th
 </div>
 </div>
 <div class="sect2">
-<h3 id="view-a-client-profile-code-view-c-code"><a class="link" href="#view-a-client-profile-code-view-c-code">3.6. View a client profile: <code>view-c</code></a></h3>
+<h3 id="view-a-client-profile-code-view-c-code"><a class="link" href="#view-a-client-profile-code-view-c-code">3.7. View a client profile: <code>view-c</code></a></h3>
 <div class="paragraph">
 <p>Shows all available information of the client at the specified index. This also displays all the exercises recorded for the client as well as their personal bests for said exercises.</p>
 </div>
@@ -421,68 +566,320 @@ Lists all available commands and a short description of what they do. Specify th
 </div>
 </div>
 <div class="sect2">
-<h3 id="add-a-client-s-exercise-code-add-e-code"><a class="link" href="#add-a-client-s-exercise-code-add-e-code">3.7. Add a client&#8217;s exercise: <code>add-e</code></a></h3>
+<h3 id="add-a-client-s-exercise-code-add-e-code-yongjie"><a class="link" href="#add-a-client-s-exercise-code-add-e-code-yongjie">3.8. Add a client&#8217;s exercise: <code>add-e</code>  --- YongJie</a></h3>
 <div class="paragraph">
-<p>Adds and records an exercise to the client currently being viewed.</p>
+<p><code>add-e</code> allows you to record an exercise done by the client that you are currently viewing. You will be able to see the exercises recorded and their information in the <strong>Exercise Table</strong>.</p>
+</div>
+<div class="sect3">
+<h4 id="parameters-2"><a class="link" href="#parameters-2">3.8.1. Parameters</a></h4>
+<div class="paragraph">
+<p>This section acts as a summary of the important things to note when using <code>add-e</code> including their parameters. The square bracket shows that it is optional and your command will still execute even if you do not enter them.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>add-e n/EXERCISE_NAME d/DATE [ew/EXERCISE_WEIGHT] [reps/REPS] [sets/SETS]</code></p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>add-e</code> can only be used when a client is in view (ie. <code>view-c</code> is called first)</p>
-</li>
-<li>
-<p><code>DATE</code> must be of the form <code>DD-MM-YYYY</code> (ie. 02-07-2020 for 2nd July 2020)</p>
-</li>
-<li>
-<p><code>n/EXERCISE_NAME</code> is case sensitive. e.g <code>squats</code> will not match <code>Squats</code></p>
-</li>
-<li>
-<p>The order of words will matter. e.g <code>High Lunge</code> will not match <code>Lunge High</code></p>
-</li>
-<li>
-<p><code>[ew/EXERCISE_WEIGHT] [reps/REPS] [sets/SETS]</code> must be a positive whole integer (ie. 1, 2, 3, &#8230;&#8203;)</p>
-</li>
-</ul>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 15%;">
+<col style="width: 85%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameters</th>
+<th class="tableblock halign-left valign-top">Important points to note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">n/NAME</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">* Substitute <code>NAME</code> with the name of the exercise.<br></p>
+<p class="tableblock">* <code>n/NAME</code> is compulsory and you have to specify it.<br></p>
+<p class="tableblock">* <code>n/NAME</code> is case sensitive.<br>
+e.g. An exercise named <code>pushup</code> will be considered to have a different name as an exercise named <code>Pushup</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">d/DATE</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">* Substitute <code>DATE</code> with the date of the exercise.<br></p>
+<p class="tableblock">* <code>d/DATE</code> is compulsory and you have to specify it.<br></p>
+<p class="tableblock">* <code>DATE</code> must be of the form <code>DD-MM-YYYY</code> (ie. 02-07-2020 for 2nd July 2020)</p>
+<p class="tableblock">* The range of <code>DATE</code> is from one year before the current date to the current date (inclusive).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[reps/REPS]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">* Substitute <code>REPS</code> with the reps of the exercise.<br></p>
+<p class="tableblock">* <code>reps/REPS</code> is optional.</p>
+<p class="tableblock">* Range for <code>REPS</code> is 1-9999.<br></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[sets/SETS]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">* Substitute <code>SETS</code> with the sets of the exercise.<br></p>
+<p class="tableblock">* <code>sets/SETS</code> is optional.</p>
+<p class="tableblock">* Range for <code>SETS</code> is 1-9999.<br></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[ew/WEIGHT]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">* Substitute <code>Weight</code> with the weight of the exercise.<br></p>
+<p class="tableblock">* <code>ew/WEIGHT</code> is optional.</p>
+<p class="tableblock">* Range for <code>WEIGHT</code> is 1-9999.<br></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="example-2"><a class="link" href="#example-2">3.8.2. Example</a></h4>
+<div class="paragraph">
+<p>Let&#8217;s say that you want to add an exercise with the following details:<br></p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 50%;">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Name: Bench Press<br>
+Date: 12-02-2020<br>
+Reps: 4<br>
+Weight: 100<br>
+Sets: 4<br></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>You can use the <code>add-e</code> command to add the exercise as shown.</p>
 </div>
 <div class="paragraph">
-<p>Examples:</p>
+<p>1.View the client that you want to add the exercise to. For information on how to view the client, you can refer to the <code>view-c</code> section. For this example, we will add the exercise to the first client in the list, <code>Alex Yeoh</code>. After you entered <code>view-c 1</code>, you will see <code>Alex Yeoh</code> detailed information and a table of his recorded exercises.</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>view-c 1</code></p>
+<div class="imageblock">
+<div class="content">
+<img src="images/ug-addeExamplePart1.png" alt="ug addeExamplePart1">
+</div>
+</div>
 <div class="paragraph">
-<p><code>add-e n/Push Ups d/25-02-2020 reps/50</code></p>
+<p>2.Now type the information of the exercise, matching each detail of the exercise to the parameter. In this case, you will have to type <code>add-e n/Bench press d/12-02-2020 reps/4 ew/100 sets/4</code> into <strong>Command Box</strong>. To recap,</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>Adds an exercise called "Push Ups" with "50 reps" on 25th February 2020 to the 1st client</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><code>view-c 3</code></p>
+<table class="tableblock frame-all grid-all" style="width: 50%;">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The name of the exercise after <code>n/</code><br>
+The date of the exercise after <code>d/</code><br>
+The reps of the exercise after <code>reps/</code><br>
+The weight of the exercise after <code>ew/</code><br>
+The sets of the exercise after <code>sets/</code><br></p></td>
+</tr>
+</tbody>
+</table>
 <div class="paragraph">
-<p><code>add-e n/Bench Press d/26-02-2020 ew/120 reps/10</code></p>
+<p>Press enter to execute it.</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>Adds an exercise called "Bench Press" of weight 120kg with "10 reps" on 26th February 2020 to the 3rd client</p>
-</li>
-</ul>
+<div class="imageblock">
+<div class="content">
+<img src="images/ug-addeExamplePart2.png" alt="ug addeExamplePart2">
 </div>
-</li>
-</ul>
+</div>
+<div class="paragraph">
+<p>3.After it has been successfully entered, <strong>Result Box</strong> will display the recorded exercise. You will also be able to see the recorded exercise in the <strong>Exercise Table</strong>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ug-addeExamplePart3.png" alt="ug addeExamplePart3">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="common-errors-problems-2"><a class="link" href="#common-errors-problems-2">3.8.3. Common errors / problems</a></h4>
+<div class="paragraph">
+<p>You might face some errors or difficulties when you use <code>add-e</code>. In this section, you will be able to understand these errors and resolve them.</p>
+</div>
+<div class="sect4">
+<h5 id="duplicate-exercises"><a class="link" href="#duplicate-exercises">Duplicate exercises</a></h5>
+<div class="paragraph">
+<p>You might wonder why the application shows you a duplicate exercise error when the details of the exercises you entered are different. It is likely that only the sets differ between the two exercises. The example below might help you understand better.</p>
+</div>
+<div class="paragraph">
+<p>You might have the following exercise in <strong>Exercise Table</strong>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ug-addeDuplicatePart1.png" alt="ug addeDuplicatePart1">
+</div>
+</div>
+<div class="paragraph">
+<p>If you were to enter <code>add-e n/Bench Press d/12-02-2020 reps/4 ew/100 sets/2</code> into <strong>Command Box</strong>, the only information that is different is the number of sets.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ug-addeDuplicatePart2.png" alt="ug addeDuplicatePart2">
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Result Box</strong> will show that you have a duplicate exercise.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ug-addeDuplicatePart3.png" alt="ug addeDuplicatePart3">
+</div>
+</div>
+<div class="paragraph">
+<p>To solve this, we suggest incrementing the sets of the existing exercise by using the <code>edit-e</code> command. This will help to keep your exercises consolidated and the table compact. For information on using <code>edit-e</code>, you may want to refer to the next section <code>Edit a client&#8217;s exercise: edit-e</code>.</p>
+</div>
+</div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="delete-a-client-s-exercise-code-delete-e-code"><a class="link" href="#delete-a-client-s-exercise-code-delete-e-code">3.8. Delete a client&#8217;s exercise: <code>delete-e</code></a></h3>
+<h3 id="edit-a-client-s-exercise-code-edit-e-code-yongjie"><a class="link" href="#edit-a-client-s-exercise-code-edit-e-code-yongjie">3.9. Edit a client&#8217;s exercise: <code>edit-e</code> --- YongJie</a></h3>
+<div class="paragraph">
+<p><code>edits-e</code> allows edit an existing exercise done by the client that you are currently viewing. You will be able to see the updated exercise in <strong>Exercise Table</strong>.</p>
+</div>
+<div class="sect3">
+<h4 id="parameters-3"><a class="link" href="#parameters-3">3.9.1. Parameters</a></h4>
+<div class="paragraph">
+<p>This section acts as a summary of the important things to note when using <code>edit-e</code> including their parameters. The square bracket shows that it is optional and your command will still execute even if you do not enter them. However, at least one of them have to be specified.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>edit-e INDEX [n/EXERCISE_NAME] [d/DATE] [ew/EXERCISE_WEIGHT] [reps/REPS] [sets/SETS]</code></p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 15%;">
+<col style="width: 85%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameters</th>
+<th class="tableblock halign-left valign-top">Important points to note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">INDEX</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">* Substitute <code>INDEX</code> with the index of the exercise shown on the table.<br></p>
+<p class="tableblock">* <code>INDEX</code> is compulsory and you have to specify it.<br></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">n/NAME</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">* Substitute <code>NAME</code> with the name of the exercise.<br></p>
+<p class="tableblock">* <code>n/NAME</code> is optional.<br></p>
+<p class="tableblock">* <code>n/NAME</code> is case sensitive.<br>
+e.g. An exercise named <code>pushup</code> will be considered to have a different name as an exercise named <code>Pushup</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">d/DATE</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">* Substitute <code>DATE</code> with the date of the exercise.<br></p>
+<p class="tableblock">* <code>d/DATE</code> is optional.<br></p>
+<p class="tableblock">* <code>DATE</code> must be of the form <code>DD-MM-YYYY</code> (ie. 02-07-2020 for 2nd July 2020)<br></p>
+<p class="tableblock">* The range of <code>DATE</code> is from one year before the current date to the current date (inclusive).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[reps/REPS]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">* Substitute <code>REPS</code> with the reps of the exercise.<br></p>
+<p class="tableblock">* <code>reps/REPS</code> is optional.</p>
+<p class="tableblock">* Range for <code>REPS</code> is 1-9999.<br></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[sets/SETS]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">* Substitute <code>SETS</code> with the sets of the exercise.<br></p>
+<p class="tableblock">* <code>sets/SETS</code> is optional.</p>
+<p class="tableblock">* Range for <code>SETS</code> is 1-9999.<br></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[ew/WEIGHT]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">* Substitute <code>Weight</code> with the weight of the exercise.<br></p>
+<p class="tableblock">* <code>ew/WEIGHT</code> is optional.</p>
+<p class="tableblock">* Range for <code>WEIGHT</code> is 1-9999.<br></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="example-3"><a class="link" href="#example-3">3.9.2. Example</a></h4>
+<div class="paragraph">
+<p>Let&#8217;s say that you want to edit an exercise done by the client you are currently viewing. The exercise that you want to edit is the one highlighted in the photo below.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ug-editeExamplePart1.png" alt="ug editeExamplePart1">
+</div>
+</div>
+<div class="paragraph">
+<p>The exercise, "Bench Press", currently is 4 reps and weight of 100. However, they might be entered wrongly and you want to change the values. You can use the <code>edit-e</code> command to edit the exercise as shown.</p>
+</div>
+<div class="paragraph">
+<p>1.Identify the index of the exercise in <strong>Exercise Table</strong>. From the photo above, the index is 2. Type <code>edit-e 2 reps/8 ew/50</code> into <strong>Command Box</strong>. To recap,</p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 50%;">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The reps of the exercise after <code>reps/</code><br>
+The weight of the exercise after <code>ew/</code><br></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Press enter to execute it.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ug-editeExamplePart2.png" alt="ug editeExamplePart2">
+</div>
+</div>
+<div class="paragraph">
+<p>2.After it has been successfully entered, <strong>Result Box</strong> will display a success message that the exercise has been edited. You will also be able to see the edited exercise in <strong>Exercise Table</strong>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ug-editeExamplePart3.png" alt="ug editeExamplePart3">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="common-errors-problems-3"><a class="link" href="#common-errors-problems-3">3.9.3. Common errors / problems</a></h4>
+<div class="paragraph">
+<p>You might face some errors or difficulties when you use <code>edit-e</code>. In this section, you will be able to understand these errors and resolve them.</p>
+</div>
+<div class="sect4">
+<h5 id="duplicate-exercises-2"><a class="link" href="#duplicate-exercises-2">Duplicate exercises</a></h5>
+<div class="paragraph">
+<p>You might wonder why the application shows you a duplicate exercise error when you do not have a duplicate of the edited exercise. It is likely that only the sets differ between the two exercises. The example below might help you understand better.</p>
+</div>
+<div class="paragraph">
+<p>You might have the following exercise in <strong>Exercise Table</strong>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ug-editeDuplicatePart1.png" alt="ug editeDuplicatePart1">
+</div>
+</div>
+<div class="paragraph">
+<p>If you were to enter <code>edit-e 2 n/Bench Press d/12-02-2020 reps/4 ew/100 sets/2</code> into <strong>Command Box</strong>, the only information that is different is the number of sets.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ug-editeDuplicatePart2.png" alt="ug editeDuplicatePart2">
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Result Box</strong> will show that you have a duplicate exercise.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ug-editeDuplicatePart3.png" alt="ug editeDuplicatePart3">
+</div>
+</div>
+<div class="paragraph">
+<p>To solve this, we suggest you delete the exercise you want to edit and increment the sets of the existing exercise by using the <code>edit-e</code> command. This will help to keep your exercises consolidated and the table compact.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="delete-a-client-s-exercise-code-delete-e-code"><a class="link" href="#delete-a-client-s-exercise-code-delete-e-code">3.10. Delete a client&#8217;s exercise: <code>delete-e</code></a></h3>
 <div class="paragraph">
 <p>Deletes an existing exercise at the specified index from the exercise list of the client currently being viewed.</p>
 </div>
@@ -524,7 +921,7 @@ Lists all available commands and a short description of what they do. Specify th
 </div>
 </div>
 <div class="sect2">
-<h3 id="schedule-trainings-for-a-client-code-schedule-code"><a class="link" href="#schedule-trainings-for-a-client-code-schedule-code">3.9. Schedule trainings for a client: <code>schedule</code></a></h3>
+<h3 id="schedule-trainings-for-a-client-code-schedule-code"><a class="link" href="#schedule-trainings-for-a-client-code-schedule-code">3.11. Schedule trainings for a client: <code>schedule</code></a></h3>
 <div class="paragraph">
 <p>Assigns weekly schedule timings to a client. The schedule will be displayed on the right panel of FitBiz, with the timings as well as the client&#8217;s name. This command can assign multiple schedules to a client at once, by adding more arguments following the command.</p>
 </div>
@@ -594,7 +991,7 @@ Lists all available commands and a short description of what they do. Specify th
 </div>
 </div>
 <div class="sect2">
-<h3 id="export-as-csv-code-export-code-coming-in-v1-4"><a class="link" href="#export-as-csv-code-export-code-coming-in-v1-4">3.10. Export as CSV: <code>export</code> [Coming in v1.4]</a></h3>
+<h3 id="export-as-csv-code-export-code-coming-in-v1-4"><a class="link" href="#export-as-csv-code-export-code-coming-in-v1-4">3.12. Export as CSV: <code>export</code> [Coming in v1.4]</a></h3>
 <div class="paragraph">
 <p>Exports a client’s training record to a CSV file.</p>
 </div>
@@ -630,7 +1027,7 @@ Lists all available commands and a short description of what they do. Specify th
 </div>
 </div>
 <div class="sect2">
-<h3 id="filter-clients-based-on-attribute-code-filter-c-code-coming-in-v1-4"><a class="link" href="#filter-clients-based-on-attribute-code-filter-c-code-coming-in-v1-4">3.11. Filter clients based on attribute: <code>filter-c</code> [Coming in v1.4]</a></h3>
+<h3 id="filter-clients-based-on-attribute-code-filter-c-code-coming-in-v1-4"><a class="link" href="#filter-clients-based-on-attribute-code-filter-c-code-coming-in-v1-4">3.13. Filter clients based on attribute: <code>filter-c</code> [Coming in v1.4]</a></h3>
 <div class="paragraph">
 <p>Filters the client list by the specified keyword(s) that matches the name or any attributes the client has.</p>
 </div>
@@ -672,7 +1069,7 @@ Lists all available commands and a short description of what they do. Specify th
 </div>
 </div>
 <div class="sect2">
-<h3 id="display-visualisations-of-training-progress-code-graph-code-coming-in-v1-4"><a class="link" href="#display-visualisations-of-training-progress-code-graph-code-coming-in-v1-4">3.12. Display visualisations of training progress: <code>graph</code> [Coming in v1.4]</a></h3>
+<h3 id="display-visualisations-of-training-progress-code-graph-code-coming-in-v1-4"><a class="link" href="#display-visualisations-of-training-progress-code-graph-code-coming-in-v1-4">3.14. Display visualisations of training progress: <code>graph</code> [Coming in v1.4]</a></h3>
 <div class="paragraph">
 <p>Shows visualisations of a client’s exercise progress.</p>
 </div>
@@ -714,7 +1111,7 @@ Lists all available commands and a short description of what they do. Specify th
 </div>
 </div>
 <div class="sect2">
-<h3 id="view-schedule-for-the-day-week-code-view-s-code-coming-in-v2-0"><a class="link" href="#view-schedule-for-the-day-week-code-view-s-code-coming-in-v2-0">3.13. View schedule for the day/week: <code>view-s</code> [Coming in v2.0]</a></h3>
+<h3 id="view-schedule-for-the-day-week-code-view-s-code-coming-in-v2-0"><a class="link" href="#view-schedule-for-the-day-week-code-view-s-code-coming-in-v2-0">3.15. View schedule for the day/week: <code>view-s</code> [Coming in v2.0]</a></h3>
 <div class="paragraph">
 <p>Shows the schedule for today or the time specified.</p>
 </div>
@@ -874,4 +1271,4 @@ Lists all available commands and a short description of what they do. Specify th
 </table>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 08:56:20 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 12:15:30 UTC</div></div></div></body></html>
