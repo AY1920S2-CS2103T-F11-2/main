@@ -13,7 +13,8 @@
 <ul class="sectlevel2">
 <li><a href="#about-fitbiz">1.1. About FitBiz</a></li>
 <li><a href="#about-this-user-guide">1.2. About this User Guide</a></li>
-<li><a href="#miscellaneous-features">1.3. Miscellaneous Features</a></li>
+<li><a href="#understanding-the-graphical-user-interface-gui">1.3. Understanding the Graphical User Interface (GUI)</a></li>
+<li><a href="#understanding-the-command-line-interface-cli-aaron-choo">1.4. Understanding the Command Line Interface (CLI) --- Aaron Choo</a></li>
 </ul>
 </li>
 <li><a href="#quick-start">2. Quick Start</a></li>
@@ -25,12 +26,12 @@
 <li><a href="#add-a-new-client-profile-code-add-c-code">3.4. Add a new client profile: <code>add-c</code></a></li>
 <li><a href="#edit-a-client-s-profile-code-edit-c-code">3.5. Edit a client’s profile: <code>edit-c</code></a></li>
 <li><a href="#delete-a-client-code-delete-c-code">3.6. Delete a client: <code>delete-c</code></a></li>
-<li><a href="#view-a-client-profile-code-view-c-code">3.7. View a client profile: <code>view-c</code></a></li>
+<li><a href="#view-c-command">3.7. View a client profile: <code>view-c</code></a></li>
 <li><a href="#add-a-client-s-exercise-code-add-e-code-yongjie">3.8. Add a client&#8217;s exercise: <code>add-e</code>  --- YongJie</a></li>
 <li><a href="#edit-a-client-s-exercise-code-edit-e-code-yongjie">3.9. Edit a client&#8217;s exercise: <code>edit-e</code> --- YongJie</a></li>
 <li><a href="#delete-a-client-s-exercise-code-delete-e-code">3.10. Delete a client&#8217;s exercise: <code>delete-e</code></a></li>
 <li><a href="#schedule-trainings-for-a-client-code-schedule-code">3.11. Schedule trainings for a client: <code>schedule</code></a></li>
-<li><a href="#export-as-csv-code-export-code-coming-in-v1-4">3.12. Export as CSV: <code>export</code> [Coming in v1.4]</a></li>
+<li><a href="#export-as-csv-code-export-code">3.12. Export as CSV: <code>export</code></a></li>
 <li><a href="#filter-clients-based-on-attribute-code-filter-c-code-coming-in-v1-4">3.13. Filter clients based on attribute: <code>filter-c</code> [Coming in v1.4]</a></li>
 <li><a href="#display-visualisations-of-training-progress-code-graph-code-coming-in-v1-4">3.14. Display visualisations of training progress: <code>graph</code> [Coming in v1.4]</a></li>
 <li><a href="#view-schedule-for-the-day-week-code-view-s-code-coming-in-v2-0">3.15. View schedule for the day/week: <code>view-s</code> [Coming in v2.0]</a></li>
@@ -53,16 +54,16 @@
 <div class="sect2">
 <h3 id="about-fitbiz"><a class="link" href="#about-fitbiz">1.1. About FitBiz</a></h3>
 <div class="paragraph">
-<p>FitBiz is a business management tool tailor made for fitness coaches to manage their clients. From managing your client&#8217;s profile to planning your schedules, FitBiz will surely ease the pain and monotony of managing a small to medium client portfolio.</p>
+<p>FitBiz is a fitness business management tool tailor made for fitness coaches to manage their clients. From managing your client&#8217;s profile to planning your schedules, FitBiz will surely ease the pain and monotony of managing a small to medium client portfolio.</p>
 </div>
 <div class="paragraph">
-<p>This program is primarily a desktop application and optimised for those who prefer to work with a Command Line Interface (CLI). If you can type fast, and have clients to train and manage, FitBiz is definitely for you!</p>
+<p>This program is primarily a desktop application and is very optimised for those who prefer to work with a Command Line Interface (CLI). If you can type fast, and have clients to train and manage, FitBiz is definitely for you!</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="about-this-user-guide"><a class="link" href="#about-this-user-guide">1.2. About this User Guide</a></h3>
 <div class="paragraph">
-<p>This User Guide explains how to use the FitBiz CLI, as well as provides an understanding of the features and commands and some common use cases.</p>
+<p>This User Guide explains how to use FitBiz, as well as provides an understanding of the features and commands and some common use cases of this application.</p>
 </div>
 <div class="paragraph">
 <p>In this guide, we cover:</p>
@@ -70,28 +71,189 @@
 <div class="ulist">
 <ul>
 <li>
+<p>How to navigate the Graphical User Interface (GUI)</p>
+</li>
+<li>
 <p>Syntax of the commands available in FitBiz</p>
 </li>
 <li>
 <p>Common use cases for each command</p>
 </li>
+<li>
+<p>Common problems encountered by users</p>
+</li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="miscellaneous-features"><a class="link" href="#miscellaneous-features">1.3. Miscellaneous Features</a></h3>
+<h3 id="understanding-the-graphical-user-interface-gui"><a class="link" href="#understanding-the-graphical-user-interface-gui">1.3. Understanding the Graphical User Interface (GUI)</a></h3>
 <div class="paragraph">
-<p>As this is primarily a CLI based application, some features are included to make the user experience better. The following features are provided to simplify the use of FitBiz:</p>
+<p>When you first launch FitBiz, you will be greeted by the GUI. In this section, we shall learn about what each section of this GUI is responsible for.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/Ui-annotated.png" alt="Ui annotated">
+</div>
+<div class="title">Figure 1. FitBiz GUI Layout</div>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Command History: similar to most modern CLIs, users can press the <kbd>Up</kbd> and <kbd>Down</kbd> arrow key to cycle through their previously entered commands. This history is persisted in the storage, allowing users to quickly reference what they have entered in a previous usage of this app.</p>
-</li>
+<p><strong>Command Box</strong>: this is where you enter your commands</p>
+<div class="ulist">
+<ul>
 <li>
-<p>Command Auto Completion: again, similar to most modern CLIs, users can press the <kbd>Tab</kbd> key to auto complete the commands that they have partially typed. If the partially typed letters begin a string that uniquely identifies a command, the complete command name appears. Otherwise, a list of all commands similar to the ambiguous letters will appear.</p>
+<p>Note that the border will glow green if your command is successfully executed, and red otherwise</p>
 </li>
 </ul>
+</div>
+</li>
+<li>
+<p><strong>Result Box</strong>: this displays feedback and other useful information about your commands that you have just entered</p>
+</li>
+<li>
+<p><strong>Client List</strong>: this displays all your clients currently recorded in FitBiz</p>
+</li>
+<li>
+<p><strong>Schedule Panel</strong>: this displays all your schedules of your clients</p>
+</li>
+<li>
+<p><strong>Client View</strong>: this displays all the important details about the client you are currently viewing (which we refer to as <em>client in view</em>). In here, we have 3 further sections:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Client Details</strong>: this displays other information about your client that is otherwise not found in <strong>Client List</strong></p>
+</li>
+<li>
+<p><strong>Exercise Table</strong>: this displays all the exercises recorded for the current <em>client in view</em></p>
+</li>
+<li>
+<p><strong>Personal Best Table</strong>: this displays the personal bests of the exercises done by the current <em>client in view</em></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+If this is your first time using FitBiz and you have just started up the application, you may realise that the <strong>Client View</strong> section is missing. This is because you are currently not viewing a client. Refer to <a href="#view-c-command">Section 3.7, &#8220;View a client profile: <code>view-c</code>&#8221;</a> for more information about what you need to do.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="understanding-the-command-line-interface-cli-aaron-choo"><a class="link" href="#understanding-the-command-line-interface-cli-aaron-choo">1.4. Understanding the Command Line Interface (CLI) --- Aaron Choo</a></h3>
+<div class="paragraph">
+<p>Even though FitBiz comes with a GUI, it is mainly used to display data. Most of the user interaction occurs via the CLI, which in FitBiz is comprised of the <strong>Command Box</strong> and <strong>Result Box</strong>. We understand that CLIs have higher barriers of entry and may scare some inexperienced users away. As such, we have provided some features common to most modern CLIs to make your user experience with FitBiz much better. In this section, we shall look at the <strong>Command History</strong> and the <strong>Command Autocomplete</strong> feature, and learn how to effectively utilise them.</p>
+</div>
+<div class="sect3">
+<h4 id="command-history"><a class="link" href="#command-history">1.4.1. Command History</a></h4>
+<div class="paragraph">
+<p>Similar to most modern CLIs, users of FitBiz can press the <kbd>&uarr;</kbd> and <kbd>&darr;</kbd> arrow key to cycle through their previously entered commands. If you have prior experience in using a CLI, feel free to skip this section as this should be second nature to you. If not, here is a quick tutorial on how to use this time saving feature.</p>
+</div>
+<div class="paragraph">
+<p>First, start by typing anything into the <strong>Command Box</strong>. It <em>need not</em> have to be a valid command (like those shown in <a href="#commands">Section 3, &#8220;Commands&#8221;</a>). In our example, we chose to type <code>Hello World</code>:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/command-history-hello-world.png" alt="command history hello world">
+</div>
+</div>
+<div class="paragraph">
+<p>Next, hit the <kbd>Enter</kbd> key to enter the command into FitBiz. Notice that whatever you have typed in the <strong>Command Box</strong> should have disappeared. If you did not enter a valid command (like <code>Hello World</code>), the border of the <strong>Command Box</strong> would have turned red, and you would have been prompted by a message saying <code>Unknown command</code> in the <strong>Result Box</strong> like shown:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/command-history-unknown-command.png" alt="command history unknown command">
+</div>
+</div>
+<div class="paragraph">
+<p>Next, continue entering different commands into the <strong>Command Box</strong>. You can safely ignore all the <code>Unknown command</code> prompts for now.</p>
+</div>
+<div class="paragraph">
+<p>Once you feel like you have entered enough commands into FitBiz, try hitting the <kbd>&uarr;</kbd> arrow key several times. You should start to see the history of your entered commands displaying in the <strong>Command Box</strong> in reverse chronological order. If you press the <kbd>&uarr;</kbd> arrow key enough times (or simply hold down the key), you would realise that the command in the <strong>Command Box</strong> no longer changes. In our case, it currently displays <code>Hello World</code>, our first ever entered command.</p>
+</div>
+<div class="paragraph">
+<p>Now, you can also see your more recent commands by pressing the <kbd>&darr;</kbd> arrow key. Again, if you press it enough times, you would realise that the <strong>Command Box</strong> will display nothing (right after displaying your most recent command). This means that you have reached the end of your command history.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+If you are not currently browsing the history, you can press the <kbd>&darr;</kbd> arrow key to immediately clear what you are currently typing in the <strong>Command Box</strong>.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="command-autocompletion"><a class="link" href="#command-autocompletion">1.4.2. Command Autocompletion</a></h4>
+<div class="paragraph">
+<p>Again, similar to most modern CLIs, users of FitBiz can press the <kbd>Tab</kbd> key to autocomplete commands that they have partially typed. If the partially typed letters uniquely identifies a valid command in FitBiz (see <a href="#commands">Section 3, &#8220;Commands&#8221;</a>), the complete command will automatically appear in the Command Box. Otherwise, a list of all commands similar to the ambiguous letters will appear in the <strong>Result Box</strong>.</p>
+</div>
+<div class="paragraph">
+<p>Also, we understand that some of FitBiz&#8217;s commands may be very long and diffcult to remember. In order to remedy this, we have also provided <strong>autocompletion of parameter prefixes</strong>, as well as the ability to <strong>use tab to easily get to the next prefix</strong>.</p>
+</div>
+<div class="paragraph">
+<p>To see this feature in action, type <code>add-c</code> into the <strong>Command Box</strong> and press <kbd>Tab</kbd>:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/autocomplete-1.png" alt="autocomplete 1">
+</div>
+</div>
+<div class="paragraph">
+<p>Immediately, you should have noticed three things:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>All the parameter prefixes pertaining to the <code>add-c</code> command should have been automatically completed for you</p>
+</li>
+<li>
+<p>Your caret should be placed right after the <code>n/</code> for you to type your parameter</p>
+</li>
+<li>
+<p>The <strong>Result Box</strong> shows you the usage of the command that have just been autocompleted</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Now, you can also press the <kbd>Tab</kbd> key repeatedly to go to the next parameter prefix, instead of wasting time using your mouse.</p>
+</div>
+<div class="paragraph">
+<p>Note however, that there are some similar commands in FitBiz that have the same few starting letters. For example: both <code>add-c</code> and <code>add-e</code> starts with the letter "a". As such, hitting <kbd>Tab</kbd> when you have only typed <code>a</code> in the <strong>Command Box</strong> will not autocomplete either command (unfortunately, FitBiz cannot read your mind). However, you will find that the command will be completed up till <code>add-</code>, the point where <code>add-e</code> and <code>add-c</code> differs. The <strong>Result Box</strong> will also prompt you with the list of all similar commands found:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/autocomplete-2.png" alt="autocomplete 2">
+</div>
+</div>
+<div class="paragraph">
+<p>To autocomplete the parameter prefixes like in the first example above, you would just have to complete the command and press <kbd>Tab</kbd> once more.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The autocompletion of the parameter prefixes are only for these commands: <code>add-c</code>, <code>add-e</code>, <code>filter-c</code>, <code>graph</code>, and <code>schedule</code>. Autocompletion of prefixes for edit commands are not included as we understand that most likely than not, users would only choose to edit one field at a time.
+</td>
+</tr>
+</table>
+</div>
 </div>
 </div>
 </div>
@@ -520,7 +682,7 @@ You want to find the client named "Bryan Low" in <strong>Client List</strong>.</
 </div>
 </div>
 <div class="sect2">
-<h3 id="view-a-client-profile-code-view-c-code"><a class="link" href="#view-a-client-profile-code-view-c-code">3.7. View a client profile: <code>view-c</code></a></h3>
+<h3 id="view-c-command"><a class="link" href="#view-c-command">3.7. View a client profile: <code>view-c</code></a></h3>
 <div class="paragraph">
 <p>Shows all available information of the client at the specified index. This also displays all the exercises recorded for the client as well as their personal bests for said exercises.</p>
 </div>
@@ -881,43 +1043,103 @@ The weight of the exercise after <code>ew/</code><br></p></td>
 <div class="sect2">
 <h3 id="delete-a-client-s-exercise-code-delete-e-code"><a class="link" href="#delete-a-client-s-exercise-code-delete-e-code">3.10. Delete a client&#8217;s exercise: <code>delete-e</code></a></h3>
 <div class="paragraph">
-<p>Deletes an existing exercise at the specified index from the exercise list of the client currently being viewed.</p>
+<p><code>delete-e</code> allows you to delete a previously recorded exercise of the client currently in view.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>delete-e INDEX</code></p>
+<p><strong>Format</strong>: <code>delete-e INDEX</code></p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>delete-e</code> can only be used when a client is in view (ie. <code>view-c</code> is called first)</p>
-</li>
-<li>
-<p><code>INDEX</code> refers to the index number shown in the displayed exercise list of the client currently being viewed</p>
-</li>
-<li>
-<p><code>INDEX</code> must be a positive integer (ie. 1, 2, 3, &#8230;&#8203;)</p>
-</li>
-</ul>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This command can only be used when you have a client in view; make sure you know how to view a client first. Refer to <a href="#view-c-command">Section 3.7, &#8220;View a client profile: <code>view-c</code>&#8221;</a> for more information.
+</td>
+</tr>
+</table>
 </div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+Deleting an exercise from FitBiz is permanent and <strong>cannot be undone</strong>.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect3">
+<h4 id="parameters-4"><a class="link" href="#parameters-4">3.10.1. Parameters</a></h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 15%;">
+<col style="width: 85%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameters</th>
+<th class="tableblock halign-left valign-top">Important points to note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>INDEX</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Substitute <code>INDEX</code> with the actual index of the exercise shown on the <strong>Exercise Table</strong></p>
+<p class="tableblock">Must be a positive integer (eg. 1, 2, 3, &#8230;&#8203;)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="example-4"><a class="link" href="#example-4">3.10.2. Example</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>First, ensure that you are currently viewing a client by using the <code>view-c</code> command:</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/delete-e-1.png" alt="delete e 1">
+</div>
+</div>
+</li>
+<li>
+<p>Say for example that you want to delete the fifth exercise found on the <strong>Exercise Table</strong> (the one named "Bench Press" done on "07-04-2020"), simply enter <code>delete-e 5</code>:</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/delete-e-2.png" alt="delete e 2">
+</div>
+</div>
+</li>
+<li>
+<p>After the command has been successfully executed, the specified exercise should have been deleted. Notice also, in the <strong>Personal Best Table</strong> that the personal best for "Bench Press" has also been automatically updated to reflect this change:</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/delete-e-3.png" alt="delete e 3">
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="common-errors-problems-4"><a class="link" href="#common-errors-problems-4">3.10.3. Common errors/problems</a></h4>
 <div class="paragraph">
-<p>Examples:</p>
+<p>If you find that you are unable to execute this command successfully, there are a few things you can check:</p>
 </div>
-<div class="ulist">
-<ul>
+<div class="olist arabic">
+<ol class="arabic">
 <li>
-<p><code>view-c 1</code></p>
-<div class="paragraph">
-<p><code>delete-e 4</code></p>
-</div>
-<div class="ulist">
-<ul>
+<p>Ensure that you are currently viewing a client using the <code>view-c</code> command. If you are indeed viewing a client, the <strong>Client View</strong> should not be empty.</p>
+</li>
 <li>
-<p>Deletes the 4th exercise from the exercise list of the 1st client</p>
+<p>Ensure that you actually have exercises to delete and that the <code>INDEX</code> specified is correct. If the client does indeed have recorded exercises, the <strong>Exercise List</strong> should not be empty.</p>
 </li>
-</ul>
+</ol>
 </div>
-</li>
-</ul>
 </div>
 </div>
 <div class="sect2">
@@ -972,58 +1194,97 @@ The weight of the exercise after <code>ew/</code><br></p></td>
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>schedule 1 day/mon st/1100 et/1200</code></p>
-<div class="ulist">
-<ul>
-<li>
-<p>Adds to the 1st client a schedule for training from 11:00am to 12:00pm on Monday</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
 </div>
 <div class="sect2">
-<h3 id="export-as-csv-code-export-code-coming-in-v1-4"><a class="link" href="#export-as-csv-code-export-code-coming-in-v1-4">3.12. Export as CSV: <code>export</code> [Coming in v1.4]</a></h3>
+<h3 id="export-as-csv-code-export-code"><a class="link" href="#export-as-csv-code-export-code">3.12. Export as CSV: <code>export</code></a></h3>
 <div class="paragraph">
-<p>Exports a client’s training record to a CSV file.</p>
+<p><code>export</code> allows you to export your client&#8217;s recorded exercises into a spreadsheet format which you can then easily save or share with your clients. Note that this will create a CSV file, which you can then view and open in other programmes like Microsoft Excel, or Google Sheets (as shown in the example later).</p>
 </div>
-<div class="paragraph">
-<p>Format: <code>export INDEX</code></p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This command can only be used when you have a client in view; make sure you know how to view a client first. Refer to <a href="#view-c-command">Section 3.7, &#8220;View a client profile: <code>view-c</code>&#8221;</a> for more information.
+</td>
+</tr>
+</table>
 </div>
+<div class="sect3">
+<h4 id="quick-summary"><a class="link" href="#quick-summary">3.12.1. Quick summary</a></h4>
 <div class="ulist">
 <ul>
 <li>
-<p><code>INDEX</code> refers to the index number shown in the displayed client list</p>
+<p>Only the exercises of the current client in view will be exported</p>
 </li>
 <li>
-<p><code>INDEX</code> must be a positive integer (ie. 1, 2, 3, &#8230;&#8203;)</p>
+<p>Exported files will be saved in the <code>/exports</code> directory</p>
+</li>
+<li>
+<p>The name of the exported file will be the client&#8217;s name followed by the <code>.csv</code> file extension (eg. <code>Alex Yeoh.csv</code>)</p>
 </li>
 </ul>
 </div>
+</div>
+<div class="sect3">
+<h4 id="example-5"><a class="link" href="#example-5">3.12.2. Example</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>First, ensure that you are currently viewing a client by using the <code>view-c</code> command:</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/export-1.png" alt="export 1">
+</div>
+</div>
+</li>
+<li>
+<p>Now, if the client you are viewing currently has recorded exercises, simply enter <code>export</code> into the <strong>Command Box</strong></p>
+</li>
+<li>
+<p>If the success message shows, the file should also have been successfully exported:</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/export-2.png" alt="export 2">
+</div>
+</div>
+</li>
+<li>
+<p>Now, simply use your favourite file explorer to locate the <code>exports</code> folder, which should be created at the same directory as <code>FitBiz.jar</code>. In the <code>exports</code> folder, you will then find your exported CSV file:</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/export-3.png" alt="export 3">
+</div>
+</div>
+</li>
+<li>
+<p>If you have a spreadsheet software (like Microsoft Excel) installed on your computer, you can easily view the CSV file by launching it. In our example, we have <a href="https://support.google.com/docs/answer/40608?co=GENIE.Platform%3DDesktop&amp;hl=en">imported it into Google Sheets</a> instead:</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/export-4.png" alt="export 4">
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="common-errors-problems-5"><a class="link" href="#common-errors-problems-5">3.12.3. Common errors/problems</a></h4>
 <div class="paragraph">
-<p>Example:</p>
+<p>If you find that you are unable to execute this command successfully, there are a few things you can check:</p>
 </div>
-<div class="ulist">
-<ul>
+<div class="olist arabic">
+<ol class="arabic">
 <li>
-<p><code>export 6</code></p>
-<div class="ulist">
-<ul>
-<li>
-<p>Exports training records of the 6th client</p>
+<p>Ensure that you are currently viewing a client using the <code>view-c</code> command. If you are indeed viewing a client, the <strong>Client View</strong> should not be empty.</p>
 </li>
-</ul>
+<li>
+<p>Ensure that you actually do have exercises recorded for the client currently in view using the <code>add-e</code> command. If the client does indeed have recorded exercises, the <strong>Exercise List</strong> should not be empty.</p>
+</li>
+</ol>
 </div>
-</li>
-</ul>
 </div>
 </div>
 <div class="sect2">
@@ -1271,4 +1532,4 @@ The weight of the exercise after <code>ew/</code><br></p></td>
 </table>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 12:20:57 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 12:34:27 UTC</div></div></div></body></html>
