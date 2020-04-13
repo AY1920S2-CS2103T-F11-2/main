@@ -42,12 +42,12 @@
 <li><a href="#use-cases">Appendix C: Use Cases</a></li>
 <li><a href="#non-functional-requirements">Appendix D: Non Functional Requirements</a></li>
 <li><a href="#glossary">Appendix E: Glossary</a></li>
-<li><a href="#product-survey">Appendix F: Product Survey</a></li>
-<li><a href="#instructions-for-manual-testing">Appendix G: Instructions for Manual Testing</a>
+<li><a href="#instructions-for-manual-testing">Appendix F: Instructions for Manual Testing</a>
 <ul class="sectlevel2">
-<li><a href="#launch-and-shutdown">G.1. Launch and Shutdown</a></li>
-<li><a href="#deleting-a-client">G.2. Deleting a client</a></li>
-<li><a href="#saving-data">G.3. Saving data</a></li>
+<li><a href="#launch-and-shutdown">F.1. Launch and Shutdown</a></li>
+<li><a href="#command-autocomplete">F.2. Command autocomplete</a></li>
+<li><a href="#deleting-a-client">F.3. Deleting a client</a></li>
+<li><a href="#saving-data">F.4. Saving data</a></li>
 </ul>
 </li>
 </ul>
@@ -1561,22 +1561,22 @@ if (dateComparision &gt; 0) {
 <div class="ulist">
 <ul>
 <li>
-<p>has a need to manage a significant number of gym clients and their information (clients' details and exercises)</p>
+<p>Has a need to manage a significant number of gym clients and their information (clients' details and exercises)</p>
 </li>
 <li>
-<p>prefer desktop apps over other types</p>
+<p>Prefer desktop apps over other types</p>
 </li>
 <li>
-<p>can type fast</p>
+<p>Can type fast</p>
 </li>
 <li>
-<p>prefers typing over mouse input</p>
+<p>Prefers typing over mouse input</p>
 </li>
 <li>
-<p>is reasonably comfortable using CLI apps</p>
+<p>Is reasonably comfortable using CLI apps</p>
 </li>
 <li>
-<p>wants to book facilities easily [v2.0]</p>
+<p>Wants to book facilities easily [v2.0]</p>
 </li>
 </ul>
 </div>
@@ -1634,7 +1634,7 @@ if (dateComparision &gt; 0) {
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">coach that communicates with my clients</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">display visualisations(graphs/charts)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">display visualisations (graphs/charts)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">convey the client&#8217;s training progress better</p></td>
 </tr>
 <tr>
@@ -1795,9 +1795,6 @@ if (dateComparision &gt; 0) {
 </tr>
 </tbody>
 </table>
-<div class="paragraph">
-<p><em>{More to be added}</em></p>
-</div>
 </div>
 </div>
 <div class="sect1">
@@ -2339,7 +2336,7 @@ Use case resumes at step 6.</p>
 <p>A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.</p>
 </li>
 <li>
-<p>Should work without the need for Internet in the program.</p>
+<p>Should work mostly without the need for the Internet.</p>
 </li>
 <li>
 <p>Should work reliably.</p>
@@ -2358,9 +2355,6 @@ Use case resumes at step 6.</p>
 </li>
 </ol>
 </div>
-<div class="paragraph">
-<p><em>{More to be added}</em></p>
-</div>
 </div>
 </div>
 <div class="sect1">
@@ -2370,63 +2364,62 @@ Use case resumes at step 6.</p>
 <dl>
 <dt class="hdlist1"><a id="mainstream-os"></a> Mainstream OS</dt>
 <dd>
-<p>Windows, Linux, Unix, OS-X</p>
+<p>Any modern OS like Windows, Linux, Unix, or OS-X.</p>
 </dd>
-<dt class="hdlist1"><a id="private-contact-detail"></a> Private contact detail</dt>
+<dt class="hdlist1">Fitness Coach</dt>
 <dd>
-<p>A contact detail that is not meant to be shared with others.</p>
+<p>The targer user base of FitBiz.</p>
+</dd>
+<dt class="hdlist1">Client</dt>
+<dd>
+<p>The client of the fitness coach.</p>
 </dd>
 <dt class="hdlist1"><a id="exercise"></a> Exercise</dt>
 <dd>
-<p>A workout activity done by a client that is to be recorded.</p>
+<p>A workout activity done by a client that can be recorded.</p>
 </dd>
-<dt class="hdlist1"><a id="cliental-best"></a> Cliental Best</dt>
+<dt class="hdlist1">Personal Best</dt>
 <dd>
-<p>The best/highest weight that the client has reached for an exercise.</p>
+<p>The exercise done by the client with the highest weight (or highest rep if weight does not exist).</p>
+</dd>
+<dt class="hdlist1">Schedule</dt>
+<dd>
+<p>The client&#8217;s training schedule per week. Note that one client cannot have overlapping schedules but other client&#8217;s schedule can overlap with another client&#8217;s.</p>
+</dd>
+<dt class="hdlist1">Graph</dt>
+<dd>
+<p>The graph of an exercise done by a client (reps/weights vs. date).</p>
+</dd>
+<dt class="hdlist1">Client In View</dt>
+<dd>
+<p>The client currently in view (after the <code>view-c</code> command is used).</p>
+</dd>
+<dt class="hdlist1">Client List</dt>
+<dd>
+<p>The GUI section which shows all client currently listed in FitBiz.</p>
+</dd>
+<dt class="hdlist1">Client View</dt>
+<dd>
+<p>The GUI section which shows all the information of the client in view</p>
+</dd>
+<dt class="hdlist1">Schedule Panel</dt>
+<dd>
+<p>The GUI section which shows the list of all clients' schedules from the current client list</p>
+</dd>
+<dt class="hdlist1">Exercise Table</dt>
+<dd>
+<p>The GUI section which shows the list of the client in view&#8217;s exercises</p>
+</dd>
+<dt class="hdlist1">Personal Best Table</dt>
+<dd>
+<p>The GUI section which shows the list of the client in view&#8217;s personal best exercises</p>
 </dd>
 </dl>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="product-survey"><a class="link" href="#product-survey">Appendix F: Product Survey</a></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><strong>Product Name</strong></p>
-</div>
-<div class="paragraph">
-<p>Author: &#8230;&#8203;</p>
-</div>
-<div class="paragraph">
-<p>Pros:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>&#8230;&#8203;</p>
-</li>
-<li>
-<p>&#8230;&#8203;</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Cons:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>&#8230;&#8203;</p>
-</li>
-<li>
-<p>&#8230;&#8203;</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="instructions-for-manual-testing"><a class="link" href="#instructions-for-manual-testing">Appendix G: Instructions for Manual Testing</a></h2>
+<h2 id="instructions-for-manual-testing"><a class="link" href="#instructions-for-manual-testing">Appendix F: Instructions for Manual Testing</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Given below are instructions to test the app manually.</p>
@@ -2444,7 +2437,7 @@ These instructions only provide a starting point for testers to work on; testers
 </table>
 </div>
 <div class="sect2">
-<h3 id="launch-and-shutdown"><a class="link" href="#launch-and-shutdown">G.1. Launch and Shutdown</a></h3>
+<h3 id="launch-and-shutdown"><a class="link" href="#launch-and-shutdown">F.1. Launch and Shutdown</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -2456,7 +2449,7 @@ These instructions only provide a starting point for testers to work on; testers
 </li>
 <li>
 <p>Double-click the jar file<br>
-Expected: Shows the GUI with a set of sample contacts. The window size may not be optimum.</p>
+Expected: Shows the GUI without the client view populated with a set of sample contacts. The window size may not be optimum.</p>
 </li>
 </ol>
 </div>
@@ -2477,12 +2470,79 @@ Expected: The most recent window size and location is retained.</p>
 </li>
 </ol>
 </div>
-<div class="paragraph">
-<p><em>{ more test cases &#8230;&#8203; }</em></p>
+</div>
+<div class="sect2">
+<h3 id="command-autocomplete"><a class="link" href="#command-autocomplete">F.2. Command autocomplete</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Unambiguous, single command found</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: type <code>gr</code> into the command box and press <kbd>Tab</kbd><br>
+Expected: command box shows completed <code>graph n/ a/ sd/ ed/</code> command, with the caret position right after <code>n/</code>. Result box shows the <code>graph</code> command usage.</p>
+</li>
+<li>
+<p>Test case: type <code>add-e</code> into the command box and press <kbd>Tab</kbd><br>
+Expected: command box shows completed <code>add-e n/ d/ reps/ ew/ sets/</code> command, with the caret position right after <code>n/</code>. Result box shows the <code>add-e</code> command usage.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Ambiguous, multiple commands found</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: type <code>a</code> into the command box and press <kbd>Tab</kbd><br>
+Expected: command box shows longest common prefix <code>add-</code>, with the caret position at the end of the line. Result box indicates and lists that <code>add-e</code> and <code>add-c</code> commands are found.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>No valid commands found</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: type <code>Fitbiz!</code> into the command box and press <kbd>Tab</kbd><br>
+Expected: command box and caret positions does not change. Result box indicates that no commands were found.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Prefix traversal when commands are completed with white spaces</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: type <code>graph n/ a/ sd/ ed/</code> into the command box and press <kbd>Tab</kbd><br>
+Expected: caret position travels around all the <code>/</code> with wraparound.</p>
+</li>
+<li>
+<p>Test case: type <code>///</code> into the command box and press <kbd>Tab</kbd><br>
+Expected: command box and caret positions does not change. Result box indicates that no commands were found. This is similar to 3, no valid commands found.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Commands with white spaces but without <code>/</code></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: type <code>i &lt;3 2103</code> into the command box and press <kbd>Tab</kbd><br>
+Expected: command box and caret positions does not change. Result box does not change. Basically nothing happens.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-client"><a class="link" href="#deleting-a-client">G.2. Deleting a client</a></h3>
+<h3 id="deleting-a-client"><a class="link" href="#deleting-a-client">F.3. Deleting a client</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -2501,7 +2561,7 @@ Expected: First contact is deleted from the list. Details of the deleted contact
 Expected: No client is deleted. Error details shown in the status message. Status bar remains the same.</p>
 </li>
 <li>
-<p>Other incorrect delete commands to try: <code>delete</code>, <code>delete x</code> (where x is larger than the list size) <em>{give more}</em><br>
+<p>Other incorrect delete commands to try: <code>delete</code>, <code>delete x</code> (where x is larger than the list size)<br>
 Expected: Similar to previous.</p>
 </li>
 </ol>
@@ -2509,12 +2569,9 @@ Expected: Similar to previous.</p>
 </li>
 </ol>
 </div>
-<div class="paragraph">
-<p><em>{ more test cases &#8230;&#8203; }</em></p>
-</div>
 </div>
 <div class="sect2">
-<h3 id="saving-data"><a class="link" href="#saving-data">G.3. Saving data</a></h3>
+<h3 id="saving-data"><a class="link" href="#saving-data">F.4. Saving data</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -2529,9 +2586,6 @@ Expected: Similar to previous.</p>
 </li>
 </ol>
 </div>
-<div class="paragraph">
-<p><em>{ more test cases &#8230;&#8203; }</em></p>
 </div>
 </div>
-</div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 07:45:41 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 09:32:13 UTC</div></div></div></body></html>

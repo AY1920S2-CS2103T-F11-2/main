@@ -205,7 +205,7 @@ If you are not currently browsing the history, you can press the <kbd>&darr;</kb
 <p>Again, similar to most modern CLIs, users of FitBiz can press the <kbd>Tab</kbd> key to autocomplete commands that they have partially typed. If the partially typed letters uniquely identifies a valid command in FitBiz (see <a href="#commands">Section 3, &#8220;Commands&#8221;</a>), the complete command will automatically appear in the <strong>Command Box</strong>. Otherwise, a list of all commands similar to the ambiguous letters will appear in the <strong>Result Box</strong>.</p>
 </div>
 <div class="paragraph">
-<p>Also, we understand that some of FitBiz&#8217;s commands may be particularly long and diffcult to remember. In order to remedy this, we have also provided <strong>autocompletion of parameter prefixes</strong> for some commands, as well as the <strong>use of <kbd>Tab</kbd> to easily get to the next prefix</strong>.</p>
+<p>Also, we understand that some of FitBiz&#8217;s commands may be particularly long and diffcult to remember. In order to remedy this, we have also provided <strong>autocompletion of parameter prefixes</strong> for some commands, as well as the <strong>use of <kbd>Tab</kbd> to easily get to the next prefix</strong>. When autocompleting commands, the caret position will also be automatically set to the most optimal position corresponding to the completed command.</p>
 </div>
 <div class="paragraph">
 <p>To see this feature in action, type <code>add-c</code> into the <strong>Command Box</strong> and press <kbd>Tab</kbd>:</p>
@@ -244,6 +244,18 @@ If you are not currently browsing the history, you can press the <kbd>&darr;</kb
 </div>
 <div class="paragraph">
 <p>To autocomplete the parameter prefixes like in the first example above, you would just have to complete the command and press <kbd>Tab</kbd> once more.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Commands and their parameters in FitBiz are always separated by white spaces (ie. <code>schedule 1 sch/</code>). As such, the <kbd>Tab</kbd> key will only try to autocomplete your command if your current input in the <strong>Command Box</strong> is a single word. In other words, if your input is made up of more than one word separated by white spaces, FitBiz will ignore your use of <kbd>Tab</kbd>. Do not be surprised when you try to autocomplete more than a single word like <code>add some thing</code>, and yet receive no response from FitBiz.
+</td>
+</tr>
+</table>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -2021,4 +2033,4 @@ e.g. <code>Reps</code>, <code>weigHt</code> and <code>WEIGHT</code> will be vali
 </table>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 07:45:41 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 09:32:13 UTC</div></div></div></body></html>
