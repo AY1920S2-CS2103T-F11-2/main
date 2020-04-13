@@ -16,6 +16,7 @@ endif::[]
 
 By: `CS2103T-F11-2` Since: `Feb 2020` Licence: `MIT`
 
+[[overview]]
 == Overview
 
 === About FitBiz
@@ -31,10 +32,12 @@ This User Guide explains how to use FitBiz, as well as provides an understanding
 In this guide, we cover:
 
 * How to navigate the Graphical User Interface (GUI)
+* How to use the Command Line Interface (CLI)
 * Syntax of the commands available in FitBiz
 * Common use cases for each command
 * Common problems encountered by users
 
+[[understanding-the-gui]]
 === Understanding the Graphical User Interface (GUI)
 
 When you first launch FitBiz, you will be greeted by the GUI. In this section, we shall learn about what each section of this GUI is responsible for.
@@ -56,13 +59,16 @@ image::Ui-annotated.png[]
 [TIP]
 If this is your first time using FitBiz and you have just started up the application, you may realise that the *Client View* section is missing. This is because you are currently not viewing a client. Refer to <<view-c-command>> for more information about what you need to do.
 
+// tag::understanding-the-cli[]
+[[understanding-the-cli]]
 === Understanding the Command Line Interface (CLI) --- Aaron Choo
 
-Even though FitBiz comes with a GUI, it is mainly used to display data. Most of the user interaction occurs via the CLI, which in FitBiz is comprised of the *Command Box* and *Result Box*. We understand that CLIs have higher barriers of entry and may scare some inexperienced users away. As such, we have provided some features common to most modern CLIs to make your user experience with FitBiz much better. In this section, we shall look at the **Command History** and the **Command Autocomplete** feature, and learn how to effectively utilise them.
+Even though FitBiz comes with a GUI, it is mainly used to display data. Most of the user interaction occurs via the CLI, which in FitBiz, is comprised of the *Command Box* and the *Result Box*. We understand that CLIs have higher barriers to entry and may scare some inexperienced users away. As such, we have provided some features common to most modern CLIs to make your user experience with FitBiz much better. In this section, we shall look at the **Command History** and the **Command Autocomplete** feature, and learn how to effectively utilise them.
 
+[[command-history]]
 ==== Command History
 
-Similar to most modern CLIs, users of FitBiz can press the kbd:[&uarr;] and kbd:[&darr;] arrow key to cycle through their previously entered commands. If you have prior experience in using a CLI, feel free to skip this section as this should be second nature to you. If not, here is a quick tutorial on how to use this time saving feature.
+Similar to most modern CLIs, users of FitBiz can press the kbd:[&uarr;] and kbd:[&darr;] arrow keys to cycle through their previously entered commands. If you have prior experience in using a CLI, feel free to skip this section as this should be second nature to you. If not, here is a quick tutorial on how to use this time saving feature.
 
 First, start by typing anything into the *Command Box*. It _need not_ have to be a valid command (like those shown in <<Commands>>). In our example, we chose to type `Hello World`:
 
@@ -76,18 +82,19 @@ image::command-history-unknown-command.png[]
 
 Next, continue entering different commands into the *Command Box*. You can safely ignore all the `Unknown command` prompts for now.
 
-Once you feel like you have entered enough commands into FitBiz, try hitting the kbd:[&uarr;] arrow key several times. You should start to see the history of your entered commands displaying in the *Command Box* in reverse chronological order. If you press the kbd:[&uarr;] arrow key enough times (or simply hold down the key), you would realise that the command in the *Command Box* no longer changes. In our case, it currently displays `Hello World`, our first ever entered command.
+Once you feel like you have entered enough commands into FitBiz, try hitting the kbd:[&uarr;] key several times. You should start to see the history of your entered commands displaying in the *Command Box* in reverse chronological order. If you press the kbd:[&uarr;] key enough times (or simply hold down the key), you would realise that the command in the *Command Box* no longer changes. In our case, it displays `Hello World`, our first ever entered command.
 
-Now, you can also see your more recent commands by pressing the kbd:[&darr;] arrow key. Again, if you press it enough times, you would realise that the *Command Box* will display nothing (right after displaying your most recent command). This means that you have reached the end of your command history.
+Likewise, you can also see your more recent commands by pressing the kbd:[&darr;] key. Again, if you press it enough times, you would realise that the text from the *Command Box* disappeares (right after displaying your most recent command). This means that you have reached the end of your command history.
 
 [TIP]
-If you are not currently browsing the history, you can press the kbd:[&darr;] arrow key to immediately clear what you are currently typing in the *Command Box*.
+If you are not currently browsing the history, you can press the kbd:[&darr;] key to immediately clear what you are currently typing in the *Command Box*.
 
-==== Command Autocompletion
+[[command-autocomplete]]
+==== Command Autocomplete
 
-Again, similar to most modern CLIs, users of FitBiz can press the kbd:[Tab] key to autocomplete commands that they have partially typed. If the partially typed letters uniquely identifies a valid command in FitBiz (see <<Commands>>), the complete command will automatically appear in the Command Box. Otherwise, a list of all commands similar to the ambiguous letters will appear in the *Result Box*.
+Again, similar to most modern CLIs, users of FitBiz can press the kbd:[Tab] key to autocomplete commands that they have partially typed. If the partially typed letters uniquely identifies a valid command in FitBiz (see <<Commands>>), the complete command will automatically appear in the *Command Box*. Otherwise, a list of all commands similar to the ambiguous letters will appear in the *Result Box*.
 
-Also, we understand that some of FitBiz's commands may be very long and diffcult to remember. In order to remedy this, we have also provided *autocompletion of parameter prefixes*, as well as the ability to *use tab to easily get to the next prefix*.
+Also, we understand that some of FitBiz's commands may be particularly long and diffcult to remember. In order to remedy this, we have also provided *autocompletion of parameter prefixes* for some commands, as well as the *use of kbd:[Tab] to easily get to the next prefix*.
 
 To see this feature in action, type `add-c` into the *Command Box* and press kbd:[Tab]:
 
@@ -95,9 +102,9 @@ image::autocomplete-1.png[]
 
 Immediately, you should have noticed three things:
 
-. All the parameter prefixes pertaining to the `add-c` command should have been automatically completed for you
-. Your caret should be placed right after the `n/` for you to type your parameter
-. The **Result Box** shows you the usage of the command that have just been autocompleted
+. All the parameter prefixes pertaining to the `add-c` command have been automatically completed for you
+. Your caret is placed right after the `n/` for you to type your parameter
+. The **Result Box** shows you the usage of the `add-c` command
 
 Now, you can also press the kbd:[Tab] key repeatedly to go to the next parameter prefix, instead of wasting time using your mouse.
 
@@ -110,19 +117,23 @@ To autocomplete the parameter prefixes like in the first example above, you woul
 [NOTE]
 The autocompletion of the parameter prefixes are only for these commands: `add-c`, `add-e`, `filter-c`, `graph`, and `schedule`. Autocompletion of prefixes for edit commands are not included as we understand that most likely than not, users would only choose to edit one field at a time.
 
+// end::understanding-the-cli[]
+
 == Quick Start
 
 . Ensure you have Java 11 or above installed in your Computer
 . Download the latest `FitBiz.jar` link:{repoURL}/releases[here]
-. Copy the file to the folder you want to use as the home folder for your Fitness Manager
-. Double-click the file to start the app. The GUI should appear in a few seconds
-. Type the command in the command box and press kbd:[Enter] to execute it. e.g. typing `help` and pressing kbd:[Enter] will open the help window.
-. Some example commands you can try:
-* `list-c` : lists all clients
-* `add-c n/John Doe g/Male p/98765432 e/johnd@example.com a/John street, block 123, #01-01 b/24-12-1997 h/170 cw/70 tw/75`
-: adds a client named John Doe to FitBiz
-* `exit` : exits the app
-. Refer to <<Commands>> below for details of each command
+. Move the `FitBiz.jar` file to the folder you want to use as the home folder of this application (to reduce clutter, an empty folder is recommended as files will be generated)
+. Double-click the file to start the app. The following GUI should appear in a few seconds:
++
+image::Ui.png[]
+. Type the command in the *Command Box* and press kbd:[Enter] to execute it
+** For example, executing the `help` command will lead you to this page
+
+====
+* Refer to the <<understanding-the-gui, GUI>> and <<understanding-the-cli, CLI>> guides if you need help navigating this application
+* Refer to <<Commands>> for the details and syntax of each command
+====
 
 == Commands
 
@@ -139,17 +150,7 @@ This section introduces the syntax and the usages of the commands available in F
 
 === View help: `help`
 
-Opens a window with the link to the User Guide. `Currently in v1.3`
-Lists all available commands and a short description of what they do. Specify the command for more detailed explanation. `Coming in v1.4`
-
-Format: `help [c/COMMAND]`
-
-Examples:
-
-* `help`
-** Lists all commands
-* `help add-c`
-** Shows a detailed explanation of the `add-c` command
+Entering `help` into FitBiz will bring you right here! 😬
 
 === List all clients: `list-c`
 
@@ -406,36 +407,100 @@ Examples:
 * `edit-c 1 n/Ming Liang a/60 a/male`
 ** Edits the name of the 1st client to Ming Liang, age to 60, and gender to male.
 
-=== Delete a client: `delete-c`
+=== Delete a client: `delete-c` --- Li Zi Ying
 
-Deletes the client at the specified index from the program.
+You find that your client list contains a client who is no longer working with you and you would like to remove his details from your client list. `delete-c` allows you to delete the client at the specified index from your list of clients.
+
+==== Parameters
+This section acts as a summary of the important things to note when using `delete-c` including their parameters.
 
 Format: `delete-c INDEX`
 
-* `INDEX` refers to the index number shown in the displayed client list
-* `INDEX` must be a positive integer (ie. 1, 2, 3, ...)
+[options='header']
+[cols="15%,85%"]
+|====================
+| Parameters | Important points to note
+| INDEX |
+`INDEX` refers to the index number shown in the displayed client list +
 
-Examples:
+`INDEX` must be a positive integer (ie. 1, 2, 3, ...) +
+|====================
 
-* `delete-c 4`
-** Deletes the 4th client from the program
+==== Examples
+Let’s say that you want to delete the client named "Alex Yeoh" in client list. You can simply use the `delete-c` command as shown.
 
-[[view-c-command]]
-=== View a client profile: `view-c`
+. Type `delete-c 1` into the Command Box and press `Enter` to execute it.
++
+image::ug-delete-1.png[]
+. Result Box will display the message of the details of the deleted client. You can now see that the Client List no longer contains the deleted client.
++
+image::ug-delete-2.png[]
 
-Shows all available information of the client at the specified index. This also displays all the exercises recorded for the client as well as their personal bests for said exercises.
+==== Common errors/problems
+You might face some errors or difficulties when you use `delete-c`. In this section, you will be able to understand these errors and resolve them.
+
+===== No index specified
+If you type in `delete-c` without specifying the `INDEX`, no client will be deleted and an error message will be shown.
+
+image::ug-delete-3.png[]
+
+This happens because there is no `INDEX` specified. To correct this, you have to enter a valid `INDEX` after `delete-c`.
+
+===== Index out of range
+If you key in an `INDEX` that is out of range, that is if there are only 4 clients in the list but you try to key in `delete-c 5`, no client will be deleted and an error message will be shown.
+
+image::ug-delete-4.png[]
+
+To correct this, you have to enter a valid `INDEX` that is not more than the number of clients in the client list.
+
+=== View a client profile: `view-c` --- Li Zi Ying
+
+You might want to view the complete information of a certain client in your client list. This complete information includes the client's full details, their exercise table and personal best table. `view-c INDEX` shows all available information of the client at the specified index.
+
+==== Parameters
+This section acts as a summary of the important things to note when using `view-c` including their parameters.
 
 Format: `view-c INDEX`
 
-* `INDEX` refers to the index number shown in the displayed client list
-* `INDEX` must be a positive integer (ie. 1, 2, 3, ...)
+[options='header']
+[cols="15%,85%"]
+|====================
+| Parameters | Important points to note
+| INDEX |
+`INDEX` refers to the index number shown in the displayed client list +
 
-Examples:
+`INDEX` must be a positive integer (ie. 1, 2, 3, ...) +
 
-* `view-c 3`
-** Shows all information about the 3rd client
-* `view-c 45`
-** Shows all information about the 45th client
+|====================
+
+==== Examples
+
+Let’s say that you want to view the details of the client named "Alex Yeoh" in client list. You can simply use the `view-c` command as shown.
+
+. Type `view-c 1` into the Command Box and press `Enter` to execute it.
++
+image::ug-view-1.png[]
++
+. Result Box will display the message telling you the client currently in view. You can now see that the Client View is now populated with the client's details, the exercise table and the personal best table.
++
+image::ug-view-2.png[]
+
+==== Common errors/problems
+You might face some errors or difficulties when you use `view-c`. In this section, you will be able to understand these errors and resolve them.
+
+===== No index specified
+If you type in `view-c` without specifying the `INDEX`, no client will be viewed and an error message will be shown.
+
+image::ug-view-3.png[]
+
+This happens because there is no `INDEX` specified. To correct this, you have to enter a valid `INDEX` after `view-c`.
+
+===== Index out of range
+If you key in an `INDEX` that is out of range, that is if there are only 5 clients in the list but you try to key in `view-c 10`, no client will be viewed and an error message will be shown.
+
+image::ug-delete-4.png[]
+
+To correct this, you have to enter a valid `INDEX` that is not more than the number of clients in the client list.
 
 === Add a client's exercise: `add-e`  --- YongJie
 `add-e` allows you to record an exercise done by the client that you are currently viewing. You will be able to see the exercises recorded and their information in the *Exercise Table*.
@@ -632,7 +697,9 @@ image::ug-editeDuplicatePart3.png[]
 
 To solve this, we suggest you delete the exercise you want to edit and increment the sets of the existing exercise by using the `edit-e` command. This will help to keep your exercises consolidated and the table compact.
 
-=== Delete a client's exercise: `delete-e`
+// tag::delete-e-command[]
+
+=== Delete a client's exercise: `delete-e` --- Aaron Choo
 
 `delete-e` allows you to delete a previously recorded exercise of the client currently in view.
 
@@ -672,7 +739,9 @@ image::delete-e-3.png[]
 If you find that you are unable to execute this command successfully, there are a few things you can check:
 
 . Ensure that you are currently viewing a client using the `view-c` command. If you are indeed viewing a client, the *Client View* should not be empty.
-. Ensure that you actually have exercises to delete and that the `INDEX` specified is correct. If the client does indeed have recorded exercises, the *Exercise List* should not be empty.
+. Ensure that you actually have exercises to delete and that the `INDEX` specified is correct. If the client does indeed have recorded exercises, the *Exercise Table* should not be empty.
+
+// end::delete-e-command[]
 
 === Schedule trainings for a client: `schedule`
 
@@ -693,9 +762,11 @@ Format: `schedule INDEX day/DAY st/STARTTIME et/ENDTIME`
 ** SUN
 * `DAY` is not case-sensitive
 
-=== Export as CSV: `export`
+// tag::export-command[]
+[[export-command]]
+=== Export a client's exercises to CSV format: `export` --- Aaron Choo
 
-`export` allows you to export your client's recorded exercises into a spreadsheet format which you can then easily save or share with your clients. Note that this will create a CSV file, which you can then view and open in other programmes like Microsoft Excel, or Google Sheets (as shown in the example later).
+`export` allows you to export your client's recorded exercises into a spreadsheet format which you can then easily save or share with your clients. Note that this will create a CSV file, which you can view and open in other applications like Microsoft Excel, or Google Sheets (as shown in the example later).
 
 [NOTE]
 This command can only be used when you have a client in view; make sure you know how to view a client first. Refer to <<view-c-command>> for more information.
@@ -711,27 +782,28 @@ This command can only be used when you have a client in view; make sure you know
 . First, ensure that you are currently viewing a client by using the `view-c` command:
 +
 image::export-1.png[]
-. Now, if the client you are viewing currently has recorded exercises, simply enter `export` into the *Command Box*
-. If the success message shows, the file should also have been successfully exported:
+. Now, if the client you are viewing currently has recorded exercises in the *Exercise Table*, simply execute the `export` command
+. The exercises should have been successfully exported, if the following success message is shown:
 +
 image::export-2.png[]
-. Now, simply use your favourite file explorer to locate the `exports` folder, which should be created at the same directory as `FitBiz.jar`. In the `exports` folder, you will then find your exported CSV file:
+. Now, simply use your favourite file explorer to locate the `exports` folder, which should be created in the same directory as `FitBiz.jar`. In the `exports` folder, you will then find your exported CSV file:
 +
 image::export-3.png[]
 . If you have a spreadsheet software (like Microsoft Excel) installed on your computer, you can easily view the CSV file by launching it. In our example, we have https://support.google.com/docs/answer/40608?co=GENIE.Platform%3DDesktop&hl=en[imported it into Google Sheets] instead:
 +
 image::export-4.png[]
 
-
 ==== Common errors/problems
 
 If you find that you are unable to execute this command successfully, there are a few things you can check:
 
 . Ensure that you are currently viewing a client using the `view-c` command. If you are indeed viewing a client, the *Client View* should not be empty.
-. Ensure that you actually do have exercises recorded for the client currently in view using the `add-e` command. If the client does indeed have recorded exercises, the *Exercise List* should not be empty.
+. Ensure that you actually do have exercises recorded for the client currently in view using the `add-e` command. If the client does indeed have recorded exercises, the *Exercise Table* should not be empty.
+
+// end::export-command[]
 
 // tag::filter-c-command[]
-
+[[]]
 === Filter clients based on attribute: `filter-c` --- Toh Ker Wei
 
 When you have many clients and want to filter the list of clients to view a specific group, you can use the command `filter-c` to filter clients based on their tags or their sports.
@@ -777,8 +849,6 @@ image::FilterExampleCommand.png[]
 
 image::FilterExampleSuccess.png[]
 
-/ photo of listed clients
-
 ==== Common error/ problem
 *Tags with spaces*
 
@@ -798,23 +868,120 @@ The list of successfully filter clients will then be displayed.
 
 image::FilterTagSuccess.png[]
 
-// end::filter-c-command
+// end::filter-c-command[]
 
-=== Display visualisations of training progress: `graph` [Coming in v1.4]
+=== Display visualisations of training progress: `graph` --- Li Zi Ying
 
-Shows visualisations of a client’s exercise progress.
+`graph` allows you to see a graphical visualisation of a client’s exercise progress within a specified timeframe, so that you can easily track your client's progress and improvement.
 
-Format: `graph e/EXERCISE_NAME [s/START] [e/END]`
+==== Parameters
 
-* Generates a graphical representation of the client’s progress
-* If `START` or `END` is not specified, it will default to the current month
-* Date format of `[s/START]`, `[e/END]` is `DD-MM-YYYY`
-* This command can only be used while viewing a client (ie. right after `view-c` is used)
+This section acts as a summary of important things to note when using `graph` including their parameters.
 
-Examples:
+Format: `n/EXERCISE_NAME a/Y_AXIS sd/START_DATE ed/END_DATE`
 
-* `graph e/Push Ups`
-** Shows a graph of Ming Liang’s Push Ups progress over the current month
+[options='header']
+[cols="15%,85%"]
+|====================
+| Parameters | Important points to note
+| n/EXERCISE_NAME |
+Substitute `EXERCISE_NAME` with the name of the exercise. +
+
+`n/EXERCISE_NAME` is compulsory and you have to specify it. +
+
+`n/EXERCISE_NAME` is case sensitive. +
+e.g. An exercise `pushup` will be considered to be different from the exercise `Pushup`.
+
+| a/Y_AXIS |
+Substitute `Y_AXIS` with the y-axis of your choice. +
+
+`Y_AXIS` is compulsory and you have to specify it. +
+
+`Y_AXIS` must either be `reps` or `weight` (case insensitive), allowing you to specify the exercise attribute you wish to focus on +
+e.g. `Reps`, `weigHt` and `WEIGHT` will be valid inputs for `Y_AXIS`. +
+
+| sd/START_DATE |
+Substitute `START_DATE` with the start date of your graph. +
+
+`sd/START_DATE` is compulsory and you have to specify it. +
+
+`START_DATE` must be of the form `DD-MM-YYYY` (ie. 02-07-2020 for 2nd July 2020) +
+
+The range of `START_DATE` is from one year before the current date to the current date (inclusive). +
+
+`START_DATE` cannot be chronologically after `END_DATE` +
+
+| ed/END_DATE |
+Substitute `END_DATE` with the end date of your graph +
+
+`ed/END_DATE` is compulsory and you have to specify it. +
+
+`END_DATE` must be of the form `DD-MM-YYYY` (ie. 02-07-2020 for 2nd July 2020) +
+
+The range of `END_DATE` is from one year before the current date to the current date (inclusive). +
+
+`END_DATE` cannot be chronologically before `START_DATE` +
+|====================
+
+==== Example
+
+Let's say that you wish to view the exercise graph of `Alex Yeoh` for the exercise `Sumo Deadlift` from the date `01-01-2020` to `13-04-2020` and you want to focus on the `weight` he lifted during the exercise.
+
+You can use the `graph` command to view the graph of the exercise following the steps as shown:
+
+. First view the client that you want to view the exercise graph of. For information on how to view the client, you can refer to the `view-c` section. For this example, we will view the graph of `Alex Yeoh`, who is the first client in the client list. After entering `view-c 1`, you will see the full detailed information and a table of recorded exercises of client `Alex Yeoh`.
++
+image::ug-graph-1.png[]
+. Next, simply type the graph command `graph n/Sumo Deadlift a/weight sd/01-01-2020 ed/13-04-2020` into the Command Box.
++
+image::ug-graph-2.png[]
+. The graph will appear separately in a window.
++
+image::ug-graph-3.png[]
+. You will see the Result Box informing you of the current graph displayed. Note that any changes made using `add-e, edit-e, delete-e` will not be reflected in the graph.
++
+image::ug-graph-4.png[]
+
+==== Common errors/problems
+You might face some errors or difficulties when you use `graph`. In this section, you will be able to understand these errors and resolve them. You will also get a better understanding of the reply from the Result Box when using `graph`.
+
+===== No exercise within stipulated timeframe
+If you have keyed in the `graph` command in the correct format but the graph is not appearing, you might want to check the start and end dates in your command. In the example below, the exercise clearly exists in the exercise list, but not within the stipuated timeframe. Therefore the graph will not be displayed.
+
+. The exercise `Sumo Deadlift` clearly exists in the exercise list. However, there are no records of `Sumo Deadlifts` from `01-01-2020` to `01-02-2020`.
++
+image::ug-graph-5.png[]
+. The graph will not appear and an error message will be shown.
++
+image::ug-graph-6.png[]
+
+To correct this, change the timeframe to one where there is at least one existing record of the specified exercise in the current exercise list.
+
+===== No exercise for stipulated axis
+
+If you have keyed in the `graph` command in the correct format but the graph is not appearing, you might want to check the y-axis in your command. In the example below, the exercise clearly exists in the exercise list, but there are no inputs for the stipulated y-axis. Therefore the graph will not be displayed.
+
+. The exercise `Push Up` clearly exists in the given timeframe. However, there are no inputs for weight as seen in the exercise table.
++
+image::ug-graph-7.png[]
+. The graph will not appear and an error message will be shown.
++
+image::ug-graph-8.png[]
+
+To correct this, change the axis to one where there is at least one non-empty input of the  exercise in the current exercise list. You could also choose to view another exercise's graph instead.
+
+===== Invalid time frame
+
+If you have keyed in the `graph` command in the command box but the graph is not appearing, you might want to check the start and end dates. In the example below, the command format looks correct but the start date is later than the end date. This is not allowed and therefore the graph will not be displayed.
+
+. The start date `01-04-2020` is chronologically later than the end date `01-02-2020`.
++
+image::ug-graph-9.png[]
+. The graph will not appear and an error message will be shown.
++
+image::ug-graph-10.png[]
+
+To correct this, the start date has to be earlier or the same as the end date.
 
 === View schedule for the day/week: `view-s` [Coming in v2.0]
 

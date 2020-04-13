@@ -6,29 +6,37 @@ skinparam classBackgroundColor LOGIC_COLOR
 
 package Logic {
 
-package Parser {
-Interface Parser <<Interface>>
-Class FitBizParser
-Class XYZCommandParser
-Class CliSyntax
-Class ParserUtil
-Class ArgumentMultimap
-Class ArgumentTokenizer
-Class Prefix
-}
+    package Parser {
+        Interface Parser <<Interface>>
+        Class FitBizParser
+        Class XYZCommandParser
+        Class CliSyntax
+        Class ParserUtil
+        Class ArgumentMultimap
+        Class ArgumentTokenizer
+        Class Prefix
+    }
 
-package Command {
-Class XYZCommand
-Class CommandResult
-Class "{abstract}\nCommand" as Command
-}
+    package Command {
+        Class XYZCommand
+        Class CommandResult
+        Class "{abstract}\nCommand" as Command
+    }
 
-Interface Logic <<Interface>>
-Class LogicManager
+    package Autocomplete {
+        Class Autocomplete
+    }
+
+    package CommandHistory {
+        Class CommandHistory
+    }
+
+    Interface Logic <<Interface>>
+    Class LogicManager
 }
 
 package Model{
-Class HiddenModel #FFFFFF
+    Class HiddenModel #FFFFFF
 }
 
 Class HiddenOutside #FFFFFF
@@ -36,6 +44,8 @@ HiddenOutside ..> Logic
 
 LogicManager .up.|> Logic
 LogicManager -->"1" FitBizParser
+LogicManager -left->"1" Autocomplete
+LogicManager -left->"1" CommandHistory
 FitBizParser .left.> XYZCommandParser: creates >
 
 XYZCommandParser ..> XYZCommand : creates >

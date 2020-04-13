@@ -11,40 +11,40 @@ We are a team based in the http://www.comp.nus.edu.sg[School of Computing, Natio
 == Project Team
 
 === Choo Qi Le Aaron
-image::aaroncql.png[width="150", align="left"]
-{empty}[https://github.com/AaronCQL[github]]
+image::aaroncql.png[width="200", align="left"]
+{empty}[https://github.com/AaronCQL[GitHub]] [<<aaroncql#, Project Portfolio>>]
 
 Role: Team Leader + Developer
 
 '''
 
 === Fong Yong Jie
-image::yonggiee.png[width="150", align="left"]
-{empty}[https://github.com/Yonggiee[github]]
+image::yonggiee.png[width="200", align="left"]
+{empty}[https://github.com/Yonggiee[GitHub]] [<<yonggiee#, Project Portfolio>>]
 
 Role: Developer
 
 '''
 
 === Li Zi Ying
-image::ziyingli.png[width="150", align="left"]
-{empty}[https://github.com/ziyingli[github]]
+image::ziyingli.png[width="200", align="left"]
+{empty}[https://github.com/ziyingli[GitHub]] [<<ziyingli#, Project Portfolio>>]
 
 Role: Developer
 
 '''
 
 === Ng Ming Liang
-image::dban1.png[width="150", align="left"]
-{empty}[https://github.com/Dban1[github]]
+image::dban1.png[width="200", align="left"]
+{empty}[https://github.com/Dban1[GitHub]] [<<dban1#, Project Portfolio>>]
 
 Role: Developer
 
 '''
 
 === Toh Ker Wei
-image::tohkerwei.png[width="150", align="left"]
-{empty}[https://github.com/tohkerwei[github]]
+image::tohkerwei.png[width="200", align="left"]
+{empty}[https://github.com/tohkerwei[GitHub]] [<<tohkerwei#, Project Portfolio>>]
 
 Role: Developer
 

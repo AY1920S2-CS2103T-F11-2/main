@@ -45,8 +45,8 @@ FitBiz is a fitness business management application, specially created for fitne
 |_Given below are the sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users._
 |===
 
-include::../UserGuide.adoc[tag=filter-command]
 include::../UserGuide.adoc[tag=add-c-command]
+include::../UserGuide.adoc[tag=filter-c-command]
 
 == Contributions to the Developer Guide
 

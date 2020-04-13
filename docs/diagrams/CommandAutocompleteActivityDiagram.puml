@@ -1,0 +1,34 @@
+@startuml CommandAutocompleteActivityDiagram
+start
+
+:User presses "Tab";
+:Retrieve and trim user input;
+
+'Since the beta syntax does not support placing the condition outside the
+'diamond we place it as the true branch instead.
+
+if () then ([Input contains white spaces])
+    if () then ([Input contains "/"])
+        :Set caret position\nto next "/";
+    else ([Else])
+        :Ignore user;
+    endif
+else ([Else])
+    :Find all similar commands;
+    if () then ([No commands found])
+        :Feedback to user:\nno commands found;
+    else ([Else])
+        if () then ([Unambiguous:\nsingle command found])
+            :Complete the full command,\nand prefixes (if any);
+            :Set the correct caret position;
+            :Feedback to user:\nshow command usage;
+        else ([Else, amgibuous:\nmultiple commands found])
+            :Complete command till\nthe longest common prefix;
+            :Set the correct caret position;
+            :Feedback to user:\nshow all similar commands;
+        endif
+    endif
+endif
+
+stop
+@enduml

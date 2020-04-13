@@ -8,7 +8,7 @@ end box
 box Model MODEL_COLOR_T1
     Participant ":Model" as Model MODEL_COLOR
     Participant ":Client" as Client MODEL_COLOR
-    Participant ":Exercise" as Exercise MODEL_COLOR
+    Participant ":UniqueExerciseList" as UniqueExerciseList MODEL_COLOR
     Participant ":Graph" as Graph MODEL_COLOR
 endbox
 
@@ -32,10 +32,10 @@ activate Client MODEL_COLOR
 GraphCommand <[MODEL_COLOR]-- Client : exerciseList
 deactivate Client
 
-GraphCommand -[LOGIC_COLOR]> Exercise : containsNameWithinDate
-activate Exercise MODEL_COLOR
-GraphCommand <[MODEL_COLOR]-- Exercise : true
-deactivate Exercise
+GraphCommand -[LOGIC_COLOR]> UniqueExerciseList : containsNameWithinDate()
+activate UniqueExerciseList MODEL_COLOR
+GraphCommand <[MODEL_COLOR]-- UniqueExerciseList : true
+deactivate UniqueExerciseList
 
 GraphCommand -[LOGIC_COLOR]> Graph : generateGraphList(clientInView)
 activate Graph MODEL_COLOR

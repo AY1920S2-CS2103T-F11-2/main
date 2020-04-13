@@ -92,6 +92,9 @@ The `UI` component,
 * Listens for changes to `Model` data so that the UI can be updated with the modified data.
 
 [[Design-Logic]]
+
+// tag::logic[]
+
 === Logic component
 
 [[fig-LogicClassDiagram]]
@@ -111,6 +114,8 @@ Given below is the sequence diagram for interactions within the `Logic` componen
 
 .Interactions Inside the Logic Component for the `delete-c 1` Command
 image::DeleteSequenceDiagram.png[]
+
+// end::logic[]
 
 [[Design-Model]]
 === Model component
@@ -173,6 +178,8 @@ We are using `java.util.logging` package for logging. The `LogsCenter` class is 
 === Configuration
 
 Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: `config.json`).
+
+// tag::aaron-choo[]
 
 === Command History --- Aaron Choo
 
@@ -250,7 +257,7 @@ In choosing the maximum size of the command history, we have to take note of som
 
 Ultimately, we felt that 100 is a very generous estimate given that a user really only needs the past few commands at any point of time.
 
-=== Command Autocompletion --- Aaron Choo
+=== Command Autocomplete --- Aaron Choo
 
 Similar to the previously mentioned <<Command History --- Aaron Choo, Command History>> feature, this feature also serves to improve the user experience by allowing users to press the kbd:[Tab] key to autocomplete their partially entered commands.
 
@@ -308,9 +315,9 @@ Now, let us discuss about how we implemented `Trie` to support the <<command-his
 . If the argument `word` is ambiguous: the `Node` whose constructed word is the longest common prefix of all words similar to `word` contained in `Trie`
 
 [TIP]
-Refer to <<autocomplete-activity-diagram>> given in the next section for the complete sequences of decision.
+Refer to <<autocomplete-activity-diagram>> given in the next section for the complete sequence of the key decisions.
 
-Let us move on to `Trie#listAllSimilarWords` which contains the main driver logic, and which makes use of the `Node` found by `Trie#getLongestPrefixNode`. Cases 1 and 2 discussed above are relatively trivial and we shall not discuss about how they are handled in `Trie#listAllSimilarWords`. For case 3, in order for us to find all the similar words, we have chosen to use a Depth-First Search (DFS) approach, starting the search from the `Node` returned by `Trie#getLongestPrefixNode`, as shown here:
+Let us move on to `Trie#listAllSimilarWords` which makes use of the `Node` found by `Trie#getLongestPrefixNode`. Cases 1 and 2 discussed above are relatively trivial and we shall not discuss about how they are handled in `Trie#listAllSimilarWords`. For case 3, in order for us to find all the similar words, we have chosen to use a Depth-First Search (DFS) approach, starting the search from the `Node` returned by `Trie#getLongestPrefixNode`, as shown here:
 
 ```java
 Node subtrie = getLongestPrefixNode(word);
@@ -335,12 +342,12 @@ The choice of a DFS approach as opposed to a Breadth-First Search (BFS) approach
 
 ===== How this feature works
 
-Similar to <<Command History --- Aaron Choo, Command History>> , this feature also relies heavily on the UI class `CommandBox`, and thus we have decided to let `CommandBox` interact with `Autocomplete` directly. A simplified class diagram of the classes involved is shown here:
+Similar to <<Command History --- Aaron Choo, Command History>>, this feature also relies heavily on the UI class `CommandBox`, and thus we have decided to let `CommandBox` interact with `Autocomplete` directly. A simplified class diagram of the classes involved is shown here:
 
 .Simplified Class Diagram for Autocomplete
 image::CommandAutocompleteClassDiagram.png[]
 
-In the following sequence diagram, we follow the execution for when the user tries to autocomplete his partially entered command `gra` (which, in the current application, is an unambiguous command, and will result in the full completion of the `graph` command as well as the prefixes):
+In the following sequence diagram, we follow the execution for when the user tries to autocomplete his partially entered command `gra` (which, in the current application, is an unambiguous command, and will result in the full completion of the `graph` command as well as its prefixes):
 
 .Simplified Sequence Diagram for Command Autocomplete
 image::CommandAutocompleteSequenceDiagram.png[]
@@ -350,13 +357,15 @@ image::CommandAutocompleteSequenceDiagram.png[]
 .Sequence Diagram for the Autocomplete#execute Method
 image::CommandAutocompleteSequenceDiagramRef.png[]
 
-Within the `execute` method, `Autocomplete` calls the `listAllSimilarWords` method from `Trie` with the user input text. `Trie`, which would already have all the commands stored, finds the longest prefix node, calls the `constructWord` method from this node, and checks if this node represents the end of a completed word. `Trie` then creates a `SimilarWordsResult` object to store these information and returns it to `Autocomplete`. Then, `Autocomplete` retrieves these information, realises that it is dealing with an unambiguous command, and constructs the corresponding prefixes. It then creates a `AutocompleteResult` object to store all the information that `CommandBox` requires, and finally returns this object to `CommandBox`.
+Within the `execute` method, `Autocomplete` calls the `listAllSimilarWords` method from `Trie` with the user input text. `Trie`, which would already have all the commands stored, finds the longest prefix node, calls the `constructWord` method from this node, and checks if this node represents the end of a completed word. Since it is indeed a completed word, `Trie` immediately creates a `SimilarWordsResult` object to store these information and returns it to `Autocomplete`. Then, `Autocomplete` retrieves these information, realises that it is dealing with an unambiguous command, and constructs the corresponding prefixes. It then creates a `AutocompleteResult` object to store all the information that `CommandBox` requires, and finally returns this object to `CommandBox`.
 
-This feature currently only supports autocompletion of _commands_ and _prefixes_, and not other fields/parameters like names and addresses that have been used by the user before. Implicitly, since all commands defined in FitBiz do not have empty spaces in them, this allows us to easily determine when to enable <<command-history-behaviour-4, behaviour 4>> as defined above: by simply checking for the presence of white spaces from the trimmed user input. The following activity diagram is given to show the decisions starting from the point where the user presses kbd:[Tab]:
+Lastly, in order to explain the key decisions that this feature does at each step starting from the point where the user presses kbd:[Tab], we have provided the following activity diagram:
 
 [[autocomplete-activity-diagram]]
 .Activity Diagram for the Autocomplete Logic
 image::CommandAutocompleteActivityDiagram.png[]
+
+This feature currently only supports autocompletion of _commands_ and _prefixes_, and not other fields/parameters like names and addresses that have been used by the user before. Implicitly, since all commands defined in FitBiz do not have empty spaces in them, this allows us to easily determine when to allow users to press kbd:[Tab] to get to the next prefix (<<command-history-behaviour-4, behaviour 4>>): by simply checking for the presence of white spaces from the trimmed user input.
 
 ==== Design Considerations
 
@@ -384,6 +393,8 @@ As such, the choice of implementing our own Trie data structure is obvious. As t
 Exchanging some initial development time for future scalability of our app will ensure that we, or future developers, do not end up wasting time refactoring what could have been done in the first place. Moreover, the Trie data structure is much more effective and computationally inexpensive in finding the longest common prefix of all ambiguous commands. The same cannot be said when using a List.
 
 Also, since we have implemented our own Trie data structure, it would also allow more custom logic to be added later, and allow more creative freedom with respect to the features that we, or future developers would want to add. For example, future version of this application might want to also include the autocompletion of frequently used parameters by the user.
+
+// end::aaron-choo[]
 
 === Scheduling for a Client --- Ng Ming Liang
 This feature allows for a user to assign a weekly schedule to a client. Timings are represented in the 24-hour format `HHmm`. Each client can have none or multiple schedules that do not have overlapping timings. Multiple clients are allowed to have overlapping timings with each other.
@@ -604,10 +615,12 @@ The personal best feature is facilitated by the model `PersonalBest`, and the lo
 
 A simplified class diagram of the classes involved in this feature is given below:
 
+.Simplified Class Diagram for Personal Best
 image::PersonalBestClassDiagram.png[]
 
 In the following sequence diagram, we trace the execution for when the user decides to enter the command `view-c` into FitBiz:
 
+.Sequence Diagram of the View#execute Method for Personal Best
 image::PersonalBestSequenceDiagram.png[]
 
 The explanation for the sequence diagram is as follows: when the user inputs `view-c`, `add-e`, `edit-c` or `delete-c`, `PersonalBestFinder#generateAndSetPersonalBest` is called, taking the client currently in view as the parameter. `PersonalBestFinder#generateAndSetPersonalBest` then retrieves client's list of exercises using `Client#getExerciseList` and creates a new `HashMap`, where the `key` is `ExerciseName` and the `value` is `Exercise`. Then the personal bests of each exercise of the client in view are generated using the above considerations. Finally the list of personal bests is set using `PersonalBest#setPersonalBest`.
@@ -641,6 +654,7 @@ This feature allows users to see the progress graph of the current client in vie
 
 The graph mechanism is faciliated by the model class `Graph`, which contains the details of the graph. These include `ExerciseName`, `Axis`, `StartDate` and `EndDate`. The figure below is a UML class diagram to illustrate the `Graph` model.
 
+.Simplified Class Diagram for Graph
 image::GraphClassDiagram.png[]
 
 These attributes are bounded by these characteristics:
@@ -651,6 +665,7 @@ These attributes are bounded by these characteristics:
 
 Here is an activity diagram displaying the steps taken when FitBiz receives a user input for the `graph` command:
 
+.Activity Diagram for Graph Command
 image::GraphCommandActivityDiagram.png[]
 
 The behaviour of this feature determines the graph plotted of the exercise specified based on these considerations:
@@ -662,6 +677,7 @@ The behaviour of this feature determines the graph plotted of the exercise speci
 
 The flow of the program is illustrated using the sequence diagram below:
 
+.Sequence Diagram for Graph Command
 image::GraphSequenceDiagram.png[]
 
 The explanation is as follows: when the user inputs `graph` with all relevant arguments input correctly, a new `GraphCommand()` is created, taking the newly created `Graph` object as parameter.
@@ -685,6 +701,7 @@ We decided to use the approach of abstracting the axis types away into `AxisType
 
 As our axis values can only be `REPS`, `WEIGHT` or `NA`, we can check for each case using the switch case method instead of checking for equality using raw types. This is also much more efficient than using multiple if-else statements. For example, in the code snippet below, the method `fillSeries()` uses switch case statements to add data values depending on the `AxisType`.
 
+.Code snippet
 [source, java]
 ----
     private void fillSeries() {
@@ -706,11 +723,18 @@ Moreover, to keep in line with the OOP standards, we decided that it will be bet
 
 By considering the above two factors, despite having to put in the extra effort to create a new `AxisType` class and thus requiring extra methods like getters and setters, we decided to move with the approach of creating the `AxisType` enum class and refactor to accomodate for the additional data type.
 
+// tag::filter-c-command[]
+
 === Filtering the list of clients --- Toh Ker Wei
 This feature allows users to filter the list of clients by specifying the `Tag` or `Sport` of the clients they want to view.
 
 ==== Implementation
-This filtering mechanism is facilitated by `TagAndSportContainsKeywordsPredicate`, that implements `Predicate<Client>` which is a wrapper class for a boolean. `TagAndSportContainsKeywordsPredicate` contains 2 booleans:
+This filtering mechanism is facilitated by `TagAndSportContainsKeywordsPredicate`, that implements `Predicate<Client>` which is a wrapper class for a boolean. `FilterCommand` is associated with `Model` is responsible for calling `Model#updateFilteredClientList` based on `TagAndSportContainsKeywordsPredicate`. `TagAndSportContainsKeywordsPredicate` will call `test` on `Client` to check if the clients 'Tag' and `Sport` contains all the keyword. the relations between these classes are shown in the class diagram below.
+
+image::FilterClassDiagram.png[]
+
+To further elaborate,
+`TagAndSportContainsKeywordsPredicate` contains 2 booleans:
 
 1. `hasTag`: evaluates if the client has all the `Tag` specified
 2. `hasSport`: evaluates if the client has all the `Sport` specified
@@ -723,27 +747,25 @@ image::FilterSequenceDiagram.png[]
 
 ==== Design Considerations
 [options='header']
+.Table of Design Considerations
 |====================
-| Considerations | Pros and Cons
-|Check if a client contains `Tag` and `Sport` keywords seperately before combining the results|
-*Pros*: Code will be neater for debugging and adding more parameters to filter will be easier
-
-*Cons*: Parts of the code will be duplicated
-
-|Combine all keywords and check if all keywords exist in the combined list of `Tag` and `Sport` |
-*Pros*: Lesser duplicated codes and simpler logic
-
-*Cons*: Harder to fix errors or add new attributes to filter
+| |Using separate booleans to check for `Tag` and `Sport` keywords  (Chosen) | Using one boolean to check for all keywords
+| Ease of Implementation | Checks for client's `Tags` and `Sports` containing keywords can be done separately ensuring that individual results are correct before combining them |Simpler logic but errors are more difficult to pinpoint to either `TAG` or `SPORT`
+| Ease of Expanding Feature | Easier to add new parameters to filter since a separate check will be done before combining with the result of previous checks | Boolean conditions can get very complex and logical error will be prone to occur
 
 |====================
 
 We decided to use the first approach of checking if the client contains `Tag` specified and `Sport` specified separately.
 
-Firstly, by separating the checks for each attributes, a correct implementation of checking `Tag` against the keywords will allow us to easily duplicate the check to be done for `Sport`. This makes the code easier to debug as we can simply check the hasAttribute boolean to see if it gives the correct value.
+Firstly, by separating the checks for each attributes, a correct implementation of checking `Tag` against the keywords will allow us to easily duplicate the logic to be done for `Sport`. This makes the code easier to debug as we can simply check the hasAttribute boolean to see if it gives the correct value.
 
 Secondly, separating the checks for each attributes will allow us to add attributes of different types stored in different data structure easier. We could simply add another check on the attribute against the keyword specified then do a logical addition of the result against the others.
 
 Therefore, as we foresee us adding more attributes to be filtered increasing the need to ensure logical correctness, the first approach is the most ideal.
+
+// end::filter-c-command[]
+
+// tag::view-c-command[]
 
 === Viewing the information of a client --- Toh Ker Wei
 This feature allows users to view the information of a specific client using his `INDEX` in the clients list. Information displayed includes additional information of the client, exercises done and his personal best of exercises done.
@@ -759,26 +781,22 @@ image::ViewSequenceDiagram.png[]
 
 [options='header']
 |====================
-| Considerations | Pros and Cons
-|View client using client's `INDEX`|
-*Pros*: Every client has a specific `INDEX`
-
-*Cons*: User has to look through the list for client's `INDEX` to view his information
-
-|View client using client's name|
-*Pros*: User can view information by knowing the name
-
-*Cons*: Clients could have same names and thus user will have to use their `INDEX` or other information to specify whcih client to view
+| | Choose client to view based on `INDEX` (Chosen)| Choose client to view based on `NAME`
+| Adhering to Single Responsibilities Principle| `view-c` only has to retrieve and display the client based on `INDEX` entered
+| `view-c` has to retrieve clients with the same name and use `INDEX` to specify the client to view
+|Ease of Implementation | Easier to implement as `MODEL` only needs to be accessed once | Harder to implement as `view-c` needs to return a list of clients with the same name before using `INDEX` to specify the client
 
 |====================
 
 We decided to use the first approach of using the client's `INDEX` to view his information.
 
-Firstly, as the client's `INDEX` is unique, there will not be conflicts as to which client's information should be displayed, making `view-c` less complex and only responsible for retrieving and displaying the client's information.
+Firstly, as the client's `INDEX` is unique, `view-c` will only be responsible for retrieving and displaying the client's information and will not need to resolve clients with the same names.
 
-Secondly, in cases where users manage many clients and some with same names, there are functions like find and filter which allow users to scope the clients list and easily find the desired client's `INDEX`.
+Secondly, for clients with the same name, `INDEX` qill be used to specify the client to be view. This causes extra work for the implementation. Furthermore, in cases where users manage many clients and some with same names, there are functions like find and filter which allow users to scope the clients list and easily find the desired client's `INDEX`.
 
 Therefore, viewing a client by his `INDEX` minimises the responsibility of the command and will not need to resolve conflicting clients and is the most ideal.
+
+// end::view-c-command[]
 
 == Documentation
 

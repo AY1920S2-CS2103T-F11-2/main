@@ -3,6 +3,19 @@
 
 /* Custom block: details */
 
+@media print {
+<<<<<<< Updated upstream
+    a[href]:after {
+        content: none !important;
+        }
+    }
+=======
+  a[href]:after {
+    content: none !important;
+  }
+}
+>>>>>>> Stashed changes
+
 .sidebarblock.details > .content {
     border-left: .25rem solid rgba(0, 0, 0, 0.1);
 }

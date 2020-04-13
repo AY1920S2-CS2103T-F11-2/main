@@ -24,17 +24,16 @@ public class ExportCommand extends Command {
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Exports the exercises of the client in view.";
 
-    public static final String MESSAGE_SUCCESS = "Succesfully exported this client's exercises to \"%s\".\n"
-            + String.format("Please check your /%s directory.", DEFAULT_EXPORTS_DIRECTORY);
+    public static final String MESSAGE_SUCCESS = "Succesfully exported this client's exercises to \"%s\".\n" + String
+            .format("Please check your /%s folder, which should be located in the same directory as FitBiz.jar.",
+                    DEFAULT_EXPORTS_DIRECTORY);
 
-    public static final String MESSAGE_FAILED = "Failed to export this client's exercises. "
-            + "Please try again.";
+    public static final String MESSAGE_FAILED = "Failed to export this client's exercises. Please try again.";
 
     public static final String MESSAGE_CLIENT_NOT_IN_VIEW = "You currently do not have a client in view, "
             + "use the view-c command to view a client first";
 
-    public static final String MESSAGE_NO_EXERCISES =
-            "This client currently does not have any exercises to export.";
+    public static final String MESSAGE_NO_EXERCISES = "This client currently does not have any exercises to export.";
 
     @Override
     public CommandResult execute(Model model) throws CommandException {

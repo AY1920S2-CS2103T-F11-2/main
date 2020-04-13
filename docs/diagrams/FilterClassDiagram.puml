@@ -1,0 +1,22 @@
+@startuml
+!include style.puml
+
+Class FilterCommand LOGIC_COLOR
+Interface Predicate <<Interface>> LOGIC_COLOR
+Class TagAndSportContainsKeywordsPredicate MODEL_COLOR
+Class Client MODEL_COLOR
+Class Model MODEL_COLOR
+Class Tag MODEL_COLOR
+Class Sport MODEL_COLOR
+
+
+FilterCommand "1" *--> "1" TagAndSportContainsKeywordsPredicate
+FilterCommand ..> "1" Model
+TagAndSportContainsKeywordsPredicate ..|> Predicate
+Model ..> "1" TagAndSportContainsKeywordsPredicate
+TagAndSportContainsKeywordsPredicate ..> "1" Client
+Client "1" *--> "*" Tag
+Client "1" *--> "*" Sport
+
+
+@enduml

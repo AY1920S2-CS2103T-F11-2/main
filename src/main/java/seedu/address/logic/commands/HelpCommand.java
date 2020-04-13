@@ -7,7 +7,8 @@ import seedu.address.model.Model;
  */
 public class HelpCommand extends Command {
 
-    public static final String USER_GUIDE_URL = "https://ay1920s2-cs2103t-f11-2.github.io/main/UserGuide.html";
+    public static final String USER_GUIDE_URL =
+            "https://ay1920s2-cs2103t-f11-2.github.io/main/UserGuide.html#view-help-code-help-code";
 
     public static final String COMMAND_WORD = "help";
 

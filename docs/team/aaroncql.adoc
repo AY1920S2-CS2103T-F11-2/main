@@ -1,0 +1,72 @@
+= Choo Qi Le Aaron - Project Portfolio
+:site-section: AboutUs
+:imagesDir: ../images
+:stylesDir: ../stylesheets
+:experimental:
+
+== PROJECT: FitBiz
+
+== Overview
+
+FitBiz is a fitness business management application, specially made for fitness coaches to manage their clients. It is primarily a desktop application where the user interacts via the Command Line Interface (CLI), and views data via the Graphical User Interface (GUI). This project is written in Java 11, packaged using Gradle, and uses JavaFX for the GUI.
+
+== Summary of Contributions
+
+* *Major enhancement*: developed the <<command-autocomplete>> feature, which allows users to conveniently autocomplete commands and their parameter prefixes using the kbd:[Tab] key.
+** *What it does*: allows users to input FitBiz's commands with ease without having to memorise the syntax of every command available. Since our users are fast typists and prefer to use the keyboard, this feature also allows them to efficiently get to the next prefix by hitting kbd:[Tab], instead of wasting time using their mouse.
+** *Justification*: previously, users would have to refer to the User Guide frequently (or rely on the `help` command) for the syntax of FitBiz's commands. This feature greatly lowers the barriers to entry for this application, and also enhances the user experience by providing a much faster way for users to interact with the CLI via the keyboard.
+** *Highlights*: developed a custom `Trie` data structure which was written to be easily extensible for future commands and custom logic to be added. This feature is also contextually aware, and will provide ample and useful feedback to the user (like similar commands found, or the usage of the current autocompleted command).
+
+* *Major enhancement*: developed the <<command-history>> feature, which allows users to store their previously entered commands, and which they can access using the kbd:[&uarr;] and kbd:[&darr;] keys.
+** *What it does*: allows users to efficiently and conveniently access and repeat their previously entered commands (be it valid or invalid) any time within the Command Box.
+** *Justification*: previously, if the command was successful, users would have to type out the full command again if they had wanted to repeat it. Now, users can easily repeat or tweak their previously entered commands without wasting precious time typing everything again.
+** *Highlights*: this feature was made to mimic most modern interpreters, and as such, will be very familiar to most users comfortable with using a CLI application. The history was also made to persist on the storage, so users can expect to come back to the application after a previous session and still access their previous command history of said session.
+
+* *Minor enhancement*: developed the <<export-command, `export`>> command which allows users to export their clients' recorded exercises into a CSV file which can then be viewed in other spreadsheet software like Microsoft Excel, or easily shared with their clients.
+
+* *Minor enhancement*: redesigned the overall user interface and enhanced the user experience by providing better visual feedback cues to the GUI.
+
+* *Minor enhancement*: added the target and current weight attributes to the `Client` class.
+
+* *Overall contributions*: https://nus-cs2103-ay1920s2.github.io/tp-dashboard/#search=aaroncql&sort=groupTitle&sortWithin=title&since=2020-02-14&timeframe=commit&mergegroup=false&groupSelect=groupByRepos&breakdown=false&tabOpen=true&tabType=authorship&tabAuthor=AaronCQL&tabRepo=AY1920S2-CS2103T-F11-2%2Fmain%5Bmaster%5D[4.5K+ LOC] | https://github.com/AY1920S2-CS2103T-F11-2/main/graphs/contributors[260+ commits] | https://github.com/AY1920S2-CS2103T-F11-2/main/pulls?q=is%3Apr+is%3Amerged+author%3Aaaroncql[60+ PRs merged] | https://github.com/AY1920S2-CS2103T-F11-2/main/pulls?q=is%3Apr+reviewed-by%3A%40me+[70+ PRs reviewed]
+
+* *Other contributions*:
+
+** *Project management*:
+*** Managed releases https://github.com/AY1920S2-CS2103T-F11-2/main/releases/tag/v1.2.1[`v1.2.1`], https://github.com/AY1920S2-CS2103T-F11-2/main/releases/tag/v1.3[`v1.3`], and https://github.com/AY1920S2-CS2103T-F11-2/main/releases/tag/v1.4[`v1.4`] on GitHub
+** *Enhancements to existing/teammates' features*:
+*** Completely reworked the overall design of the GUI by adhering to the https://material.io/design/[Material Design] specification: https://github.com/AY1920S2-CS2103T-F11-2/main/pull/123[#123] https://github.com/AY1920S2-CS2103T-F11-2/main/pull/208[#208], https://github.com/AY1920S2-CS2103T-F11-2/main/pull/217[#217], https://github.com/AY1920S2-CS2103T-F11-2/main/pull/218[#218], https://github.com/AY1920S2-CS2103T-F11-2/main/pull/234[#234]
+*** Updated the sample client data, exercises, and schedules: https://github.com/AY1920S2-CS2103T-F11-2/main/pull/67[#67], https://github.com/AY1920S2-CS2103T-F11-2/main/pull/233[#233]
+*** Updated unit tests for the `v1.2` release, raising test coverage by 8.3% to 77.8%: https://github.com/AY1920S2-CS2103T-F11-2/main/pull/69[#69]
+*** Added unit tests for the `AddExerciseCommand` class, raising test coverage by 3.2%: https://github.com/AY1920S2-CS2103T-F11-2/main/pull/133[#133]
+*** Wrote a custom insertion sort to support adding of exercises: https://github.com/AY1920S2-CS2103T-F11-2/main/pull/233[#233] (https://ay1920s2-cs2103t-f11-2.github.io/main/DeveloperGuide.html#adding-an-exercise-to-uniqueexerciselist[justification])
+** *Documentation*:
+*** Added the Command History, Command Autocomplete, Export and Delete Exercises Command features to the User and Developer Guides: https://github.com/AY1920S2-CS2103T-F11-2/main/pull/201[#201], https://github.com/AY1920S2-CS2103T-F11-2/main/pull/237[#237], https://github.com/AY1920S2-CS2103T-F11-2/main/pull/244[#244], https://github.com/AY1920S2-CS2103T-F11-2/main/pull/267[#267], https://github.com/AY1920S2-CS2103T-F11-2/main/pull/271[#271]
+*** Added and updated the https://ay1920s2-cs2103t-f11-2.github.io/main/UserGuide.html#overview[Overview] section to the User Guide: https://github.com/AY1920S2-CS2103T-F11-2/main/pull/110[#110], https://github.com/AY1920S2-CS2103T-F11-2/main/pull/136[#136], https://github.com/AY1920S2-CS2103T-F11-2/main/pull/267[#267]
+*** Reordered sections in the User and Developer Guides for better flow of contents: https://github.com/AY1920S2-CS2103T-F11-2/main/pull/213[#213], https://github.com/AY1920S2-CS2103T-F11-2/main/pull/223[#223]
+** *Summary*:
+*** PRs reviewed with non-trivial review comments: https://github.com/AY1920S2-CS2103T-F11-2/main/pull/83[#83], https://github.com/AY1920S2-CS2103T-F11-2/main/pull/229[#229], https://github.com/AY1920S2-CS2103T-F11-2/main/pull/261[#261]
+*** Issues and bugs reported with non-trivial comments: https://github.com/AY1920S2-CS2103T-F11-2/main/issues/104[#104], https://github.com/AY1920S2-CS2103T-F11-2/main/issues/105[#105], https://github.com/AY1920S2-CS2103T-F11-2/main/issues/129[#129], https://github.com/AY1920S2-CS2103T-F11-2/main/issues/138[#138] https://github.com/AY1920S2-CS2103T-F11-2/main/issues/235[#235]
+*** Issues resolved and bugs squashed with non-trivial implementations: https://github.com/AY1920S2-CS2103T-F11-2/main/issues/41[#41], https://github.com/AY1920S2-CS2103T-F11-2/main/issues/64[#64], https://github.com/AY1920S2-CS2103T-F11-2/main/issues/65[#65], https://github.com/AY1920S2-CS2103T-F11-2/main/issues/78[#78], https://github.com/AY1920S2-CS2103T-F11-2/main/issues/95[#95], https://github.com/AY1920S2-CS2103T-F11-2/main/issues/103[#103], https://github.com/AY1920S2-CS2103T-F11-2/main/issues/107[#107], https://github.com/AY1920S2-CS2103T-F11-2/main/issues/161[#161], https://github.com/AY1920S2-CS2103T-F11-2/main/issues/165[#165], https://github.com/AY1920S2-CS2103T-F11-2/main/issues/170[#170], https://github.com/AY1920S2-CS2103T-F11-2/main/issues/187[#187], https://github.com/AY1920S2-CS2103T-F11-2/main/issues/188[#188], https://github.com/AY1920S2-CS2103T-F11-2/main/issues/190[#190], https://github.com/AY1920S2-CS2103T-F11-2/main/issues/197[#197], https://github.com/AY1920S2-CS2103T-F11-2/main/issues/198[#198], https://github.com/AY1920S2-CS2103T-F11-2/main/issues/200[#200]
+*** Solutions contributed to https://github.com/nus-cs2103-AY1920S2/forum/issues[forum discussions]: https://github.com/nus-cs2103-AY1920S2/forum/issues/30[#30], https://github.com/nus-cs2103-AY1920S2/forum/issues/55[#55], https://github.com/nus-cs2103-AY1920S2/forum/issues/58[#58], https://github.com/nus-cs2103-AY1920S2/forum/issues/68[#68]
+
+== Contributions to the User Guide
+
+
+|===
+|_Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users._
+|===
+
+include::../UserGuide.adoc[tag=understanding-the-cli]
+
+include::../UserGuide.adoc[tag=export-command]
+
+include::../UserGuide.adoc[tag=delete-e-command]
+
+== Contributions to the Developer Guide
+
+|===
+|_Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project._
+|===
+
+include::../DeveloperGuide.adoc[tag=aaron-choo]
