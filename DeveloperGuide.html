@@ -1380,7 +1380,16 @@ if (dateComparision &gt; 0) {
 <div class="sect3">
 <h4 id="implementation-7"><a class="link" href="#implementation-7">3.9.1. Implementation</a></h4>
 <div class="paragraph">
-<p>This filtering mechanism is facilitated by <code>TagAndSportContainsKeywordsPredicate</code>, that implements <code>Predicate&lt;Client&gt;</code> which is a wrapper class for a boolean. <code>TagAndSportContainsKeywordsPredicate</code> contains 2 booleans:</p>
+<p>This filtering mechanism is facilitated by <code>TagAndSportContainsKeywordsPredicate</code>, that implements <code>Predicate&lt;Client&gt;</code> which is a wrapper class for a boolean. <code>FilterCommand</code> is associated with <code>Model</code> is responsible for calling <code>Model#updateFilteredClientList</code> based on <code>TagAndSportContainsKeywordsPredicate</code>. <code>TagAndSportContainsKeywordsPredicate</code> will call <code>test</code> on <code>Client</code> to check if the clients 'Tag' and <code>Sport</code> contains all the keyword. the relations between these classes are shown in the class diagram below.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/FilterClassDiagram.png" alt="FilterClassDiagram">
+</div>
+</div>
+<div class="paragraph">
+<p>To further elaborate,
+<code>TagAndSportContainsKeywordsPredicate</code> contains 2 booleans:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -1407,26 +1416,29 @@ if (dateComparision &gt; 0) {
 <div class="sect3">
 <h4 id="design-considerations-7"><a class="link" href="#design-considerations-7">3.9.2. Design Considerations</a></h4>
 <table class="tableblock frame-all grid-all spread">
+<caption class="title">Table 3. Table of Design Considerations</caption>
 <colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Considerations</th>
-<th class="tableblock halign-left valign-top">Pros and Cons</th>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top">Using separate booleans to check for <code>Tag</code> and <code>Sport</code> keywords  (Chosen)</th>
+<th class="tableblock halign-left valign-top">Using one boolean to check for all keywords</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Check if a client contains <code>Tag</code> and <code>Sport</code> keywords seperately before combining the results</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Pros</strong>: Code will be neater for debugging and adding more parameters to filter will be easier</p>
-<p class="tableblock"><strong>Cons</strong>: Parts of the code will be duplicated</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Ease of Implementation</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Checks for client&#8217;s <code>Tags</code> and <code>Sports</code> containing keywords can be done separately ensuring that individual results are correct before combining them</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Simpler logic but errors are more difficult to pinpoint to either <code>TAG</code> or <code>SPORT</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Combine all keywords and check if all keywords exist in the combined list of <code>Tag</code> and <code>Sport</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Pros</strong>: Lesser duplicated codes and simpler logic</p>
-<p class="tableblock"><strong>Cons</strong>: Harder to fix errors or add new attributes to filter</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Ease of Expanding Feature</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Easier to add new parameters to filter since a separate check will be done before combining with the result of previous checks</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Boolean conditions can get very complex and logical error will be prone to occur</p></td>
 </tr>
 </tbody>
 </table>
@@ -1434,7 +1446,7 @@ if (dateComparision &gt; 0) {
 <p>We decided to use the first approach of checking if the client contains <code>Tag</code> specified and <code>Sport</code> specified separately.</p>
 </div>
 <div class="paragraph">
-<p>Firstly, by separating the checks for each attributes, a correct implementation of checking <code>Tag</code> against the keywords will allow us to easily duplicate the check to be done for <code>Sport</code>. This makes the code easier to debug as we can simply check the hasAttribute boolean to see if it gives the correct value.</p>
+<p>Firstly, by separating the checks for each attributes, a correct implementation of checking <code>Tag</code> against the keywords will allow us to easily duplicate the logic to be done for <code>Sport</code>. This makes the code easier to debug as we can simply check the hasAttribute boolean to see if it gives the correct value.</p>
 </div>
 <div class="paragraph">
 <p>Secondly, separating the checks for each attributes will allow us to add attributes of different types stored in different data structure easier. We could simply add another check on the attribute against the keyword specified then do a logical addition of the result against the others.</p>
@@ -1467,25 +1479,27 @@ if (dateComparision &gt; 0) {
 <h4 id="design-considerations-8"><a class="link" href="#design-considerations-8">3.10.2. Design Considerations</a></h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Considerations</th>
-<th class="tableblock halign-left valign-top">Pros and Cons</th>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top">Choose client to view based on <code>INDEX</code> (Chosen)</th>
+<th class="tableblock halign-left valign-top">Choose client to view based on <code>NAME</code></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">View client using client&#8217;s <code>INDEX</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Pros</strong>: Every client has a specific <code>INDEX</code></p>
-<p class="tableblock"><strong>Cons</strong>: User has to look through the list for client&#8217;s <code>INDEX</code> to view his information</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Adhering to Single Responsibilities Principle</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>view-c</code> only has to retrieve and display the client based on <code>INDEX</code> entered</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>view-c</code> has to retrieve clients with the same name and use <code>INDEX</code> to specify the client to view</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">View client using client&#8217;s name</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Pros</strong>: User can view information by knowing the name</p>
-<p class="tableblock"><strong>Cons</strong>: Clients could have same names and thus user will have to use their <code>INDEX</code> or other information to specify whcih client to view</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Ease of Implementation</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Easier to implement as <code>MODEL</code> only needs to be accessed once</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Harder to implement as <code>view-c</code> needs to return a list of clients with the same name before using <code>INDEX</code> to specify the client</p></td>
 </tr>
 </tbody>
 </table>
@@ -1493,10 +1507,10 @@ if (dateComparision &gt; 0) {
 <p>We decided to use the first approach of using the client&#8217;s <code>INDEX</code> to view his information.</p>
 </div>
 <div class="paragraph">
-<p>Firstly, as the client&#8217;s <code>INDEX</code> is unique, there will not be conflicts as to which client&#8217;s information should be displayed, making <code>view-c</code> less complex and only responsible for retrieving and displaying the client&#8217;s information.</p>
+<p>Firstly, as the client&#8217;s <code>INDEX</code> is unique, <code>view-c</code> will only be responsible for retrieving and displaying the client&#8217;s information and will not need to resolve clients with the same names.</p>
 </div>
 <div class="paragraph">
-<p>Secondly, in cases where users manage many clients and some with same names, there are functions like find and filter which allow users to scope the clients list and easily find the desired client&#8217;s <code>INDEX</code>.</p>
+<p>Secondly, for clients with the same name, <code>INDEX</code> qill be used to specify the client to be view. This causes extra work for the implementation. Furthermore, in cases where users manage many clients and some with same names, there are functions like find and filter which allow users to scope the clients list and easily find the desired client&#8217;s <code>INDEX</code>.</p>
 </div>
 <div class="paragraph">
 <p>Therefore, viewing a client by his <code>INDEX</code> minimises the responsibility of the command and will not need to resolve conflicting clients and is the most ideal.</p>
@@ -2511,4 +2525,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 05:32:14 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 05:34:11 UTC</div></div></div></body></html>
