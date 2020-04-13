@@ -1,0 +1,772 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Li Zi Ying - Project Portfolio</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="../images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link active" href="../index.html">AB-3</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">FitBiz</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="../LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S2-CS2103T-F11-2/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Li Zi Ying - Project Portfolio</h1></div><div id="content"><div class="sect1">
+<h2 id="project-fitbiz"><a class="link" href="#project-fitbiz">PROJECT: FitBiz</a></h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>FitBiz is a fitness business management application, specially made for fitness coaches to manage their clients. It is primarily a desktop application where the user interacts via the Command Line Interface (CLI), and views data via the Graphical User Interface (GUI). This project is written in Java 11, packaged using Gradle, and uses JavaFX for the GUI.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of Contributions</a></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Major enhancement</strong>: developed the graph feature, which allows users to conveniently plot and display the progress made by a client for a certain exercise over time. Users can immediately see if the client has improved for that exercise over the months.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>What it does</strong>: allows users to plot and display the graph of the specified exercise and specified y-axis from the stipulated start to end dates. Users have a choice of y-axis so that they can focus on one of the different attributes of an exercise, like the reps done or the weights lifted.</p>
+</li>
+<li>
+<p><strong>Justification</strong>: visualisation is always better than looking through a long list of exercises to check if a client has improved for an exercise. It is also much faster and easier to look at a graph to check for progress. The flexibility in axis type and dates also allows users to customise their graph to their needs.</p>
+</li>
+<li>
+<p><strong>Highlights</strong>: developed a <code>Graph</code> model that has an axis type, exercise name, start and end dates. Checks are also in place to make sure that there are data points to be plotted, else there will be an error message. Sanity checks like the check that the start date cannot be later then the end date are also implemented.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Major enhancement</strong>: developed the personal best feature, which allows users to view the personal best records of their exercises immediately after keying in an exercise session.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>What it does</strong>: allows users to efficiently and conveniently access their clients' personal best while updating the personal best table whenever changes to the exercise table is made.</p>
+</li>
+<li>
+<p><strong>Justification</strong>: instead of having to manually look through the entire exercise table to find a client&#8217;s personal best, the personal best will be immediately displayed when the user views a certain client. Changes made to the client&#8217;s exercise list will also be updated and displayed immediately.</p>
+</li>
+<li>
+<p><strong>Highlights</strong>: this feature was made to provide convenience to the user so that they do not have to go through extra commands or look through the entire exercise list to find their client&#8217;s personal best. This feature is also related to the graph feature as users will be able to see the progress of how a client achieves a personal best from the graph.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Minor enhancement</strong>: hooked the <code>view-c</code> command to FitBiz and added relevant tests to FitBiz.</p>
+</li>
+<li>
+<p><strong>Minor enhancement</strong>: added the height attribute to the <code>Client</code> class.</p>
+</li>
+<li>
+<p><strong>Overall contributions</strong>: <a href="https://nus-cs2103-ay1920s2.github.io/tp-dashboard/#search=ziyingli&amp;sort=groupTitle&amp;sortWithin=title&amp;since=2020-02-14&amp;timeframe=commit&amp;mergegroup=false&amp;groupSelect=groupByRepos&amp;breakdown=false">1.5K+ LOC</a> | <a href="https://github.com/AY1920S2-CS2103T-F11-2/main/graphs/contributors">90+ commits</a> | <a href="https://github.com/AY1920S2-CS2103T-F11-2/main/pulls?q=is%3Apr+is%3Amerged+author%3Aziyingli">18 PRs merged</a> | <a href="https://github.com/AY1920S2-CS2103T-F11-2/main/pulls?q=is%3Apr+reviewed-by%3Aziyingli">50+ PRs reviewed</a></p>
+</li>
+<li>
+<p><strong>Other contributions</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Project management</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Managed labels and issues on the GitHub issue tracker</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Enhancements to existing/teammates' features</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Fixed command parameters and error messages of general features after the practical dry run <a href="https://github.com/AY1920S2-CS2103T-F11-2/main/pull/204">#204</a></p>
+</li>
+<li>
+<p>Fixed default value of an attribute a team member created for consistency <a href="https://github.com/AY1920S2-CS2103T-F11-2/main/pull/88">#88</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Documentation</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Added the Personal Best Implementation, Graph Implementation, Use Cases and Manual Testing documentation to the Developer Guide <a href="https://github.com/AY1920S2-CS2103T-F11-2/main/pull/16">#16</a>, <a href="https://github.com/AY1920S2-CS2103T-F11-2/main/pull/203">#203</a>, <a href="https://github.com/AY1920S2-CS2103T-F11-2/main/pull/247">#247</a>, <a href="https://github.com/AY1920S2-CS2103T-F11-2/main/pull/276">#276</a>, <a href="https://github.com/AY1920S2-CS2103T-F11-2/main/pull/284">#284</a></p>
+</li>
+<li>
+<p>Edited Quick Start and added the View Command, Delete Client Command and Graph Command to the User Guide <a href="https://github.com/AY1920S2-CS2103T-F11-2/main/pull/75">#75</a>, <a href="https://github.com/AY1920S2-CS2103T-F11-2/main/pull/150">#150</a>,  <a href="https://github.com/AY1920S2-CS2103T-F11-2/main/pull/270">#270</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Summary</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>PRs reviewed with non-trivial review comments: <a href="https://github.com/AY1920S2-CS2103T-F11-2/main/pull/44">#44</a>, <a href="https://github.com/AY1920S2-CS2103T-F11-2/main/pull/83">#83</a>, <a href="https://github.com/AY1920S2-CS2103T-F11-2/main/pull/229">#229</a></p>
+</li>
+<li>
+<p>Issues and bugs reported with non-trivial comments: <a href="https://github.com/AY1920S2-CS2103T-F11-2/main/issues/130">#130</a>, <a href="https://github.com/AY1920S2-CS2103T-F11-2/main/issues/211">#211</a>, <a href="https://github.com/AY1920S2-CS2103T-F11-2/main/issues/250">#250</a>, <a href="https://github.com/AY1920S2-CS2103T-F11-2/main/issues/257">#257</a></p>
+</li>
+<li>
+<p>Issues resolved and bugs squashed with non-trivial implementations: <a href="https://github.com/AY1920S2-CS2103T-F11-2/main/issues/41">#41</a>, <a href="https://github.com/AY1920S2-CS2103T-F11-2/main/issues/81">#81</a>, <a href="https://github.com/AY1920S2-CS2103T-F11-2/main/issues/105">#105</a>, <a href="https://github.com/AY1920S2-CS2103T-F11-2/main/issues/124">#124</a>, <a href="https://github.com/AY1920S2-CS2103T-F11-2/main/issues/211">#211</a>, <a href="https://github.com/AY1920S2-CS2103T-F11-2/main/issues/235">#235</a> <a href="https://github.com/AY1920S2-CS2103T-F11-2/main/issues/250">#250</a>, <a href="https://github.com/AY1920S2-CS2103T-F11-2/main/issues/257">#257</a></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">Contributions to the User Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="delete-a-client-code-delete-c-code-li-zi-ying"><a class="link" href="#delete-a-client-code-delete-c-code-li-zi-ying">Delete a client: <code>delete-c</code> --- Li Zi Ying</a></h3>
+<div class="paragraph">
+<p>You find that your client list contains a client who is no longer working with you and you would like to remove his details from your client list. <code>delete-c</code> allows you to delete the client at the specified index from your list of clients.</p>
+</div>
+<div class="paragraph">
+<p><strong>Format</strong>: <code>delete-c INDEX</code></p>
+</div>
+<div class="sect3">
+<h4 id="parameters"><a class="link" href="#parameters">Parameters</a></h4>
+<div class="paragraph">
+<p>This section acts as a summary of the important things to note when using <code>delete-c</code> including their parameters.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 15%;">
+<col style="width: 85%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameters</th>
+<th class="tableblock halign-left valign-top">Important points to note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>INDEX</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>INDEX</code> refers to the index number shown in the displayed client list<br></p>
+<p class="tableblock"><code>INDEX</code> must be a positive integer (ie. 1, 2, 3, &#8230;&#8203;)<br></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="examples"><a class="link" href="#examples">Examples</a></h4>
+<div class="paragraph">
+<p>Let’s say that you want to delete the client named "Alex Yeoh" in client list. You can simply use the <code>delete-c</code> command as shown.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>delete-c 1</code> into the Command Box and press <code>Enter</code> to execute it.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ug-delete-1.png" alt="ug delete 1">
+</div>
+</div>
+</li>
+<li>
+<p>Result Box will display the message of the details of the deleted client. You can now see that the Client List no longer contains the deleted client.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ug-delete-2.png" alt="ug delete 2">
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="common-errors-problems"><a class="link" href="#common-errors-problems">Common errors/problems</a></h4>
+<div class="paragraph">
+<p>You might face some errors or difficulties when you use <code>delete-c</code>. In this section, you will be able to understand these errors and resolve them.</p>
+</div>
+<div class="sect4">
+<h5 id="no-index-specified"><a class="link" href="#no-index-specified">No index specified</a></h5>
+<div class="paragraph">
+<p>If you type in <code>delete-c</code> without specifying the <code>INDEX</code>, no client will be deleted and an error message will be shown.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ug-delete-3.png" alt="ug delete 3">
+</div>
+</div>
+<div class="paragraph">
+<p>This happens because there is no <code>INDEX</code> specified. To correct this, you have to enter a valid <code>INDEX</code> after <code>delete-c</code>.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="index-out-of-range"><a class="link" href="#index-out-of-range">Index out of range</a></h5>
+<div class="paragraph">
+<p>If you key in an <code>INDEX</code> that is out of range, that is if there are only 4 clients in the list but you try to key in <code>delete-c 5</code>, no client will be deleted and an error message will be shown.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ug-delete-4.png" alt="ug delete 4">
+</div>
+</div>
+<div class="paragraph">
+<p>To correct this, you have to enter a valid <code>INDEX</code> that is not more than the number of clients in the client list.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="view-a-client-profile-code-view-c-code-li-zi-ying"><a class="link" href="#view-a-client-profile-code-view-c-code-li-zi-ying">View a client profile: <code>view-c</code> --- Li Zi Ying</a></h3>
+<div class="paragraph">
+<p>You might want to view the complete information of a certain client in your client list. This complete information includes the client&#8217;s full details, their exercise table and personal best table. <code>view-c INDEX</code> shows all available information of the client at the specified index.</p>
+</div>
+<div class="paragraph">
+<p><strong>Format</strong>: <code>view-c INDEX</code></p>
+</div>
+<div class="sect3">
+<h4 id="parameters-2"><a class="link" href="#parameters-2">Parameters</a></h4>
+<div class="paragraph">
+<p>This section acts as a summary of the important things to note when using <code>view-c</code> including their parameters.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 15%;">
+<col style="width: 85%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameters</th>
+<th class="tableblock halign-left valign-top">Important points to note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>INDEX</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>INDEX</code> refers to the index number shown in the displayed client list<br></p>
+<p class="tableblock"><code>INDEX</code> must be a positive integer (ie. 1, 2, 3, &#8230;&#8203;)<br></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="examples-2"><a class="link" href="#examples-2">Examples</a></h4>
+<div class="paragraph">
+<p>Let’s say that you want to view the details of the client named "Alex Yeoh" in client list. You can simply use the <code>view-c</code> command as shown.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>view-c 1</code> into the Command Box and press <code>Enter</code> to execute it.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ug-view-1.png" alt="ug view 1">
+</div>
+</div>
+</li>
+<li>
+<p>Result Box will display the message telling you the client currently in view. You can now see that the Client View is now populated with the client&#8217;s details, the exercise table and the personal best table.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ug-view-2.png" alt="ug view 2">
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="common-errors-problems-2"><a class="link" href="#common-errors-problems-2">Common errors/problems</a></h4>
+<div class="paragraph">
+<p>You might face some errors or difficulties when you use <code>view-c</code>. In this section, you will be able to understand these errors and resolve them.</p>
+</div>
+<div class="sect4">
+<h5 id="no-index-specified-2"><a class="link" href="#no-index-specified-2">No index specified</a></h5>
+<div class="paragraph">
+<p>If you type in <code>view-c</code> without specifying the <code>INDEX</code>, no client will be viewed and an error message will be shown.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ug-view-3.png" alt="ug view 3">
+</div>
+</div>
+<div class="paragraph">
+<p>This happens because there is no <code>INDEX</code> specified. To correct this, you have to enter a valid <code>INDEX</code> after <code>view-c</code>.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="index-out-of-range-2"><a class="link" href="#index-out-of-range-2">Index out of range</a></h5>
+<div class="paragraph">
+<p>If you key in an <code>INDEX</code> that is out of range, that is if there are only 5 clients in the list but you try to key in <code>view-c 10</code>, no client will be viewed and an error message will be shown.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ug-view-4.png" alt="ug view 4">
+</div>
+</div>
+<div class="paragraph">
+<p>To correct this, you have to enter a valid <code>INDEX</code> that is not more than the number of clients in the client list.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="display-visualisations-of-training-progress-code-graph-code-li-zi-ying"><a class="link" href="#display-visualisations-of-training-progress-code-graph-code-li-zi-ying">Display visualisations of training progress: <code>graph</code> --- Li Zi Ying</a></h3>
+<div class="paragraph">
+<p><code>graph</code> allows you to see a graphical visualisation of a client’s exercise progress within a specified timeframe, so that you can easily track your client&#8217;s progress and improvement.</p>
+</div>
+<div class="paragraph">
+<p><strong>Format</strong>: <code>n/EXERCISE_NAME a/Y_AXIS sd/START_DATE ed/END_DATE</code></p>
+</div>
+<div class="sect3">
+<h4 id="parameters-3"><a class="link" href="#parameters-3">Parameters</a></h4>
+<div class="paragraph">
+<p>This section acts as a summary of important things to note when using <code>graph</code> including their parameters.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 15%;">
+<col style="width: 85%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameters</th>
+<th class="tableblock halign-left valign-top">Important points to note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>n/EXERCISE_NAME</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Substitute <code>EXERCISE_NAME</code> with the name of the exercise.<br></p>
+<p class="tableblock"><code>n/EXERCISE_NAME</code> is compulsory and you have to specify it.<br></p>
+<p class="tableblock"><code>n/EXERCISE_NAME</code> is case sensitive.<br>
+e.g. An exercise <code>pushup</code> will be considered to be different from the exercise <code>Pushup</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>a/Y_AXIS</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Substitute <code>Y_AXIS</code> with the y-axis of your choice.<br></p>
+<p class="tableblock"><code>Y_AXIS</code> is compulsory and you have to specify it.<br></p>
+<p class="tableblock"><code>Y_AXIS</code> must either be <code>reps</code> or <code>weight</code> (case insensitive), allowing you to specify the exercise attribute you wish to focus on<br>
+e.g. <code>Reps</code>, <code>weigHt</code> and <code>WEIGHT</code> will be valid inputs for <code>Y_AXIS</code>.<br></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sd/START_DATE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Substitute <code>START_DATE</code> with the start date of your graph.<br></p>
+<p class="tableblock"><code>sd/START_DATE</code> is compulsory and you have to specify it.<br></p>
+<p class="tableblock"><code>START_DATE</code> must be of the form <code>DD-MM-YYYY</code> (ie. 02-07-2020 for 2nd July 2020)<br></p>
+<p class="tableblock">The range of <code>START_DATE</code> is from one year before the current date to the current date (inclusive).<br></p>
+<p class="tableblock"><code>START_DATE</code> cannot be chronologically after <code>END_DATE</code><br></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ed/END_DATE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Substitute <code>END_DATE</code> with the end date of your graph<br></p>
+<p class="tableblock"><code>ed/END_DATE</code> is compulsory and you have to specify it.<br></p>
+<p class="tableblock"><code>END_DATE</code> must be of the form <code>DD-MM-YYYY</code> (ie. 02-07-2020 for 2nd July 2020)<br></p>
+<p class="tableblock">The range of <code>END_DATE</code> is from one year before the current date to the current date (inclusive).<br></p>
+<p class="tableblock"><code>END_DATE</code> cannot be chronologically before <code>START_DATE</code><br></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="example"><a class="link" href="#example">Example</a></h4>
+<div class="paragraph">
+<p>Let&#8217;s say that you wish to view the exercise graph of <code>Alex Yeoh</code> for the exercise <code>Sumo Deadlift</code> from the date <code>01-01-2020</code> to <code>13-04-2020</code> and you want to focus on the <code>weight</code> he lifted during the exercise.</p>
+</div>
+<div class="paragraph">
+<p>You can use the <code>graph</code> command to view the graph of the exercise following the steps as shown:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>First view the client that you want to view the exercise graph of. For information on how to view the client, you can refer to the <code>view-c</code> section. For this example, we will view the graph of <code>Alex Yeoh</code>, who is the first client in the client list. After entering <code>view-c 1</code>, you will see the full detailed information and a table of recorded exercises of client <code>Alex Yeoh</code>.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ug-graph-1.png" alt="ug graph 1">
+</div>
+</div>
+</li>
+<li>
+<p>Next, simply type the graph command <code>graph n/Sumo Deadlift a/weight sd/01-01-2020 ed/13-04-2020</code> into the Command Box.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ug-graph-2.png" alt="ug graph 2">
+</div>
+</div>
+</li>
+<li>
+<p>The graph will appear separately in a window.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ug-graph-3.png" alt="ug graph 3">
+</div>
+</div>
+</li>
+<li>
+<p>You will see the Result Box informing you of the current graph displayed. Note that any changes made using <code>add-e, edit-e, delete-e</code> will not be reflected in the graph.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ug-graph-4.png" alt="ug graph 4">
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="common-errors-problems-3"><a class="link" href="#common-errors-problems-3">Common errors/problems</a></h4>
+<div class="paragraph">
+<p>You might face some errors or difficulties when you use <code>graph</code>. In this section, you will be able to understand these errors and resolve them. You will also get a better understanding of the reply from the Result Box when using <code>graph</code>.</p>
+</div>
+<div class="sect4">
+<h5 id="no-exercise-within-stipulated-timeframe"><a class="link" href="#no-exercise-within-stipulated-timeframe">No exercise within stipulated timeframe</a></h5>
+<div class="paragraph">
+<p>If you have keyed in the <code>graph</code> command in the correct format but the graph is not appearing, you might want to check the start and end dates in your command. In the example below, the exercise clearly exists in the exercise list, but not within the stipuated timeframe. Therefore the graph will not be displayed.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The exercise <code>Sumo Deadlift</code> clearly exists in the exercise list. However, there are no records of <code>Sumo Deadlifts</code> from <code>01-01-2020</code> to <code>01-02-2020</code>.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ug-graph-5.png" alt="ug graph 5">
+</div>
+</div>
+</li>
+<li>
+<p>The graph will not appear and an error message will be shown.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ug-graph-6.png" alt="ug graph 6">
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>To correct this, change the timeframe to one where there is at least one existing record of the specified exercise in the current exercise list.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="no-exercise-for-stipulated-axis"><a class="link" href="#no-exercise-for-stipulated-axis">No exercise for stipulated axis</a></h5>
+<div class="paragraph">
+<p>If you have keyed in the <code>graph</code> command in the correct format but the graph is not appearing, you might want to check the y-axis in your command. In the example below, the exercise clearly exists in the exercise list, but there are no inputs for the stipulated y-axis. Therefore the graph will not be displayed.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The exercise <code>Push Up</code> clearly exists in the given timeframe. However, there are no inputs for weight as seen in the exercise table.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ug-graph-7.png" alt="ug graph 7">
+</div>
+</div>
+</li>
+<li>
+<p>The graph will not appear and an error message will be shown.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ug-graph-8.png" alt="ug graph 8">
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>To correct this, change the axis to one where there is at least one non-empty input of the  exercise in the current exercise list. You could also choose to view another exercise&#8217;s graph instead.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="invalid-time-frame"><a class="link" href="#invalid-time-frame">Invalid time frame</a></h5>
+<div class="paragraph">
+<p>If you have keyed in the <code>graph</code> command in the command box but the graph is not appearing, you might want to check the start and end dates. In the example below, the command format looks correct but the start date is later than the end date. This is not allowed and therefore the graph will not be displayed.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The start date <code>01-04-2020</code> is chronologically later than the end date <code>01-02-2020</code>.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ug-graph-9.png" alt="ug graph 9">
+</div>
+</div>
+</li>
+<li>
+<p>The graph will not appear and an error message will be shown.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ug-graph-10.png" alt="ug graph 10">
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>To correct this, the start date has to be earlier or the same as the end date.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="personal-best-li-zi-ying"><a class="link" href="#personal-best-li-zi-ying">Personal Best --- Li Zi Ying</a></h3>
+<div class="paragraph">
+<p>This feature allows the users (ie. gym managers) to view the personal bests of exercises done by a client. This information is displayed in a table form, after the command <code>view-c INDEX</code> is called.</p>
+</div>
+<div class="sect3">
+<h4 id="implementation"><a class="link" href="#implementation">Implementation</a></h4>
+<div class="paragraph">
+<p>The personal best feature is facilitated by the model <code>PersonalBest</code>, and the logic behind it is in <code>PersonalBestFinder</code>. The behaviour of this feature determines the personal best of each exercise done by the client based on these considerations:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>If the <code>ExerciseWeight</code> attribute is recorded in the <code>Exercise</code>, then the <code>ExerciseWeight</code> is used as comparison</p>
+</li>
+<li>
+<p>If there is no <code>ExerciseWeight</code> recorded in the <code>Exercise</code>, then <code>ExerciseReps</code> will be used as comparison</p>
+</li>
+<li>
+<p>If neither of <code>ExerciseWeight</code> and <code>ExerciseReps</code> are recorded into the <code>Exercise</code>, then this particular exercise will not be put into the Exercise Personal Best table</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>However, if the another <code>Exercise</code> of the same name is added in the future with <code>ExerciseWeight</code> and/or <code>ExerciseReps</code> specified, then the personal best of this exercise will still be calculated and shown in the Exercise Personal Best table</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Note that <code>ExerciseSets</code>, although an attribute of the <code>Exercise</code> model, is not considered when checking for <code>PersonalBest</code> as the number of sets of an exercise does not contribute to a personal best record</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>A simplified class diagram of the classes involved in this feature is given below:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/PersonalBestClassDiagram.png" alt="PersonalBestClassDiagram">
+</div>
+<div class="title">Figure 1. Simplified Class Diagram for Personal Best</div>
+</div>
+<div class="paragraph">
+<p>In the following sequence diagram, we trace the execution for when the user decides to enter the command <code>view-c</code> into FitBiz:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/PersonalBestSequenceDiagram.png" alt="PersonalBestSequenceDiagram">
+</div>
+<div class="title">Figure 2. Sequence Diagram of the View#execute Method for Personal Best</div>
+</div>
+<div class="paragraph">
+<p>The explanation for the sequence diagram is as follows: when the user inputs <code>view-c</code>, <code>add-e</code>, <code>edit-c</code> or <code>delete-c</code>, <code>PersonalBestFinder#generateAndSetPersonalBest</code> is called, taking the client currently in view as the parameter. <code>PersonalBestFinder#generateAndSetPersonalBest</code> then retrieves client&#8217;s list of exercises using <code>Client#getExerciseList</code> and creates a new <code>HashMap</code>, where the <code>key</code> is <code>ExerciseName</code> and the <code>value</code> is <code>Exercise</code>. Then the personal bests of each exercise of the client in view are generated using the above considerations. Finally the list of personal bests is set using <code>PersonalBest#setPersonalBest</code>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
+<div class="paragraph">
+<p>In designing this feature, we had to decide on the placement of the <code>PersonalBest</code> class in the model to comply with the OOP standards. Currently, the <code>PersonalBest</code> model has a whole-part relationship with <code>Client</code>, with <code>Client</code> being the whole and <code>PersonalBest</code> being a part of <code>Client</code>. The alternative is to consider <code>PersonalBest</code> as a part of <code>Exercise</code> instead.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Table 1. Table of Design Considerations</caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top">Put <code>PersonalBest</code> as a part of <code>Client</code>(Chosen)</th>
+<th class="tableblock halign-left valign-top">Put <code>PersonalBest</code> as a part of <code>Exercise</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Adhering to OOP standards (Coupling and Cohesion)</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Increases cohesion as it logically makes more sense, currently each client has a list of exercises to themselves, and thus each client should also have a list of <code>PersonalBest</code> of each of these exercises to themselves</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Increases coupling between the logic and model as every time the commands <code>view-c</code>, <code>add-e</code>, <code>edit-e</code> and <code>delete-e</code> are called, the personal best table has to be updated, a new <code>PersonalBest</code> object has to be created. Then the <code>Client</code> will have to be dependent on this <code>PersonalBest</code> object created in the logic component, which causes unnecessary dependencies and higher coupling</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Ease of Implementation</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Might have significant conflicts as the <code>Client</code> model is changed to include one more attribute</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Easier to implemention as methods related to <code>PersonalBest</code> is kept under <code>Exercise</code> model and separate from <code>Client</code> data and methods, so no refactoring is needed</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>We decided to use the first approach of placing <code>PersonalBest</code> as a part of <code>Client</code> instead of <code>Exercise</code>. There are multiple reasons for our choice as mentioned below.</p>
+</div>
+<div class="paragraph">
+<p>We want to maintain the OOP structure of the program. Logically, the personal best should belong to the client as the list of exercises belongs to the client. As the list of exercises is unique to every client, the personal best should also be so. We also do not want to increase coupling of the program as mentioned in the table above.</p>
+</div>
+<div class="paragraph">
+<p>Moreover, even though personal best is generated using the list of exercises in the client, it can be instantiated even without an exercise list. Therefore it does not require the exercise class to exist and does not have a whole-part relationship with exercise. Coupling will also be increased as the client will be relying on the exercise class to generate the personal best. Therefore, the final choice was to place the personal best under client, with every client having their own personal best attribute.</p>
+</div>
+<div class="paragraph">
+<p>This personal best feature also leads into the <code>Graph</code> feature, which will be discussed in the next section, where we plot a graph of the client&#8217;s progress of a specified exercise.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="graph-li-zi-ying"><a class="link" href="#graph-li-zi-ying">Graph --- Li Zi Ying</a></h3>
+<div class="paragraph">
+<p>This feature allows users to see the progress graph of the current client in view. The user has to specify the exercise name, the y-axis (either weights or reps), the start date and the end date. There has to be existing exercises in the client&#8217;s exercise list for the specified axis and time period for the graph to be plotted, if no graph can be plotted, an error will be thrown.</p>
+</div>
+<div class="sect3">
+<h4 id="implementation-2"><a class="link" href="#implementation-2">Implementation</a></h4>
+<div class="paragraph">
+<p>The graph mechanism is faciliated by the model class <code>Graph</code>, which contains the details of the graph. These include <code>ExerciseName</code>, <code>Axis</code>, <code>StartDate</code> and <code>EndDate</code>. The figure below is a UML class diagram to illustrate the <code>Graph</code> model.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/GraphClassDiagram.png" alt="GraphClassDiagram">
+</div>
+<div class="title">Figure 3. Simplified Class Diagram for Graph</div>
+</div>
+<div class="paragraph">
+<p>These attributes are bounded by these characteristics:
+. <code>ExerciseName</code> can only be alphanumeric characters
+. <code>Axis</code> can either be <code>reps</code> or <code>weight</code> only, case insensitive (<code>sets</code> are not considered due to the same reasoning in the above section)
+. Earliest <code>StartDate</code> possible can only be one year before the current date and cannot be after <code>EndDate</code>. <code>StartDate</code> also cannot be a future date
+. Earliest <code>EndDate</code> possible can only be one year before the current date and cannot be before <code>StartDate</code>. <code>EndDate</code> also cannot be a future date</p>
+</div>
+<div class="paragraph">
+<p>Here is an activity diagram displaying the steps taken when FitBiz receives a user input for the <code>graph</code> command:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/GraphCommandActivityDiagram.png" alt="GraphCommandActivityDiagram">
+</div>
+<div class="title">Figure 4. Activity Diagram for Graph Command</div>
+</div>
+<div class="paragraph">
+<p>The behaviour of this feature determines the graph plotted of the exercise specified based on these considerations:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>If there is no such exercise with the matching <code>ExerciseName</code> in the client&#8217;s exercise list from the specified <code>StartDate</code> to <code>EndDate</code>, then the graph cannot be plotted</p>
+</li>
+<li>
+<p>If the <code>Axis</code> input is <code>reps</code> and the exercise specified does not have any reps input withint the <code>StartDate</code> to <code>EndDate</code>, then the graph cannot be plot</p>
+</li>
+<li>
+<p>If the <code>Axis</code> input is <code>weight</code> and the exercise specified does not have any weight input within the <code>StartDate</code> to <code>EndDate</code>, then the graph cannot be plot</p>
+</li>
+<li>
+<p>If all of the above are fulfilled (ie. there is at least one valid exercise with the matching <code>ExerciseName</code> and has weight/reps input depending on the <code>Axis</code> specified), then the graph will be plotted, with each exercise in chronological order</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The flow of the program is illustrated using the sequence diagram below:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/GraphSequenceDiagram.png" alt="GraphSequenceDiagram">
+</div>
+<div class="title">Figure 5. Sequence Diagram for Graph Command</div>
+</div>
+<div class="paragraph">
+<p>The explanation is as follows: when the user inputs <code>graph</code> with all relevant arguments input correctly, a new <code>GraphCommand()</code> is created, taking the newly created <code>Graph</code> object as parameter.</p>
+</div>
+<div class="paragraph">
+<p><code>GraphCommand#execute()</code> then retrieves the exercise list from the client currently in view and checks if there is at least one exercise with a matching exercise name. If there is no exercise to plot, then an error <code>GraphCommand.MESSAGE_EXERCISE_NOT_IN_LIST</code> will be thrown. Next, the list of exercises to be plot will be generated using <code>Graph#generateGraphList()</code>. Once again, there will be a sanity check to see if the list size is zero, which means that no graph cannot be plotted.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">Design Considerations</a></h4>
+<div class="paragraph">
+<p>In designing this feature, we had to decide on the implementation of certain classes like <code>Axis</code> to comply with the OOP standards of Abstraction.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Table 2. Table of Design Considerations</caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top">Create enum class <code>Axis Type</code>(Chosen)</th>
+<th class="tableblock halign-left valign-top">Check for <code>Axis</code> value using raw types</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Adhering to OOP standards (Abstraction)</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Increases level of abstraction as there are only two different types of axis that can be chosen</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Less abstraction and increases complexity as we will have to check for the equality of the axis type using the equality check for the <code>String</code> raw type</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Ease of Implementation</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Requires some refactoring to include <code>AxisType</code> class and the relevant getter methods</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Easier to implemention as no extra classes or methods are needed, so no refactoring is needed</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>We decided to use the approach of abstracting the axis types away into <code>AxisType</code> enum class. As the graph implementation will require a substantial amount of equality checks, especially for the attributes of <code>Graph</code> to make sure that we are drawing the correct graph for the user. As such equality checks are made, it makes it difficult to keep checking <code>String</code> equality as regular data types like <code>String</code> would allow invalid values to be assigned to a variable.</p>
+</div>
+<div class="paragraph">
+<p>As our axis values can only be <code>REPS</code>, <code>WEIGHT</code> or <code>NA</code>, we can check for each case using the switch case method instead of checking for equality using raw types. This is also much more efficient than using multiple if-else statements. For example, in the code snippet below, the method <code>fillSeries()</code> uses switch case statements to add data values depending on the <code>AxisType</code>.</p>
+</div>
+<div class="listingblock">
+<div class="title">Code snippet</div>
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java">    <span class="directive">private</span> <span class="type">void</span> fillSeries() {
+        <span class="keyword">switch</span> (axisType) {
+        <span class="keyword">case</span> REPS:
+            fillRepsSeries();
+            yAxis.setLabel(<span class="string"><span class="delimiter">&quot;</span><span class="content">Reps</span><span class="delimiter">&quot;</span></span>);
+            <span class="keyword">break</span>;
+        <span class="keyword">case</span> WEIGHT:
+            fillWeightSeries();
+            yAxis.setLabel(<span class="string"><span class="delimiter">&quot;</span><span class="content">Weight</span><span class="delimiter">&quot;</span></span>);
+            <span class="keyword">break</span>;
+        <span class="keyword">default</span>:
+        }
+    }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Moreover, to keep in line with the OOP standards, we decided that it will be better to abstract away data types like <code>AxisType</code> into its separate class instead of storing it as a raw type in <code>Axis</code>. This ensures the code quality of our program and reduces complexity (especially in terms of equality checking as mentioned above) by abstracting away the more complex details into classes of a lower level. The consideration of abstracting details away is also used for creating <code>StartDate</code> and <code>EndDate</code> classes as attributes of <code>Graph</code>, instead of using the Java in-built <code>LocalDate</code>.</p>
+</div>
+<div class="paragraph">
+<p>By considering the above two factors, despite having to put in the extra effort to create a new <code>AxisType</code> class and thus requiring extra methods like getters and setters, we decided to move with the approach of creating the <code>AxisType</code> enum class and refactor to accomodate for the additional data type.</p>
+</div>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 14:47:01 UTC</div></div></div></body></html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>UML Submission - Li Zi Ying</title><link rel="stylesheet" href="stylesheets/gh-pages.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link active" href="index.html">AB-3</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">FitBiz</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link active" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S2-CS2103T-F11-2/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>UML Submission - Li Zi Ying</h1></div><div id="content"><div class="imageblock">
+<div class="content">
+<img src="images/PersonalBestClassDiagram.png" alt="PersonalBestClassDiagram" width="500">
+</div>
+<div class="title">Figure 1. Personal Best Class Diagram</div>
+</div>
+<div class="paragraph">
+<p>The personal best class diagram helps to illustrate how the classes used in implementing the Personal Best feature relate to each other. From the diagram, <code>ViewCommand</code>, <code>AddExerciseCommand</code>, <code>EditExerciseCommand</code> and <code>DeleteExerciseCommand</code>, all know of <code>PersonalBestFinder</code> but <code>PersonalBestFinder</code> does not know of them. This ensures that <code>PersonalBestFinder</code> does not know any extra information that is not useful to it. From the diagram, <code>PersonalBestFinder</code> is the bridge between the <code>Logic</code> component and the <code>Model</code> component so that coupling between the classes is minimised. The <code>PersonalBestFinder</code> then has to know about <code>UniqueExerciseList</code>, <code>Client</code> and <code>PersonalBest</code> in order to generate and set the personal best of the client.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/PersonalBestSequenceDiagram.png" alt="PersonalBestSequenceDiagram" width="500">
+</div>
+<div class="title">Figure 2. Personal Best Sequence Diagram</div>
+</div>
+<div class="paragraph">
+<p>This diagram helps to better illustrate the program flow when a user keys in the <code>view-c</code> command, which will call <code>PersonalBestFinder#generateAndSetPersonalBest</code> to generate and set the client&#8217;s personal best table by retrieving the exercise list from the client in view. After finding each exercise&#8217;s personal best, the client&#8217;s personal best is set using <code>Client#setPersonalBest</code> and updated in the GUI.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/GraphClassDiagram.png" alt="GraphClassDiagram" width="300">
+</div>
+<div class="title">Figure 3. Graph Class Diagram</div>
+</div>
+<div class="paragraph">
+<p>This diagram helps to better illustrate how the classes used in implementing the Graph feature relate to each other. From the diagram, the <code>Graph</code> has four attributes <code>ExerciseName</code>, <code>Axis</code>, <code>StartDate</code> and <code>EndDate</code>, which are also the parameters of the <code>graph</code> command. <code>Axis</code> has its own unique type <code>AxisType</code> to facilitate with equality checking and maintain abstraction. The <code>ExerciseName</code> is also part of the <code>Exercise</code> model.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/GraphSequenceDiagram.png" alt="GraphSequenceDiagram" width="500">
+</div>
+<div class="title">Figure 4. Graph Sequence Diagram</div>
+</div>
+<div class="paragraph">
+<p>This diagram helps to better illustrate the program flow when a <code>graph</code> command is entered. First, we make sure that there is a client in view and retrieve his exercise list. If there is no client in view, then the graph cannot be displayed. Next, we check if the client&#8217;s exercise list contains the required exercise name within the given timeframe. If there is no exercise that matches the given exercise name within the timeframe, then the graph cannot be plotted. Finally if both checks pass, the graph list is generated and a <code>CommandResult</code> will be returned from the <code>execute()</code> method.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/GraphCommandActivityDiagram.png" alt="GraphCommandActivityDiagram" width="500">
+</div>
+<div class="title">Figure 5. Grand Command Activity Diagram</div>
+</div>
+<div class="paragraph">
+<p>This diagram helps to illustrate how FitBiz should act when a user tries to use the graph command. When a user enters a graph command, FitBiz will parse the arguments accordingly and try to execute the command. A check is made to see if there is a client in view. Next, a check is made to see if there is an existing exercise record within the stipulated timeframe. If all checks pass, then the graph will be successfully displayed and feedback showing execution success will be given to the user.</p>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 14:47:01 UTC</div></div></div></body></html>
