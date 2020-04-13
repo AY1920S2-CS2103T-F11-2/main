@@ -25,7 +25,7 @@
 <li><a href="#logging">3.1. Logging</a></li>
 <li><a href="#Implementation-Configuration">3.2. Configuration</a></li>
 <li><a href="#command-history-aaron-choo">3.3. Command History --- Aaron Choo</a></li>
-<li><a href="#command-autocompletion-aaron-choo">3.4. Command Autocompletion --- Aaron Choo</a></li>
+<li><a href="#command-autocomplete-aaron-choo">3.4. Command Autocomplete --- Aaron Choo</a></li>
 <li><a href="#scheduling-for-a-client-ng-ming-liang">3.5. Scheduling for a Client --- Ng Ming Liang</a></li>
 <li><a href="#exercise-feature-yong-jie">3.6. Exercise Feature --- Yong Jie</a></li>
 <li><a href="#personal-best-li-zi-ying">3.7. Personal Best --- Li Zi Ying</a></li>
@@ -510,7 +510,7 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 </div>
 </div>
 <div class="sect2">
-<h3 id="command-autocompletion-aaron-choo"><a class="link" href="#command-autocompletion-aaron-choo">3.4. Command Autocompletion --- Aaron Choo</a></h3>
+<h3 id="command-autocomplete-aaron-choo"><a class="link" href="#command-autocomplete-aaron-choo">3.4. Command Autocomplete --- Aaron Choo</a></h3>
 <div class="paragraph">
 <p>Similar to the previously mentioned <a href="#command-history-aaron-choo">Command History</a> feature, this feature also serves to improve the user experience by allowing users to press the <kbd>Tab</kbd> key to autocomplete their partially entered commands.</p>
 </div>
@@ -638,13 +638,13 @@ For example, assume we only have 3 commands in our app, <code>add-c</code>, <cod
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-Refer to <a href="#autocomplete-activity-diagram">Figure 14, &#8220;Activity Diagram for the Autocomplete Logic&#8221;</a> given in the next section for the complete sequences of decision.
+Refer to <a href="#autocomplete-activity-diagram">Figure 14, &#8220;Activity Diagram for the Autocomplete Logic&#8221;</a> given in the next section for the complete sequence of the key decisions.
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>Let us move on to <code>Trie#listAllSimilarWords</code> which contains the main driver logic, and which makes use of the <code>Node</code> found by <code>Trie#getLongestPrefixNode</code>. Cases 1 and 2 discussed above are relatively trivial and we shall not discuss about how they are handled in <code>Trie#listAllSimilarWords</code>. For case 3, in order for us to find all the similar words, we have chosen to use a Depth-First Search (DFS) approach, starting the search from the <code>Node</code> returned by <code>Trie#getLongestPrefixNode</code>, as shown here:</p>
+<p>Let us move on to <code>Trie#listAllSimilarWords</code> which makes use of the <code>Node</code> found by <code>Trie#getLongestPrefixNode</code>. Cases 1 and 2 discussed above are relatively trivial and we shall not discuss about how they are handled in <code>Trie#listAllSimilarWords</code>. For case 3, in order for us to find all the similar words, we have chosen to use a Depth-First Search (DFS) approach, starting the search from the <code>Node</code> returned by <code>Trie#getLongestPrefixNode</code>, as shown here:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -681,7 +681,7 @@ The choice of a DFS approach as opposed to a Breadth-First Search (BFS) approach
 <div class="sect4">
 <h5 id="how-this-feature-works-2"><a class="link" href="#how-this-feature-works-2">How this feature works</a></h5>
 <div class="paragraph">
-<p>Similar to <a href="#command-history-aaron-choo">Command History</a> , this feature also relies heavily on the UI class <code>CommandBox</code>, and thus we have decided to let <code>CommandBox</code> interact with <code>Autocomplete</code> directly. A simplified class diagram of the classes involved is shown here:</p>
+<p>Similar to <a href="#command-history-aaron-choo">Command History</a>, this feature also relies heavily on the UI class <code>CommandBox</code>, and thus we have decided to let <code>CommandBox</code> interact with <code>Autocomplete</code> directly. A simplified class diagram of the classes involved is shown here:</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -690,7 +690,7 @@ The choice of a DFS approach as opposed to a Breadth-First Search (BFS) approach
 <div class="title">Figure 11. Simplified Class Diagram for Autocomplete</div>
 </div>
 <div class="paragraph">
-<p>In the following sequence diagram, we follow the execution for when the user tries to autocomplete his partially entered command <code>gra</code> (which, in the current application, is an unambiguous command, and will result in the full completion of the <code>graph</code> command as well as the prefixes):</p>
+<p>In the following sequence diagram, we follow the execution for when the user tries to autocomplete his partially entered command <code>gra</code> (which, in the current application, is an unambiguous command, and will result in the full completion of the <code>graph</code> command as well as its prefixes):</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -708,16 +708,19 @@ The choice of a DFS approach as opposed to a Breadth-First Search (BFS) approach
 <div class="title">Figure 13. Sequence Diagram for the Autocomplete#execute Method</div>
 </div>
 <div class="paragraph">
-<p>Within the <code>execute</code> method, <code>Autocomplete</code> calls the <code>listAllSimilarWords</code> method from <code>Trie</code> with the user input text. <code>Trie</code>, which would already have all the commands stored, finds the longest prefix node, calls the <code>constructWord</code> method from this node, and checks if this node represents the end of a completed word. <code>Trie</code> then creates a <code>SimilarWordsResult</code> object to store these information and returns it to <code>Autocomplete</code>. Then, <code>Autocomplete</code> retrieves these information, realises that it is dealing with an unambiguous command, and constructs the corresponding prefixes. It then creates a <code>AutocompleteResult</code> object to store all the information that <code>CommandBox</code> requires, and finally returns this object to <code>CommandBox</code>.</p>
+<p>Within the <code>execute</code> method, <code>Autocomplete</code> calls the <code>listAllSimilarWords</code> method from <code>Trie</code> with the user input text. <code>Trie</code>, which would already have all the commands stored, finds the longest prefix node, calls the <code>constructWord</code> method from this node, and checks if this node represents the end of a completed word. Since it is indeed a completed word, <code>Trie</code> immediately creates a <code>SimilarWordsResult</code> object to store these information and returns it to <code>Autocomplete</code>. Then, <code>Autocomplete</code> retrieves these information, realises that it is dealing with an unambiguous command, and constructs the corresponding prefixes. It then creates a <code>AutocompleteResult</code> object to store all the information that <code>CommandBox</code> requires, and finally returns this object to <code>CommandBox</code>.</p>
 </div>
 <div class="paragraph">
-<p>This feature currently only supports autocompletion of <em>commands</em> and <em>prefixes</em>, and not other fields/parameters like names and addresses that have been used by the user before. Implicitly, since all commands defined in FitBiz do not have empty spaces in them, this allows us to easily determine when to enable <a href="#command-history-behaviour-4">behaviour 4</a> as defined above: by simply checking for the presence of white spaces from the trimmed user input. The following activity diagram is given to show the decisions starting from the point where the user presses <kbd>Tab</kbd>:</p>
+<p>Lastly, in order to explain the key decisions that this feature does at each step starting from the point where the user presses <kbd>Tab</kbd>, we have provided the following activity diagram:</p>
 </div>
 <div id="autocomplete-activity-diagram" class="imageblock">
 <div class="content">
 <img src="images/CommandAutocompleteActivityDiagram.png" alt="CommandAutocompleteActivityDiagram">
 </div>
 <div class="title">Figure 14. Activity Diagram for the Autocomplete Logic</div>
+</div>
+<div class="paragraph">
+<p>This feature currently only supports autocompletion of <em>commands</em> and <em>prefixes</em>, and not other fields/parameters like names and addresses that have been used by the user before. Implicitly, since all commands defined in FitBiz do not have empty spaces in them, this allows us to easily determine when to allow users to press <kbd>Tab</kbd> to get to the next prefix (<a href="#command-history-behaviour-4">behaviour 4</a>): by simply checking for the presence of white spaces from the trimmed user input.</p>
 </div>
 </div>
 </div>
@@ -2531,4 +2534,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 06:52:55 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 07:05:23 UTC</div></div></div></body></html>

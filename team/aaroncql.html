@@ -1,0 +1,875 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Choo Qi Le Aaron - Project Portfolio</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="../images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link active" href="../index.html">AB-3</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">FitBiz</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="../LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S2-CS2103T-F11-2/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Choo Qi Le Aaron - Project Portfolio</h1></div><div id="content"><div class="sect1">
+<h2 id="project-fitbiz"><a class="link" href="#project-fitbiz">PROJECT: FitBiz</a></h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>FitBiz is a fitness business management application, specially made for fitness coaches to manage their clients. It is primarily a desktop application where the user interacts via the Command Line Interface (CLI), and views data via the Graphical User Interface (GUI). This project is written in Java 11, packaged using Gradle, and uses JavaFX for the GUI.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of Contributions</a></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Major enhancement</strong>: developed the <a href="#command-autocomplete">Command Autocomplete</a> feature, which allows users to conveniently autocomplete commands and their parameter prefixes using the <kbd>Tab</kbd> key.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>What it does</strong>: allows users to input FitBiz&#8217;s commands with ease without having to memorise the syntax of every command available. Since our users are fast typists and prefer to use the keyboard, this feature also allows them to efficiently get to the next prefix by hitting <kbd>Tab</kbd>, instead of wasting time using their mouse.</p>
+</li>
+<li>
+<p><strong>Justification</strong>: previously, users would have to refer to the User Guide frequently (or rely on the <code>help</code> command) for the syntax of FitBiz&#8217;s commands. This feature greatly lowers the barriers to entry for this application, and also enhances the user experience by providing a much faster way for users to interact with the CLI via the keyboard.</p>
+</li>
+<li>
+<p><strong>Highlights</strong>: developed a custom <code>Trie</code> data structure which was written to be easily extensible for future commands and custom logic to be added. This feature is also contextually aware, and will provide ample and useful feedback to the user (like similar commands found, or the usage of the current autocompleted command).</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Major enhancement</strong>: developed the <a href="#command-history">Command History</a> feature, which allows users to store their previously entered commands, and which they can access using the <kbd>&uarr;</kbd> and <kbd>&darr;</kbd> keys.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>What it does</strong>: allows users to efficiently and conveniently access and repeat their previously entered commands (be it valid or invalid) any time within the Command Box.</p>
+</li>
+<li>
+<p><strong>Justification</strong>: previously, if the command was successful, users would have to type out the full command again if they had wanted to repeat it. Now, users can easily repeat or tweak their previously entered commands without wasting precious time typing everything again.</p>
+</li>
+<li>
+<p><strong>Highlights</strong>: this feature was made to mimic most modern interpreters, and as such, will be very familiar to most users comfortable with using a CLI application. The history was also made to persist on the storage, so users can expect to come back to the application after a previous session and still access their previous command history of said session.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Minor enhancement</strong>: developed the <a href="#export-command"><code>export</code></a> command which allows users to export their clients' recorded exercises into a CSV file which can then be viewed in other spreadsheet software like Microsoft Excel, or easily shared with their clients.</p>
+</li>
+<li>
+<p><strong>Minor enhancement</strong>: redesigned the overall user interface and enhanced the user experience by providing better visual feedback cues to the GUI.</p>
+</li>
+<li>
+<p><strong>Minor enhancement</strong>: added the target and current weight attributes to the <code>Client</code> class.</p>
+</li>
+<li>
+<p><strong>Overall contributions</strong>: <a href="https://nus-cs2103-ay1920s2.github.io/tp-dashboard/#search=aaroncql&amp;sort=groupTitle&amp;sortWithin=title&amp;since=2020-02-14&amp;timeframe=commit&amp;mergegroup=false&amp;groupSelect=groupByRepos&amp;breakdown=false&amp;tabOpen=true&amp;tabType=authorship&amp;tabAuthor=AaronCQL&amp;tabRepo=AY1920S2-CS2103T-F11-2%2Fmain%5Bmaster%5D">4.5K+ LOC</a> | <a href="https://github.com/AY1920S2-CS2103T-F11-2/main/graphs/contributors">260+ commits</a> | <a href="https://github.com/AY1920S2-CS2103T-F11-2/main/pulls?q=is%3Apr+is%3Amerged+author%3Aaaroncql">60+ PRs merged</a> | <a href="https://github.com/AY1920S2-CS2103T-F11-2/main/pulls?q=is%3Apr+reviewed-by%3A%40me+">70+ PRs reviewed</a></p>
+</li>
+<li>
+<p><strong>Other contributions</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Project management</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Managed releases <a href="https://github.com/AY1920S2-CS2103T-F11-2/main/releases/tag/v1.2.1"><code>v1.2.1</code></a>, <a href="https://github.com/AY1920S2-CS2103T-F11-2/main/releases/tag/v1.3"><code>v1.3</code></a>, and <a href="https://github.com/AY1920S2-CS2103T-F11-2/main/releases/tag/v1.4"><code>v1.4</code></a> on GitHub</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Enhancements to existing/teammates' features</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Completely reworked the overall design of the GUI by adhering to the <a href="https://material.io/design/">Material Design</a> specification: <a href="https://github.com/AY1920S2-CS2103T-F11-2/main/pull/123">#123</a> <a href="https://github.com/AY1920S2-CS2103T-F11-2/main/pull/208">#208</a>, <a href="https://github.com/AY1920S2-CS2103T-F11-2/main/pull/217">#217</a>, <a href="https://github.com/AY1920S2-CS2103T-F11-2/main/pull/218">#218</a>, <a href="https://github.com/AY1920S2-CS2103T-F11-2/main/pull/234">#234</a></p>
+</li>
+<li>
+<p>Updated the sample client data, exercises, and schedules: <a href="https://github.com/AY1920S2-CS2103T-F11-2/main/pull/67">#67</a>, <a href="https://github.com/AY1920S2-CS2103T-F11-2/main/pull/233">#233</a></p>
+</li>
+<li>
+<p>Updated unit tests for the <code>v1.2</code> release, raising test coverage by 8.3% to 77.8%: <a href="https://github.com/AY1920S2-CS2103T-F11-2/main/pull/69">#69</a></p>
+</li>
+<li>
+<p>Added unit tests for the <code>AddExerciseCommand</code> class, raising test coverage by 3.2%: <a href="https://github.com/AY1920S2-CS2103T-F11-2/main/pull/133">#133</a></p>
+</li>
+<li>
+<p>Wrote a custom insertion sort to support adding of exercises: <a href="https://github.com/AY1920S2-CS2103T-F11-2/main/pull/233">#233</a> (<a href="https://ay1920s2-cs2103t-f11-2.github.io/main/DeveloperGuide.html#adding-an-exercise-to-uniqueexerciselist">justification</a>)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Documentation</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Added the Command History, Command Autocomplete, Export and Delete Exercises Command features to the User and Developer Guides: <a href="https://github.com/AY1920S2-CS2103T-F11-2/main/pull/201">#201</a>, <a href="https://github.com/AY1920S2-CS2103T-F11-2/main/pull/237">#237</a>, <a href="https://github.com/AY1920S2-CS2103T-F11-2/main/pull/244">#244</a>, <a href="https://github.com/AY1920S2-CS2103T-F11-2/main/pull/267">#267</a>, <a href="https://github.com/AY1920S2-CS2103T-F11-2/main/pull/271">#271</a></p>
+</li>
+<li>
+<p>Added and updated the <a href="https://ay1920s2-cs2103t-f11-2.github.io/main/UserGuide.html#overview">Overview</a> section to the User Guide: <a href="https://github.com/AY1920S2-CS2103T-F11-2/main/pull/110">#110</a>, <a href="https://github.com/AY1920S2-CS2103T-F11-2/main/pull/136">#136</a>, <a href="https://github.com/AY1920S2-CS2103T-F11-2/main/pull/267">#267</a></p>
+</li>
+<li>
+<p>Reordered sections in the User and Developer Guides for better flow of contents: <a href="https://github.com/AY1920S2-CS2103T-F11-2/main/pull/213">#213</a>, <a href="https://github.com/AY1920S2-CS2103T-F11-2/main/pull/223">#223</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Summary</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>PRs reviewed with non-trivial review comments: <a href="https://github.com/AY1920S2-CS2103T-F11-2/main/pull/83">#83</a>, <a href="https://github.com/AY1920S2-CS2103T-F11-2/main/pull/229">#229</a>, <a href="https://github.com/AY1920S2-CS2103T-F11-2/main/pull/261">#261</a></p>
+</li>
+<li>
+<p>Issues and bugs reported with non-trivial comments: <a href="https://github.com/AY1920S2-CS2103T-F11-2/main/issues/104">#104</a>, <a href="https://github.com/AY1920S2-CS2103T-F11-2/main/issues/105">#105</a>, <a href="https://github.com/AY1920S2-CS2103T-F11-2/main/issues/129">#129</a>, <a href="https://github.com/AY1920S2-CS2103T-F11-2/main/issues/138">#138</a> <a href="https://github.com/AY1920S2-CS2103T-F11-2/main/issues/235">#235</a></p>
+</li>
+<li>
+<p>Issues resolved and bugs squashed with non-trivial implementations: <a href="https://github.com/AY1920S2-CS2103T-F11-2/main/issues/41">#41</a>, <a href="https://github.com/AY1920S2-CS2103T-F11-2/main/issues/64">#64</a>, <a href="https://github.com/AY1920S2-CS2103T-F11-2/main/issues/65">#65</a>, <a href="https://github.com/AY1920S2-CS2103T-F11-2/main/issues/78">#78</a>, <a href="https://github.com/AY1920S2-CS2103T-F11-2/main/issues/95">#95</a>, <a href="https://github.com/AY1920S2-CS2103T-F11-2/main/issues/103">#103</a>, <a href="https://github.com/AY1920S2-CS2103T-F11-2/main/issues/107">#107</a>, <a href="https://github.com/AY1920S2-CS2103T-F11-2/main/issues/161">#161</a>, <a href="https://github.com/AY1920S2-CS2103T-F11-2/main/issues/165">#165</a>, <a href="https://github.com/AY1920S2-CS2103T-F11-2/main/issues/170">#170</a>, <a href="https://github.com/AY1920S2-CS2103T-F11-2/main/issues/187">#187</a>, <a href="https://github.com/AY1920S2-CS2103T-F11-2/main/issues/188">#188</a>, <a href="https://github.com/AY1920S2-CS2103T-F11-2/main/issues/190">#190</a>, <a href="https://github.com/AY1920S2-CS2103T-F11-2/main/issues/197">#197</a>, <a href="https://github.com/AY1920S2-CS2103T-F11-2/main/issues/198">#198</a>, <a href="https://github.com/AY1920S2-CS2103T-F11-2/main/issues/200">#200</a></p>
+</li>
+<li>
+<p>Solutions contributed to <a href="https://github.com/nus-cs2103-AY1920S2/forum/issues">forum discussions</a>: <a href="https://github.com/nus-cs2103-AY1920S2/forum/issues/30">#30</a>, <a href="https://github.com/nus-cs2103-AY1920S2/forum/issues/55">#55</a>, <a href="https://github.com/nus-cs2103-AY1920S2/forum/issues/58">#58</a>, <a href="https://github.com/nus-cs2103-AY1920S2/forum/issues/68">#68</a></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">Contributions to the User Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="understanding-the-cli"><a class="link" href="#understanding-the-cli">Understanding the Command Line Interface (CLI) --- Aaron Choo</a></h3>
+<div class="paragraph">
+<p>Even though FitBiz comes with a GUI, it is mainly used to display data. Most of the user interaction occurs via the CLI, which in FitBiz, is comprised of the <strong>Command Box</strong> and the <strong>Result Box</strong>. We understand that CLIs have higher barriers to entry and may scare some inexperienced users away. As such, we have provided some features common to most modern CLIs to make your user experience with FitBiz much better. In this section, we shall look at the <strong>Command History</strong> and the <strong>Command Autocomplete</strong> feature, and learn how to effectively utilise them.</p>
+</div>
+<div class="sect3">
+<h4 id="command-history"><a class="link" href="#command-history">Command History</a></h4>
+<div class="paragraph">
+<p>Similar to most modern CLIs, users of FitBiz can press the <kbd>&uarr;</kbd> and <kbd>&darr;</kbd> arrow keys to cycle through their previously entered commands. If you have prior experience in using a CLI, feel free to skip this section as this should be second nature to you. If not, here is a quick tutorial on how to use this time saving feature.</p>
+</div>
+<div class="paragraph">
+<p>First, start by typing anything into the <strong>Command Box</strong>. It <em>need not</em> have to be a valid command (like those shown in <a href="#Commands">[Commands]</a>). In our example, we chose to type <code>Hello World</code>:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/command-history-hello-world.png" alt="command history hello world">
+</div>
+</div>
+<div class="paragraph">
+<p>Next, hit the <kbd>Enter</kbd> key to enter the command into FitBiz. Notice that whatever you have typed in the <strong>Command Box</strong> should have disappeared. If you did not enter a valid command (like <code>Hello World</code>), the border of the <strong>Command Box</strong> would have turned red, and you would have been prompted by a message saying <code>Unknown command</code> in the <strong>Result Box</strong> like shown:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/command-history-unknown-command.png" alt="command history unknown command">
+</div>
+</div>
+<div class="paragraph">
+<p>Next, continue entering different commands into the <strong>Command Box</strong>. You can safely ignore all the <code>Unknown command</code> prompts for now.</p>
+</div>
+<div class="paragraph">
+<p>Once you feel like you have entered enough commands into FitBiz, try hitting the <kbd>&uarr;</kbd> key several times. You should start to see the history of your entered commands displaying in the <strong>Command Box</strong> in reverse chronological order. If you press the <kbd>&uarr;</kbd> key enough times (or simply hold down the key), you would realise that the command in the <strong>Command Box</strong> no longer changes. In our case, it displays <code>Hello World</code>, our first ever entered command.</p>
+</div>
+<div class="paragraph">
+<p>Likewise, you can also see your more recent commands by pressing the <kbd>&darr;</kbd> key. Again, if you press it enough times, you would realise that the text from the <strong>Command Box</strong> disappeares (right after displaying your most recent command). This means that you have reached the end of your command history.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+If you are not currently browsing the history, you can press the <kbd>&darr;</kbd> key to immediately clear what you are currently typing in the <strong>Command Box</strong>.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="command-autocomplete"><a class="link" href="#command-autocomplete">Command Autocomplete</a></h4>
+<div class="paragraph">
+<p>Again, similar to most modern CLIs, users of FitBiz can press the <kbd>Tab</kbd> key to autocomplete commands that they have partially typed. If the partially typed letters uniquely identifies a valid command in FitBiz (see <a href="#Commands">[Commands]</a>), the complete command will automatically appear in the <strong>Command Box</strong>. Otherwise, a list of all commands similar to the ambiguous letters will appear in the <strong>Result Box</strong>.</p>
+</div>
+<div class="paragraph">
+<p>Also, we understand that some of FitBiz&#8217;s commands may be particularly long and diffcult to remember. In order to remedy this, we have also provided <strong>autocompletion of parameter prefixes</strong> for some commands, as well as the <strong>use of <kbd>Tab</kbd> to easily get to the next prefix</strong>.</p>
+</div>
+<div class="paragraph">
+<p>To see this feature in action, type <code>add-c</code> into the <strong>Command Box</strong> and press <kbd>Tab</kbd>:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/autocomplete-1.png" alt="autocomplete 1">
+</div>
+</div>
+<div class="paragraph">
+<p>Immediately, you should have noticed three things:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>All the parameter prefixes pertaining to the <code>add-c</code> command have been automatically completed for you</p>
+</li>
+<li>
+<p>Your caret is placed right after the <code>n/</code> for you to type your parameter</p>
+</li>
+<li>
+<p>The <strong>Result Box</strong> shows you the usage of the <code>add-c</code> command</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Now, you can also press the <kbd>Tab</kbd> key repeatedly to go to the next parameter prefix, instead of wasting time using your mouse.</p>
+</div>
+<div class="paragraph">
+<p>Note however, that there are some similar commands in FitBiz that have the same few starting letters. For example: both <code>add-c</code> and <code>add-e</code> starts with the letter "a". As such, hitting <kbd>Tab</kbd> when you have only typed <code>a</code> in the <strong>Command Box</strong> will not autocomplete either command (unfortunately, FitBiz cannot read your mind). However, you will find that the command will be completed up till <code>add-</code>, the point where <code>add-e</code> and <code>add-c</code> differs. The <strong>Result Box</strong> will also prompt you with the list of all similar commands found:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/autocomplete-2.png" alt="autocomplete 2">
+</div>
+</div>
+<div class="paragraph">
+<p>To autocomplete the parameter prefixes like in the first example above, you would just have to complete the command and press <kbd>Tab</kbd> once more.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The autocompletion of the parameter prefixes are only for these commands: <code>add-c</code>, <code>add-e</code>, <code>filter-c</code>, <code>graph</code>, and <code>schedule</code>. Autocompletion of prefixes for edit commands are not included as we understand that most likely than not, users would only choose to edit one field at a time.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="export-command"><a class="link" href="#export-command">Export a client&#8217;s exercises to CSV format: <code>export</code> --- Aaron Choo</a></h3>
+<div class="paragraph">
+<p><code>export</code> allows you to export your client&#8217;s recorded exercises into a spreadsheet format which you can then easily save or share with your clients. Note that this will create a CSV file, which you can view and open in other applications like Microsoft Excel, or Google Sheets (as shown in the example later).</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This command can only be used when you have a client in view; make sure you know how to view a client first. Refer to <a href="#view-c-command">[view-c-command]</a> for more information.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect3">
+<h4 id="quick-summary"><a class="link" href="#quick-summary">Quick summary</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Only the exercises of the current client in view will be exported</p>
+</li>
+<li>
+<p>Exported files will be saved in the <code>/exports</code> directory</p>
+</li>
+<li>
+<p>The name of the exported file will be the client&#8217;s name followed by the <code>.csv</code> file extension (eg. <code>Alex Yeoh.csv</code>)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="example"><a class="link" href="#example">Example</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>First, ensure that you are currently viewing a client by using the <code>view-c</code> command:</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/export-1.png" alt="export 1">
+</div>
+</div>
+</li>
+<li>
+<p>Now, if the client you are viewing currently has recorded exercises in the <strong>Exercise Table</strong>, simply execute the <code>export</code> command</p>
+</li>
+<li>
+<p>The exercises should have been successfully exported, if the following success message is shown:</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/export-2.png" alt="export 2">
+</div>
+</div>
+</li>
+<li>
+<p>Now, simply use your favourite file explorer to locate the <code>exports</code> folder, which should be created in the same directory as <code>FitBiz.jar</code>. In the <code>exports</code> folder, you will then find your exported CSV file:</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/export-3.png" alt="export 3">
+</div>
+</div>
+</li>
+<li>
+<p>If you have a spreadsheet software (like Microsoft Excel) installed on your computer, you can easily view the CSV file by launching it. In our example, we have <a href="https://support.google.com/docs/answer/40608?co=GENIE.Platform%3DDesktop&amp;hl=en">imported it into Google Sheets</a> instead:</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/export-4.png" alt="export 4">
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="common-errors-problems"><a class="link" href="#common-errors-problems">Common errors/problems</a></h4>
+<div class="paragraph">
+<p>If you find that you are unable to execute this command successfully, there are a few things you can check:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Ensure that you are currently viewing a client using the <code>view-c</code> command. If you are indeed viewing a client, the <strong>Client View</strong> should not be empty.</p>
+</li>
+<li>
+<p>Ensure that you actually do have exercises recorded for the client currently in view using the <code>add-e</code> command. If the client does indeed have recorded exercises, the <strong>Exercise Table</strong> should not be empty.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="delete-a-client-s-exercise-code-delete-e-code-aaron-choo"><a class="link" href="#delete-a-client-s-exercise-code-delete-e-code-aaron-choo">Delete a client&#8217;s exercise: <code>delete-e</code> --- Aaron Choo</a></h3>
+<div class="paragraph">
+<p><code>delete-e</code> allows you to delete a previously recorded exercise of the client currently in view.</p>
+</div>
+<div class="paragraph">
+<p><strong>Format</strong>: <code>delete-e INDEX</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This command can only be used when you have a client in view; make sure you know how to view a client first. Refer to <a href="#view-c-command">[view-c-command]</a> for more information.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+Deleting an exercise from FitBiz is permanent and <strong>cannot be undone</strong>.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect3">
+<h4 id="parameters"><a class="link" href="#parameters">Parameters</a></h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 15%;">
+<col style="width: 85%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameters</th>
+<th class="tableblock halign-left valign-top">Important points to note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>INDEX</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Substitute <code>INDEX</code> with the actual index of the exercise shown on the <strong>Exercise Table</strong></p>
+<p class="tableblock">Must be a positive integer (eg. 1, 2, 3, &#8230;&#8203;)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="example-2"><a class="link" href="#example-2">Example</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>First, ensure that you are currently viewing a client by using the <code>view-c</code> command:</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/delete-e-1.png" alt="delete e 1">
+</div>
+</div>
+</li>
+<li>
+<p>Say for example that you want to delete the fifth exercise found on the <strong>Exercise Table</strong> (the one named "Bench Press" done on "07-04-2020"), simply enter <code>delete-e 5</code>:</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/delete-e-2.png" alt="delete e 2">
+</div>
+</div>
+</li>
+<li>
+<p>After the command has been successfully executed, the specified exercise should have been deleted. Notice also, in the <strong>Personal Best Table</strong> that the personal best for "Bench Press" has also been automatically updated to reflect this change:</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/delete-e-3.png" alt="delete e 3">
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="common-errors-problems-2"><a class="link" href="#common-errors-problems-2">Common errors/problems</a></h4>
+<div class="paragraph">
+<p>If you find that you are unable to execute this command successfully, there are a few things you can check:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Ensure that you are currently viewing a client using the <code>view-c</code> command. If you are indeed viewing a client, the <strong>Client View</strong> should not be empty.</p>
+</li>
+<li>
+<p>Ensure that you actually have exercises to delete and that the <code>INDEX</code> specified is correct. If the client does indeed have recorded exercises, the <strong>Exercise Table</strong> should not be empty.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="command-history-aaron-choo"><a class="link" href="#command-history-aaron-choo">Command History --- Aaron Choo</a></h3>
+<div class="paragraph">
+<p>This feature serves to improve the user experience by allowing users to browse and retrieve their previously entered commands using the <kbd>&uarr;</kbd> and <kbd>&darr;</kbd> arrow keys, similar to what most modern CLIs offer.</p>
+</div>
+<div class="sect3">
+<h4 id="implementation"><a class="link" href="#implementation">Implementation</a></h4>
+<div class="paragraph">
+<p>This command history mechanism is facilitated by the logic class <code>CommandHistory</code>, which controls both the model class <code>CommandHistoryState</code> and the storage utility class <code>StorageReaderWriter</code>.</p>
+</div>
+<div class="sect4">
+<h5 id="behaviour-of-this-feature"><a class="link" href="#behaviour-of-this-feature">Behaviour of this feature</a></h5>
+<div class="paragraph">
+<p>The behaviour of this feature has been implemented to mimic most modern CLIs, namely:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The empty string, <code>""</code>, should not be stored in the history</p>
+</li>
+<li>
+<p>Commands that are similar to the most recently stored command in the history should not be stored (ie. duplicate commands will not be stored)</p>
+</li>
+<li>
+<p>All other user input, be it valid or invalid commands, should be stored</p>
+</li>
+<li>
+<p>Number of commands should only be stored up to a well-defined maximum number (100 in this case, for performance reasons discussed in the later section)</p>
+</li>
+<li>
+<p>Pressing the <kbd>&uarr;</kbd> arrow key should browse backwards towards the least recently entered commands</p>
+</li>
+<li>
+<p>Pressing the <kbd>&darr;</kbd> arrow key should browse forwards towards the most recently entered commands</p>
+</li>
+<li>
+<p>The caret position should be at the end of the command string when browsing the history</p>
+</li>
+<li>
+<p>Persistent storage of the command history should be supported (ie. a user can quit the app and come back to the same history as his previous usage of the app)</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect4">
+<h5 id="how-this-feature-works"><a class="link" href="#how-this-feature-works">How this feature works</a></h5>
+<div class="paragraph">
+<p>Since all user inputs, be it valid or invalid commands, should be stored, and since detection of the <kbd>&uarr;</kbd> and <kbd>&darr;</kbd> arrow keys must occur in the JavaFX&#8217;s <code>TextField</code> class found in <code>CommandBox</code>, we have decided to let <code>CommandBox</code> directly interact with <code>CommandHistory</code>. In other words, <code>CommandBox</code> will be responsible for calling <code>CommandHistory#addToHistory</code>, <code>CommandHistory#getNextCommand</code>, and <code>CommandHistory#getPreviousCommand</code>. A simplified class diagram of the classes involved in this feature is given below:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/CommandHistoryClassDiagram.png" alt="CommandHistoryClassDiagram">
+</div>
+<div class="title">Figure 1. Class Diagram for Command History</div>
+</div>
+<div class="paragraph">
+<p>In the following sequence diagram, we trace the execution of the classes involved in the class diagram given above for when the user decides to enter the command <code>list-c</code> into FitBiz:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/CommandHistorySequenceDiagram.png" alt="CommandHistorySequenceDiagram">
+</div>
+<div class="title">Figure 2. Sequence Diagram for Saving a User Entered Command</div>
+</div>
+<div class="paragraph">
+<p><code>CommandBox</code> simply passes the user input text to <code>CommandHistory</code>, which adds this text to the internal list within <code>CommandHistoryState</code>, retrieves the full internal list, converts it to a text-based format, and finally asks <code>FileUtil</code> to save the text to storage.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="how-the-command-history-is-persisted-on-storage"><a class="link" href="#how-the-command-history-is-persisted-on-storage">How the Command History is persisted on storage</a></h5>
+<div class="paragraph">
+<p>Each command that the user enters is essentially just a line of text. We simply use the utility class <code>FileUtil</code> to write these lines of text (where each command represents a new line of text) to a text-based file <code>command.txt</code>.</p>
+</div>
+<div class="paragraph">
+<p>Whenever FitBiz first launches, we will then try to open and read from this same <code>command.txt</code> file. If no such file exists, an empty new file will be created for use in the future.</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
+<div class="paragraph">
+<p>In designing the model <code>CommandHistoryState</code>, we had to decide on the underlying data structure to store the user&#8217;s command history. We currently use the Java native <code>ArrayList&lt;String&gt;</code>, where each line of command is stored as an individual entry. Another alternative that we have considered is to store the commands in a <code>LinkedList&lt;String&gt;</code>:</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 40%;">
+<col style="width: 40%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Considerations</th>
+<th class="tableblock halign-left valign-top">ArrayList (chosen)</th>
+<th class="tableblock halign-left valign-top">LinkedList</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Time Complexity</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Inserting to the list is O(1).</p>
+<p class="tableblock">Removal of the first item is O(n).</p>
+<p class="tableblock">Retrieval of any item is always O(1).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Inserting to the list is O(1).</p>
+<p class="tableblock">Removal of the first/last item is O(1).</p>
+<p class="tableblock">Retrieval of an item that is not the first/last item will require traversal of the list and will be more expensive than O(1).</p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Ease of Implementation</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Indices are concrete numbers and thus, are much easier to manipulate than pointers.</p>
+<p class="tableblock">The use of indices are enough to support the retrieval operations needed by this feature and is efficient since retrieval is always O(1).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pointers are arguably harder to keep track of and might be more difficult to implement.</p>
+<p class="tableblock">A custom linked list (as opposed to just using the native Java <code>LinkedList</code>) may have to be developed in order to support the retrieval operations that this feature requires while still keeping the retrieval time complexity to O(1).</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>In the interest of saving developement time and better code readability, we decided to use an <code>ArrayList</code> to store the commands. Since we have decided to cap the maximum size of the list, should this limit be exceeded, we would then need to remove the first item (or the zeroth index) from the list to free up space. Of course, doing a <code>remove(0)</code> on a n-item <code>ArrayList</code> will require that all remaining items in the list be reassigned to new indices, and thus incur an O(n) time operation. However, we found out through extensive testing that this causes no observable nor significant lag when the maximum capacity is reached.</p>
+</div>
+<div class="paragraph">
+<p>Moreover, there is also a need to overwrite the whole storage file <code>command.txt</code> whenever this maximum size is reached. Before this maximum size is reached, we can easily append to the existing file the new command that the user has just entered. However, after this limit is exceeded, we must remove the first line stored in <code>command.txt</code>, shift all remaining lines up, and then append that new line. Hard disk operations like writing to storage is many order of magnitudes slower than memory operations like the reassignment of indices as discussed above. Since the much larger bottleneck is in the storage, this effectively nullifies the time complexity comparison that a <code>LinkedList</code> is faster than an <code>ArrayList</code> in removing the first item.</p>
+</div>
+<div class="paragraph">
+<p>In choosing the maximum size of the command history, we have to take note of some important caveats:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>This number must be small enough to not cause the app to lag when the whole history is being written to storage</p>
+</li>
+<li>
+<p>This number must be big enough to satisfy the user</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Ultimately, we felt that 100 is a very generous estimate given that a user really only needs the past few commands at any point of time.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="command-autocomplete-aaron-choo"><a class="link" href="#command-autocomplete-aaron-choo">Command Autocomplete --- Aaron Choo</a></h3>
+<div class="paragraph">
+<p>Similar to the previously mentioned <a href="#command-history-aaron-choo">Command History</a> feature, this feature also serves to improve the user experience by allowing users to press the <kbd>Tab</kbd> key to autocomplete their partially entered commands.</p>
+</div>
+<div class="sect3">
+<h4 id="command-history-implementation"><a class="link" href="#command-history-implementation">Implementation</a></h4>
+<div class="paragraph">
+<p>This feature is facilitated by the logic found in the <code>Autocomplete</code> class. Before we dive into the implementation, let us first define what <em>unambiguous</em> and <em>ambiguous</em> commands are:</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Unambiguous Commands</th>
+<th class="tableblock halign-left valign-top">Ambiguous Commands</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Can uniquely identify a single command using the sequence of letters that the user has entered</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cannot uniquely identify a single command using the sequence of letters that the user has entered</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+For example, assume we only have 3 commands in our app, <code>add-c</code>, <code>add-e</code>, and <code>edit-c</code>. If the user enters <code>e</code> and tries to autocomplete the command using <kbd>Tab</kbd>, we say that this is an unambiguous command since clearly, <code>edit-c</code> can be uniquely identified by <code>e</code>. If instead, the user enters <code>a</code> and presses <kbd>Tab</kbd> to autocomplete the command, we say that this is an ambiguous command, since both <code>add-c</code> and <code>add-e</code> are possible choices.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect4">
+<h5 id="command-history-behaviour"><a class="link" href="#command-history-behaviour">Behaviour of this feature</a></h5>
+<div class="paragraph">
+<p>Again, this feature has also been implemented to mimic most modern CLIs, namely:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Any unambiguous commands should be immediately completed upon pressing of the <kbd>Tab</kbd> key</p>
+</li>
+<li>
+<p>Any ambiguous commands should be completed up till the longest common prefix of all similar commands</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Using the ambiguous command example in the introduction above, when the user enters <code>a</code> and presses <kbd>Tab</kbd>, the autocompletion should return <code>add-</code> (the longest common prefix of <code>add-e</code> and <code>add-c</code>) to the user</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>A list of all similar commands should be presented to the user should he try to autocomplete an ambiguous command</p>
+</li>
+<li>
+<p><a id="command-history-behaviour-4"></a>Pressing <kbd>Tab</kbd> when the command has already been completed will bring the user&#8217;s caret to the next prefix delimitter (<code>/</code> in our case) with wraparound</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect4">
+<h5 id="how-the-trie-data-structure-works"><a class="link" href="#how-the-trie-data-structure-works">How the Trie data structure works</a></h5>
+<div class="paragraph">
+<p>Since Java does not provide a native Trie data structure, we had to implement our own version of it. Moreover, Java also does not allow methods with multiple return values, and thus, we had to create a wrapper class <code>SimilarWordsResult</code> to store the multiple results returned by <code>Trie#listAllSimilarWords</code>. In this section, we shall take a more in depth look at the overall implementation of this data structure.</p>
+</div>
+<div class="paragraph">
+<p>We first look at the <code>Node</code> class provided in the same package which <code>Trie</code> relies on. Each <code>Node</code> object should contain the following attributes:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The parent node (<code>null</code> if the node is the root of the Trie)</p>
+</li>
+<li>
+<p>The current letter it represents</p>
+</li>
+<li>
+<p>The children nodes (if any)</p>
+</li>
+<li>
+<p>A boolean to know whether that node represents a completed word</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Since each node stores with it their parent node pointer, we can easily construct the word represented by a node by recursively building the word up letter by letter until the root is reached. This is implemented in <code>Node#constructWord</code>, as shown here:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> <span class="predefined-type">String</span> constructWord() {
+      <span class="keyword">if</span> (isRoot()) {
+            <span class="keyword">return</span> EMPTY_STRING;
+      }
+      <span class="keyword">return</span> parent.constructWord() + getLetter();
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Now, let us discuss about how we implemented <code>Trie</code> to support the <a href="#command-history-behaviour">behaviours discussed above</a> by first looking at <code>Trie#getLongestPrefixNode</code>. This method takes in an argument <code>word</code> and returns in 3 distinct cases:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>If the argument <code>word</code> matches no words currently in the <code>Trie</code>: <code>null</code></p>
+</li>
+<li>
+<p>If the argument <code>word</code> is unambiguous: the <code>Node</code> whose constructed word (using <code>Node#constructWord</code>) is the longest word contained in <code>Trie</code> that can be formed from <code>word</code></p>
+</li>
+<li>
+<p>If the argument <code>word</code> is ambiguous: the <code>Node</code> whose constructed word is the longest common prefix of all words similar to <code>word</code> contained in <code>Trie</code></p>
+</li>
+</ol>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Refer to <a href="#autocomplete-activity-diagram">Activity Diagram for the Autocomplete Logic</a> given in the next section for the complete sequence of the key decisions.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Let us move on to <code>Trie#listAllSimilarWords</code> which makes use of the <code>Node</code> found by <code>Trie#getLongestPrefixNode</code>. Cases 1 and 2 discussed above are relatively trivial and we shall not discuss about how they are handled in <code>Trie#listAllSimilarWords</code>. For case 3, in order for us to find all the similar words, we have chosen to use a Depth-First Search (DFS) approach, starting the search from the <code>Node</code> returned by <code>Trie#getLongestPrefixNode</code>, as shown here:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java">Node subtrie = getLongestPrefixNode(word);
+<span class="predefined-type">ArrayList</span>&lt;<span class="predefined-type">String</span>&gt; similarWords = <span class="keyword">new</span> <span class="predefined-type">ArrayList</span>&lt;&gt;();
+
+<span class="predefined-type">Stack</span>&lt;Node&gt; stack = <span class="keyword">new</span> <span class="predefined-type">Stack</span>&lt;&gt;();
+
+stack.push(subtrie);
+
+<span class="keyword">while</span> (!stack.isEmpty()) {
+      Node current = stack.pop();
+      <span class="keyword">if</span> (current.isWordEnd()) {
+            similarWords.add(current.constructWord());
+      } <span class="keyword">else</span> {
+            stack.addAll(current.getChildren().values());
+      }
+}</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The choice of a DFS approach as opposed to a Breadth-First Search (BFS) approach is arbitrary, both should work as expected.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect4">
+<h5 id="how-this-feature-works-2"><a class="link" href="#how-this-feature-works-2">How this feature works</a></h5>
+<div class="paragraph">
+<p>Similar to <a href="#command-history-aaron-choo">Command History</a>, this feature also relies heavily on the UI class <code>CommandBox</code>, and thus we have decided to let <code>CommandBox</code> interact with <code>Autocomplete</code> directly. A simplified class diagram of the classes involved is shown here:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/CommandAutocompleteClassDiagram.png" alt="CommandAutocompleteClassDiagram">
+</div>
+<div class="title">Figure 3. Simplified Class Diagram for Autocomplete</div>
+</div>
+<div class="paragraph">
+<p>In the following sequence diagram, we follow the execution for when the user tries to autocomplete his partially entered command <code>gra</code> (which, in the current application, is an unambiguous command, and will result in the full completion of the <code>graph</code> command as well as its prefixes):</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/CommandAutocompleteSequenceDiagram.png" alt="CommandAutocompleteSequenceDiagram">
+</div>
+<div class="title">Figure 4. Simplified Sequence Diagram for Command Autocomplete</div>
+</div>
+<div class="paragraph">
+<p><code>CommandBox</code> retrieves the user input command and caret position from the <code>TextField</code>, and calls the <code>execute</code> method from <code>Autocomplete</code> with these information. This <code>execute</code> method (shown and explained in full in the next sequence diagram) creates an <code>AutocompleteResult</code> object and returns this to <code>CommandBox</code>, which retrieves all the information required and sets the <code>TextField</code> and <code>ResultDisplay</code> accordingly.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/CommandAutocompleteSequenceDiagramRef.png" alt="CommandAutocompleteSequenceDiagramRef">
+</div>
+<div class="title">Figure 5. Sequence Diagram for the Autocomplete#execute Method</div>
+</div>
+<div class="paragraph">
+<p>Within the <code>execute</code> method, <code>Autocomplete</code> calls the <code>listAllSimilarWords</code> method from <code>Trie</code> with the user input text. <code>Trie</code>, which would already have all the commands stored, finds the longest prefix node, calls the <code>constructWord</code> method from this node, and checks if this node represents the end of a completed word. Since it is indeed a completed word, <code>Trie</code> immediately creates a <code>SimilarWordsResult</code> object to store these information and returns it to <code>Autocomplete</code>. Then, <code>Autocomplete</code> retrieves these information, realises that it is dealing with an unambiguous command, and constructs the corresponding prefixes. It then creates a <code>AutocompleteResult</code> object to store all the information that <code>CommandBox</code> requires, and finally returns this object to <code>CommandBox</code>.</p>
+</div>
+<div class="paragraph">
+<p>Lastly, in order to explain the key decisions that this feature does at each step starting from the point where the user presses <kbd>Tab</kbd>, we have provided the following activity diagram:</p>
+</div>
+<div id="autocomplete-activity-diagram" class="imageblock">
+<div class="content">
+<img src="../images/CommandAutocompleteActivityDiagram.png" alt="CommandAutocompleteActivityDiagram">
+</div>
+<div class="title">Figure 6. Activity Diagram for the Autocomplete Logic</div>
+</div>
+<div class="paragraph">
+<p>This feature currently only supports autocompletion of <em>commands</em> and <em>prefixes</em>, and not other fields/parameters like names and addresses that have been used by the user before. Implicitly, since all commands defined in FitBiz do not have empty spaces in them, this allows us to easily determine when to allow users to press <kbd>Tab</kbd> to get to the next prefix (<a href="#command-history-behaviour-4">behaviour 4</a>): by simply checking for the presence of white spaces from the trimmed user input.</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">Design Considerations</a></h4>
+<div class="paragraph">
+<p>As discussed in the <a href="#command-history-implementation">implementation section</a>, we have decided to use a Trie data structure. Of course, we have also considered other much simpler alternatives like simply storing all available commands in a native Java <code>List</code>. A quick summary of the pros and cons is given here:</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 40%;">
+<col style="width: 40%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Considerations</th>
+<th class="tableblock halign-left valign-top">Trie (chosen)</th>
+<th class="tableblock halign-left valign-top">List</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Time Complexity</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Searching if a word exists is O(n), where n is the number of letters in the word to search for.</p>
+<p class="tableblock">Finding the longest common prefix of an ambiguous command is O(n), where n is the number of letters in the original word.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Searching if a word exists is O(nm), where n is the number of letters in the word to search for, and m is the number of words in the list.</p>
+<p class="tableblock">Finding the longest common prefix of an ambiguous command is not linear with n and m.</p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Ease of Implementation</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Initial development might be more difficult; developers might not be familiar with this data structure as it is not as common.</p>
+<p class="tableblock">Custom class means that additional, custom logic can be easily added.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Much faster initial development.</p>
+<p class="tableblock">Custom logic cannot be easily added.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>As such, the choice of implementing our own Trie data structure is obvious. As this app grows bigger in the forseeable future, the number of commands as well as the number of things we would want to autocomplete would increase. Overall, we felt that the Trie data structure will scale much better as compared to a List.</p>
+</div>
+<div class="paragraph">
+<p>Exchanging some initial development time for future scalability of our app will ensure that we, or future developers, do not end up wasting time refactoring what could have been done in the first place. Moreover, the Trie data structure is much more effective and computationally inexpensive in finding the longest common prefix of all ambiguous commands. The same cannot be said when using a List.</p>
+</div>
+<div class="paragraph">
+<p>Also, since we have implemented our own Trie data structure, it would also allow more custom logic to be added later, and allow more creative freedom with respect to the features that we, or future developers would want to add. For example, future version of this application might want to also include the autocompletion of frequently used parameters by the user.</p>
+</div>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 07:05:23 UTC</div></div></div></body></html>
