@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link active" href="index.html">AB-3</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">FitBiz</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link active" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S2-CS2103T-F11-2/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>FitBiz - Developer Guide</h1></div><div id="content"><div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>By: <code>AY1920S2-CS2103T-F11-2</code>   Since: <code>Feb 2020</code>      Licence: <code>MIT</code></p>
+<p>By: <code>AY1920S2-CS2103T-F11-2</code>   Since: <code>Feb 2020</code>      Licence: <code>MIT</code></p>
 </div>
 </div>
 <div id="toc" class="toc">
@@ -48,6 +48,8 @@
 <li><a href="#command-autocomplete">F.2. Command autocomplete</a></li>
 <li><a href="#deleting-a-client">F.3. Deleting a client</a></li>
 <li><a href="#saving-data">F.4. Saving data</a></li>
+<li><a href="#filtering-the-client-list">F.5. Filtering the client list</a></li>
+<li><a href="#adding-new-client-into-fitbiz">F.6. Adding new client into FitBiz</a></li>
 </ul>
 </li>
 </ul>
@@ -280,11 +282,13 @@ The following class plays an important role at the architecture level:</p>
 </td>
 <td class="content">
 As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book</code>, which <code>Client</code> can reference. This would allow <code>Address Book</code> to only require one <code>Tag</code> object per unique <code>Tag</code>, instead of each <code>Client</code> needing their own <code>Tag</code> object. An example of how such a model may look like is given below.<br>
-<br>
-<span class="image"><img src="images/BetterModelClassDiagram.png" alt="BetterModelClassDiagram"></span>
 </td>
 </tr>
 </table>
+</div>
+<div class="paragraph">
+<p>+
+<span class="image"><img src="images/BetterModelClassDiagram.png" alt="BetterModelClassDiagram"></span></p>
 </div>
 </div>
 <div class="sect2">
@@ -1389,7 +1393,7 @@ if (dateComparision &gt; 0) {
 <div class="sect3">
 <h4 id="implementation-7"><a class="link" href="#implementation-7">3.9.1. Implementation</a></h4>
 <div class="paragraph">
-<p>This filtering mechanism is facilitated by <code>TagAndSportContainsKeywordsPredicate</code>, that implements <code>Predicate&lt;Client&gt;</code> which is a wrapper class for a boolean. <code>FilterCommand</code> is associated with <code>Model</code> is responsible for calling <code>Model#updateFilteredClientList</code> based on <code>TagAndSportContainsKeywordsPredicate</code>. <code>TagAndSportContainsKeywordsPredicate</code> will call <code>test</code> on <code>Client</code> to check if the clients 'Tag' and <code>Sport</code> contains all the keyword. the relations between these classes are shown in the class diagram below.</p>
+<p>This filtering mechanism is facilitated by <code>TagAndSportContainsKeywordsPredicate</code>, that implements <code>Predicate&lt;Client&gt;</code> which is a wrapper class for a boolean. <code>FilterCommand</code> is associated with <code>Model</code> is responsible for calling <code>Model#updateFilteredClientList</code> based on <code>TagAndSportContainsKeywordsPredicate</code>. <code>TagAndSportContainsKeywordsPredicate</code> will call <code>test</code> on <code>Client</code> to check if the clients <code>Tag</code> and <code>Sport</code> contains all the keyword. the relations between these classes are shown in the class diagram below.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -2587,5 +2591,69 @@ Expected: Similar to previous.</p>
 </ol>
 </div>
 </div>
+<div class="sect2">
+<h3 id="filtering-the-client-list"><a class="link" href="#filtering-the-client-list">F.5. Filtering the client list</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Filtering the client list with different <code>Tag</code> and <code>Sport</code> specified</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>filter-c t/normal s/hockey</code><br>
+Expected: Client with <code>Tag</code> normal and <code>Sport</code> listed.</p>
+</li>
+<li>
+<p>Test case: <code>filter-c s/sumo wrestling</code><br>
+Expected: Client with <code>Sport</code> <code>sumo wrestling</code> listed.</p>
+</li>
+<li>
+<p>Test case: <code>filter-c t/normal vegetarian</code><br>
+Expected: Error stating "Tags names should be alphanumeric" shown.</p>
+</li>
+<li>
+<p>Test case: <code>filter-c t/normal t/vegetarian</code><br>
+Expected: Client with <code>Tag</code> <code>normal</code> and <code>vegetarian</code> listed.</p>
+</li>
+</ol>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 09:46:37 UTC</div></div></div></body></html>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="adding-new-client-into-fitbiz"><a class="link" href="#adding-new-client-into-fitbiz">F.6. Adding new client into FitBiz</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Adding a new client into FitBiz with different parameters stated</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>add-c n/John Cena p/98765432 e/johnd@example.com a/311, Clementi Ave 2, #02-25 g/Male b/26-01-1980 cw/96 tw/69 h/156 s/Sumo Wrestling t/Vegan t/healthy r/History of back injuries</code><br>
+Expected: New client added.</p>
+</li>
+<li>
+<p>Test case: <code>add-c n/Micheal Jordan p/98254 e/mikeyboii@example.com a/basketball court blk 666 #02-25</code><br>
+Expected: New client added.</p>
+</li>
+<li>
+<p>Test case: <code>add-c n/Simba p/98543456 e/thelionking@gmail.com</code><br>
+Expected: Error "Invalid command format!" shown.</p>
+</li>
+<li>
+<p>Test case: <code>add-c n/Secret Man p/97656561 e/cantseemee@void.com a/here @ dodo coast g/ b/ cw/ tw/ h/ r/ s/ t/</code><br>
+Expected: New client added.</p>
+</li>
+<li>
+<p>Test case: <code>add-c n/Rachel tan p/93214321 e/RachelTan@mail.com a/choa chu kang ave 22 blk 909</code> followed by <code>add-c n/Rachellie Tan p/98786110 e/RachelTan@mail.com a/bishan grove 45</code>+
+Expected: Error "This phone number and/or email already exists in FitBiz." shown.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 09:47:47 UTC</div></div></div></body></html>

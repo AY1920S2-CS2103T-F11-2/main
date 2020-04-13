@@ -1,0 +1,660 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Toh Ker Wei - Project Portfolio</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="../images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link active" href="../index.html">AB-3</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">FitBiz</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="../LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S2-CS2103T-F11-2/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Toh Ker Wei - Project Portfolio</h1></div><div id="content"><div class="sect1">
+<h2 id="project-fitbiz"><a class="link" href="#project-fitbiz">Project: FitBiz</a></h2>
+<div class="sectionbody">
+<hr>
+</div>
+</div>
+<div class="sect1">
+<h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>FitBiz is a fitness business management application, specially created for fitness coaches to manage their clients. It is a platform where coaches can store his clients' information, exercises done and weekly training schedule. FitBiz is primarily a desktop application where the user interacts with the program via the Command Line Interface (CLI), and views data via the Graphical User Interface (GUI). This project is written in Java 11, packaged using Gradle, and uses JavaFX for the GUI.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Major enhancement</strong>: added the <strong>filter</strong> feature which allows user to filter and display the clients list using client&#8217;s <code>Tag</code> and <code>Sport</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: Allows user to filter through his list of clients using <code>Tag</code> or <code>Sport</code> keywords and return clients that have <code>Tag</code> or <code>Sport</code> matching all of the keywords specified.</p>
+</li>
+<li>
+<p>Justification: Allows user to group and view clients based on their <code>Tag</code> or the <code>Sport</code> they play, which is a convenient way of looking at similar groups of client when planning exercises or scheduling clients with similar needs to train as a group. This increases the efficiency of viewing clients from a long list based on their attributes and to find clients' <code>INDEX</code> to view their information.</p>
+</li>
+<li>
+<p>Highlights: Provides a simple yet important way of grouping and viewing clients from the list. The implementation was done in such a way that makes it easy to expand to filter all attributes of clients allowing user to make training plans more robust. Future expansion plan includes the abilities to filter clients by ranges of their current and target weight to group those with similar needs and filter by address to allow user to schedule clients living near each other on the same day.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Major enhancement</strong>: helped to build the foundation of <strong>schedule</strong> feature</p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: Allows user to add and view the training schedule of clients</p>
+</li>
+<li>
+<p>Justification: Users will be able to add, store and view clients schedule and therefore eliminating the need to use another application for the same purpose. This increases the efficiency of users while planning for clients' trainings as the schedule, exercise history and information can all be viewed in the same page.</p>
+</li>
+<li>
+<p>Highlights: We have essentially created a mini version of a calendar app that is simple yet maintain the important functionalities to add training schedules and display them in a weekly view. Many real life conditions for the training schedule added such as overlapping training time, whether to allow backlogging of training dates and clients having same training time have been resolved through multiple trials and discussions.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Minor enhancement</strong>: added <code>Sport</code> attribute to <code>Client</code></p>
+</li>
+<li>
+<p><strong>Code contributed</strong>: [<a href="https://nus-cs2103-ay1920s2.github.io/tp-dashboard/#search=tohkerwei&amp;sort=groupTitle&amp;sortWithin=title&amp;since=2020-02-14&amp;timeframe=commit&amp;mergegroup=false&amp;groupSelect=groupByRepos&amp;breakdown=false&amp;tabOpen=true&amp;tabType=authorship&amp;tabAuthor=tohkerwei&amp;tabRepo=AY1920S2-CS2103T-F11-2%2Fmain%5Bmaster%5D">RepoSense</a>]</p>
+</li>
+<li>
+<p><strong>Other contributions</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Enhancements to existing features:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Wrote test code for classes regarding filter to improve test coverage (Pull request <a href="https://github.com/AY1920S2-CS2103T-F11-2/main/pull/231">#231</a>)</p>
+</li>
+<li>
+<p>Wrote test codes for <code>Sport</code> attribute and part of <code>Schedule</code> classes to improve test coverage (Pull request <a href="https://github.com/AY1920S2-CS2103T-F11-2/main/pull/46">#46</a>, <a href="https://github.com/AY1920S2-CS2103T-F11-2/main/pull/62">#62</a>, <a href="https://github.com/AY1920S2-CS2103T-F11-2/main/pull/141">#141</a>)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Documentation:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Wrote the command guide for <code>add-c</code> and <code>filter-c</code> in User Guide (Pull request  <a href="https://github.com/AY1920S2-CS2103T-F11-2/main/pull/260">#260</a>, <a href="https://github.com/AY1920S2-CS2103T-F11-2/main/pull/273">#273</a>)</p>
+</li>
+<li>
+<p>Wrote the implementation of <code>filter-c</code> and <code>view-c</code> in Developer Guide (Pull request <a href="https://github.com/AY1920S2-CS2103T-F11-2/main/pull/248">#248</a>, <a href="https://github.com/AY1920S2-CS2103T-F11-2/main/pull/272">#272</a>)</p>
+</li>
+<li>
+<p>Edited <code>Logic</code> to reflect the implementation of FitBiz in Developer Guide (Pull request <a href="https://github.com/AY1920S2-CS2103T-F11-2/main/pull/248">#248</a>)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Community:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Reported bugs and suggestions for other teams in the class that were resolved or implemented (<a href="https://github.com/AY1920S2-CS2103T-W16-2/main/issues/133">1</a>, <a href="https://github.com/AY1920S2-CS2103T-W16-2/main/issues/129">2</a>, <a href="https://github.com/AY1920S2-CS2103T-W16-2/main/issues/130">3</a>)</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">Contributions to the User Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are the sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="add-a-new-client-profile-code-add-c-code-toh-ker-wei"><a class="link" href="#add-a-new-client-profile-code-add-c-code-toh-ker-wei">Add a new client profile: <code>add-c</code> --- Toh Ker Wei</a></h3>
+<div class="paragraph">
+<p>After setting up the program, the first thing you might want to do is to add your client to FitBiz. You can do so by using the <code>add-c</code> command, followed by the details of your client.</p>
+</div>
+<div class="sect3">
+<h4 id="format"><a class="link" href="#format">Format</a></h4>
+<div class="paragraph">
+<p>This section summarises the format and important information to note while using the <code>add-c</code> command.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>add-c n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [g/GENDER] [b/BIRTHDAY] [h/HEIGHT] [cw/CURRENT_WEIGHT] [tw/TARGET_WEIGHT] [r/REMARK] [s/SPORT]… [t/TAG]…</code></p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 15%;">
+<col style="width: 85%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter</th>
+<th class="tableblock halign-left valign-top">Important notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">n/NAME</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>NAME</code> is the name of the client you want to add and is compulsory.<br></p>
+<p class="tableblock"><code>NAME</code> is case insensitive.<br>
+e.g <code>ray</code> will match <code>Ray</code><br></p>
+<p class="tableblock">The order of the <code>NAME</code> matters.<br>
+e.g <code>Hanson Ong</code> is not the same as <code>Ong Hanson</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">p/PHONE_NUMBER</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>PHONE_NUMBER</code> is the phone number of the client you want to add and is compulsory.<br></p>
+<p class="tableblock"><code>PHONE_NUMBER</code> must be longer than 2 digits and contain numbers only.<br>
+e.g. <code>94325321</code> or <code>933</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">e/EMAIL</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>EMAIL</code> is the email of the client you want to add and is compulsory.<br></p>
+<p class="tableblock"><code>EMAIL</code> should be in the format local-part@domain. Local-part and domain can be any value.<br>
+e.g. <code>rachelt@kmail.com</code> or <code>123@123.com</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">a/ADDRESS</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ADDRESS</code> is the address of the client you want to add and is compulsory.<br></p>
+<p class="tableblock"><code>ADDRESS</code> can be any value.<br>
+e.g. <code>Maple Ave 123 - greenland sunshine&#8217;s valley</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[g/GENDER]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>GENDER</code> is gender of the client you want to add and is optional.<br></p>
+<p class="tableblock"><code>GENDER</code> is case insensitive and the following values are accepted:<br>
+<code>male</code> or <code>m</code> for male<br>
+<code>female</code> or <code>f</code> for female<br>
+<code>others</code> or <code>o</code> for others</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[b/BIRTHDAY]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>BIRTHDAY</code> is the birthday of the client you want to add and is optional.<br></p>
+<p class="tableblock"><code>BIRTHDAY</code> should be in the format DD-MM-YYYY and must be before today&#8217;s date and after 11th April 1900.<br>
+e.g. <code>12-12-2019</code> or <code>04-04-1901</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[h/HEIGHT]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>HEIGHT</code> is the height of the client you want to add and is optional.<br></p>
+<p class="tableblock"><code>HEIGHT</code> is in cm.<br></p>
+<p class="tableblock"><code>HEIGHT</code> must be non-negative and can either be a whole number with maximum 3 digits or a decimal with maximum of 2 decimal places.<br>
+e.g. <code>164</code> or <code>180.12</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[cw/CURRENT_WEIGHT]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>CURRENT_WEIGHT</code> is the current weight of the client you want to add and is optional.<br></p>
+<p class="tableblock"><code>CURRENT_WEIGHT</code> is in kg.<br></p>
+<p class="tableblock"><code>CURRENT_WEIGHT</code> must be non-negative and can either be a whole number with maximum 3 digits or a decimal with maximum of 2 decimal places.<br>
+e.g. <code>75</code> or <code>60.50</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[tw/TARGET_WEIGHT]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>TARGET_WEIGHT</code> is the is the target weight of the client you want to add and is optioanl.<br></p>
+<p class="tableblock"><code>TARGER_WEIGHT</code> is in kg.<br></p>
+<p class="tableblock"><code>TARGET_WEIGHT</code> must be non-negative. It can either be a whole number with maximum 3 digits or a decimal with maximum of 2 decimal places.<br>
+e.g. <code>50</code> or <code>69.69</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[r/REMARK]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>REMARK</code> is the remarks of the client you want to add and is optional.<br></p>
+<p class="tableblock"><code>REMARK</code> can be any value.<br>
+e.g. <code>Need to eat 2800kcal everyday</code> or <code>severely overweight</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[s/SPORT]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>SPORT</code> is the sports participated by the client you want to add and is optional.<br></p>
+<p class="tableblock"><code>SPORT</code> should contain letters, numbers or spaces only.<br>
+e.g. <code>Ultimate frisbee</code> or <code>sumo wrestler</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[t/TAG]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>TAG</code> is the tag given to the client you want to add and is optional.<br>
+<code>TAG</code> should contain letters or numbers only.
+e.g. <code>healthy</code> or <code>doing well</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="example"><a class="link" href="#example">Example</a></h4>
+<div class="paragraph">
+<p>Lets say you want to add a new client with the following details:<br>
+Name: Amanda Low<br>
+Phone number: 95436543<br>
+Email: <a href="mailto:AmandaLow@dmail.com">AmandaLow@dmail.com</a><br>
+Address: West Coast Grove 69<br>
+Birthday: 5 April 1990<br>
+Sport: Swimmer<br>
+Tag: Vegetarian</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type the command below into the command box.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>add-c n/Amanda Low p/95436543 e/AmandaLow@dmail.com a/West Coast Grove 69 s/Swimmer t/Vegetarian</code></p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/AddExampleCommand.png" alt="AddExampleCommand">
+</div>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Press enter to execute.</p>
+</li>
+<li>
+<p>After Amanda has been successfully added to the clients list, the result will be displayed as shown.</p>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/AddExampleSuccess.png" alt="AddExampleSuccess">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="common-errors-problems"><a class="link" href="#common-errors-problems">Common errors/ problems:</a></h4>
+<div class="paragraph">
+<p>If you are facing errors or difficulty adding a client, you can refer to the common errors and problems listed below and resolve your error using the solution given.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Compulsory fields missing</strong></p>
+<div class="paragraph">
+<p>If you are adding a client and miss out any of the compulsory parameters. You will not be able to add the client.</p>
+</div>
+<div class="paragraph">
+<p>For example, when you want to add a <code>Rachel Tan</code> into FitBiz but did not include the compulsory field <code>a/ADDRESS</code></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/AddNoAddress.png" alt="AddNoAddress">
+</div>
+</div>
+<div class="paragraph">
+<p>Afterpressing enter, the following error message will be shown.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/AddNoAddressError.png" alt="AddNoAddressError">
+</div>
+</div>
+<div class="paragraph">
+<p>To solve this error, ensure that all compulsory parameters are included when adding a client. The compulsory parameters include: <code>n/NAME</code>, <code>p/PHONE</code>, <code>e/EMAIl</code> and <code>a/ADDRESS</code>. To continue with the same example, the command will now include Rachel&#8217;s address.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/AddWithAddressCommand.png" alt="AddWithAddressCommand">
+</div>
+</div>
+<div class="paragraph">
+<p>The result of successfully adding Rachel will show the following</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/AddAddressSuccess.png" alt="AddAddressSuccess">
+</div>
+</div>
+</li>
+<li>
+<p><strong>Adding clients with the same phone number or email</strong></p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>In FitBiz, you cannot add 2 clients with the either same phone number or email.</p>
+</div>
+<div class="paragraph">
+<p>For example, you have client with the email <code>RachelTan@dmail.com</code> and you want to add another client with the same email.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/AddSameEmailCommand.png" alt="AddSameEmailCommand">
+</div>
+</div>
+<div class="paragraph">
+<p>The following error message will be shown.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/AddSameEmailError.png" alt="AddSameEmailError">
+</div>
+</div>
+<div class="paragraph">
+<p>To solve this issue, ensure that any new client you add does not have the same phone number or email as existing client.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="filter-clients-based-on-attribute-code-filter-c-code-toh-ker-wei"><a class="link" href="#filter-clients-based-on-attribute-code-filter-c-code-toh-ker-wei">Filter clients based on attribute: <code>filter-c</code> --- Toh Ker Wei</a></h3>
+<div class="paragraph">
+<p>When you have many clients and want to filter the list of clients to view a specific group, you can use the command <code>filter-c</code> to filter clients based on their tags or their sports.</p>
+</div>
+<div class="sect3">
+<h4 id="format-2"><a class="link" href="#format-2">Format</a></h4>
+<div class="paragraph">
+<p>Format: `filter-c [t/TAG]&#8230;&#8203; [s/SPORT]&#8230;&#8203;</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 15%;">
+<col style="width: 85%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter</th>
+<th class="tableblock halign-left valign-top">Important notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>t/TAG</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>TAG</code> is the tag of the clients you want to match and list.<br></p>
+<p class="tableblock"><code>TAG</code> is case-insensitive.<br>
+e.g. <code>healthy</code> will match <code>Healthy</code></p>
+<p class="tableblock"><code>TAG</code> should only contain letters or numbers.<br>
+e.g. <code>monday</code> or <code>obese200kg</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>s/SPORT</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>SPORT</code> is the sport of the clients you want to match and list.<br></p>
+<p class="tableblock"><code>SPORT</code> is case-insensitive.<br>
+e.g.  <code>track and field</code> returns the same result as <code>Track And Field</code></p>
+<p class="tableblock"><code>SPORT</code> should only contain letters, numbers or spaces.
+e.g. <code>sumo wrestling</code> or <code>100m sprint</code></p>
+<p class="tableblock">Order of words in <code>SPORT</code> does not matter
+e.g. <code>track and field</code> returns the same result as <code>field and track</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="example-2"><a class="link" href="#example-2">Example</a></h4>
+<div class="paragraph">
+<p>Let&#8217;s say you want to filter through your list of clients and only display those with the tag <code>healthy</code> and play the sport <code>badminton</code>.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type the command <code>filter-c t/healthy s/badminton</code> into the command box.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/FilterExampleCommand.png" alt="FilterExampleCommand">
+</div>
+</div>
+</li>
+<li>
+<p>Press enter to execute.</p>
+</li>
+<li>
+<p>The clients with the matching tag and sport will be displayed as shown.</p>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/FilterExampleSuccess.png" alt="FilterExampleSuccess">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="common-error-problem"><a class="link" href="#common-error-problem">Common error/ problem</a></h4>
+<div class="paragraph">
+<p><strong>Tags with spaces</strong></p>
+</div>
+<div class="paragraph">
+<p>When you want to filter the clients list with multiple tags like <code>healthy</code> and <code>sporty</code>, you might enter the command shown below.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/FilterTagCommand.png" alt="FilterTagCommand">
+</div>
+</div>
+<div class="paragraph">
+<p>You will then encounter the error <code>Tags names should be alphanumeric</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/FilterTagError.png" alt="FilterTagError">
+</div>
+</div>
+<div class="paragraph">
+<p>This error occurs because <code>TAG</code> only accepts letters and numbers but not spaces. To solve the problem, add an additional delimiter for each tag you want to specify. Note that sports does not require multiple delimiter.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/FilterTagCorrectCommand.png" alt="FilterTagCorrectCommand">
+</div>
+</div>
+<div class="paragraph">
+<p>The list of successfully filter clients will then be displayed.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/FilterTagSuccess.png" alt="FilterTagSuccess">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are the sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="logic-component"><a class="link" href="#logic-component">Logic component</a></h3>
+<div id="fig-LogicClassDiagram" class="imageblock">
+<div class="content">
+<img src="../images/LogicClassDiagram.png" alt="LogicClassDiagram">
+</div>
+<div class="title">Figure 1. Structure of the Logic Component</div>
+</div>
+<div class="paragraph">
+<p><strong>API</strong> :
+<a href="{repoURL}/src/main/java/seedu/address/logic/Logic.java"><code>Logic.java</code></a></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>Logic</code> uses the <code>FitBizParser</code> class to parse the user command.</p>
+</li>
+<li>
+<p>This results in a <code>Command</code> object which is executed by the <code>LogicManager</code>.</p>
+</li>
+<li>
+<p>The command execution can affect the <code>Model</code> (e.g. adding or deleting a client).</p>
+</li>
+<li>
+<p>The result of the command execution is encapsulated as a <code>CommandResult</code> object which is passed back to the <code>Ui</code>.</p>
+</li>
+<li>
+<p>In addition, the <code>CommandResult</code> object can also instruct the <code>Ui</code> to perform certain actions, such as displaying the list of clients or exercise graphs.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Given below is the sequence diagram for interactions within the <code>Logic</code> component for the <code>execute("delete-c 1")</code> API call mentioned previously.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/DeleteSequenceDiagram.png" alt="DeleteSequenceDiagram">
+</div>
+<div class="title">Figure 2. Interactions Inside the Logic Component for the <code>delete-c 1</code> Command</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="filtering-the-list-of-clients-toh-ker-wei"><a class="link" href="#filtering-the-list-of-clients-toh-ker-wei">Filtering the list of clients --- Toh Ker Wei</a></h3>
+<div class="paragraph">
+<p>This feature allows users to filter the list of clients by specifying the <code>Tag</code> or <code>Sport</code> of the clients they want to view.</p>
+</div>
+<div class="sect3">
+<h4 id="implementation"><a class="link" href="#implementation">Implementation</a></h4>
+<div class="paragraph">
+<p>This filtering mechanism is facilitated by <code>TagAndSportContainsKeywordsPredicate</code>, that implements <code>Predicate&lt;Client&gt;</code> which is a wrapper class for a boolean. <code>FilterCommand</code> is associated with <code>Model</code> is responsible for calling <code>Model#updateFilteredClientList</code> based on <code>TagAndSportContainsKeywordsPredicate</code>. <code>TagAndSportContainsKeywordsPredicate</code> will call <code>test</code> on <code>Client</code> to check if the clients <code>Tag</code> and <code>Sport</code> contains all the keyword. the relations between these classes are shown in the class diagram below.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/FilterClassDiagram.png" alt="FilterClassDiagram">
+</div>
+</div>
+<div class="paragraph">
+<p>To further elaborate,
+<code>TagAndSportContainsKeywordsPredicate</code> contains 2 booleans:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>hasTag</code>: evaluates if the client has all the <code>Tag</code> specified</p>
+</li>
+<li>
+<p><code>hasSport</code>: evaluates if the client has all the <code>Sport</code> specified</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>If there is no keyword specified for either <code>Tag</code> or <code>Sport</code>, the corresponding boolean will return <code>true</code>. There must be at least 1 keyword specified, regardless of whether it is a <code>Tag</code> or <code>Sport</code>. <code>TagAndSportContainsKeywordsPredicate</code> will then evaluate and return the logical addition of <code>hasTag</code> and <code>hasSport</code>.</p>
+</div>
+<div class="paragraph">
+<p>In the following sequence diagram, we will be tracing the execution of the command <code>filter t/obese s/swim</code> entered by the user.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/FilterSequenceDiagram.png" alt="FilterSequenceDiagram">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Table 1. Table of Design Considerations</caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top">Using separate booleans to check for <code>Tag</code> and <code>Sport</code> keywords  (Chosen)</th>
+<th class="tableblock halign-left valign-top">Using one boolean to check for all keywords</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Ease of Implementation</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Checks for client&#8217;s <code>Tags</code> and <code>Sports</code> containing keywords can be done separately ensuring that individual results are correct before combining them</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Simpler logic but errors are more difficult to pinpoint to either <code>TAG</code> or <code>SPORT</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Ease of Expanding Feature</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Easier to add new parameters to filter since a separate check will be done before combining with the result of previous checks</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Boolean conditions can get very complex and logical error will be prone to occur</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>We decided to use the first approach of checking if the client contains <code>Tag</code> specified and <code>Sport</code> specified separately.</p>
+</div>
+<div class="paragraph">
+<p>Firstly, by separating the checks for each attributes, a correct implementation of checking <code>Tag</code> against the keywords will allow us to easily duplicate the logic to be done for <code>Sport</code>. This makes the code easier to debug as we can simply check the hasAttribute boolean to see if it gives the correct value.</p>
+</div>
+<div class="paragraph">
+<p>Secondly, separating the checks for each attributes will allow us to add attributes of different types stored in different data structure easier. We could simply add another check on the attribute against the keyword specified then do a logical addition of the result against the others.</p>
+</div>
+<div class="paragraph">
+<p>Therefore, as we foresee us adding more attributes to be filtered increasing the need to ensure logical correctness, the first approach is the most ideal.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="viewing-the-information-of-a-client-toh-ker-wei"><a class="link" href="#viewing-the-information-of-a-client-toh-ker-wei">Viewing the information of a client --- Toh Ker Wei</a></h3>
+<div class="paragraph">
+<p>This feature allows users to view the information of a specific client using his <code>INDEX</code> in the clients list. Information displayed includes additional information of the client, exercises done and his personal best of exercises done.</p>
+</div>
+<div class="sect3">
+<h4 id="implementation-2"><a class="link" href="#implementation-2">Implementation</a></h4>
+<div class="paragraph">
+<p>The view client&#8217;s information feature is primarily facilitated by the model <code>Client</code>. The details for list of exercises done and personal best will be discussed in section 3.7 and not be covered here. The client&#8217;s <code>INDEX</code> in the clients list will be used to identify and retrieve his information. Additionally, only when a client&#8217;s information is being viewed, graph of his exercises can be plotted.</p>
+</div>
+<div class="paragraph">
+<p>In the following sequence diagram, we will be tracing the execution when the user enters the command <code>view-c 3</code></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ViewSequenceDiagram.png" alt="ViewSequenceDiagram">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">Design Considerations</a></h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top">Choose client to view based on <code>INDEX</code> (Chosen)</th>
+<th class="tableblock halign-left valign-top">Choose client to view based on <code>NAME</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Adhering to Single Responsibilities Principle</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>view-c</code> only has to retrieve and display the client based on <code>INDEX</code> entered</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>view-c</code> has to retrieve clients with the same name and use <code>INDEX</code> to specify the client to view</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Ease of Implementation</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Easier to implement as <code>MODEL</code> only needs to be accessed once</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Harder to implement as <code>view-c</code> needs to return a list of clients with the same name before using <code>INDEX</code> to specify the client</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>We decided to use the first approach of using the client&#8217;s <code>INDEX</code> to view his information.</p>
+</div>
+<div class="paragraph">
+<p>Firstly, as the client&#8217;s <code>INDEX</code> is unique, <code>view-c</code> will only be responsible for retrieving and displaying the client&#8217;s information and will not need to resolve clients with the same names.</p>
+</div>
+<div class="paragraph">
+<p>Secondly, for clients with the same name, <code>INDEX</code> qill be used to specify the client to be view. This causes extra work for the implementation. Furthermore, in cases where users manage many clients and some with same names, there are functions like find and filter which allow users to scope the clients list and easily find the desired client&#8217;s <code>INDEX</code>.</p>
+</div>
+<div class="paragraph">
+<p>Therefore, viewing a client by his <code>INDEX</code> minimises the responsibility of the command and will not need to resolve conflicting clients and is the most ideal.</p>
+</div>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 09:47:47 UTC</div></div></div></body></html>
