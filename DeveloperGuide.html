@@ -50,6 +50,8 @@
 <li><a href="#saving-data">F.4. Saving data</a></li>
 <li><a href="#filtering-the-client-list">F.5. Filtering the client list</a></li>
 <li><a href="#adding-new-client-into-fitbiz">F.6. Adding new client into FitBiz</a></li>
+<li><a href="#viewing-a-client">F.7. Viewing a client</a></li>
+<li><a href="#viewing-a-graph-of-an-exercise">F.8. Viewing a graph of an exercise</a></li>
 </ul>
 </li>
 </ul>
@@ -2366,33 +2368,9 @@ Use case resumes at step 6.</p>
 <div class="sectionbody">
 <div class="dlist">
 <dl>
-<dt class="hdlist1"><a id="mainstream-os"></a> Mainstream OS</dt>
-<dd>
-<p>Any modern OS like Windows, Linux, Unix, or OS-X.</p>
-</dd>
-<dt class="hdlist1">Fitness Coach</dt>
-<dd>
-<p>The targer user base of FitBiz.</p>
-</dd>
 <dt class="hdlist1">Client</dt>
 <dd>
 <p>The client of the fitness coach.</p>
-</dd>
-<dt class="hdlist1"><a id="exercise"></a> Exercise</dt>
-<dd>
-<p>A workout activity done by a client that can be recorded.</p>
-</dd>
-<dt class="hdlist1">Personal Best</dt>
-<dd>
-<p>The exercise done by the client with the highest weight (or highest rep if weight does not exist).</p>
-</dd>
-<dt class="hdlist1">Schedule</dt>
-<dd>
-<p>The client&#8217;s training schedule per week. Note that one client cannot have overlapping schedules but other client&#8217;s schedule can overlap with another client&#8217;s.</p>
-</dd>
-<dt class="hdlist1">Graph</dt>
-<dd>
-<p>The graph of an exercise done by a client (reps/weights vs. date).</p>
 </dd>
 <dt class="hdlist1">Client In View</dt>
 <dd>
@@ -2406,17 +2384,41 @@ Use case resumes at step 6.</p>
 <dd>
 <p>The GUI section which shows all the information of the client in view</p>
 </dd>
-<dt class="hdlist1">Schedule Panel</dt>
+<dt class="hdlist1"><a id="exercise"></a> Exercise</dt>
 <dd>
-<p>The GUI section which shows the list of all clients' schedules from the current client list</p>
+<p>A workout activity done by a client that can be recorded.</p>
 </dd>
 <dt class="hdlist1">Exercise Table</dt>
 <dd>
 <p>The GUI section which shows the list of the client in view&#8217;s exercises</p>
 </dd>
+<dt class="hdlist1">Fitness Coach</dt>
+<dd>
+<p>The targer user base of FitBiz.</p>
+</dd>
+<dt class="hdlist1">Graph</dt>
+<dd>
+<p>The graph of an exercise done by a client (reps/weights vs. date).</p>
+</dd>
+<dt class="hdlist1"><a id="mainstream-os"></a> Mainstream OS</dt>
+<dd>
+<p>Any modern OS like Windows, Linux, Unix, or OS-X.</p>
+</dd>
+<dt class="hdlist1">Personal Best</dt>
+<dd>
+<p>The exercise done by the client with the highest weight (or highest rep if weight does not exist).</p>
+</dd>
 <dt class="hdlist1">Personal Best Table</dt>
 <dd>
 <p>The GUI section which shows the list of the client in view&#8217;s personal best exercises</p>
+</dd>
+<dt class="hdlist1">Schedule</dt>
+<dd>
+<p>The client&#8217;s training schedule per week. Note that one client cannot have overlapping schedules but other client&#8217;s schedule can overlap with another client&#8217;s.</p>
+</dd>
+<dt class="hdlist1">Schedule Panel</dt>
+<dd>
+<p>The GUI section which shows the list of all clients' schedules from the current client list</p>
 </dd>
 </dl>
 </div>
@@ -2554,18 +2556,18 @@ Expected: command box and caret positions does not change. Result box does not c
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Prerequisites: List all clients using the <code>list</code> command. Multiple clients in the list.</p>
+<p>Prerequisites: At least one client in the list. List all clients using the <code>list-c</code> command.</p>
 </li>
 <li>
-<p>Test case: <code>delete 1</code><br>
-Expected: First contact is deleted from the list. Details of the deleted contact shown in the status message. Timestamp in the status bar is updated.</p>
+<p>Test case: <code>delete-c 1</code><br>
+Expected: First client is deleted from the list. Details of the deleted client shown in the status message.</p>
 </li>
 <li>
-<p>Test case: <code>delete 0</code><br>
-Expected: No client is deleted. Error details shown in the status message. Status bar remains the same.</p>
+<p>Test case: <code>delete-c 0</code><br>
+Expected: No client is deleted. Error details shown in the status message.</p>
 </li>
 <li>
-<p>Other incorrect delete commands to try: <code>delete</code>, <code>delete x</code> (where x is larger than the list size)<br>
+<p>Other incorrect delete commands to try: <code>delete-c</code>, <code>delete-c x</code> (where x is larger than the list size)<br>
 Expected: Similar to previous.</p>
 </li>
 </ol>
@@ -2646,7 +2648,7 @@ Expected: Error "Invalid command format!" shown.</p>
 Expected: New client added.</p>
 </li>
 <li>
-<p>Test case: <code>add-c n/Rachel tan p/93214321 e/RachelTan@mail.com a/choa chu kang ave 22 blk 909</code> followed by <code>add-c n/Rachellie Tan p/98786110 e/RachelTan@mail.com a/bishan grove 45</code>+
+<p>Test case: <code>add-c n/Rachel tan p/93214321 e/RachelTan@mail.com a/choa chu kang ave 22 blk 909</code> followed by <code>add-c n/Rachellie Tan p/98786110 e/RachelTan@mail.com a/bishan grove 45</code><br>
 Expected: Error "This phone number and/or email already exists in FitBiz." shown.</p>
 </li>
 </ol>
@@ -2655,5 +2657,71 @@ Expected: Error "This phone number and/or email already exists in FitBiz." shown
 </ol>
 </div>
 </div>
+<div class="sect2">
+<h3 id="viewing-a-client"><a class="link" href="#viewing-a-client">F.7. Viewing a client</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Viewing a client while all clients are listed</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: At least one client in the list. List all clients using the <code>list-c</code> command.</p>
+</li>
+<li>
+<p>Test case: <code>view-c 1</code><br>
+Expected: First client is viewed from the list. Success message shows that you are currently viewing the first client.</p>
+</li>
+<li>
+<p>Test case: <code>view-c 0</code><br>
+Expected: No client is viewed. Error details shown in the status message.</p>
+</li>
+<li>
+<p>Other incorrect delete commands to try: <code>view-c</code>, <code>view-c x</code> (where x is larger than the list size)<br>
+Expected: Similar to previous.</p>
+</li>
+</ol>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 10:25:01 UTC</div></div></div></body></html>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="viewing-a-graph-of-an-exercise"><a class="link" href="#viewing-a-graph-of-an-exercise">F.8. Viewing a graph of an exercise</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Viewing a graph of the specified exercise while a client is in view</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisities: Have a client currently in view using the <code>view-c</code> command. Have at least one exercise in the exercise table.</p>
+</li>
+<li>
+<p>Test case: <code>graph n/Push Up a/reps sd/01-01-2020 ed/01-04-2020</code> command format is correct and no other input issues<br>
+Expected: Graph is displayed and success message is shown.</p>
+</li>
+<li>
+<p>Test case: <code>graph</code> or any other parameters missing<br>
+Expected: No graph displayed, error stating "Invalid command format!" with the correct usage is shown.</p>
+</li>
+<li>
+<p>Test case: Correct graph command format but no exercise record within the stipulated timeframe<br>
+Expected: No graph displayed, error stating "Graph cannot be plotted" as there are no records of this exercise within the given timeframe.</p>
+</li>
+<li>
+<p>Test case: Correct graph command format and existing exercise records but no valid inputs for the given axis<br>
+Expected: No graph displayed, error stating "There is no graph to be plotted for this axis specified" is shown and the user is asked to pick a different axis or exericse.</p>
+</li>
+<li>
+<p>Test case: Correct graph command format but the start date is chronologically later than the end date<br>
+Expected: No graph displayed, error stating "Invalid command format!" with the correct usage is shown</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 10:53:14 UTC</div></div></div></body></html>
