@@ -1186,6 +1186,7 @@ if (dateComparision &gt; 0) {
 <div class="content">
 <img src="images/PersonalBestClassDiagram.png" alt="PersonalBestClassDiagram">
 </div>
+<div class="title">Figure 15. Simplified Class Diagram for Personal Best</div>
 </div>
 <div class="paragraph">
 <p>In the following sequence diagram, we trace the execution for when the user decides to enter the command <code>view-c</code> into FitBiz:</p>
@@ -1194,6 +1195,7 @@ if (dateComparision &gt; 0) {
 <div class="content">
 <img src="images/PersonalBestSequenceDiagram.png" alt="PersonalBestSequenceDiagram">
 </div>
+<div class="title">Figure 16. Sequence Diagram of the View#execute Method for Personal Best</div>
 </div>
 <div class="paragraph">
 <p>The explanation for the sequence diagram is as follows: when the user inputs <code>view-c</code>, <code>add-e</code>, <code>edit-c</code> or <code>delete-c</code>, <code>PersonalBestFinder#generateAndSetPersonalBest</code> is called, taking the client currently in view as the parameter. <code>PersonalBestFinder#generateAndSetPersonalBest</code> then retrieves client&#8217;s list of exercises using <code>Client#getExerciseList</code> and creates a new <code>HashMap</code>, where the <code>key</code> is <code>ExerciseName</code> and the <code>value</code> is <code>Exercise</code>. Then the personal bests of each exercise of the client in view are generated using the above considerations. Finally the list of personal bests is set using <code>PersonalBest#setPersonalBest</code>.</p>
@@ -1259,6 +1261,7 @@ if (dateComparision &gt; 0) {
 <div class="content">
 <img src="images/GraphClassDiagram.png" alt="GraphClassDiagram">
 </div>
+<div class="title">Figure 17. Simplified Class Diagram for Graph</div>
 </div>
 <div class="paragraph">
 <p>These attributes are bounded by these characteristics:
@@ -1274,6 +1277,7 @@ if (dateComparision &gt; 0) {
 <div class="content">
 <img src="images/GraphCommandActivityDiagram.png" alt="GraphCommandActivityDiagram">
 </div>
+<div class="title">Figure 18. Activity Diagram for Graph Command</div>
 </div>
 <div class="paragraph">
 <p>The behaviour of this feature determines the graph plotted of the exercise specified based on these considerations:</p>
@@ -1301,6 +1305,7 @@ if (dateComparision &gt; 0) {
 <div class="content">
 <img src="images/GraphSequenceDiagram.png" alt="GraphSequenceDiagram">
 </div>
+<div class="title">Figure 19. Sequence Diagram for Graph Command</div>
 </div>
 <div class="paragraph">
 <p>The explanation is as follows: when the user inputs <code>graph</code> with all relevant arguments input correctly, a new <code>GraphCommand()</code> is created, taking the newly created <code>Graph</code> object as parameter.</p>
@@ -1348,6 +1353,7 @@ if (dateComparision &gt; 0) {
 <p>As our axis values can only be <code>REPS</code>, <code>WEIGHT</code> or <code>NA</code>, we can check for each case using the switch case method instead of checking for equality using raw types. This is also much more efficient than using multiple if-else statements. For example, in the code snippet below, the method <code>fillSeries()</code> uses switch case statements to add data values depending on the <code>AxisType</code>.</p>
 </div>
 <div class="listingblock">
+<div class="title">Code snippet</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="java">    <span class="directive">private</span> <span class="type">void</span> fillSeries() {
         <span class="keyword">switch</span> (axisType) {
@@ -2525,4 +2531,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 05:34:11 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 05:42:55 UTC</div></div></div></body></html>
