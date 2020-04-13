@@ -176,13 +176,13 @@
 <div class="paragraph">
 <p><code>edit-c</code> allows you to edit an existing client&#8217;s details from the <strong>Client List</strong>. There are various attributes that can be edited for the client using this command, which will be covered in this section.</p>
 </div>
+<div class="paragraph">
+<p><strong>Format</strong>: <code>edit-c INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [g/GENDER] [b/BIRTHDAY] [cw/CURRENT_WEIGHT] [tw/TARGET_WEIGHT] [h/HEIGHT] [s/SPORT]&#8230;&#8203; [t/TAG]&#8230;&#8203; [r/REMARK]</code></p>
+</div>
 <div class="sect3">
 <h4 id="parameters"><a class="link" href="#parameters">Parameters</a></h4>
 <div class="paragraph">
 <p>This section acts as a summary of the important things to note when using <code>edit-c</code> and its parameters. The square bracket shows that it is optional and your command will still execute even if you do not enter them. However, at least one of them have to be specified. The ellipsis after a parameter <code>&#8230;&#8203;</code> means that there can be multiple of that same type of parameter.</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>edit-c INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [g/GENDER] [b/BIRTHDAY] [cw/CURRENT_WEIGHT] [tw/TARGET_WEIGHT] [h/HEIGHT] [s/SPORT]&#8230;&#8203; [t/TAG]&#8230;&#8203; [r/REMARK]</code></p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -197,27 +197,26 @@
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">INDEX</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>INDEX</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* Substitute <code>INDEX</code> with the index of the desired client to edit.<br></p>
 <p class="tableblock">* <code>INDEX</code> is compulsory and you have to specify it.<br></p>
 <p class="tableblock">* <code>INDEX</code> must be a positive number, and must be a valid index number for a client as displayed from the list of clients.<br></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">NAME</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>NAME</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* Substitute <code>NAME</code> with the name of the client.</p>
 <p class="tableblock">* <code>NAME</code> should only contain alphanumeric characters, spaces and commas, and it should not be blank.</p>
 <p class="tableblock">* <code>NAME</code> is optional.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">PHONE</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>PHONE</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* Substitute <code>PHONE</code> with the phone number of the client.<br></p>
-<p class="tableblock">* <code>PHONE</code> is optional.</p>
 <p class="tableblock">* <code>PHONE</code> should only contain numbers.<br></p>
 <p class="tableblock">* <code>PHONE</code> should be at least 3 digits long.</p>
 <p class="tableblock">* <code>PHONE</code> is optional.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">EMAIL</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>EMAIL</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* Substitute <code>EMAIL</code> with the email of the client.<br></p>
 <p class="tableblock">* <code>EMAIL</code> should be of the format <code>xxx@yyy</code>, where:<br></p>
 <p class="tableblock">* <code>xxx</code> should only contain alphanumeric characters and the set of special characters* shown below this table</p>
@@ -225,20 +224,20 @@
 <p class="tableblock">* <code>EMAIL</code> is optional.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ADDRESS</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ADDRESS</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* Substitute <code>ADDRESS</code> as the address of the client.</p>
 <p class="tableblock">* <code>ADDRESS</code> can take any value, but it should not be blank, or start with a whitespace.</p>
 <p class="tableblock">* <code>ADDRESS</code> is optional.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">GENDER</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>GENDER</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* Substitue <code>GENDER</code> with the gender of the client.</p>
 <p class="tableblock">* <code>GENDER</code> is case insensitive</p>
 <p class="tableblock">* <code>GENDER</code> can only be <code>male</code> or <code>m</code>, <code>female</code> or <code>f</code>, or <code>others</code> or <code>o</code>.</p>
 <p class="tableblock">* <code>GENDER</code> is optional.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">BIRTHDAY</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>BIRTHDAY</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* Substitue <code>BIRTHDAY</code> with the birthday of the client.</p>
 <p class="tableblock">* <code>BIRTHDAY</code> should be in the format DD-MM-YYYY</p>
 <p class="tableblock">* <code>BIRTHDAY</code> cannot exceed the current date.</p>
@@ -246,35 +245,35 @@
 <p class="tableblock">* <code>BIRTHDAY</code> is optional.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">CURRENT_WEIGHT</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>CURRENT_WEIGHT</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* Substitute <code>CURRENT_WEIGHT</code> with the current weight of the client.</p>
 <p class="tableblock">* <code>CURRENT_WEIGHT</code> must take the value of a whole or decimal number(eg. 65 or 86.22)</p>
 <p class="tableblock">* <code>CURRENT_WEIGHT</code> can only have a maximum of 3 digits before the decimal place and a maximum of 2 digits after the decimal place (eg. 101.25 or 120.20)</p>
 <p class="tableblock">* <code>CURRENT_WEIGHT</code> is optional.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">TARGET_WEIGHT</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>TARGET_WEIGHT</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* Substitute <code>TARGET_WEIGHT</code> with the target weight for the client.</p>
 <p class="tableblock">* <code>TARGET_WEIGHT</code> must take the value of a whole or decimal number(eg. 65 or 86.22)</p>
 <p class="tableblock">* <code>TARGET_WEIGHT</code> can only have a maximum of 3 digits before the decimal place and a maximum of 2 digits after the decimal place (eg. 101.25 or 120.20)</p>
 <p class="tableblock">* <code>TARGET_WEIGHT</code> is optional.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">HEIGHT</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>HEIGHT</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* Substitue <code>HEIGHT</code> with the height of the client.</p>
 <p class="tableblock">* <code>HEIGHT</code> must either be a whole or decimal number.</p>
 <p class="tableblock">* <code>HEIGHT</code> can only have a maximum of 3 digits before the decimal place and a maximum of 2 digits after the decimal place (eg. 101.25 or 120.20)</p>
 <p class="tableblock">* <code>HEIGHT</code> is optional.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">SPORT</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>SPORT</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* Substitute <code>SPORT</code> with the sports of the client.</p>
 <p class="tableblock">* <code>SPORT</code> should only contain alphanumeric characters and spaces.</p>
 <p class="tableblock">* Sports given in this command will overwrite all of the client&#8217;s existing sports.</p>
 <p class="tableblock">* <code>SPORT</code> is optional.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">TAG</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>TAG</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* Substitue <code>TAG</code> with a tag for the client.</p>
 <p class="tableblock">* <code>TAG</code> should only contain alphanumeric characters.</p>
 <p class="tableblock">* Tags given in the command will overwrite the Client&#8217;s existing tags</p>
@@ -282,7 +281,7 @@
 <p class="tableblock">* <code>TAG</code> is optional.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">REMARK</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>REMARK</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* Substitute <code>REMARK</code> with remarks for the client.</p>
 <p class="tableblock">* <code>REMARK</code> should be alphanumeric.</p>
 <p class="tableblock">* Any whitespace at the start of <code>REMARK</code> will be removed.</p>
@@ -525,11 +524,11 @@ Overlapping schedules are not allowed between schedules within the same client. 
 <div class="paragraph">
 <p>You can list all clients on the <strong>Client List</strong>. This is useful when your <strong>Client List</strong> has been filtered by the <code>filter-c</code> command, and you want to view all clients again. When using <code>list-c</code>, there will be no difference to the <strong>Client List</strong> if it is already showing all clients.</p>
 </div>
+<div class="paragraph">
+<p><strong>Format</strong>: <code>list-c</code></p>
+</div>
 <div class="sect3">
 <h4 id="parameters-3"><a class="link" href="#parameters-3">Parameters</a></h4>
-<div class="paragraph">
-<p>Format: <code>list-c</code></p>
-</div>
 <div class="paragraph">
 <p>The command is simply <code>list-c</code>, and has no additional parameters.</p>
 </div>
@@ -843,4 +842,4 @@ and timing, wrapping each of these properties into their wrapper classes allowed
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 13:16:33 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 13:20:09 UTC</div></div></div></body></html>
