@@ -23,7 +23,7 @@ LogicManager -> FitBizParser : parseCommand\n("filter-c t/obese s/swim")
 activate FitBizParser
 
 create FilterCommandParser
-FitBizParser -> FilterCommandParser
+FitBizParser -> FilterCommandParser : FilterCommandParser()
 activate FilterCommandParser
 
 FilterCommandParser --> FitBizParser
@@ -33,7 +33,7 @@ FitBizParser --> FilterCommandParser : parse("t/obese s/swim")
 activate FilterCommandParser
 
 create FilterCommand
-FilterCommandParser --> FilterCommand
+FilterCommandParser --> FilterCommand : FilterCommand(ts)
 activate FilterCommand
 
 

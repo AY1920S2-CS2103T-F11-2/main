@@ -19,7 +19,7 @@ activate LogicManager
 LogicManager --> FitBizParser : parseCommand("view-c 3")
 activate FitBizParser
 
-FitBizParser --> ViewCommandParser
+FitBizParser --> ViewCommandParser : ViewCommandParser()
 activate ViewCommandParser
 
 ViewCommandParser --> FitBizParser
@@ -28,7 +28,7 @@ deactivate ViewCommandParser
 FitBizParser --> ViewCommandParser : parse("3")
 activate ViewCommandParser
 
-ViewCommandParser --> ViewCommand
+ViewCommandParser --> ViewCommand : ViewCommand()
 activate ViewCommand
 
 ViewCommand --> ViewCommandParser : v
