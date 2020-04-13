@@ -243,6 +243,8 @@ image::ug-findcMultiplePart2.png[]
 
 You can try to enter keywords for `NAME` that are more specific to the client you are looking for. This will help to keep your search more scoped.
 
+// tag::add-c-command[]
+
 === Add a new client profile: `add-c` --- Toh Ker Wei
 After setting up the program, the first thing you might want to do is to add your client to FitBiz. You can do so by using the `add-c` command, followed by the details of your client.
 
@@ -384,6 +386,8 @@ The following error message will be shown.
 image::AddSameEmailError.png[]
 
 To solve this issue, ensure that any new client you add does not have the same phone number or email as existing client.
+
+// end::add-c-command[]
 
 === Edit a client’s profile: `edit-c`
 
@@ -726,6 +730,8 @@ If you find that you are unable to execute this command successfully, there are 
 . Ensure that you are currently viewing a client using the `view-c` command. If you are indeed viewing a client, the *Client View* should not be empty.
 . Ensure that you actually do have exercises recorded for the client currently in view using the `add-e` command. If the client does indeed have recorded exercises, the *Exercise List* should not be empty.
 
+// tag::filter-c-command[]
+
 === Filter clients based on attribute: `filter-c` --- Toh Ker Wei
 
 When you have many clients and want to filter the list of clients to view a specific group, you can use the command `filter-c` to filter clients based on their tags or their sports.
@@ -791,6 +797,8 @@ image::FilterTagCorrectCommand.png[]
 The list of successfully filter clients will then be displayed.
 
 image::FilterTagSuccess.png[]
+
+// end::filter-c-command
 
 === Display visualisations of training progress: `graph` [Coming in v1.4]
 
