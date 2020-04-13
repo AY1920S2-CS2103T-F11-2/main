@@ -1,0 +1,660 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Fong Yong Jie - Project Portfolio</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="../images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link active" href="../index.html">AB-3</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">FitBiz</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="../LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S2-CS2103T-F11-2/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Fong Yong Jie - Project Portfolio</h1></div><div id="content"><div class="sect1">
+<h2 id="project-fitbiz"><a class="link" href="#project-fitbiz">PROJECT: FitBiz</a></h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>FitBiz is a desktop fitness business management application. It keeps track of the user&#8217;s schedule. He can record client&#8217;s information and the exercises they did with the personal bests automatically generated. Graphical visualisations of his client&#8217;s progress can also be displayed. The user interacts with it using a Command Line Interface(CLI), and it has a Graphical User Interface(GUI) created with JavaFX. It is written in Java version 11.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Major enhancement</strong>: added <strong>Exercise classes and its commands</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: allows the user to record their client&#8217;s exercises. The recorded exercises will then be shown in a table for the user to see. The commands includes:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>add-e</code> Command<br>
+Users will be able to add exercises to the exercise table.</p>
+</li>
+<li>
+<p><code>edit-e</code> Command<br>
+Users will be able to edit existing exercises.</p>
+</li>
+<li>
+<p><code>delete-e</code> Command<br>
+Users will be able to delete existing exercises.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Justification: This feature improves the product significantly because recording the exercises of clients is one of the main features of the application. Many other features like showing the client&#8217;s personal bests and drawing their clients' progression graph rely on having the exercises recorded.</p>
+</li>
+<li>
+<p>Highlights: Many of the future features will require the exercise classes. Therefore, it is essential to have thorough considerations on how the classes are implemented. I also wrote a substantial amount of code to test the classes while practising good test case designs like boundary value analysis. This will help reduce further bugs when expanding the application.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Major enhancement</strong>: hooked many features from Logic to GUI</p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: features are shown in GUI instead of being shown in text format.</p>
+</li>
+<li>
+<p>Justification: In order for the application to be appealing and user-friendly, the features have to be properly displayed in the GUI. The features include:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The exercise progession graph<br>
+This is one of the features that is proposed to really attract users. It is a step further from the user just recording his clients' exercises and having the user see the progression of his clients over a period of time.</p>
+</li>
+<li>
+<p>The client&#8217;s information displayed after <code>view-c</code> command<br>
+We have a separate component to show the client&#8217;s detailed information. This helps to reduce the clients' information displayed in the <code>ClientCard</code> in <code>ClientListPanel</code>. The user can see the essential details of each client at a glance and only see the detailed information after a <code>view-c</code> command.</p>
+</li>
+<li>
+<p>The exercise table done by the client<br>
+The user will be able to see the exercises done by their clients' listed in a table instead of being shown text in the <code>ResultDisplay</code>. This provides a better user experience.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Highlights: This enhancement requires a good understanding of Javafx. I have developed a good grasp at using it to provide GUI for Java application.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The exercise progession graph<br>
+I used <code>LineChart</code> from Javafx to display the graph. The X axis to be shown is date but JavaFx only provides <code>NumberAxis</code> and <code>CategoryAxis</code>. To display the axis as date, I used the <code>NumberAxis</code> but also had to use <code>setTickLabelFormatter()</code> to change the label from <code>epochDay</code> to date.</p>
+</li>
+<li>
+<p>The client&#8217;s information displayed after <code>view-c</code> command<br>
+There is a lot of information shown after <code>view-c</code> but only a limited space in the GUI. To solve this, I implemented <code>ScrollPane</code> so that the user can scroll to view the information.</p>
+</li>
+<li>
+<p>The exercise table done by the client<br>
+We decided it is best for the exercises to be viewed in a table form. To do so, I used <code>TableView</code> from Javafx.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Minor enhancement</strong>: refactored the <code>Storage</code> component from AB3 to Fitbiz</p>
+</li>
+<li>
+<p><strong>Minor enhancement</strong>: added <code>Gender</code> and <code>Remarks</code> attributes to <code>Client</code></p>
+</li>
+<li>
+<p><strong>Code contributed</strong>: <a href="https://nus-cs2103-ay1920s2.github.io/tp-dashboard/#search=yonggiee&amp;sort=groupTitle&amp;sortWithin=title&amp;since=2020-02-14&amp;timeframe=commit&amp;mergegroup=false&amp;groupSelect=groupByRepos&amp;breakdown=false&amp;tabOpen=true&amp;tabType=authorship&amp;tabAuthor=AaronCQL&amp;tabRepo=AY1920S2-CS2103T-F11-2%2Fmain%5Bmaster%5D">RepoSense</a></p>
+</li>
+<li>
+<p><strong>Other contributions</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Enhancements to existing features:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Wrote test code for exercise classes and commands to improve test coverage: <a href="https://github.com/AY1920S2-CS2103T-F11-2/main/pull/83">83</a>, <a href="https://github.com/AY1920S2-CS2103T-F11-2/main/pull/121">121</a>, <a href="https://github.com/AY1920S2-CS2103T-F11-2/main/pull/135">135</a>, <a href="https://github.com/AY1920S2-CS2103T-F11-2/main/pull/210">210</a>, <a href="https://github.com/AY1920S2-CS2103T-F11-2/main/pull/216/files">216</a>, <a href="https://github.com/AY1920S2-CS2103T-F11-2/main/pull/214">214</a></p>
+</li>
+<li>
+<p>Fix bugs:
+<a href="https://github.com/AY1920S2-CS2103T-F11-2/main/pull/232">232</a>,</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Documentation:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Added <a href="https://github.com/AY1920S2-CS2103T-F11-2/main/blob/master/docs/UserGuide.adoc#command-summary">command summary</a> in User Guide : <a href="https://github.com/AY1920S2-CS2103T-F11-2/main/pull/86">86</a>, <a href="https://github.com/AY1920S2-CS2103T-F11-2/main/pull/236">236</a></p>
+</li>
+<li>
+<p>Wrote the implementation of exercise classes and commands in Developer Guide: <a href="https://github.com/AY1920S2-CS2103T-F11-2/main/pull/262">262</a></p>
+</li>
+<li>
+<p>Wrote the command guide for <code>list-c</code>, <code>add-e</code> and <code>edit-e</code> in User Guide: <a href="https://github.com/AY1920S2-CS2103T-F11-2/main/pull/227">227</a></p>
+</li>
+<li>
+<p>Changed <code>UI</code> and <code>Storage</code> diagrams of Developer Guide: <a href="https://github.com/AY1920S2-CS2103T-F11-2/main/pull/246">246</a>, <a href="https://github.com/AY1920S2-CS2103T-F11-2/main/pull/264">264</a></p>
+</li>
+<li>
+<p>Added manual testing for adding an exercise: <a href="https://github.com/AY1920S2-CS2103T-F11-2/main/pull/277">277</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Community:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>PRs reviewed (with non-trivial review comments): <a href="https://github.com/AY1920S2-CS2103T-F11-2/main/pull/137">137,</a> <a href="https://github.com/AY1920S2-CS2103T-F11-2/main/pull/225">225</a></p>
+</li>
+<li>
+<p>Reported bugs and suggestions for other teams in the class: <a href="https://github.com/AY1920S2-CS2103T-F09-2/main/issues/249">249</a>, <a href="https://github.com/AY1920S2-CS2103T-F09-2/main/issues/250">250</a>, <a href="https://github.com/AY1920S2-CS2103T-F09-2/main/issues/251">251</a></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">Contributions to the User Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="find-clients-by-name-code-find-c-code"><a class="link" href="#find-clients-by-name-code-find-c-code">Find clients by name: <code>find-c</code></a></h3>
+<div class="paragraph">
+<p><code>find-c</code> allows you to find clients with the names that are specified in your input. You might have many clients and finding a particular client by scrolling through the entire <strong>Client List</strong> might be troublesome and difficult. <code>find-c</code> is the command for you.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>find-c NAME&#8230;&#8203;</code></p>
+</div>
+<div class="sect3">
+<h4 id="parameters"><a class="link" href="#parameters">Parameters</a></h4>
+<div class="paragraph">
+<p>This section acts as a summary of the important things to note when using <code>find-c</code> including their parameters.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 15%;">
+<col style="width: 85%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameters</th>
+<th class="tableblock halign-left valign-top">Important points to note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>NAME</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">* Substitute <code>NAME</code> with keywords you want to search with<br></p>
+<p class="tableblock">* You can use multiple keywords for <code>NAME</code>.<br>
+e.g. You can enter <code>find-c bryan low</code>.</p>
+<p class="tableblock">* The <code>NAME</code> keywords are case insensitive.<br>
+e.g. Typing <code>find-c hans</code> will show clients even with the name <code>Hans</code>.<br>
+For a better understanding, you can refer to the example section .</p>
+<p class="tableblock">* The keywords used for <code>NAME</code> have to match at least one word in the name of the clients.<br>
+e.g. Typing <code>find-c Bry</code> will not show clients with the name <code>Bryan</code>.<br>
+For a detailed explanation, you can refer to the commons errors / problems section.</p>
+<p class="tableblock">* Clients matching at least one <code>NAME</code> keyword will be returned and does not require all the words in their name to match.<br>
+e.g. Typing <code>find-c Hans Bo</code> will show clients <code>Hans Gruber</code> and <code>Bo Yang</code> and not necessarily just client <code>Hans Bo</code>.<br>
+For a detailed explanation, you can refer to the commons errors / problems section.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="example"><a class="link" href="#example">Example</a></h4>
+<div class="paragraph">
+<p>Let&#8217;s say that you want to find a client named "Bryan Low" in <strong>Client List</strong>. You can simply use the <code>find-c</code> command as shown.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>find-c bryan</code> into <strong>Command Box</strong>, and press <code>Enter</code> to execute it.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ug-findcExamplePart1.png" alt="ug findcExamplePart1">
+</div>
+</div>
+</li>
+<li>
+<p><strong>Result Box</strong> will display the message of the number of clients listed. In this case, there are 2 clients with "bryan" in their name.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ug-findcExamplePart2.png" alt="ug findcExamplePart2">
+</div>
+</div>
+</li>
+<li>
+<p>You can now see the clients with "bryan" in their names. As you can see, the name you use to search does not need to be case-senstive. The client that we are looking for "Bryan Low" is in <strong>Client List</strong>.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ug-findcExamplePart3.png" alt="ug findcExamplePart3">
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="common-errors-problems"><a class="link" href="#common-errors-problems">Common errors / problems</a></h4>
+<div class="paragraph">
+<p>You might face some errors or difficulties when you <code>find-c</code>. In this section, you will be able to understand these errors and resolve them. You will also get a better understanding of the reply from the result box when using <code>find-c</code>.</p>
+</div>
+<div class="sect4">
+<h5 id="using-incomplete-names"><a class="link" href="#using-incomplete-names">Using incomplete names</a></h5>
+<div class="paragraph">
+<p>You might wonder why <code>find-c</code> do not show the clients even though the client is clearly in your client list records. It might be possible that you have entered an incomplete name and does not match any word in the name of that client. The example below might help you understand better.</p>
+</div>
+<div class="paragraph">
+<p>Example:
+You want to find the client named "Bryan Low" in <strong>Client List</strong>. Below shows that "Bryan Low" indeed exists and is recorded.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ug-findcIncompleteNamePart1.png" alt="ug findcIncompleteNamePart1">
+</div>
+</div>
+<div class="paragraph">
+<p>Type <code>find-c bry</code> into <strong>Command Box</strong>, and press <code>Enter</code> to execute it.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ug-findcIncompleteNamePart2.png" alt="ug findcIncompleteNamePart2">
+</div>
+</div>
+<div class="paragraph">
+<p>You will obtain "0 clients listed!" in <strong>Result Box</strong>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ug-findcIncompleteNamePart3.png" alt="ug findcIncompleteNamePart3">
+</div>
+</div>
+<div class="paragraph">
+<p>This is because the name that you have entered is incomplete and does not match any word in the name of any of the clients. To correct this, you have to enter <code>find-c bryan</code> as seen in the example.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="using-multiple-keywords-for-code-name-code"><a class="link" href="#using-multiple-keywords-for-code-name-code">Using multiple keywords for <code>NAME</code></a></h5>
+<div class="paragraph">
+<p>You might wonder why the application shows more clients than you intended. It might be possible that you have misunderstood how the <code>NAME</code> parameter gets the client you are finding. The application will show clients as long as one of the words of the client match a keyword you use for name. The example below might help you understand better.</p>
+</div>
+<div class="paragraph">
+<p>Example:
+You want to find the client named "Bryan Low" in <strong>Client List</strong>.</p>
+</div>
+<div class="paragraph">
+<p>Type <code>find-c bryan low</code> in to <strong>Command Box</strong>, and press <code>Enter</code> to execute it.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ug-findcMultiplePart1.png" alt="ug findcMultiplePart1">
+</div>
+</div>
+<div class="paragraph">
+<p>You will obtain clients which have <code>bryan</code> in their name or <code>low</code> in the name. In the case below, there are 3 clients. <code>Bryan Low</code>, <code>Bryan Tan</code> and <code>Alice Low</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ug-findcMultiplePart2.png" alt="ug findcMultiplePart2">
+</div>
+</div>
+<div class="paragraph">
+<p>You can try to enter keywords for <code>NAME</code> that are more specific to the client you are looking for. This will help to keep your search more scoped.</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="other-ug-contributions"><a class="link" href="#other-ug-contributions">Other UG contributions</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/AY1920S2-CS2103T-F11-2/main/blob/master/docs/UserGuide.adoc#add-a-clients-exercise-add-e"><code>add-e</code></a></p>
+</li>
+<li>
+<p><a href="https://github.com/AY1920S2-CS2103T-F11-2/main/blob/master/docs/UserGuide.adoc#edit-a-clients-exercise-edit-e"><code>edit-e</code></a></p>
+</li>
+<li>
+<p><a href="https://github.com/AY1920S2-CS2103T-F11-2/main/blob/master/docs/UserGuide.adoc#command-summary">command summary</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="exercise-feature"><a class="link" href="#exercise-feature">Exercise Feature</a></h3>
+<div class="paragraph">
+<p>This feature allows users to record the exercises done by a client. The exercises are displayed in a table form, after the <code>view-c</code> command is called.</p>
+</div>
+<div class="sect3">
+<h4 id="implementation"><a class="link" href="#implementation">Implementation</a></h4>
+<div class="sect4">
+<h5 id="implementation-of-exercise-class"><a class="link" href="#implementation-of-exercise-class">Implementation of Exercise class</a></h5>
+<div class="paragraph">
+<p>The <code>Exercise</code> class is facilitated by the <code>UniqueExerciseList</code>, which is a wrapper class for an <code>ObservableList</code> of <code>Exercise</code> objects. Each Client contains one <code>UniqueExerciseList</code> attribute to keep track of all <code>Exercises</code> the client has.</p>
+</div>
+<div class="paragraph">
+<p><code>Exercise</code> comprises five attributes:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>ExerciseName</code></p>
+</li>
+<li>
+<p><code>ExerciseDate</code></p>
+</li>
+<li>
+<p><code>ExerciseReps</code></p>
+</li>
+<li>
+<p><code>ExerciseWeight</code></p>
+</li>
+<li>
+<p><code>ExerciseSets</code></p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>All instances of <code>Exercise</code> of a client will be contained in the client&#8217;s <code>UniqueExerciseList</code>. There is an additional class <code>PersonalBest</code> which is also associated to <code>Exercise</code>. It is omitted and will discuss in <a href="#Personal Best --- Li Zi Ying">[Personal Best --- Li Zi Ying]</a> section due to its high significance. Below shows a UML class diagram which shows <code>Exercise</code> class interactions.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ExerciseClassDiagram.png" alt="ExerciseClassDiagram">
+</div>
+<div class="title">Figure 1. Simplified Class Diagram for Exercise</div>
+</div>
+<div class="paragraph">
+<p>An important point to note about our implementation of <code>Exercise</code> is the method, <code>isSameExercise()</code>. We will consider two <code>Exercise</code> as the same if <code>isSameExercise()</code> returns true.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Executes when adding a new <code>Exercise</code> to client&#8217;s <code>UniqueExerciseList</code>. This includes <code>add-e</code> and <code>edit-e</code>.</p>
+</li>
+<li>
+<p>Checks if the new <code>Exercise</code> is the same with an existing instance of <code>Exercise</code> in the client&#8217;s <code>UniqueExerciseList</code>.</p>
+</li>
+<li>
+<p>Two <code>Exercises</code> are the same does not mean that they are equal.
+Two <code>Exercise</code> are equal only if <strong>all</strong> attributes are equal.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Below shows an object diagram of two <code>Exercises</code> that will return true for <code>isSameExercise()</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/IsSameExerciseObjectDiagram.png" alt="IsSameExerciseObjectDiagram">
+</div>
+<div class="title">Figure 2. Object diagram of two same Exercise</div>
+</div>
+<div class="paragraph">
+<p>The two <code>Exercise</code> only have different values in <code>ExerciseSets</code> but equal values in:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>ExerciseName</code></p>
+</li>
+<li>
+<p><code>ExerciseDate</code></p>
+</li>
+<li>
+<p><code>ExerciseReps</code></p>
+</li>
+<li>
+<p><code>ExerciseWeight</code></p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>This implementation is chosen as we felt that the user should increment the value in <code>ExerciseSets</code> in the existing <code>Exercise</code>. We followed the same idea as in the real life context. Exercises with the same reps and weight can be grouped together as sets.</p>
+</div>
+<div class="paragraph">
+<p>We do consider that the user might want to record the two instances separately as it might be done at different periods of the day. In the future, when adding a same <code>Exercise</code>, we can implement it such that the sets value of the exising <code>Exercise</code> gets incremented automatically instead of showing an error. For now, this implementation keeps the exercise table neat and compact for the user.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="execution-flow-of-exercise-commands"><a class="link" href="#execution-flow-of-exercise-commands">Execution flow of exercise commands</a></h5>
+<div class="paragraph">
+<p>The exercise commands edits the client&#8217;s <code>UniqueExerciseList</code>. Currently, there are 3 exercise commands.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>add-e</code> : Adds an exercise to a client</p>
+</li>
+<li>
+<p><code>edit-e</code> : Edits a client&#8217;s exercise</p>
+</li>
+<li>
+<p><code>delete-e</code> : Deletes a client&#8217;s exercise</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The commands follow a similar execution flow as other commands.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ExerciseCommandActivityDiagram.png" alt="ExerciseCommandActivityDiagram">
+</div>
+<div class="title">Figure 3. Activity Diagram for exercise commands</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The <code>FitBizParser</code> will create the associated exercise command parser. e.g. <code>AddExerciseCommandParser</code></p>
+</li>
+<li>
+<p>Using <code>ParserUtil</code>, the parser will extract attribute details from the input and create the <code>Command</code>. e.g. <code>AddExerciseCommand</code></p>
+</li>
+<li>
+<p>The exercise <code>Command</code> will be executed and modify the client&#8217;s <code>UniqueExerciseList</code>.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Exceptions like no client being viewed and invalid input are thrown here.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>The change will be reflected in the exercise table in GUI.</p>
+</li>
+<li>
+<p>Result box will display success message for the <code>Command</code>.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect4">
+<h5 id="adding-an-exercise-to-uniqueexerciselist"><a class="link" href="#adding-an-exercise-to-uniqueexerciselist">Adding an exercise to UniqueExerciseList</a></h5>
+<div class="paragraph">
+<p>When adding a new <code>Exercise</code> to <code>UniqueExerciseList</code>, it is important which index it is added. This is such that the exercises for the client will be displayed in descending chronological order in the table after a <code>view-c</code> command. <code>TableView</code> provides sorting for dates. However, having <code>TableView</code> to do the sorting would result in mismatch of indexes of the exercises in the <code>UniqueExerciseList</code> and in the <code>TableView</code>. This will result in problems when using exercise commands that specifies an index like <code>delete-e</code>.</p>
+</div>
+<div class="paragraph">
+<p>To address this problem, a custom insertion sort has been written in UniqueExerciseList, under the <code>addToSorted(Exercise)</code> method. This method will do a single pass of the internal list to insert the element at the correct position. This assumes that the internal list is initially sorted (which it should be, since reading from storage will do an initial sort on it).</p>
+</div>
+<div class="paragraph">
+<p>We will use an example of a <code>add-e</code> command to illustrate the execution of <code>addToSorted(Exercise)</code>. Consider an instance where user inputs <code>add-e n/pushup d/12-12-2011 reps/20</code>. The sequence diagram below shows the execution flow when the <code>AddExerciseCommand</code> is executed. Details of exception thrown are omitted as this is a postive instance and for simplicity.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/AddExerciseCommandSequenceDiagram.png" alt="AddExerciseCommandSequenceDiagram">
+</div>
+<div class="title">Figure 4. Sequence Diagram for AddExerciseCommand</div>
+</div>
+<div class="paragraph">
+<p><code>AddExerciseCommand</code> checks if there is an client being viewed. For this instance, we will consider the positive case where indeed there is a client being viewed. <code>AddExerciseCommand</code> will retrieve the client being viewed from the <code>Model</code> so that details like the existing exercise list of the client can be obtained. The sequence diagram illustrates the execution flow of <code>addToSorted(Exercise)</code> to obtain details of the <code>Exercise</code> being added and exising <code>Exercise</code> in <code>UniqueExerciseList</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/AddExerciseCommandSequenceDiagramPart2.png" alt="AddExerciseCommandSequenceDiagramPart2">
+</div>
+<div class="title">Figure 5. Sequence Diagram for the addToSorted Method</div>
+</div>
+<div class="paragraph">
+<p><code>UniqueExerciseList</code> loops through the exercises in the list. and calls <code>getExerciseDate()</code> and <code>getExerciseName()</code>. The <code>LocalDate</code> and exercise name in <code>String</code> type are then used for comparision. The sequence diagram below illustrates the conditional checks during the comparision.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/AddExerciseCommandSequenceDiagramPart3.png" alt="AddExerciseCommandSequenceDiagramPart3">
+</div>
+<div class="title">Figure 6. Sequence Diagram for conditional checks in addToSorted Method</div>
+</div>
+<div class="paragraph">
+<p>The conditional checks are such that <code>UniqueExerciseList</code> maintain sorted by descending chronological order, followed by alphabetical order for exercises with the same dates.</p>
+</div>
+<div class="paragraph">
+<p>Below shows a code snippet of the conditional checks in <code>addToSorted(Exercise)</code>.</p>
+</div>
+<div class="listingblock small">
+<div class="content">
+<pre>int dateComparision = toAddDate.compareTo(currDate);
+if (dateComparision &gt; 0) {
+    break;
+} else if (dateComparision == 0) {
+    if (toAddName.compareTo(currName) &lt;= 0) {
+        break;
+    } else {
+        idx++;
+    }
+} else {
+    idx++;
+}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><code>Arrays.sort()</code> can be used to sort the exercises in <code>UniqueExerciseList</code> after every addition. However, the worse case time complexity of <code>Arrays.sort()</code> is <code>O(nlogn)</code>. This custom insertion sort will guarantee an <code>O(n)</code> time complexity to insert the new <code>Exercise</code> correctly. This is as efficient as it gets as any insertion will already incur an O(n) time complexity to first check if the internal list contains the same exercise. It is important to keep the time complexity low as clients can have many exercises.</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
+<div class="paragraph">
+<p>This section explains the our design considerations and analysis for the storage of exercises.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Considerations</th>
+<th class="tableblock halign-left valign-top">Store exercises with client and all clients in one JSON file (chosen)</th>
+<th class="tableblock halign-left valign-top">Store all exercises into a separate JSON file</th>
+<th class="tableblock halign-left valign-top">Store exercises with client but one JSON for each client</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Ease of retrieving / storing</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Easy to link the exercises to the client</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Hard to link the exercises to the client</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Hard to identify which JSON file is for which client</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Separation of data</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Does not keep client and exercise data separate</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Keep client data separate from exercise data</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Does not keep client and exercise data separate<br></p>
+<p class="tableblock">Might have too many JSON files, one for each client</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Size limit of JSON files</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">High chances of having one large JSON file and potentially exceed the size limit of a JSON file</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Low chances of exceeding the size limit of a JSON file</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Low chances of exceeding the size limit of a JSON file</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Separation of concerns</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Non-separate code for reading/storing exercises and clients data</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Separate code for reading/storing exercises and clients data</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Non-separate ode for reading/storing exercises and clients data</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>We decided to use the first approach of storing the exercises with the associated client and have all the clients data in one JSON file. Codewise, each <code>JsonAdaptedClient</code> will have a list of <code>JsonAdaptedExercise</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ClientExerciseStorageClassDiagram.png" alt="ClientExerciseStorageClassDiagram">
+</div>
+</div>
+<div class="paragraph">
+<p>We want to keep the implementation of reading and storing of data simple. The first approach is the most simple. When reading the data, it removes the need to associate the exercises to the client. A client might potentially have a large amount of exercises, resulting in the reading process to be extremely slow. Therefore, a bad user experience.</p>
+</div>
+<div class="paragraph">
+<p>Moreover, storing the exercise data from client data does not provide any performance benefits. Due to time constraints, we decided that the application should store all the data everytime it closes. This is regardless if the particular exercise or client data has been changed. Having to keep track of which data is edited and only overwrite those data would greatly increase the complexity of the application. Therefore, keeping exercises data separate from client data would be unnecessary and provide little additional functionality/benefits to the user.</p>
+</div>
+<div class="paragraph">
+<p>Lastly, we foresee that it is improbable for the data size of both clients and exercises to exceed the maximum size limit of a JSON file. With the target user in mind, it is unlikely that he will have an enormous amount of clients. The application is meant to be used by a single user and not an organisation. Even though each client might have many exercises, the information of each exercise is relatively small. For now, collectively, the client and exercise data is unlikely to exceed the JSON size limit. We might consider to have multiple JSON files if the data size gets too big in future versions.</p>
+</div>
+<div class="paragraph">
+<p>Indeed, <code>JsonAdaptedClient</code> having a list of <code>JsonAdaptedExercise</code> would violate separation of concerns. <code>JsonAdaptedClient</code> is now in charge of the client&#8217;s information and the exercises. However, we felt that the benefits outweighted the costs and proceeded with the first choice.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="other-dg-contributions"><a class="link" href="#other-dg-contributions">Other DG contributions</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/AY1920S2-CS2103T-F11-2/main/blob/master/docs/DeveloperGuide.adoc#Design-Ui"><code>UI</code> Component</a></p>
+</li>
+<li>
+<p><a href="https://github.com/AY1920S2-CS2103T-F11-2/main/blob/master/docs/DeveloperGuide.adoc#Design-Storage"><code>Storage</code> Component</a></p>
+</li>
+<li>
+<p><a href="https://github.com/AY1920S2-CS2103T-F11-2/main/blob/master/docs/DeveloperGuide.adoc#adding-an-exercise">Adding an exercise</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 13:31:42 UTC</div></div></div></body></html>
