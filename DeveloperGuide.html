@@ -1065,7 +1065,7 @@ Two <code>Exercise</code> are equal only if <strong>all</strong> attributes are 
 </ol>
 </div>
 <div class="paragraph">
-<p>This implementation is chosen as we felt that the user should increment the value in <code>ExerciseSets</code> in the existing <code>Exercise</code>. We followed the same idea as in the real life context. Exercises with the same reps and weight can be grouped together as sets.</p>
+<p>This implementation is chosen as we felt that the user should increment the value in <code>ExerciseSets</code> in the existing <code>Exercise</code>. We followed the same idea as in the real life context and want to combine the sets of exercises with the same name, date, reps and weight.</p>
 </div>
 <div class="paragraph">
 <p>We do consider that the user might want to record the two instances separately as it might be done at different periods of the day. In the future, when adding a same <code>Exercise</code>, we can implement it such that the sets value of the exising <code>Exercise</code> gets incremented automatically instead of showing an error. For now, this implementation keeps the exercise table neat and compact for the user.</p>
@@ -1143,7 +1143,7 @@ Two <code>Exercise</code> are equal only if <strong>all</strong> attributes are 
 <div class="title">Figure 18. Sequence Diagram for AddExerciseCommand</div>
 </div>
 <div class="paragraph">
-<p><code>AddExerciseCommand</code> checks if there is an client being viewed. For this instance, we will consider the positive case where indeed there is a client being viewed. <code>AddExerciseCommand</code> will retrieve the client being viewed from the <code>Model</code> so that details like the existing exercise list of the client can be obtained. The sequence diagram illustrates the execution flow of <code>addToSorted(Exercise)</code> to obtain details of the <code>Exercise</code> being added and exising <code>Exercise</code> in <code>UniqueExerciseList</code>.</p>
+<p><code>AddExerciseCommand</code> checks if there is an client being viewed. For this instance, we will consider the positive case where indeed there is a client being viewed. <code>AddExerciseCommand</code> will retrieve the client being viewed from the <code>Model</code> so that details like the existing exercise list of the client can be obtained. The sequence diagram illustrates the execution flow of <code>addToSorted(Exercise)</code> to obtain details of the <code>Exercise</code> being added and the existing <code>Exercise</code> in <code>UniqueExerciseList</code>. <code>AddCommand</code> will then check if there is an exercise that we consider as the same in the <code>UniqueExerciseList</code>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -2991,4 +2991,4 @@ Expected: No graph displayed, error stating "Invalid command format!" with the c
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 15:02:05 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 15:14:15 UTC</div></div></div></body></html>

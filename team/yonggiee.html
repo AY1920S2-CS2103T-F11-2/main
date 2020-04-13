@@ -182,12 +182,12 @@ We decided it is best for the exercises to be viewed in a table form. To do so, 
 </tbody>
 </table>
 <div class="sect2">
-<h3 id="find-clients-by-name-code-find-c-code"><a class="link" href="#find-clients-by-name-code-find-c-code">Find clients by name: <code>find-c</code></a></h3>
+<h3 id="find-clients-by-name-code-find-c-code-yong-jie"><a class="link" href="#find-clients-by-name-code-find-c-code-yong-jie">Find clients by name: <code>find-c</code> --- Yong Jie</a></h3>
 <div class="paragraph">
 <p><code>find-c</code> allows you to find clients with the names that are specified in your input. You might have many clients and finding a particular client by scrolling through the entire <strong>Client List</strong> might be troublesome and difficult. <code>find-c</code> is the command for you.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>find-c NAME&#8230;&#8203;</code></p>
+<p><strong>Format</strong>: <code>find-c NAME</code></p>
 </div>
 <div class="sect3">
 <h4 id="parameters"><a class="link" href="#parameters">Parameters</a></h4>
@@ -327,20 +327,315 @@ You want to find the client named "Bryan Low" in <strong>Client List</strong>.</
 </div>
 </div>
 </div>
+</div>
+<div class="sect2">
+<h3 id="add-a-client-s-exercise-code-add-e-code-yongjie"><a class="link" href="#add-a-client-s-exercise-code-add-e-code-yongjie">Add a client&#8217;s exercise: <code>add-e</code>  --- YongJie</a></h3>
+<div class="paragraph">
+<p><code>add-e</code> allows you to record an exercise done by the client that you are currently viewing. You will be able to see the exercises recorded and their information in the <strong>Exercise Table</strong>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Format</strong>: <code>add-e n/EXERCISE_NAME d/DATE [ew/EXERCISE_WEIGHT] [reps/REPS] [sets/SETS]</code></p>
+</div>
 <div class="sect3">
-<h4 id="other-ug-contributions"><a class="link" href="#other-ug-contributions">Other UG contributions</a></h4>
-<div class="ulist">
-<ul>
+<h4 id="parameters-2"><a class="link" href="#parameters-2">Parameters</a></h4>
+<div class="paragraph">
+<p>This section acts as a summary of the important things to note when using <code>add-e</code> including their parameters. The square bracket shows that it is optional and your command will still execute even if you do not enter them.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 15%;">
+<col style="width: 85%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameters</th>
+<th class="tableblock halign-left valign-top">Important points to note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>n/NAME</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">* Substitute <code>NAME</code> with the name of the exercise.<br></p>
+<p class="tableblock">* <code>n/NAME</code> is compulsory and you have to specify it.<br></p>
+<p class="tableblock">* <code>n/NAME</code> is case sensitive.<br>
+e.g. An exercise named <code>pushup</code> will be considered to have a different name as an exercise named <code>Pushup</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>d/DATE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">* Substitute <code>DATE</code> with the date of the exercise.<br></p>
+<p class="tableblock">* <code>d/DATE</code> is compulsory and you have to specify it.<br></p>
+<p class="tableblock">* <code>DATE</code> must be of the form <code>DD-MM-YYYY</code> (ie. 02-07-2020 for 2nd July 2020)</p>
+<p class="tableblock">* The range of <code>DATE</code> is from one year before the current date to the current date (inclusive).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[reps/REPS]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">* Substitute <code>REPS</code> with the reps of the exercise.<br></p>
+<p class="tableblock">* <code>reps/REPS</code> is optional.</p>
+<p class="tableblock">* Range for <code>REPS</code> is 1-9999.<br></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[sets/SETS]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">* Substitute <code>SETS</code> with the sets of the exercise.<br></p>
+<p class="tableblock">* <code>sets/SETS</code> is optional.</p>
+<p class="tableblock">* Range for <code>SETS</code> is 1-9999.<br></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[ew/WEIGHT]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">* Substitute <code>Weight</code> with the weight of the exercise.<br></p>
+<p class="tableblock">* <code>ew/WEIGHT</code> is optional.</p>
+<p class="tableblock">* Range for <code>WEIGHT</code> is 1-9999.<br></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="example-2"><a class="link" href="#example-2">Example</a></h4>
+<div class="paragraph">
+<p>Let&#8217;s say that you want to add an exercise with the following details:<br></p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 50%;">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Name: Bench Press<br>
+Date: 12-02-2020<br>
+Reps: 4<br>
+Weight: 100<br>
+Sets: 4<br></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>You can use the <code>add-e</code> command to add the exercise as shown.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
 <li>
-<p><a href="https://github.com/AY1920S2-CS2103T-F11-2/main/blob/master/docs/UserGuide.adoc#add-a-clients-exercise-add-e"><code>add-e</code></a></p>
+<p>View the client that you want to add the exercise to. For information on how to view the client, you can refer to the <code>view-c</code> section. For this example, we will add the exercise to the first client in the list, <code>Alex Yeoh</code>. After you entered <code>view-c 1</code>, you will see <code>Alex Yeoh</code> detailed information and a table of his recorded exercises.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ug-addeExamplePart1.png" alt="ug addeExamplePart1">
+</div>
+</div>
 </li>
 <li>
-<p><a href="https://github.com/AY1920S2-CS2103T-F11-2/main/blob/master/docs/UserGuide.adoc#edit-a-clients-exercise-edit-e"><code>edit-e</code></a></p>
+<p>Now type the information of the exercise, matching each detail of the exercise to the parameter. In this case, you will have to type <code>add-e n/Bench press d/12-02-2020 reps/4 ew/100 sets/4</code> into <strong>Command Box</strong>. Press enter to execute it. To recap,</p>
+<table class="tableblock frame-all grid-all" style="width: 50%;">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The name of the exercise after <code>n/</code><br>
+The date of the exercise after <code>d/</code><br>
+The reps of the exercise after <code>reps/</code><br>
+The weight of the exercise after <code>ew/</code><br>
+The sets of the exercise after <code>sets/</code><br></p></td>
+</tr>
+</tbody>
+</table>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ug-addeExamplePart2.png" alt="ug addeExamplePart2">
+</div>
+</div>
 </li>
 <li>
-<p><a href="https://github.com/AY1920S2-CS2103T-F11-2/main/blob/master/docs/UserGuide.adoc#command-summary">command summary</a></p>
+<p>After it has been successfully entered, <strong>Result Box</strong> will display the recorded exercise. You will also be able to see the recorded exercise in the <strong>Exercise Table</strong>.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ug-addeExamplePart3.png" alt="ug addeExamplePart3">
+</div>
+</div>
 </li>
-</ul>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="common-errors-problems-2"><a class="link" href="#common-errors-problems-2">Common errors / problems</a></h4>
+<div class="paragraph">
+<p>You might face some errors or difficulties when you use <code>add-e</code>. In this section, you will be able to understand these errors and resolve them.</p>
+</div>
+<div class="sect4">
+<h5 id="duplicate-exercises"><a class="link" href="#duplicate-exercises">Duplicate exercises</a></h5>
+<div class="paragraph">
+<p>You might wonder why the application shows you a duplicate exercise error when the details of the exercises you entered are different. It is likely that only the sets differ between the two exercises. The example below might help you understand better.</p>
+</div>
+<div class="paragraph">
+<p>You might have the following exercise in <strong>Exercise Table</strong>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ug-addeDuplicatePart1.png" alt="ug addeDuplicatePart1">
+</div>
+</div>
+<div class="paragraph">
+<p>If you were to enter <code>add-e n/Bench Press d/12-02-2020 reps/4 ew/100 sets/2</code> into <strong>Command Box</strong>, the only information that is different is the number of sets.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ug-addeDuplicatePart2.png" alt="ug addeDuplicatePart2">
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Result Box</strong> will show that you have a duplicate exercise.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ug-addeDuplicatePart3.png" alt="ug addeDuplicatePart3">
+</div>
+</div>
+<div class="paragraph">
+<p>To solve this, we suggest incrementing the sets of the existing exercise by using the <code>edit-e</code> command. This will help to keep your exercises consolidated and the table compact. For information on using <code>edit-e</code>, you may want to refer to the next section <code>Edit a client&#8217;s exercise: edit-e</code>.
+=== Edit a client&#8217;s exercise: <code>edit-e</code> --- YongJie
+<code>edits-e</code> allows edit an existing exercise done by the client that you are currently viewing. You will be able to see the updated exercise in <strong>Exercise Table</strong>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Format</strong>: <code>edit-e INDEX [n/EXERCISE_NAME] [d/DATE] [ew/EXERCISE_WEIGHT] [reps/REPS] [sets/SETS]</code></p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="parameters-3"><a class="link" href="#parameters-3">Parameters</a></h4>
+<div class="paragraph">
+<p>This section acts as a summary of the important things to note when using <code>edit-e</code> including their parameters. The square bracket shows that it is optional and your command will still execute even if you do not enter them. However, at least one of them have to be specified.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 15%;">
+<col style="width: 85%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameters</th>
+<th class="tableblock halign-left valign-top">Important points to note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>INDEX</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">* Substitute <code>INDEX</code> with the index of the exercise shown on the table.<br></p>
+<p class="tableblock">* <code>INDEX</code> is compulsory and you have to specify it.<br></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>n/NAME</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">* Substitute <code>NAME</code> with the name of the exercise.<br></p>
+<p class="tableblock">* <code>n/NAME</code> is optional.<br></p>
+<p class="tableblock">* <code>n/NAME</code> is case sensitive.<br>
+e.g. An exercise named <code>pushup</code> will be considered to have a different name as an exercise named <code>Pushup</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>d/DATE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">* Substitute <code>DATE</code> with the date of the exercise.<br></p>
+<p class="tableblock">* <code>d/DATE</code> is optional.<br></p>
+<p class="tableblock">* <code>DATE</code> must be of the form <code>DD-MM-YYYY</code> (ie. 02-07-2020 for 2nd July 2020)<br></p>
+<p class="tableblock">* The range of <code>DATE</code> is from one year before the current date to the current date (inclusive).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[reps/REPS]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">* Substitute <code>REPS</code> with the reps of the exercise.<br></p>
+<p class="tableblock">* <code>reps/REPS</code> is optional.</p>
+<p class="tableblock">* Range for <code>REPS</code> is 1-9999.<br></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[sets/SETS]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">* Substitute <code>SETS</code> with the sets of the exercise.<br></p>
+<p class="tableblock">* <code>sets/SETS</code> is optional.</p>
+<p class="tableblock">* Range for <code>SETS</code> is 1-9999.<br></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[ew/WEIGHT]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">* Substitute <code>Weight</code> with the weight of the exercise.<br></p>
+<p class="tableblock">* <code>ew/WEIGHT</code> is optional.</p>
+<p class="tableblock">* Range for <code>WEIGHT</code> is 1-9999.<br></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="example-3"><a class="link" href="#example-3">Example</a></h4>
+<div class="paragraph">
+<p>Let&#8217;s say that you want to edit an exercise done by the client you are currently viewing. The exercise that you want to edit is the one highlighted in the photo below.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ug-editeExamplePart1.png" alt="ug editeExamplePart1">
+</div>
+</div>
+<div class="paragraph">
+<p>The exercise, "Bench Press", currently is 4 reps and weight of 100. However, they might be entered wrongly and you want to change the values. You can use the <code>edit-e</code> command to edit the exercise as shown.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Identify the index of the exercise in <strong>Exercise Table</strong>. From the photo above, the index is 2. Type <code>edit-e 2 reps/8 ew/50</code> into <strong>Command Box</strong>. Press enter to execute it. To recap,</p>
+<table class="tableblock frame-all grid-all" style="width: 50%;">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The reps of the exercise after <code>reps/</code><br>
+The weight of the exercise after <code>ew/</code><br></p></td>
+</tr>
+</tbody>
+</table>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ug-editeExamplePart2.png" alt="ug editeExamplePart2">
+</div>
+</div>
+</li>
+<li>
+<p>After it has been successfully entered, <strong>Result Box</strong> will display a success message that the exercise has been edited. You will also be able to see the edited exercise in <strong>Exercise Table</strong>.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ug-editeExamplePart3.png" alt="ug editeExamplePart3">
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="common-errors-problems-3"><a class="link" href="#common-errors-problems-3">Common errors / problems</a></h4>
+<div class="paragraph">
+<p>You might face some errors or difficulties when you use <code>edit-e</code>. In this section, you will be able to understand these errors and resolve them.</p>
+</div>
+<div class="sect4">
+<h5 id="duplicate-exercises-2"><a class="link" href="#duplicate-exercises-2">Duplicate exercises</a></h5>
+<div class="paragraph">
+<p>You might wonder why the application shows you a duplicate exercise error when you do not have a duplicate of the edited exercise. It is likely that only the sets differ between the two exercises. The example below might help you understand better.</p>
+</div>
+<div class="paragraph">
+<p>You might have the following exercise in <strong>Exercise Table</strong>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ug-editeDuplicatePart1.png" alt="ug editeDuplicatePart1">
+</div>
+</div>
+<div class="paragraph">
+<p>If you were to enter <code>edit-e 2 n/Bench Press d/12-02-2020 reps/4 ew/100 sets/2</code> into <strong>Command Box</strong>, the only information that is different is the number of sets.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ug-editeDuplicatePart2.png" alt="ug editeDuplicatePart2">
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Result Box</strong> will show that you have a duplicate exercise.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ug-editeDuplicatePart3.png" alt="ug editeDuplicatePart3">
+</div>
+</div>
+<div class="paragraph">
+<p>To solve this, we suggest you delete the exercise you want to edit and increment the sets of the existing exercise by using the <code>edit-e</code> command. This will help to keep your exercises consolidated and the table compact.</p>
+</div>
 </div>
 </div>
 </div>
@@ -360,7 +655,7 @@ You want to find the client named "Bryan Low" in <strong>Client List</strong>.</
 </tbody>
 </table>
 <div class="sect2">
-<h3 id="exercise-feature"><a class="link" href="#exercise-feature">Exercise Feature</a></h3>
+<h3 id="exercise-feature-yong-jie"><a class="link" href="#exercise-feature-yong-jie">Exercise Feature --- Yong Jie</a></h3>
 <div class="paragraph">
 <p>This feature allows users to record the exercises done by a client. The exercises are displayed in a table form, after the <code>view-c</code> command is called.</p>
 </div>
@@ -394,7 +689,7 @@ You want to find the client named "Bryan Low" in <strong>Client List</strong>.</
 </ol>
 </div>
 <div class="paragraph">
-<p>All instances of <code>Exercise</code> of a client will be contained in the client&#8217;s <code>UniqueExerciseList</code>. There is an additional class <code>PersonalBest</code> which is also associated to <code>Exercise</code>. It is omitted and will discuss in <a href="#Personal Best --- Li Zi Ying">[Personal Best --- Li Zi Ying]</a> section due to its high significance. Below shows a UML class diagram which shows <code>Exercise</code> class interactions.</p>
+<p>All instances of <code>Exercise</code> of a client will be contained in the client&#8217;s <code>UniqueExerciseList</code>. There is an additional class <code>PersonalBest</code> which is also associated to <code>Exercise</code>. It is omitted and will be discussed in the <a href="#Personal Best --- Li Zi Ying">Personal Best Section</a> due to its high significance. Below shows a UML class diagram which shows <code>Exercise</code> class interactions.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -426,7 +721,7 @@ Two <code>Exercise</code> are equal only if <strong>all</strong> attributes are 
 <div class="content">
 <img src="../images/IsSameExerciseObjectDiagram.png" alt="IsSameExerciseObjectDiagram">
 </div>
-<div class="title">Figure 2. Object diagram of two same Exercise</div>
+<div class="title">Figure 2. Object diagram of two instances of Exercise objects</div>
 </div>
 <div class="paragraph">
 <p>The two <code>Exercise</code> only have different values in <code>ExerciseSets</code> but equal values in:</p>
@@ -448,7 +743,7 @@ Two <code>Exercise</code> are equal only if <strong>all</strong> attributes are 
 </ol>
 </div>
 <div class="paragraph">
-<p>This implementation is chosen as we felt that the user should increment the value in <code>ExerciseSets</code> in the existing <code>Exercise</code>. We followed the same idea as in the real life context. Exercises with the same reps and weight can be grouped together as sets.</p>
+<p>This implementation is chosen as we felt that the user should increment the value in <code>ExerciseSets</code> in the existing <code>Exercise</code>. We followed the same idea as in the real life context and want to combine the sets of exercises with the same name, date, reps and weight.</p>
 </div>
 <div class="paragraph">
 <p>We do consider that the user might want to record the two instances separately as it might be done at different periods of the day. In the future, when adding a same <code>Exercise</code>, we can implement it such that the sets value of the exising <code>Exercise</code> gets incremented automatically instead of showing an error. For now, this implementation keeps the exercise table neat and compact for the user.</p>
@@ -526,7 +821,7 @@ Two <code>Exercise</code> are equal only if <strong>all</strong> attributes are 
 <div class="title">Figure 4. Sequence Diagram for AddExerciseCommand</div>
 </div>
 <div class="paragraph">
-<p><code>AddExerciseCommand</code> checks if there is an client being viewed. For this instance, we will consider the positive case where indeed there is a client being viewed. <code>AddExerciseCommand</code> will retrieve the client being viewed from the <code>Model</code> so that details like the existing exercise list of the client can be obtained. The sequence diagram illustrates the execution flow of <code>addToSorted(Exercise)</code> to obtain details of the <code>Exercise</code> being added and exising <code>Exercise</code> in <code>UniqueExerciseList</code>.</p>
+<p><code>AddExerciseCommand</code> checks if there is an client being viewed. For this instance, we will consider the positive case where indeed there is a client being viewed. <code>AddExerciseCommand</code> will retrieve the client being viewed from the <code>Model</code> so that details like the existing exercise list of the client can be obtained. The sequence diagram illustrates the execution flow of <code>addToSorted(Exercise)</code> to obtain details of the <code>Exercise</code> being added and the existing <code>Exercise</code> in <code>UniqueExerciseList</code>. <code>AddCommand</code> will then check if there is an exercise that we consider as the same in the <code>UniqueExerciseList</code>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -566,7 +861,7 @@ if (dateComparision &gt; 0) {
 </div>
 </div>
 <div class="paragraph">
-<p><code>Arrays.sort()</code> can be used to sort the exercises in <code>UniqueExerciseList</code> after every addition. However, the worse case time complexity of <code>Arrays.sort()</code> is <code>O(nlogn)</code>. This custom insertion sort will guarantee an <code>O(n)</code> time complexity to insert the new <code>Exercise</code> correctly. This is as efficient as it gets as any insertion will already incur an O(n) time complexity to first check if the internal list contains the same exercise. It is important to keep the time complexity low as clients can have many exercises.</p>
+<p><code>Arrays.sort()</code> can be used to sort the exercises in <code>UniqueExerciseList</code> after every addition. However, the worse case time complexity of <code>Arrays.sort()</code> is O(nlogn). This custom insertion sort will guarantee an O(n) time complexity to insert the new <code>Exercise</code> correctly. This is as efficient as it gets as any insertion will already incur an O(n) time complexity to first check if the internal list contains the same exercise. It is important to keep the time complexity low as clients can have many exercises.</p>
 </div>
 </div>
 </div>
@@ -639,22 +934,6 @@ if (dateComparision &gt; 0) {
 <p>Indeed, <code>JsonAdaptedClient</code> having a list of <code>JsonAdaptedExercise</code> would violate separation of concerns. <code>JsonAdaptedClient</code> is now in charge of the client&#8217;s information and the exercises. However, we felt that the benefits outweighted the costs and proceeded with the first choice.</p>
 </div>
 </div>
-<div class="sect3">
-<h4 id="other-dg-contributions"><a class="link" href="#other-dg-contributions">Other DG contributions</a></h4>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="https://github.com/AY1920S2-CS2103T-F11-2/main/blob/master/docs/DeveloperGuide.adoc#Design-Ui"><code>UI</code> Component</a></p>
-</li>
-<li>
-<p><a href="https://github.com/AY1920S2-CS2103T-F11-2/main/blob/master/docs/DeveloperGuide.adoc#Design-Storage"><code>Storage</code> Component</a></p>
-</li>
-<li>
-<p><a href="https://github.com/AY1920S2-CS2103T-F11-2/main/blob/master/docs/DeveloperGuide.adoc#adding-an-exercise">Adding an exercise</a></p>
-</li>
-</ul>
 </div>
 </div>
-</div>
-</div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 15:02:05 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 15:14:15 UTC</div></div></div></body></html>
