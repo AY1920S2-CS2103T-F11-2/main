@@ -146,26 +146,20 @@
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>INDEX</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">* Substitute <code>INDEX</code> with the index of the desired client to edit.<br></p>
-<p class="tableblock">* <code>INDEX</code> is compulsory and you have to specify it.<br></p>
-<p class="tableblock">* <code>INDEX</code> must be a positive number, and must be a valid index number for a client as displayed from the list of clients.<br></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>NAME</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>n/NAME</code><br></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* Substitute <code>NAME</code> with the name of the client.</p>
 <p class="tableblock">* <code>NAME</code> should only contain alphanumeric characters, spaces and commas, and it should not be blank.</p>
 <p class="tableblock">* <code>NAME</code> is compulsory.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>PHONE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>p/PHONE</code><br></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* Substitute <code>PHONE</code> with the phone number of the client.<br></p>
 <p class="tableblock">* <code>PHONE</code> should only contain numbers.<br></p>
 <p class="tableblock">* <code>PHONE</code> should be at least 3 digits long.</p>
 <p class="tableblock">* <code>PHONE</code> is compulsory.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>EMAIL</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>e/EMAIL</code><br></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* Substitute <code>EMAIL</code> with the email of the client.<br></p>
 <p class="tableblock">* <code>EMAIL</code> should be of the format <code>xxx@yyy</code>, where:<br></p>
 <p class="tableblock">* <code>xxx</code> should only contain alphanumeric characters and the set of special characters* shown below this table</p>
@@ -173,20 +167,20 @@
 <p class="tableblock">* <code>EMAIL</code> is compulsory.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ADDRESS</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>a/ADDRESS</code><br></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* Substitute <code>ADDRESS</code> as the address of the client.</p>
 <p class="tableblock">* <code>ADDRESS</code> can take any value, but it should not be blank, or start with a whitespace.</p>
 <p class="tableblock">* <code>ADDRESS</code> is compulsory.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>GENDER</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[g/GENDER]</code><br></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* Substitue <code>GENDER</code> with the gender of the client.</p>
 <p class="tableblock">* <code>GENDER</code> is case insensitive</p>
 <p class="tableblock">* <code>GENDER</code> can only be <code>male</code> or <code>m</code>, <code>female</code> or <code>f</code>, or <code>others</code> or <code>o</code>.</p>
 <p class="tableblock">* <code>GENDER</code> is optional.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>BIRTHDAY</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[b/BIRTHDAY]</code><br></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* Substitue <code>BIRTHDAY</code> with the birthday of the client.</p>
 <p class="tableblock">* <code>BIRTHDAY</code> should be in the format DD-MM-YYYY</p>
 <p class="tableblock">* <code>BIRTHDAY</code> cannot exceed the current date.</p>
@@ -194,35 +188,35 @@
 <p class="tableblock">* <code>BIRTHDAY</code> is optional.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>CURRENT_WEIGHT</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[cw/CURRENT_WEIGHT]</code><br></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* Substitute <code>CURRENT_WEIGHT</code> with the current weight of the client.</p>
 <p class="tableblock">* <code>CURRENT_WEIGHT</code> must take the value of a whole or decimal number(eg. 65 or 86.22)</p>
 <p class="tableblock">* <code>CURRENT_WEIGHT</code> can only have a maximum of 3 digits before the decimal place and a maximum of 2 digits after the decimal place (eg. 101.25 or 120.20)</p>
 <p class="tableblock">* <code>CURRENT_WEIGHT</code> is optional.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>TARGET_WEIGHT</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[tw/TARGET_WEIGHT]</code><br></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* Substitute <code>TARGET_WEIGHT</code> with the target weight for the client.</p>
 <p class="tableblock">* <code>TARGET_WEIGHT</code> must take the value of a whole or decimal number(eg. 65 or 86.22)</p>
 <p class="tableblock">* <code>TARGET_WEIGHT</code> can only have a maximum of 3 digits before the decimal place and a maximum of 2 digits after the decimal place (eg. 101.25 or 120.20)</p>
 <p class="tableblock">* <code>TARGET_WEIGHT</code> is optional.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>HEIGHT</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[h/HEIGHT]</code><br></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* Substitue <code>HEIGHT</code> with the height of the client.</p>
 <p class="tableblock">* <code>HEIGHT</code> must either be a whole or decimal number.</p>
 <p class="tableblock">* <code>HEIGHT</code> can only have a maximum of 3 digits before the decimal place and a maximum of 2 digits after the decimal place (eg. 101.25 or 120.20)</p>
 <p class="tableblock">* <code>HEIGHT</code> is optional.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>SPORT</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[s/SPORT]</code><br></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* Substitute <code>SPORT</code> with the sports of the client.</p>
 <p class="tableblock">* <code>SPORT</code> should only contain alphanumeric characters and spaces.</p>
 <p class="tableblock">* Sports given in this command will overwrite all of the client&#8217;s existing sports.</p>
 <p class="tableblock">* <code>SPORT</code> is optional.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>TAG</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[t/TAG]</code><br></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* Substitue <code>TAG</code> with a tag for the client.</p>
 <p class="tableblock">* <code>TAG</code> should only contain alphanumeric characters.</p>
 <p class="tableblock">* Tags given in the command will overwrite the Client&#8217;s existing tags</p>
@@ -230,7 +224,7 @@
 <p class="tableblock">* <code>TAG</code> is optional.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>REMARK</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[r/REMARK]</code><br></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* Substitute <code>REMARK</code> with remarks for the client.</p>
 <p class="tableblock">* <code>REMARK</code> should be alphanumeric.</p>
 <p class="tableblock">* Any whitespace at the start of <code>REMARK</code> will be removed.</p>
@@ -238,6 +232,9 @@
 </tr>
 </tbody>
 </table>
+<div class="paragraph">
+<p>*The set of special characters are <code>!#$%&amp;'*+/=?</code>{|}~^.-`</p>
+</div>
 </div>
 <div class="sect3">
 <h4 id="example"><a class="link" href="#example">Example</a></h4>
@@ -379,7 +376,7 @@ Tag: Vegetarian</p>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>t/TAG</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[t/TAG]</code><br></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>TAG</code> is the tag of the clients you want to match and list.<br></p>
 <p class="tableblock"><code>TAG</code> is case-insensitive.<br>
 e.g. <code>healthy</code> will match <code>Healthy</code></p>
@@ -387,7 +384,7 @@ e.g. <code>healthy</code> will match <code>Healthy</code></p>
 e.g. <code>monday</code> or <code>obese200kg</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>s/SPORT</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[s/SPORT]</code><br></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>SPORT</code> is the sport of the clients you want to match and list.<br></p>
 <p class="tableblock"><code>SPORT</code> is case-insensitive.<br>
 e.g.  <code>track and field</code> returns the same result as <code>Track And Field</code></p>
@@ -669,4 +666,4 @@ e.g. <code>track and field</code> returns the same result as <code>field and tra
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 15:43:15 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 15:46:01 UTC</div></div></div></body></html>

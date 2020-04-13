@@ -26,13 +26,14 @@
 <li><a href="#add-a-new-client-profile-code-add-c-code-toh-ker-wei">3.4. Add a new client profile: <code>add-c</code> --- Toh Ker Wei</a></li>
 <li><a href="#edit-a-client-s-profile-code-edit-c-code-ng-ming-liang">3.5. Edit a client’s profile: <code>edit-c</code> ---Ng Ming Liang</a></li>
 <li><a href="#delete-a-client-code-delete-c-code-li-zi-ying">3.6. Delete a client: <code>delete-c</code> --- Li Zi Ying</a></li>
-<li><a href="#add-a-client-s-exercise-code-add-e-code-yongjie">3.7. Add a client&#8217;s exercise: <code>add-e</code>  --- YongJie</a></li>
-<li><a href="#edit-a-client-s-exercise-code-edit-e-code-yongjie">3.8. Edit a client&#8217;s exercise: <code>edit-e</code> --- YongJie</a></li>
-<li><a href="#delete-a-client-s-exercise-code-delete-e-code-aaron-choo">3.9. Delete a client&#8217;s exercise: <code>delete-e</code> --- Aaron Choo</a></li>
-<li><a href="#schedule-trainings-for-a-client-code-schedule-code-ng-ming-liang">3.10. Schedule trainings for a client: <code>schedule</code> ---Ng Ming Liang</a></li>
-<li><a href="#export-command">3.11. Export a client&#8217;s exercises to CSV format: <code>export</code> --- Aaron Choo</a></li>
-<li><a href="#filter-clients-based-on-attribute-code-filter-c-code-toh-ker-wei">3.12. Filter clients based on attribute: <code>filter-c</code> --- Toh Ker Wei</a></li>
-<li><a href="#display-visualisations-of-training-progress-code-graph-code-li-zi-ying">3.13. Display visualisations of training progress: <code>graph</code> --- Li Zi Ying</a></li>
+<li><a href="#view-a-client-profile-code-view-c-code-li-zi-ying">3.7. View a client profile: <code>view-c</code> --- Li Zi Ying</a></li>
+<li><a href="#add-a-client-s-exercise-code-add-e-code-yongjie">3.8. Add a client&#8217;s exercise: <code>add-e</code>  --- YongJie</a></li>
+<li><a href="#edit-a-client-s-exercise-code-edit-e-code-yongjie">3.9. Edit a client&#8217;s exercise: <code>edit-e</code> --- YongJie</a></li>
+<li><a href="#delete-a-client-s-exercise-code-delete-e-code-aaron-choo">3.10. Delete a client&#8217;s exercise: <code>delete-e</code> --- Aaron Choo</a></li>
+<li><a href="#schedule-trainings-for-a-client-code-schedule-code-ng-ming-liang">3.11. Schedule trainings for a client: <code>schedule</code> ---Ng Ming Liang</a></li>
+<li><a href="#export-command">3.12. Export a client&#8217;s exercises to CSV format: <code>export</code> --- Aaron Choo</a></li>
+<li><a href="#filter-clients-based-on-attribute-code-filter-c-code-toh-ker-wei">3.13. Filter clients based on attribute: <code>filter-c</code> --- Toh Ker Wei</a></li>
+<li><a href="#display-visualisations-of-training-progress-code-graph-code-li-zi-ying">3.14. Display visualisations of training progress: <code>graph</code> --- Li Zi Ying</a></li>
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
@@ -471,7 +472,7 @@ The autocompletion of the parameter prefixes are only for these commands: <code>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>NAME</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>NAME</code><br></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* Substitute <code>NAME</code> with keywords you want to search with<br></p>
 <p class="tableblock">* You can use multiple keywords for <code>NAME</code>.<br>
 e.g. You can enter <code>find-c bryan low</code>.</p>
@@ -618,26 +619,20 @@ You want to find the client named "Bryan Low" in <strong>Client List</strong>.</
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>INDEX</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">* Substitute <code>INDEX</code> with the index of the desired client to edit.<br></p>
-<p class="tableblock">* <code>INDEX</code> is compulsory and you have to specify it.<br></p>
-<p class="tableblock">* <code>INDEX</code> must be a positive number, and must be a valid index number for a client as displayed from the list of clients.<br></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>NAME</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>n/NAME</code><br></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* Substitute <code>NAME</code> with the name of the client.</p>
 <p class="tableblock">* <code>NAME</code> should only contain alphanumeric characters, spaces and commas, and it should not be blank.</p>
 <p class="tableblock">* <code>NAME</code> is compulsory.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>PHONE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>p/PHONE</code><br></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* Substitute <code>PHONE</code> with the phone number of the client.<br></p>
 <p class="tableblock">* <code>PHONE</code> should only contain numbers.<br></p>
 <p class="tableblock">* <code>PHONE</code> should be at least 3 digits long.</p>
 <p class="tableblock">* <code>PHONE</code> is compulsory.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>EMAIL</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>e/EMAIL</code><br></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* Substitute <code>EMAIL</code> with the email of the client.<br></p>
 <p class="tableblock">* <code>EMAIL</code> should be of the format <code>xxx@yyy</code>, where:<br></p>
 <p class="tableblock">* <code>xxx</code> should only contain alphanumeric characters and the set of special characters* shown below this table</p>
@@ -645,20 +640,20 @@ You want to find the client named "Bryan Low" in <strong>Client List</strong>.</
 <p class="tableblock">* <code>EMAIL</code> is compulsory.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ADDRESS</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>a/ADDRESS</code><br></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* Substitute <code>ADDRESS</code> as the address of the client.</p>
 <p class="tableblock">* <code>ADDRESS</code> can take any value, but it should not be blank, or start with a whitespace.</p>
 <p class="tableblock">* <code>ADDRESS</code> is compulsory.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>GENDER</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[g/GENDER]</code><br></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* Substitue <code>GENDER</code> with the gender of the client.</p>
 <p class="tableblock">* <code>GENDER</code> is case insensitive</p>
 <p class="tableblock">* <code>GENDER</code> can only be <code>male</code> or <code>m</code>, <code>female</code> or <code>f</code>, or <code>others</code> or <code>o</code>.</p>
 <p class="tableblock">* <code>GENDER</code> is optional.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>BIRTHDAY</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[b/BIRTHDAY]</code><br></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* Substitue <code>BIRTHDAY</code> with the birthday of the client.</p>
 <p class="tableblock">* <code>BIRTHDAY</code> should be in the format DD-MM-YYYY</p>
 <p class="tableblock">* <code>BIRTHDAY</code> cannot exceed the current date.</p>
@@ -666,35 +661,35 @@ You want to find the client named "Bryan Low" in <strong>Client List</strong>.</
 <p class="tableblock">* <code>BIRTHDAY</code> is optional.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>CURRENT_WEIGHT</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[cw/CURRENT_WEIGHT]</code><br></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* Substitute <code>CURRENT_WEIGHT</code> with the current weight of the client.</p>
 <p class="tableblock">* <code>CURRENT_WEIGHT</code> must take the value of a whole or decimal number(eg. 65 or 86.22)</p>
 <p class="tableblock">* <code>CURRENT_WEIGHT</code> can only have a maximum of 3 digits before the decimal place and a maximum of 2 digits after the decimal place (eg. 101.25 or 120.20)</p>
 <p class="tableblock">* <code>CURRENT_WEIGHT</code> is optional.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>TARGET_WEIGHT</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[tw/TARGET_WEIGHT]</code><br></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* Substitute <code>TARGET_WEIGHT</code> with the target weight for the client.</p>
 <p class="tableblock">* <code>TARGET_WEIGHT</code> must take the value of a whole or decimal number(eg. 65 or 86.22)</p>
 <p class="tableblock">* <code>TARGET_WEIGHT</code> can only have a maximum of 3 digits before the decimal place and a maximum of 2 digits after the decimal place (eg. 101.25 or 120.20)</p>
 <p class="tableblock">* <code>TARGET_WEIGHT</code> is optional.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>HEIGHT</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[h/HEIGHT]</code><br></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* Substitue <code>HEIGHT</code> with the height of the client.</p>
 <p class="tableblock">* <code>HEIGHT</code> must either be a whole or decimal number.</p>
 <p class="tableblock">* <code>HEIGHT</code> can only have a maximum of 3 digits before the decimal place and a maximum of 2 digits after the decimal place (eg. 101.25 or 120.20)</p>
 <p class="tableblock">* <code>HEIGHT</code> is optional.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>SPORT</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[s/SPORT]</code><br></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* Substitute <code>SPORT</code> with the sports of the client.</p>
 <p class="tableblock">* <code>SPORT</code> should only contain alphanumeric characters and spaces.</p>
 <p class="tableblock">* Sports given in this command will overwrite all of the client&#8217;s existing sports.</p>
 <p class="tableblock">* <code>SPORT</code> is optional.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>TAG</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[t/TAG]</code><br></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* Substitue <code>TAG</code> with a tag for the client.</p>
 <p class="tableblock">* <code>TAG</code> should only contain alphanumeric characters.</p>
 <p class="tableblock">* Tags given in the command will overwrite the Client&#8217;s existing tags</p>
@@ -702,7 +697,7 @@ You want to find the client named "Bryan Low" in <strong>Client List</strong>.</
 <p class="tableblock">* <code>TAG</code> is optional.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>REMARK</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[r/REMARK]</code><br></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* Substitute <code>REMARK</code> with remarks for the client.</p>
 <p class="tableblock">* <code>REMARK</code> should be alphanumeric.</p>
 <p class="tableblock">* Any whitespace at the start of <code>REMARK</code> will be removed.</p>
@@ -710,6 +705,9 @@ You want to find the client named "Bryan Low" in <strong>Client List</strong>.</
 </tr>
 </tbody>
 </table>
+<div class="paragraph">
+<p>*The set of special characters are <code>!#$%&amp;'*+/=?</code>{|}~^.-`</p>
+</div>
 </div>
 <div class="sect3">
 <h4 id="example-3"><a class="link" href="#example-3">3.4.2. Example</a></h4>
@@ -854,26 +852,26 @@ Tag: Vegetarian</p>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>INDEX</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>INDEX</code><br></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* Substitute <code>INDEX</code> with the index of the desired client to edit.<br></p>
 <p class="tableblock">* <code>INDEX</code> is compulsory and you have to specify it.<br></p>
 <p class="tableblock">* <code>INDEX</code> must be a positive number, and must be a valid index number for a client as displayed from the list of clients.<br></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>NAME</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[n/NAME]</code><br></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* Substitute <code>NAME</code> with the name of the client.</p>
 <p class="tableblock">* <code>NAME</code> should only contain alphanumeric characters, spaces and commas, and it should not be blank.</p>
 <p class="tableblock">* <code>NAME</code> is optional.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>PHONE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[p/PHONE]</code><br></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* Substitute <code>PHONE</code> with the phone number of the client.<br></p>
 <p class="tableblock">* <code>PHONE</code> should only contain numbers.<br></p>
 <p class="tableblock">* <code>PHONE</code> should be at least 3 digits long.</p>
 <p class="tableblock">* <code>PHONE</code> is optional.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>EMAIL</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[e/EMAIL]</code><br></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* Substitute <code>EMAIL</code> with the email of the client.<br></p>
 <p class="tableblock">* <code>EMAIL</code> should be of the format <code>xxx@yyy</code>, where:<br></p>
 <p class="tableblock">* <code>xxx</code> should only contain alphanumeric characters and the set of special characters* shown below this table</p>
@@ -881,20 +879,20 @@ Tag: Vegetarian</p>
 <p class="tableblock">* <code>EMAIL</code> is optional.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ADDRESS</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[a/ADDRESS]</code><br></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* Substitute <code>ADDRESS</code> as the address of the client.</p>
 <p class="tableblock">* <code>ADDRESS</code> can take any value, but it should not be blank, or start with a whitespace.</p>
 <p class="tableblock">* <code>ADDRESS</code> is optional.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>GENDER</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[g/GENDER]</code><br></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* Substitue <code>GENDER</code> with the gender of the client.</p>
 <p class="tableblock">* <code>GENDER</code> is case insensitive</p>
 <p class="tableblock">* <code>GENDER</code> can only be <code>male</code> or <code>m</code>, <code>female</code> or <code>f</code>, or <code>others</code> or <code>o</code>.</p>
 <p class="tableblock">* <code>GENDER</code> is optional.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>BIRTHDAY</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[b/BIRTHDAY]</code><br></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* Substitue <code>BIRTHDAY</code> with the birthday of the client.</p>
 <p class="tableblock">* <code>BIRTHDAY</code> should be in the format DD-MM-YYYY</p>
 <p class="tableblock">* <code>BIRTHDAY</code> cannot exceed the current date.</p>
@@ -902,35 +900,35 @@ Tag: Vegetarian</p>
 <p class="tableblock">* <code>BIRTHDAY</code> is optional.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>CURRENT_WEIGHT</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[cw/CURRENT_WEIGHT]</code><br></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* Substitute <code>CURRENT_WEIGHT</code> with the current weight of the client.</p>
 <p class="tableblock">* <code>CURRENT_WEIGHT</code> must take the value of a whole or decimal number(eg. 65 or 86.22)</p>
 <p class="tableblock">* <code>CURRENT_WEIGHT</code> can only have a maximum of 3 digits before the decimal place and a maximum of 2 digits after the decimal place (eg. 101.25 or 120.20)</p>
 <p class="tableblock">* <code>CURRENT_WEIGHT</code> is optional.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>TARGET_WEIGHT</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[tw/TARGET_WEIGHT]</code><br></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* Substitute <code>TARGET_WEIGHT</code> with the target weight for the client.</p>
 <p class="tableblock">* <code>TARGET_WEIGHT</code> must take the value of a whole or decimal number(eg. 65 or 86.22)</p>
 <p class="tableblock">* <code>TARGET_WEIGHT</code> can only have a maximum of 3 digits before the decimal place and a maximum of 2 digits after the decimal place (eg. 101.25 or 120.20)</p>
 <p class="tableblock">* <code>TARGET_WEIGHT</code> is optional.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>HEIGHT</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[h/HEIGHT]</code><br></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* Substitue <code>HEIGHT</code> with the height of the client.</p>
 <p class="tableblock">* <code>HEIGHT</code> must either be a whole or decimal number.</p>
 <p class="tableblock">* <code>HEIGHT</code> can only have a maximum of 3 digits before the decimal place and a maximum of 2 digits after the decimal place (eg. 101.25 or 120.20)</p>
 <p class="tableblock">* <code>HEIGHT</code> is optional.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>SPORT</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[s/SPORT]</code><br></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* Substitute <code>SPORT</code> with the sports of the client.</p>
 <p class="tableblock">* <code>SPORT</code> should only contain alphanumeric characters and spaces.</p>
 <p class="tableblock">* Sports given in this command will overwrite all of the client&#8217;s existing sports.</p>
 <p class="tableblock">* <code>SPORT</code> is optional.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>TAG</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[t/TAG]</code><br></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* Substitue <code>TAG</code> with a tag for the client.</p>
 <p class="tableblock">* <code>TAG</code> should only contain alphanumeric characters.</p>
 <p class="tableblock">* Tags given in the command will overwrite the Client&#8217;s existing tags</p>
@@ -938,7 +936,7 @@ Tag: Vegetarian</p>
 <p class="tableblock">* <code>TAG</code> is optional.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>REMARK</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[r/REMARK]</code><br></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* Substitute <code>REMARK</code> with remarks for the client.</p>
 <p class="tableblock">* <code>REMARK</code> should be alphanumeric.</p>
 <p class="tableblock">* Any whitespace at the start of <code>REMARK</code> will be removed.</p>
@@ -1042,7 +1040,7 @@ Tag: Vegetarian</p>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>INDEX</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>INDEX</code><br></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>INDEX</code> refers to the index number shown in the displayed client list<br></p>
 <p class="tableblock"><code>INDEX</code> must be a positive integer (ie. 1, 2, 3, &#8230;&#8203;)<br></p></td>
 </tr>
@@ -1105,19 +1103,21 @@ Tag: Vegetarian</p>
 </div>
 </div>
 <div class="paragraph">
-<p>To correct this, you have to enter a valid <code>INDEX</code> that is not more than the number of clients in the client list.
-=== View a client profile: <code>view-c</code> --- Li Zi Ying</p>
+<p>To correct this, you have to enter a valid <code>INDEX</code> that is not more than the number of clients in the client list.</p>
 </div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="view-a-client-profile-code-view-c-code-li-zi-ying"><a class="link" href="#view-a-client-profile-code-view-c-code-li-zi-ying">3.7. View a client profile: <code>view-c</code> --- Li Zi Ying</a></h3>
 <div class="paragraph">
 <p>You might want to view the complete information of a certain client in your client list. This complete information includes the client&#8217;s full details, their exercise table and personal best table. <code>view-c INDEX</code> shows all available information of the client at the specified index.</p>
 </div>
 <div class="paragraph">
 <p><strong>Format</strong>: <code>view-c INDEX</code></p>
 </div>
-</div>
-</div>
 <div class="sect3">
-<h4 id="parameters-6"><a class="link" href="#parameters-6">3.6.4. Parameters</a></h4>
+<h4 id="parameters-6"><a class="link" href="#parameters-6">3.7.1. Parameters</a></h4>
 <div class="paragraph">
 <p>This section acts as a summary of the important things to note when using <code>view-c</code> including their parameters.</p>
 </div>
@@ -1134,7 +1134,7 @@ Tag: Vegetarian</p>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>INDEX</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>INDEX</code><br></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>INDEX</code> refers to the index number shown in the displayed client list<br></p>
 <p class="tableblock"><code>INDEX</code> must be a positive integer (ie. 1, 2, 3, &#8230;&#8203;)<br></p></td>
 </tr>
@@ -1142,7 +1142,7 @@ Tag: Vegetarian</p>
 </table>
 </div>
 <div class="sect3">
-<h4 id="examples-2"><a class="link" href="#examples-2">3.6.5. Examples</a></h4>
+<h4 id="examples-2"><a class="link" href="#examples-2">3.7.2. Examples</a></h4>
 <div class="paragraph">
 <p>Let’s say that you want to view the details of the client named "Alex Yeoh" in client list. You can simply use the <code>view-c</code> command as shown.</p>
 </div>
@@ -1168,7 +1168,7 @@ Tag: Vegetarian</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="common-errors-problems-6"><a class="link" href="#common-errors-problems-6">3.6.6. Common errors/problems</a></h4>
+<h4 id="common-errors-problems-6"><a class="link" href="#common-errors-problems-6">3.7.3. Common errors/problems</a></h4>
 <div class="paragraph">
 <p>You might face some errors or difficulties when you use <code>view-c</code>. In this section, you will be able to understand these errors and resolve them.</p>
 </div>
@@ -1203,7 +1203,7 @@ Tag: Vegetarian</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="add-a-client-s-exercise-code-add-e-code-yongjie"><a class="link" href="#add-a-client-s-exercise-code-add-e-code-yongjie">3.7. Add a client&#8217;s exercise: <code>add-e</code>  --- YongJie</a></h3>
+<h3 id="add-a-client-s-exercise-code-add-e-code-yongjie"><a class="link" href="#add-a-client-s-exercise-code-add-e-code-yongjie">3.8. Add a client&#8217;s exercise: <code>add-e</code>  --- YongJie</a></h3>
 <div class="paragraph">
 <p><code>add-e</code> allows you to record an exercise done by the client that you are currently viewing. You will be able to see the exercises recorded and their information in the <strong>Exercise Table</strong>.</p>
 </div>
@@ -1211,7 +1211,7 @@ Tag: Vegetarian</p>
 <p><strong>Format</strong>: <code>add-e n/EXERCISE_NAME d/DATE [ew/EXERCISE_WEIGHT] [reps/REPS] [sets/SETS]</code></p>
 </div>
 <div class="sect3">
-<h4 id="parameters-7"><a class="link" href="#parameters-7">3.7.1. Parameters</a></h4>
+<h4 id="parameters-7"><a class="link" href="#parameters-7">3.8.1. Parameters</a></h4>
 <div class="paragraph">
 <p>This section acts as a summary of the important things to note when using <code>add-e</code> including their parameters. The square bracket shows that it is optional and your command will still execute even if you do not enter them.</p>
 </div>
@@ -1228,33 +1228,33 @@ Tag: Vegetarian</p>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>n/NAME</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>n/NAME</code><br></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* Substitute <code>NAME</code> with the name of the exercise.<br></p>
 <p class="tableblock">* <code>n/NAME</code> is compulsory and you have to specify it.<br></p>
 <p class="tableblock">* <code>n/NAME</code> is case sensitive.<br>
 e.g. An exercise named <code>pushup</code> will be considered to have a different name as an exercise named <code>Pushup</code>.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>d/DATE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>d/DATE</code><br></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* Substitute <code>DATE</code> with the date of the exercise.<br></p>
 <p class="tableblock">* <code>d/DATE</code> is compulsory and you have to specify it.<br></p>
 <p class="tableblock">* <code>DATE</code> must be of the form <code>DD-MM-YYYY</code> (ie. 02-07-2020 for 2nd July 2020)</p>
 <p class="tableblock">* The range of <code>DATE</code> is from one year before the current date to the current date (inclusive).</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[reps/REPS]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[reps/REPS]</code><br></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* Substitute <code>REPS</code> with the reps of the exercise.<br></p>
 <p class="tableblock">* <code>reps/REPS</code> is optional.</p>
 <p class="tableblock">* Range for <code>REPS</code> is 1-9999.<br></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[sets/SETS]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[sets/SETS]</code><br></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* Substitute <code>SETS</code> with the sets of the exercise.<br></p>
 <p class="tableblock">* <code>sets/SETS</code> is optional.</p>
 <p class="tableblock">* Range for <code>SETS</code> is 1-9999.<br></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[ew/WEIGHT]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[ew/WEIGHT]</code><br></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* Substitute <code>Weight</code> with the weight of the exercise.<br></p>
 <p class="tableblock">* <code>ew/WEIGHT</code> is optional.</p>
 <p class="tableblock">* Range for <code>WEIGHT</code> is 1-9999.<br></p></td>
@@ -1263,7 +1263,7 @@ e.g. An exercise named <code>pushup</code> will be considered to have a differen
 </table>
 </div>
 <div class="sect3">
-<h4 id="example-5"><a class="link" href="#example-5">3.7.2. Example</a></h4>
+<h4 id="example-5"><a class="link" href="#example-5">3.8.2. Example</a></h4>
 <div class="paragraph">
 <p>Let&#8217;s say that you want to add an exercise with the following details:<br></p>
 </div>
@@ -1328,7 +1328,7 @@ The sets of the exercise after <code>sets/</code><br></p></td>
 </div>
 </div>
 <div class="sect3">
-<h4 id="common-errors-problems-7"><a class="link" href="#common-errors-problems-7">3.7.3. Common errors / problems</a></h4>
+<h4 id="common-errors-problems-7"><a class="link" href="#common-errors-problems-7">3.8.3. Common errors / problems</a></h4>
 <div class="paragraph">
 <p>You might face some errors or difficulties when you use <code>add-e</code>. In this section, you will be able to understand these errors and resolve them.</p>
 </div>
@@ -1368,7 +1368,7 @@ The sets of the exercise after <code>sets/</code><br></p></td>
 </div>
 </div>
 <div class="sect2">
-<h3 id="edit-a-client-s-exercise-code-edit-e-code-yongjie"><a class="link" href="#edit-a-client-s-exercise-code-edit-e-code-yongjie">3.8. Edit a client&#8217;s exercise: <code>edit-e</code> --- YongJie</a></h3>
+<h3 id="edit-a-client-s-exercise-code-edit-e-code-yongjie"><a class="link" href="#edit-a-client-s-exercise-code-edit-e-code-yongjie">3.9. Edit a client&#8217;s exercise: <code>edit-e</code> --- YongJie</a></h3>
 <div class="paragraph">
 <p><code>edits-e</code> allows edit an existing exercise done by the client that you are currently viewing. You will be able to see the updated exercise in <strong>Exercise Table</strong>.</p>
 </div>
@@ -1376,7 +1376,7 @@ The sets of the exercise after <code>sets/</code><br></p></td>
 <p><strong>Format</strong>: <code>edit-e INDEX [n/EXERCISE_NAME] [d/DATE] [ew/EXERCISE_WEIGHT] [reps/REPS] [sets/SETS]</code></p>
 </div>
 <div class="sect3">
-<h4 id="parameters-8"><a class="link" href="#parameters-8">3.8.1. Parameters</a></h4>
+<h4 id="parameters-8"><a class="link" href="#parameters-8">3.9.1. Parameters</a></h4>
 <div class="paragraph">
 <p>This section acts as a summary of the important things to note when using <code>edit-e</code> including their parameters. The square bracket shows that it is optional and your command will still execute even if you do not enter them. However, at least one of them have to be specified.</p>
 </div>
@@ -1393,38 +1393,38 @@ The sets of the exercise after <code>sets/</code><br></p></td>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>INDEX</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>INDEX</code><br></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* Substitute <code>INDEX</code> with the index of the exercise shown on the table.<br></p>
 <p class="tableblock">* <code>INDEX</code> is compulsory and you have to specify it.<br></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>n/NAME</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[n/NAME]</code><br></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* Substitute <code>NAME</code> with the name of the exercise.<br></p>
 <p class="tableblock">* <code>n/NAME</code> is optional.<br></p>
 <p class="tableblock">* <code>n/NAME</code> is case sensitive.<br>
 e.g. An exercise named <code>pushup</code> will be considered to have a different name as an exercise named <code>Pushup</code>.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>d/DATE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[d/DATE]</code><br></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* Substitute <code>DATE</code> with the date of the exercise.<br></p>
 <p class="tableblock">* <code>d/DATE</code> is optional.<br></p>
 <p class="tableblock">* <code>DATE</code> must be of the form <code>DD-MM-YYYY</code> (ie. 02-07-2020 for 2nd July 2020)<br></p>
 <p class="tableblock">* The range of <code>DATE</code> is from one year before the current date to the current date (inclusive).</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[reps/REPS]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[reps/REPS]</code><br></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* Substitute <code>REPS</code> with the reps of the exercise.<br></p>
 <p class="tableblock">* <code>reps/REPS</code> is optional.</p>
 <p class="tableblock">* Range for <code>REPS</code> is 1-9999.<br></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[sets/SETS]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[sets/SETS]</code><br></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* Substitute <code>SETS</code> with the sets of the exercise.<br></p>
 <p class="tableblock">* <code>sets/SETS</code> is optional.</p>
 <p class="tableblock">* Range for <code>SETS</code> is 1-9999.<br></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[ew/WEIGHT]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[ew/WEIGHT]</code><br></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* Substitute <code>Weight</code> with the weight of the exercise.<br></p>
 <p class="tableblock">* <code>ew/WEIGHT</code> is optional.</p>
 <p class="tableblock">* Range for <code>WEIGHT</code> is 1-9999.<br></p></td>
@@ -1433,7 +1433,7 @@ e.g. An exercise named <code>pushup</code> will be considered to have a differen
 </table>
 </div>
 <div class="sect3">
-<h4 id="example-6"><a class="link" href="#example-6">3.8.2. Example</a></h4>
+<h4 id="example-6"><a class="link" href="#example-6">3.9.2. Example</a></h4>
 <div class="paragraph">
 <p>Let&#8217;s say that you want to edit an exercise done by the client you are currently viewing. The exercise that you want to edit is the one highlighted in the photo below.</p>
 </div>
@@ -1478,7 +1478,7 @@ The weight of the exercise after <code>ew/</code><br></p></td>
 </div>
 </div>
 <div class="sect3">
-<h4 id="common-errors-problems-8"><a class="link" href="#common-errors-problems-8">3.8.3. Common errors / problems</a></h4>
+<h4 id="common-errors-problems-8"><a class="link" href="#common-errors-problems-8">3.9.3. Common errors / problems</a></h4>
 <div class="paragraph">
 <p>You might face some errors or difficulties when you use <code>edit-e</code>. In this section, you will be able to understand these errors and resolve them.</p>
 </div>
@@ -1518,7 +1518,7 @@ The weight of the exercise after <code>ew/</code><br></p></td>
 </div>
 </div>
 <div class="sect2">
-<h3 id="delete-a-client-s-exercise-code-delete-e-code-aaron-choo"><a class="link" href="#delete-a-client-s-exercise-code-delete-e-code-aaron-choo">3.9. Delete a client&#8217;s exercise: <code>delete-e</code> --- Aaron Choo</a></h3>
+<h3 id="delete-a-client-s-exercise-code-delete-e-code-aaron-choo"><a class="link" href="#delete-a-client-s-exercise-code-delete-e-code-aaron-choo">3.10. Delete a client&#8217;s exercise: <code>delete-e</code> --- Aaron Choo</a></h3>
 <div class="paragraph">
 <p><code>delete-e</code> allows you to delete a previously recorded exercise of the client currently in view.</p>
 </div>
@@ -1550,7 +1550,7 @@ Deleting an exercise from FitBiz is permanent and <strong>cannot be undone</stro
 </table>
 </div>
 <div class="sect3">
-<h4 id="parameters-9"><a class="link" href="#parameters-9">3.9.1. Parameters</a></h4>
+<h4 id="parameters-9"><a class="link" href="#parameters-9">3.10.1. Parameters</a></h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 15%;">
@@ -1564,7 +1564,7 @@ Deleting an exercise from FitBiz is permanent and <strong>cannot be undone</stro
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>INDEX</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>INDEX</code><br></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Substitute <code>INDEX</code> with the actual index of the exercise shown on the <strong>Exercise Table</strong></p>
 <p class="tableblock">Must be a positive integer (eg. 1, 2, 3, &#8230;&#8203;)</p></td>
 </tr>
@@ -1572,7 +1572,7 @@ Deleting an exercise from FitBiz is permanent and <strong>cannot be undone</stro
 </table>
 </div>
 <div class="sect3">
-<h4 id="example-7"><a class="link" href="#example-7">3.9.2. Example</a></h4>
+<h4 id="example-7"><a class="link" href="#example-7">3.10.2. Example</a></h4>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -1603,7 +1603,7 @@ Deleting an exercise from FitBiz is permanent and <strong>cannot be undone</stro
 </div>
 </div>
 <div class="sect3">
-<h4 id="common-errors-problems-9"><a class="link" href="#common-errors-problems-9">3.9.3. Common errors/problems</a></h4>
+<h4 id="common-errors-problems-9"><a class="link" href="#common-errors-problems-9">3.10.3. Common errors/problems</a></h4>
 <div class="paragraph">
 <p>If you find that you are unable to execute this command successfully, there are a few things you can check:</p>
 </div>
@@ -1620,7 +1620,7 @@ Deleting an exercise from FitBiz is permanent and <strong>cannot be undone</stro
 </div>
 </div>
 <div class="sect2">
-<h3 id="schedule-trainings-for-a-client-code-schedule-code-ng-ming-liang"><a class="link" href="#schedule-trainings-for-a-client-code-schedule-code-ng-ming-liang">3.10. Schedule trainings for a client: <code>schedule</code> ---Ng Ming Liang</a></h3>
+<h3 id="schedule-trainings-for-a-client-code-schedule-code-ng-ming-liang"><a class="link" href="#schedule-trainings-for-a-client-code-schedule-code-ng-ming-liang">3.11. Schedule trainings for a client: <code>schedule</code> ---Ng Ming Liang</a></h3>
 <div class="paragraph">
 <p><code>Schedule</code> allows you to assign weekly schedule timings to a client. The schedule will be displayed on the right panel of FitBiz, with the timings as well as the client&#8217;s name. You can assign multiple schedules to a client at once, by adding more arguments following the command. All of the schedules from the current <strong>Client List</strong> will be displayed on the <strong>Schedule Panel</strong>.</p>
 </div>
@@ -1640,7 +1640,7 @@ The <code>schedule</code> command overwrites the client&#8217;s existing schedul
 </table>
 </div>
 <div class="sect3">
-<h4 id="parameters-10"><a class="link" href="#parameters-10">3.10.1. Parameters</a></h4>
+<h4 id="parameters-10"><a class="link" href="#parameters-10">3.11.1. Parameters</a></h4>
 <div class="paragraph">
 <p>This section acts as a summary of the important things to note when using <code>schedule</code>. The square bracket shows that it is optional and your command will still execute even if you do not enter them.</p>
 </div>
@@ -1657,13 +1657,13 @@ The <code>schedule</code> command overwrites the client&#8217;s existing schedul
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>INDEX</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>INDEX</code><br></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* Substitute <code>INDEX</code> with the index of the desired client to add the schedule to.<br></p>
 <p class="tableblock">* <code>INDEX</code> is compulsory and you have to specify it.<br></p>
 <p class="tableblock">* <code>INDEX</code> must be a positive number, and must be a valid index number for a client as displayed from the list of clients.<br></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DAY</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DAY</code><br></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* Substitute <code>DAY</code> with the first three letters of the day.<br>
 eg. MON / TUE / WED / THU / FRI / SAT / SUN</p>
 <p class="tableblock">* <code>DAY</code> is compulsory and you have to specify it.<br></p>
@@ -1671,14 +1671,14 @@ eg. MON / TUE / WED / THU / FRI / SAT / SUN</p>
 <p class="tableblock">* <code>DAY</code> is not case sensitive.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>STARTTIME</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>STARTTIME</code><br></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* Substitute <code>STARTTIME</code> with the starting time of the schedule slot.<br></p>
 <p class="tableblock">* <code>STARTTIME</code> is compulsory.</p>
 <p class="tableblock">* Range for <code>STARTTIME</code> is 0000-2359.<br></p>
 <p class="tableblock">* <code>STARTTIME</code> must always be earlier than or equal to <code>ENDTIME</code>.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ENDTIME</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ENDTIME</code><br></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* Substitute <code>ENDTIME</code> with the ending time of the schedule slot.<br></p>
 <p class="tableblock">* <code>ENDTIME</code> is compulsory.</p>
 <p class="tableblock">* Range for <code>ENDTIME</code> is 0000-2359.<br></p>
@@ -1688,7 +1688,7 @@ eg. MON / TUE / WED / THU / FRI / SAT / SUN</p>
 </table>
 </div>
 <div class="sect3">
-<h4 id="example-8"><a class="link" href="#example-8">3.10.2. Example</a></h4>
+<h4 id="example-8"><a class="link" href="#example-8">3.11.2. Example</a></h4>
 <div class="paragraph">
 <p>Let&#8217;s say you want to schedule a weekly Monday 11:00am to 12:00pm slot for your client Alex Yeoh. Alex Yeoh is the first client on your <strong>Client List</strong>.</p>
 </div>
@@ -1739,7 +1739,7 @@ eg. MON / TUE / WED / THU / FRI / SAT / SUN</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="common-errors-problems-10"><a class="link" href="#common-errors-problems-10">3.10.3. Common Errors/Problems</a></h4>
+<h4 id="common-errors-problems-10"><a class="link" href="#common-errors-problems-10">3.11.3. Common Errors/Problems</a></h4>
 <div class="paragraph">
 <p>You might face some errors or difficulties when you use <code>schedule</code>. In this section, you will be able to understand these errors and resolve them.</p>
 </div>
@@ -1780,7 +1780,7 @@ Overlapping schedules are not allowed between schedules within the same client. 
 </div>
 </div>
 <div class="sect2">
-<h3 id="export-command"><a class="link" href="#export-command">3.11. Export a client&#8217;s exercises to CSV format: <code>export</code> --- Aaron Choo</a></h3>
+<h3 id="export-command"><a class="link" href="#export-command">3.12. Export a client&#8217;s exercises to CSV format: <code>export</code> --- Aaron Choo</a></h3>
 <div class="paragraph">
 <p><code>export</code> allows you to export your client&#8217;s recorded exercises into a spreadsheet format which you can then easily save or share with your clients. Note that this will create a CSV file, which you can view and open in other applications like Microsoft Excel, or Google Sheets (as shown in the example later).</p>
 </div>
@@ -1800,7 +1800,7 @@ This command can only be used when you have a client in view; make sure you know
 </table>
 </div>
 <div class="sect3">
-<h4 id="quick-summary"><a class="link" href="#quick-summary">3.11.1. Quick summary</a></h4>
+<h4 id="quick-summary"><a class="link" href="#quick-summary">3.12.1. Quick summary</a></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -1816,7 +1816,7 @@ This command can only be used when you have a client in view; make sure you know
 </div>
 </div>
 <div class="sect3">
-<h4 id="example-9"><a class="link" href="#example-9">3.11.2. Example</a></h4>
+<h4 id="example-9"><a class="link" href="#example-9">3.12.2. Example</a></h4>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -1858,7 +1858,7 @@ This command can only be used when you have a client in view; make sure you know
 </div>
 </div>
 <div class="sect3">
-<h4 id="common-errors-problems-11"><a class="link" href="#common-errors-problems-11">3.11.3. Common errors/problems</a></h4>
+<h4 id="common-errors-problems-11"><a class="link" href="#common-errors-problems-11">3.12.3. Common errors/problems</a></h4>
 <div class="paragraph">
 <p>If you find that you are unable to execute this command successfully, there are a few things you can check:</p>
 </div>
@@ -1875,7 +1875,7 @@ This command can only be used when you have a client in view; make sure you know
 </div>
 </div>
 <div class="sect2">
-<h3 id="filter-clients-based-on-attribute-code-filter-c-code-toh-ker-wei"><a class="link" href="#filter-clients-based-on-attribute-code-filter-c-code-toh-ker-wei">3.12. Filter clients based on attribute: <code>filter-c</code> --- Toh Ker Wei</a></h3>
+<h3 id="filter-clients-based-on-attribute-code-filter-c-code-toh-ker-wei"><a class="link" href="#filter-clients-based-on-attribute-code-filter-c-code-toh-ker-wei">3.13. Filter clients based on attribute: <code>filter-c</code> --- Toh Ker Wei</a></h3>
 <div class="paragraph">
 <p>When you have many clients and want to filter the list of clients to view a specific group, you can use the command <code>filter-c</code> to filter clients based on their tags or their sports.</p>
 </div>
@@ -1883,7 +1883,7 @@ This command can only be used when you have a client in view; make sure you know
 <p><strong>Format</strong>: <code>filter-c [t/TAG]&#8230;&#8203; [s/SPORT]&#8230;&#8203;</code></p>
 </div>
 <div class="sect3">
-<h4 id="parameters-11"><a class="link" href="#parameters-11">3.12.1. Parameters</a></h4>
+<h4 id="parameters-11"><a class="link" href="#parameters-11">3.13.1. Parameters</a></h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 15%;">
@@ -1897,7 +1897,7 @@ This command can only be used when you have a client in view; make sure you know
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>t/TAG</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[t/TAG]</code><br></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>TAG</code> is the tag of the clients you want to match and list.<br></p>
 <p class="tableblock"><code>TAG</code> is case-insensitive.<br>
 e.g. <code>healthy</code> will match <code>Healthy</code></p>
@@ -1905,7 +1905,7 @@ e.g. <code>healthy</code> will match <code>Healthy</code></p>
 e.g. <code>monday</code> or <code>obese200kg</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>s/SPORT</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[s/SPORT]</code><br></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>SPORT</code> is the sport of the clients you want to match and list.<br></p>
 <p class="tableblock"><code>SPORT</code> is case-insensitive.<br>
 e.g.  <code>track and field</code> returns the same result as <code>Track And Field</code></p>
@@ -1918,7 +1918,7 @@ e.g. <code>track and field</code> returns the same result as <code>field and tra
 </table>
 </div>
 <div class="sect3">
-<h4 id="example-10"><a class="link" href="#example-10">3.12.2. Example</a></h4>
+<h4 id="example-10"><a class="link" href="#example-10">3.13.2. Example</a></h4>
 <div class="paragraph">
 <p>Let&#8217;s say you want to filter through your list of clients and only display those with the tag <code>healthy</code> and play the sport <code>badminton</code>.</p>
 </div>
@@ -1947,7 +1947,7 @@ e.g. <code>track and field</code> returns the same result as <code>field and tra
 </div>
 </div>
 <div class="sect3">
-<h4 id="common-error-problem"><a class="link" href="#common-error-problem">3.12.3. Common error/ problem</a></h4>
+<h4 id="common-error-problem"><a class="link" href="#common-error-problem">3.13.3. Common error/ problem</a></h4>
 <div class="paragraph">
 <p><strong>Tags with spaces</strong></p>
 </div>
@@ -1986,7 +1986,7 @@ e.g. <code>track and field</code> returns the same result as <code>field and tra
 </div>
 </div>
 <div class="sect2">
-<h3 id="display-visualisations-of-training-progress-code-graph-code-li-zi-ying"><a class="link" href="#display-visualisations-of-training-progress-code-graph-code-li-zi-ying">3.13. Display visualisations of training progress: <code>graph</code> --- Li Zi Ying</a></h3>
+<h3 id="display-visualisations-of-training-progress-code-graph-code-li-zi-ying"><a class="link" href="#display-visualisations-of-training-progress-code-graph-code-li-zi-ying">3.14. Display visualisations of training progress: <code>graph</code> --- Li Zi Ying</a></h3>
 <div class="paragraph">
 <p><code>graph</code> allows you to see a graphical visualisation of a client’s exercise progress within a specified timeframe, so that you can easily track your client&#8217;s progress and improvement.</p>
 </div>
@@ -1994,7 +1994,7 @@ e.g. <code>track and field</code> returns the same result as <code>field and tra
 <p><strong>Format</strong>: <code>n/EXERCISE_NAME a/Y_AXIS sd/START_DATE ed/END_DATE</code></p>
 </div>
 <div class="sect3">
-<h4 id="parameters-12"><a class="link" href="#parameters-12">3.13.1. Parameters</a></h4>
+<h4 id="parameters-12"><a class="link" href="#parameters-12">3.14.1. Parameters</a></h4>
 <div class="paragraph">
 <p>This section acts as a summary of important things to note when using <code>graph</code> including their parameters.</p>
 </div>
@@ -2011,21 +2011,21 @@ e.g. <code>track and field</code> returns the same result as <code>field and tra
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>n/EXERCISE_NAME</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>n/EXERCISE_NAME</code><br></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Substitute <code>EXERCISE_NAME</code> with the name of the exercise.<br></p>
 <p class="tableblock"><code>n/EXERCISE_NAME</code> is compulsory and you have to specify it.<br></p>
 <p class="tableblock"><code>n/EXERCISE_NAME</code> is case sensitive.<br>
 e.g. An exercise <code>pushup</code> will be considered to be different from the exercise <code>Pushup</code>.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>a/Y_AXIS</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>a/Y_AXIS</code><br></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Substitute <code>Y_AXIS</code> with the y-axis of your choice.<br></p>
 <p class="tableblock"><code>Y_AXIS</code> is compulsory and you have to specify it.<br></p>
 <p class="tableblock"><code>Y_AXIS</code> must either be <code>reps</code> or <code>weight</code> (case insensitive), allowing you to specify the exercise attribute you wish to focus on<br>
 e.g. <code>Reps</code>, <code>weigHt</code> and <code>WEIGHT</code> will be valid inputs for <code>Y_AXIS</code>.<br></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sd/START_DATE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sd/START_DATE</code><br></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Substitute <code>START_DATE</code> with the start date of your graph.<br></p>
 <p class="tableblock"><code>sd/START_DATE</code> is compulsory and you have to specify it.<br></p>
 <p class="tableblock"><code>START_DATE</code> must be of the form <code>DD-MM-YYYY</code> (ie. 02-07-2020 for 2nd July 2020)<br></p>
@@ -2033,7 +2033,7 @@ e.g. <code>Reps</code>, <code>weigHt</code> and <code>WEIGHT</code> will be vali
 <p class="tableblock"><code>START_DATE</code> cannot be chronologically after <code>END_DATE</code><br></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ed/END_DATE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ed/END_DATE</code><br></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Substitute <code>END_DATE</code> with the end date of your graph<br></p>
 <p class="tableblock"><code>ed/END_DATE</code> is compulsory and you have to specify it.<br></p>
 <p class="tableblock"><code>END_DATE</code> must be of the form <code>DD-MM-YYYY</code> (ie. 02-07-2020 for 2nd July 2020)<br></p>
@@ -2044,7 +2044,7 @@ e.g. <code>Reps</code>, <code>weigHt</code> and <code>WEIGHT</code> will be vali
 </table>
 </div>
 <div class="sect3">
-<h4 id="example-11"><a class="link" href="#example-11">3.13.2. Example</a></h4>
+<h4 id="example-11"><a class="link" href="#example-11">3.14.2. Example</a></h4>
 <div class="paragraph">
 <p>Let&#8217;s say that you wish to view the exercise graph of <code>Alex Yeoh</code> for the exercise <code>Sumo Deadlift</code> from the date <code>01-01-2020</code> to <code>13-04-2020</code> and you want to focus on the <code>weight</code> he lifted during the exercise.</p>
 </div>
@@ -2089,7 +2089,7 @@ e.g. <code>Reps</code>, <code>weigHt</code> and <code>WEIGHT</code> will be vali
 </div>
 </div>
 <div class="sect3">
-<h4 id="common-errors-problems-12"><a class="link" href="#common-errors-problems-12">3.13.3. Common errors/problems</a></h4>
+<h4 id="common-errors-problems-12"><a class="link" href="#common-errors-problems-12">3.14.3. Common errors/problems</a></h4>
 <div class="paragraph">
 <p>You might face some errors or difficulties when you use <code>graph</code>. In this section, you will be able to understand these errors and resolve them. You will also get a better understanding of the reply from the Result Box when using <code>graph</code>.</p>
 </div>
@@ -2349,4 +2349,4 @@ e.g. <code>Reps</code>, <code>weigHt</code> and <code>WEIGHT</code> will be vali
 </table>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 15:43:15 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 15:46:01 UTC</div></div></div></body></html>
