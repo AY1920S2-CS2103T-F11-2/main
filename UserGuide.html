@@ -455,7 +455,7 @@ The autocompletion of the parameter prefixes are only for these commands: <code>
 <p>This section acts as a summary of the important things to note when using <code>find-c</code> including their parameters.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>find-c NAME</code></p>
+<p>Format: <code>find-c NAME&#8230;&#8203;</code></p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -2253,7 +2253,7 @@ e.g. <code>Reps</code>, <code>weigHt</code> and <code>WEIGHT</code> will be vali
 <td class="tableblock halign-left valign-top"><p class="tableblock">Shows all available commands and their description.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>view-s TYPE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>view-s TYPE</code> [v2.0]</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Shows schedule for today or time specified.</p></td>
 </tr>
 </tbody>
@@ -2290,16 +2290,20 @@ e.g. <code>Reps</code>, <code>weigHt</code> and <code>WEIGHT</code> will be vali
 <td class="tableblock halign-left valign-top"><p class="tableblock">Filters the list of clients based on specified tags or sports.</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>find-c NAME&#8230;&#8203;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Filters the list of clients based on specified name.</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>list-c</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Displays the list of clients in FitBiz.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>view-c INDEX</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Displays detailed information of a client.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>schedule INDEX sch/DAY-STARTTIME-ENDTIME</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Assigns a schedule to a client.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>schedule INDEX [day/DAY] [st/STARTTIME] [et/ENDTIME]</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Assigns a schedule to a client.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>view-c INDEX</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Shows detailed information of a client.</p></td>
 </tr>
 </tbody>
 </table>
@@ -2320,18 +2324,22 @@ e.g. <code>Reps</code>, <code>weigHt</code> and <code>WEIGHT</code> will be vali
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>add-e n/EXERCISE_NAME d/DATE ew/WEIGHT reps/REPS sets/SETS</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Adds a new exercise to a client.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Adds a new exercise to the client being viewed.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>delete-e INDEX</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Deletes an exercise in the exercise list of the client.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Deletes an exercise in the exercise list of the client being viewed.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>graph e/Push Ups</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Shows a graph of the exercise progress done by a client.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>edit-e INDEX [n/EXERCISE_NAME] [d/DATE] [ew/WEIGHT] [reps/REPS] [sets/SETS]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Edits the exercise details of the client being viewed.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>graph n/NAME a/AXIS sd/STARTDATE ed/ENDDATE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Shows a graph of the exercise progress done by a client between the indicated dates.</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 12:02:21 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 12:28:27 UTC</div></div></div></body></html>
