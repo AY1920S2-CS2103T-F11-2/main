@@ -15,7 +15,7 @@
 <li><a href="#Design-Architecture">2.1. Architecture</a></li>
 <li><a href="#Design-Ui">2.2. UI component</a></li>
 <li><a href="#Design-Logic">2.3. Logic component</a></li>
-<li><a href="#Design-Model">2.4. Model component</a></li>
+<li><a href="#Design-Model">2.4. Model component --Ng Ming Liang</a></li>
 <li><a href="#Design-Storage">2.5. Storage component</a></li>
 <li><a href="#Design-Commons">2.6. Common classes</a></li>
 </ul>
@@ -50,8 +50,11 @@
 <li><a href="#saving-data">F.4. Saving data</a></li>
 <li><a href="#filtering-the-client-list">F.5. Filtering the client list</a></li>
 <li><a href="#adding-new-client-into-fitbiz">F.6. Adding new client into FitBiz</a></li>
-<li><a href="#viewing-a-client">F.7. Viewing a client</a></li>
-<li><a href="#viewing-a-graph-of-an-exercise">F.8. Viewing a graph of an exercise</a></li>
+<li><a href="#scheduling-clients">F.7. Scheduling clients</a></li>
+<li><a href="#listing-all-clients">F.8. Listing all clients</a></li>
+<li><a href="#editing-a-client">F.9. Editing a client</a></li>
+<li><a href="#viewing-a-client">F.10. Viewing a client</a></li>
+<li><a href="#viewing-a-graph-of-an-exercise">F.11. Viewing a graph of an exercise</a></li>
 </ul>
 </li>
 </ul>
@@ -247,7 +250,7 @@ The following class plays an important role at the architecture level:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Design-Model"><a class="link" href="#Design-Model">2.4. Model component</a></h3>
+<h3 id="Design-Model"><a class="link" href="#Design-Model">2.4. Model component --Ng Ming Liang</a></h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/ModelClassDiagram.png" alt="ModelClassDiagram">
@@ -260,21 +263,24 @@ The following class plays an important role at the architecture level:</p>
 <div class="paragraph">
 <p>The <code>Model</code>,</p>
 </div>
-<div class="ulist">
-<ul>
+<div class="olist arabic">
+<ol class="arabic">
 <li>
-<p>stores a <code>UserPref</code> object that represents the user&#8217;s preferences.</p>
+<p>stores a <code>UserPref</code> object that represents the user&#8217;s preferences</p>
 </li>
 <li>
-<p>stores the Address Book data.</p>
+<p>stores a <code>ClientInView</code> to represent the current selected <code>Client</code> selected by the <code>view-c</code> command</p>
+</li>
+<li>
+<p>stores <code>FitBiz</code></p>
+</li>
+<li>
+<p>stores <code>Client</code>, <code>Sports</code>, <code>Tag</code>, <code>Schedule</code> and <code>Exercise</code> packages, where <code>Client</code> utilises the latter packages as attributes</p>
 </li>
 <li>
 <p>exposes an unmodifiable <code>ObservableList&lt;Client&gt;</code> that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.</p>
 </li>
-<li>
-<p>does not depend on any of the other three components.</p>
-</li>
-</ul>
+</ol>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -283,14 +289,12 @@ The following class plays an important role at the architecture level:</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book</code>, which <code>Client</code> can reference. This would allow <code>Address Book</code> to only require one <code>Tag</code> object per unique <code>Tag</code>, instead of each <code>Client</code> needing their own <code>Tag</code> object. An example of how such a model may look like is given below.<br>
+As a more OOP model, we can choose to store a <code>Tag</code> list in <code>FitBiz</code>, which <code>Client</code> can reference. This would allow <code>FitBiz</code> to only require one <code>Tag</code> object per unique <code>Tag</code>, instead of each <code>Client</code> needing their own <code>Tag</code> object. An example of how such a model may look like is given below. For simplicity, we have omitted the rest of the attributes that <code>Client</code> has. Refer back to the diagram above for more details.<br>
+<br>
+<span class="image"><img src="images/BetterModelClassDiagram.png" alt="BetterModelClassDiagram"></span>
 </td>
 </tr>
 </table>
-</div>
-<div class="paragraph">
-<p>+
-<span class="image"><img src="images/BetterModelClassDiagram.png" alt="BetterModelClassDiagram"></span></p>
 </div>
 </div>
 <div class="sect2">
@@ -784,13 +788,57 @@ The choice of a DFS approach as opposed to a Breadth-First Search (BFS) approach
 <div class="sect3">
 <h4 id="implementation-3"><a class="link" href="#implementation-3">3.5.1. Implementation</a></h4>
 <div class="paragraph">
-<p>This scheduling mechanism is facilitated by <code>ScheduleList</code>, which is a wrapper class for an <code>ArrayList</code> of <code>Schedule</code> objects. Each <code>Client</code> contains one <code>ScheduleList</code> attribute to keep track of all <code>Schedule</code> assigned to it. If there are no assigned <code>Schedule</code> for the <code>Client</code>, then the <code>ScheduleList</code> contains an empty <code>ArrayList</code> of <code>Schedule</code>.</p>
+<p>This scheduling mechanism is facilitated by <code>ScheduleCommand</code> which extends <code>Command</code>. The format of the command is given by:</p>
+</div>
+<div class="paragraph">
+<p><code>schedule INDEX sch/DAY-STARTTIME-ENDTIME [sch/DAY-STARTTIME-ENDTIME] &#8230;&#8203;</code></p>
+</div>
+<div class="paragraph">
+<p>When using this command, at least one valid complete schedule parameter must be specified. The user can follow up with additional optional valid schedule parameters in order to assign more schedules to the same client. The following 3 examples are all valid usages of the <code>schedule</code> command:</p>
+</div>
+<div class="paragraph">
+<p><strong>Example Commands</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>schedule 1 sch/MON-1100-1300</code></p>
+</li>
+<li>
+<p><code>schedule 2 sch/MON-1100-1300 sch/TUE-1100-1300 sch/SAT-1800-2000</code></p>
+</li>
+<li>
+<p><code>schedule 3 sch/</code></p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Elaboration on Example Commands</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>This command instance schedules <code>Client</code> with index 1 to have a schedule slot on every Monday, 11:00am to 1:00pm.</p>
+</li>
+<li>
+<p>This command instance schedules <code>Client</code> with index 2 to have schedule slots on every Monday 11:00am to 1:00pm, Tuesday 11:00am to 1:00pm, and Saturday 6:00pm to 8:00pm.</p>
+</li>
+<li>
+<p>This command instance schedules <code>Client</code> with index 3 to have no schedule slots, that is essentially clearing the schedule of <code>Client</code> with index 3. The <code>sch/</code> parameter is required when clearing the schedule.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Do note that the schedule parameters given in the <code>schedule</code> command will entirely overwrite the client&#8217;s current list of schedules.</p>
+</div>
+<div class="paragraph">
+<p>The list of schedules of each client are structured as a <code>ScheduleList</code>, which is a wrapper class for an <code>ArrayList</code> of <code>Schedule</code> objects. Each <code>Client</code> contains one <code>ScheduleList</code> attribute to keep track of all <code>Schedule</code> assigned to it. If there are no assigned <code>Schedule</code> for the <code>Client</code>, then the <code>ScheduleList</code> simply contains an empty <code>ArrayList</code> of <code>Schedule</code>.</p>
 </div>
 <div class="paragraph">
 <p><code>Schedule</code> comprises three attributes:</p>
 </div>
-<div class="ulist">
-<ul>
+<div class="olist arabic">
+<ol class="arabic">
 <li>
 <p><code>Day</code></p>
 </li>
@@ -800,11 +848,16 @@ The choice of a DFS approach as opposed to a Breadth-First Search (BFS) approach
 <li>
 <p><code>EndTime</code></p>
 </li>
-</ul>
+</ol>
 </div>
 <div class="paragraph">
-<p><code>Day</code> wraps the enum <code>DayEnum.Weekday</code> and represents the day of the week the schedule takes place on.
-<code>StartTime</code> and <code>EndTime</code> represent the start time and end time of the schedule in the "HHmm" format respectively. The relations between these classes are shown in the class diagram below.</p>
+<p><code>Day</code> wraps the enum <code>DayEnum.Weekday</code> and represents the day of the week the schedule takes place on.</p>
+</div>
+<div class="paragraph">
+<p><code>StartTime</code> and <code>EndTime</code> represent the start time and end time of the schedule in the "HHmm" format respectively.</p>
+</div>
+<div class="paragraph">
+<p>The relations between these classes are shown in the class diagram below.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -814,8 +867,8 @@ The choice of a DFS approach as opposed to a Breadth-First Search (BFS) approach
 <div class="paragraph">
 <p>These attributes are bounded by these characteristics:</p>
 </div>
-<div class="ulist">
-<ul>
+<div class="olist arabic">
+<ol class="arabic">
 <li>
 <p>Each <code>Client</code> can only contain unique <code>Schedule</code>, that is, there are no overlaps in timings between any two <code>Schedule</code> in the <code>ScheduleList</code>. This is ensured by <code>ScheduleCommandParser#checkIfOverlaps()</code></p>
 </li>
@@ -831,10 +884,18 @@ The choice of a DFS approach as opposed to a Breadth-First Search (BFS) approach
 <li>
 <p><code>Day</code> can only take up the 7 values of the week (MON/TUE/WED/THU/FRI/SAT/SUN)</p>
 </li>
-</ul>
+</ol>
 </div>
 <div class="paragraph">
-<p>In the following sequence diagram, we trace the execution for when the user decides to enter the command <code>schedule 1 day/mon st/1100 et/1200</code> into FitBiz:</p>
+<p>Here is an activity diagram displaying the steps taken when FitBiz receives a user input for the <code>schedule</code> command:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ScheduleActivityDiagram.png" alt="ScheduleActivityDiagram">
+</div>
+</div>
+<div class="paragraph">
+<p>In the following sequence diagram, we trace the execution for when the user decides to enter the command <code>schedule 1 day/mon st/1100 et/1200</code> into FitBiz. For simplicity, we will refer to this command input as <code>commandText</code>:</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -853,30 +914,64 @@ and timing, wrapping each of these properties into their wrapper classes allowed
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
 </colgroup>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Data Structure</th>
-<th class="tableblock halign-left valign-top">Pros and Cons</th>
+<th class="tableblock halign-left valign-top">Pros</th>
+<th class="tableblock halign-left valign-top">Cons</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ArrayList</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Pros</strong>: Elements can be sorted and retrieved in ascending order</p>
-<p class="tableblock"><strong>Cons</strong>: Does not ensure that its elements are unique</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Elements can be sorted and retrieved in ascending order</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Does not ensure that its elements are unique</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">HashSet</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Pros</strong>: Does not allow duplicate values</p>
-<p class="tableblock"><strong>Cons</strong>: Does not return elements in order</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Ensures no duplicate values</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Does not return elements in order</p></td>
 </tr>
 </tbody>
 </table>
 <div class="paragraph">
-<p>As the nature of the schedule panel was to display a sorted collection of <code>Schedule</code>, we chose <code>ArrayList</code> as the underlying data structure. In addition, we also harnessed the capability of the <code>HashSet</code> to ensure no overlaps between <code>Schedule</code> within each <code>Client</code>, which is implemented by <code>ScheduleCommandParser#checkIfOverlaps</code>.</p>
+<p><strong>Displaying the Schedule Panel</strong></p>
+</div>
+<div class="paragraph">
+<p>The schedules of all the clients are displayed in a time-sorted manner on the <code>SchedulePanel</code> of the main FitBiz GUI as shown in the picture below, demarcated by the red rectangle:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/SchedulePanelGUIExample.png" alt="SchedulePanelGUIExample">
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>SchedulePanel</code> extends <code>UiPart&lt;Region&gt;</code> and takes in a <code>ScheduleDay</code> class. <code>ScheduleDay</code> is similar to <code>ScheduleList</code>, the difference being:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>ScheduleDay</code> wraps an ArrayList of <code>Schedule</code> for a specific <code>Day</code></p>
+</li>
+<li>
+<p><code>ScheduleList</code> wraps an ArrayList of <code>Schedule</code> for a specific <code>Client</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>As the nature of the <code>SchedulePanel</code> was to display a sorted collection of <code>Schedule</code>, we chose <code>ArrayList</code> as the underlying data structure, due to the ability to sort the ArrayList via a comparator that compares <code>Schedule</code> according to their <code>Day</code> and <code>StartTime</code>. The code snippet below shows how the <code>Schedule</code> are being sorted using an anonymous comparator in the constructor for <code>ScheduleDay</code>:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>this.scheduleList.sort(Comparator.comparingInt(o -&gt; o.getStartTime().getDirectTimeInt()));</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In addition, we also harnessed the capability of the <code>HashSet</code> to ensure no overlaps between <code>Schedule</code> within each <code>Client</code>, which is implemented by <code>ScheduleCommandParser#checkIfOverlaps</code>. As the ArrayList of <code>Schedule</code> is being populated in the constructor of <code>ScheduleDay</code>, we used a <code>HashSet</code> to check for any overlapping <code>Schedule</code>. The <code>equals</code> method of <code>Schedule</code> was overriden to consider overlapping timeframes between <code>StartTime</code> and <code>EndTime</code> to be equal.</p>
 </div>
 </div>
 </div>
@@ -2658,7 +2753,125 @@ Expected: Error "This phone number and/or email already exists in FitBiz." shown
 </div>
 </div>
 <div class="sect2">
-<h3 id="viewing-a-client"><a class="link" href="#viewing-a-client">F.7. Viewing a client</a></h3>
+<h3 id="scheduling-clients"><a class="link" href="#scheduling-clients">F.7. Scheduling clients</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Scheduling a valid client from the current <strong>Client List</strong> to have <strong><em>1</em></strong> schedule</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: At least one client in the <strong>Client List</strong></p>
+</li>
+<li>
+<p>Test Case: <code>schedule 1 sch/MON-1100-1200</code><br>
+Expected: <code>FIRST_CLIENT_NAME</code> 's overall schedule has been changed to:
+MON Time: 11:00 - 12:00</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Scheduling an invalid client index</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test Case: <code>schedule -1 sch/MON-1100-1200</code><br>
+Expected: Invalid command format!<br>
+schedule: Adds the training schedule of the client, identified by the index number used in the displayed client list. The schedule should include the first 3 letters of the day,
+start and end time in 24 hour format, in 1-minute denominations. Multiple training schedule can be added to a client.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Multiple scheduling</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisite: At least one client in the <strong>Client List</strong></p>
+</li>
+<li>
+<p>Test Case: <code>schedule 1 sch/MON-1300-1400 sch/TUE-1700-1900</code><br>
+Expected: Alex Yeoh&#8217;s overall schedule has been changed to:<br>
+MON Time: 13:00 - 14:00<br>
+TUE Time: 17:00 - 19:00</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="listing-all-clients"><a class="link" href="#listing-all-clients">F.8. Listing all clients</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Using list-c</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test Case: <code>list-c</code><br>
+Expected: Listed all clients</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="editing-a-client"><a class="link" href="#editing-a-client">F.9. Editing a client</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Editing a client&#8217;s address</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: At least one client in the <strong>Client List</strong></p>
+</li>
+<li>
+<p>Test Case: <code>edit-c 1 a/New Address</code><br>
+Expected: Edited Client: <code>CLIENT INFORMATION</code></p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Adding multiple sports to a client</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: At least one client in the <strong>Client List</strong></p>
+</li>
+<li>
+<p>Test Case: <code>edit-c 1 s/Tennis s/Soccer</code><br>
+Expected: Edited Client: <code>CLIENT INFORMATION</code></p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Removing client&#8217;s sports</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: At least one client in the <strong>Client List</strong>, with existing sports</p>
+</li>
+<li>
+<p>Test Case: <code>edit-c 1 s/</code><br>
+Expected: Edited Client: <code>CLIENT INFORMATION</code></p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="viewing-a-client"><a class="link" href="#viewing-a-client">F.10. Viewing a client</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -2687,7 +2900,7 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="viewing-a-graph-of-an-exercise"><a class="link" href="#viewing-a-graph-of-an-exercise">F.8. Viewing a graph of an exercise</a></h3>
+<h3 id="viewing-a-graph-of-an-exercise"><a class="link" href="#viewing-a-graph-of-an-exercise">F.11. Viewing a graph of an exercise</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -2724,4 +2937,4 @@ Expected: No graph displayed, error stating "Invalid command format!" with the c
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 10:53:14 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 11:26:11 UTC</div></div></div></body></html>

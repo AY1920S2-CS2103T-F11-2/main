@@ -1,0 +1,846 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Ng Ming Liang - Project Portfolio</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="../images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link active" href="../index.html">AB-3</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">FitBiz</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="../LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S2-CS2103T-F11-2/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Ng Ming Liang - Project Portfolio</h1></div><div id="content"><div class="sect1">
+<h2 id="project-fitbiz"><a class="link" href="#project-fitbiz">PROJECT: FitBiz</a></h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>FitBiz is a desktop fitness business management application. It keeps track of the user&#8217;s schedule. It can record the user&#8217;s client information such as basic data like their names, phone numbers, addresses etc. On top of that, it also records data useful to gym coaches, such as the clients' exercise logs, personal bests. FitBiz also features graph visualisation for gym coaches to obtain a visual progress indicator for the client&#8217;s exercises, and is customisable to some extent by the user. The user interacts with FitBiz via a Command Line Interface(CLI).</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Major enhancement</strong>: added <strong>Schedule feature and its commands</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: allows the user to add weekly training schedules to their clients. All schedules are consolidated from across all the clients and represented into a sorted weekly Schedule Panel on the right of the main GUI for easy reference. The command for Schedule is:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>schedule INDEX sch/DAY-STARTTIME-ENDTIME</code></p>
+<div class="paragraph">
+<p>Users will be able to clear, or overwrite multiple schedules to the specified client.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Justification: This feature improves the product significantly because enabling a scheduling system is an integral functionality for gym coaches to manage multiple clients, each with varying time slots and schedules.</p>
+</li>
+<li>
+<p>Highlights: The schedule feature is an important building block to be built upon for future releases. Future features such as training results prediction would require analysis of the schedule to perform calculations on a Client&#8217;s predicted performance by the end of say, 6 months down the road, which ties in deeply with the other features of FitBiz such as the Exercise component. Furthermore, it can also potentially be paired with the Graph feature to visually display predicted trainings.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Major enhancement</strong>: implemented the SchedulePanel in the MainWindow of the GUI to represent the weekly schedule</p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: Schedules are shown neatly and in a sorted manner for the week.</p>
+</li>
+<li>
+<p>Justification: For FitBiz to be more intuitive and convenient for the user, the main GUI displays the weekly schedule on the right to provide easy access for the user to view his clients' schedules, instead of having to rely on text outputs for schedule without a GUI.</p>
+</li>
+<li>
+<p>Highlights: This enhancement requires knowledge of working with JavaFX. Furthermore, with SchedulePanel being a part of a larger GUI, I learnt to work under the constraints of the environment, as well as integrate my GUI feature as part of a larger project.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The Schedule Panel models a weekly schedule, thus there would be seven days of the week to represent. To achieve this, I implemented a <code>SchedulePanel</code> class that constructs seven <code>ScheduleCell</code>, each <code>ScheduleCell</code> representing a day of the week</p>
+</li>
+<li>
+<p>Each <code>ScheduleCell</code> takes in a sorted <code>ObservableList</code> of <code>Schedule</code> which it uses to display the schedules for the day within the cell. I chose <code>ObservableList</code> to make use of the Observer Pattern taught in CS2103, where <code>SchedulePanel</code> would be subscribed to changes in the <code>ObservableList</code>, so that I can ensure information shown in <code>SchedulePanel</code> correctly reflects the updated schedules, whether schedules have changed or even if Clients with schedules have been removed.</p>
+</li>
+<li>
+<p>As each day could contain vastly different amounts of schedules, having a fixed <code>ScheduleCell</code> size for each day would be inflexible and potentially buggy, unless I choose to truncate Schedules, which would defeat the purpose of the Schedule Panel. Hence, I implemented <code>ScheduleCell</code> to expand its cell size vertically downwards dynamically according to the amount of schedules on that day. This way, days without schedule can have their respective <code>ScheduleCell</code> kept minimal, whilst even days with many schedules (over 100+ schedules tested) can well display the schedules.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Minor enhancement</strong>: refactored <code>Person</code> from AddressBook to <code>Client</code> to fit the requirements of FitBiz</p>
+</li>
+<li>
+<p><strong>Minor enhancement</strong>: added <code>Birthday</code> attribute to <code>Client</code>, making use of LocalDate and also sanity checks to ensure that the client does not enter a birthday too old, i.e. 120 years. According to Wikipedia as of this PPP, the oldest living person in the world today is 117.</p>
+</li>
+<li>
+<p><strong>Code contributed</strong>: <a href="https://nus-cs2103-ay1920s2.github.io/tp-dashboard/#search=dban1&amp;sort=groupTitle&amp;sortWithin=title&amp;since=2020-02-14&amp;timeframe=commit&amp;mergegroup=false&amp;groupSelect=groupByRepos&amp;breakdown=false&amp;tabOpen=true&amp;tabType=authorship&amp;tabAuthor=Dban1&amp;tabRepo=AY1920S2-CS2103T-F11-2%2Fmain%5Bmaster%5D">RepoSense</a></p>
+</li>
+<li>
+<p><strong>Other contributions</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Enhancements to existing features:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Wrote test code for schedule classes and commands, and birthday tests to improve test coverage:
+<a href="https://github.com/AY1920S2-CS2103T-F11-2/main/pull/142">142</a>, <a href="https://github.com/AY1920S2-CS2103T-F11-2/main/pull/44">44</a></p>
+</li>
+<li>
+<p>Helped to add sanity check for ExerciseDate:
+<a href="https://github.com/AY1920S2-CS2103T-F11-2/main/pull/225">225</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Documentation:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Wrote the implementation of schedule command in Developer Guide:</p>
+</li>
+<li>
+<p>Wrote the command guide for <code>list-c</code>, <code>edit-c</code> and <code>schedule</code> in User Guide:
+<a href="https://github.com/AY1920S2-CS2103T-F11-2/main/pull/259">259</a>,</p>
+</li>
+<li>
+<p>Changed <code>Model</code> and <code>Storage</code> diagrams of Developer Guide:
+<a href="https://github.com/AY1920S2-CS2103T-F11-2/main/pull/259">259</a>,</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Community:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>PRs reviewed:
+<a href="https://github.com/AY1920S2-CS2103T-F11-2/main/pull/283">283</a>,
+<a href="https://github.com/AY1920S2-CS2103T-F11-2/main/pull/223">223</a>,
+<a href="https://github.com/AY1920S2-CS2103T-F11-2/main/pull/136">136</a></p>
+</li>
+<li>
+<p>Reported bugs and suggestions for other teams in the class:
+<a href="https://github.com/AY1920S2-CS2103T-F09-1/main/issues/245">245</a>,
+<a href="https://github.com/AY1920S2-CS2103T-F09-1/main/issues/244">244</a>,
+<a href="https://github.com/AY1920S2-CS2103T-F09-1/main/issues/243">243</a>,
+<a href="https://github.com/AY1920S2-CS2103T-F09-1/main/issues/242">242</a>,
+<a href="https://github.com/AY1920S2-CS2103T-F09-1/main/issues/241">241</a>,
+<a href="https://github.com/AY1920S2-CS2103T-F09-1/main/issues/240">240</a></p>
+</li>
+<li>
+<p>Discussed and squashed bugs with non-trivial implementations:
+<a href="https://github.com/AY1920S2-CS2103T-F11-2/main/pull/236">236</a>,
+<a href="https://github.com/AY1920S2-CS2103T-F11-2/main/pull/207">207</a>,</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">Contributions to the User Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="edit-a-client-s-profile-code-edit-c-code"><a class="link" href="#edit-a-client-s-profile-code-edit-c-code">Edit a client’s profile: <code>edit-c</code></a></h3>
+
+</div>
+<div class="sect2">
+<h3 id="edit-a-client-s-profile-code-edit-c-code-ng-ming-liang"><a class="link" href="#edit-a-client-s-profile-code-edit-c-code-ng-ming-liang">Edit a client’s profile: <code>edit-c</code> ---Ng Ming Liang</a></h3>
+<div class="paragraph">
+<p><code>edit-c</code> allows you to edit an existing client&#8217;s details from the <strong>Client List</strong>. There are various attributes that can be edited for the client using this command, which will be covered in this section.</p>
+</div>
+<div class="sect3">
+<h4 id="parameters"><a class="link" href="#parameters">Parameters</a></h4>
+<div class="paragraph">
+<p>This section acts as a summary of the important things to note when using <code>edit-c</code> and its parameters. The square bracket shows that it is optional and your command will still execute even if you do not enter them. However, at least one of them have to be specified. The ellipsis after a parameter <code>&#8230;&#8203;</code> means that there can be multiple of that same type of parameter.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>edit-c INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [g/GENDER] [b/BIRTHDAY] [cw/CURRENT_WEIGHT] [tw/TARGET_WEIGHT] [h/HEIGHT] [s/SPORT]&#8230;&#8203; [t/TAG]&#8230;&#8203; [r/REMARK]</code></p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 15%;">
+<col style="width: 85%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameters</th>
+<th class="tableblock halign-left valign-top">Important points to note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">INDEX</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">* Substitute <code>INDEX</code> with the index of the desired client to edit.<br></p>
+<p class="tableblock">* <code>INDEX</code> is compulsory and you have to specify it.<br></p>
+<p class="tableblock">* <code>INDEX</code> must be a positive number, and must be a valid index number for a client as displayed from the list of clients.<br></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NAME</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">* Substitute <code>NAME</code> with the name of the client.</p>
+<p class="tableblock">* <code>NAME</code> should only contain alphanumeric characters, spaces and commas, and it should not be blank.</p>
+<p class="tableblock">* <code>NAME</code> is optional.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PHONE</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">* Substitute <code>PHONE</code> with the phone number of the client.<br></p>
+<p class="tableblock">* <code>PHONE</code> is optional.</p>
+<p class="tableblock">* <code>PHONE</code> should only contain numbers.<br></p>
+<p class="tableblock">* <code>PHONE</code> should be at least 3 digits long.</p>
+<p class="tableblock">* <code>PHONE</code> is optional.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EMAIL</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">* Substitute <code>EMAIL</code> with the email of the client.<br></p>
+<p class="tableblock">* <code>EMAIL</code> should be of the format <code>xxx@yyy</code>, where:<br></p>
+<p class="tableblock">* <code>xxx</code> should only contain alphanumeric characters and the set of special characters* shown below this table</p>
+<p class="tableblock">* <code>yyy</code> must be at least 2 characters long, start and end with alphanumeric characters, and consist of alphanumeric characters, a period or a hyphen for the characters in between, if any.</p>
+<p class="tableblock">* <code>EMAIL</code> is optional.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ADDRESS</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">* Substitute <code>ADDRESS</code> as the address of the client.</p>
+<p class="tableblock">* <code>ADDRESS</code> can take any value, but it should not be blank, or start with a whitespace.</p>
+<p class="tableblock">* <code>ADDRESS</code> is optional.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GENDER</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">* Substitue <code>GENDER</code> with the gender of the client.</p>
+<p class="tableblock">* <code>GENDER</code> is case insensitive</p>
+<p class="tableblock">* <code>GENDER</code> can only be <code>male</code> or <code>m</code>, <code>female</code> or <code>f</code>, or <code>others</code> or <code>o</code>.</p>
+<p class="tableblock">* <code>GENDER</code> is optional.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BIRTHDAY</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">* Substitue <code>BIRTHDAY</code> with the birthday of the client.</p>
+<p class="tableblock">* <code>BIRTHDAY</code> should be in the format DD-MM-YYYY</p>
+<p class="tableblock">* <code>BIRTHDAY</code> cannot exceed the current date.</p>
+<p class="tableblock">* <code>BIRTHDAY</code> cannot be earlier than 120 years from the current year.</p>
+<p class="tableblock">* <code>BIRTHDAY</code> is optional.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CURRENT_WEIGHT</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">* Substitute <code>CURRENT_WEIGHT</code> with the current weight of the client.</p>
+<p class="tableblock">* <code>CURRENT_WEIGHT</code> must take the value of a whole or decimal number(eg. 65 or 86.22)</p>
+<p class="tableblock">* <code>CURRENT_WEIGHT</code> can only have a maximum of 3 digits before the decimal place and a maximum of 2 digits after the decimal place (eg. 101.25 or 120.20)</p>
+<p class="tableblock">* <code>CURRENT_WEIGHT</code> is optional.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TARGET_WEIGHT</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">* Substitute <code>TARGET_WEIGHT</code> with the target weight for the client.</p>
+<p class="tableblock">* <code>TARGET_WEIGHT</code> must take the value of a whole or decimal number(eg. 65 or 86.22)</p>
+<p class="tableblock">* <code>TARGET_WEIGHT</code> can only have a maximum of 3 digits before the decimal place and a maximum of 2 digits after the decimal place (eg. 101.25 or 120.20)</p>
+<p class="tableblock">* <code>TARGET_WEIGHT</code> is optional.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">HEIGHT</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">* Substitue <code>HEIGHT</code> with the height of the client.</p>
+<p class="tableblock">* <code>HEIGHT</code> must either be a whole or decimal number.</p>
+<p class="tableblock">* <code>HEIGHT</code> can only have a maximum of 3 digits before the decimal place and a maximum of 2 digits after the decimal place (eg. 101.25 or 120.20)</p>
+<p class="tableblock">* <code>HEIGHT</code> is optional.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SPORT</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">* Substitute <code>SPORT</code> with the sports of the client.</p>
+<p class="tableblock">* <code>SPORT</code> should only contain alphanumeric characters and spaces.</p>
+<p class="tableblock">* Sports given in this command will overwrite all of the client&#8217;s existing sports.</p>
+<p class="tableblock">* <code>SPORT</code> is optional.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TAG</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">* Substitue <code>TAG</code> with a tag for the client.</p>
+<p class="tableblock">* <code>TAG</code> should only contain alphanumeric characters.</p>
+<p class="tableblock">* Tags given in the command will overwrite the Client&#8217;s existing tags</p>
+<p class="tableblock">* You can remove all of the client&#8217;s tags by typing <code>t/</code> without specifying any <code>TAG</code></p>
+<p class="tableblock">* <code>TAG</code> is optional.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">REMARK</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">* Substitute <code>REMARK</code> with remarks for the client.</p>
+<p class="tableblock">* <code>REMARK</code> should be alphanumeric.</p>
+<p class="tableblock">* Any whitespace at the start of <code>REMARK</code> will be removed.</p>
+<p class="tableblock">* <code>REMARK</code> is optional.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>*The set of special characters are <code>!#$%&amp;'*+/=?</code>{|}~^.-`</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+ At least one of the optional fields must be provided.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="example"><a class="link" href="#example">Example</a></h4>
+<div class="paragraph">
+<p>Let&#8217;s say you want to edit the address and assign 3 sports (Tennis, Hockey, Badminton) to client <code>Irfan Ibrahim</code>. From the <code>Client List</code>, you can see that his client <code>INDEX</code> is 3.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UGEditCDiagram1.png" alt="UGEditCDiagram1">
+</div>
+</div>
+<div class="paragraph">
+<p>Next, you can enter the command <code>edit-c 3 a/New Address #123456 s/Tennis s/Hockey s/Badminton</code> in the <strong>Command Box</strong>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UGEditCDiagram2.png" alt="UGEditCDiagram2">
+</div>
+</div>
+<div class="paragraph">
+<p>Enter the command, and you should see that the <strong>Result Box</strong> displays the edited client&#8217;s information, and that the <strong>Client List</strong> has updated <code>Irfan Ibrahim</code> to show the new changes.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UGEditCDiagram3.png" alt="UGEditCDiagram3">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="common-errors-problems"><a class="link" href="#common-errors-problems">Common Errors/Problems</a></h4>
+<div class="paragraph">
+<p>You might face some errors or difficulties when you use edit-e. In this section, you will be able to understand these errors and resolve them.</p>
+</div>
+<div class="paragraph">
+<p><strong>Result box not displaying updated client&#8217;s information</strong></p>
+</div>
+<div class="paragraph">
+<p>When you use <code>edit-c</code>, instead of seeing the updated client&#8217;s information in the <strong>Result Box</strong>, you might sometimes encounter an error message informing you about the specifications for the format of the command. This error message varies according to the mistake detected in the parameters given. For simplicity, let&#8217;s look at one example scenario.</p>
+</div>
+<div class="paragraph">
+<p>Let&#8217;s say you attempt to edit the email of <code>Irfan Ibrahim</code> and happen to give an incorrect format of the email that does not follow the rules given in the parameters table above for <code>EMAIL</code>. Consider the following command: <code>edit-c 3 e/invalidEmail</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UGEditCDiagram4.png" alt="UGEditCDiagram4">
+</div>
+</div>
+<div class="paragraph">
+<p>As seen above, the <code>EMAIL</code> is of the wrong format as it does not include the <code>@</code> symbol and not of the <code>xxx@yyy</code> format.</p>
+</div>
+<div class="paragraph">
+<p>In the example above, the <code>EMAIL</code> field was faulty. This behaviour of FitBiz also applies to other faulty parameters for the <code>edit-c</code> command, where FitBiz will display information relevant to the faulty parameter, to help you troubleshoot and correct your input.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="schedule-trainings-for-a-client-code-schedule-code-ng-ming-liang"><a class="link" href="#schedule-trainings-for-a-client-code-schedule-code-ng-ming-liang">Schedule trainings for a client: <code>schedule</code> ---Ng Ming Liang</a></h3>
+<div class="paragraph">
+<p><code>Schedule</code> allows you to assign weekly schedule timings to a client. The schedule will be displayed on the right panel of FitBiz, with the timings as well as the client&#8217;s name. You can assign multiple schedules to a client at once, by adding more arguments following the command. All of the schedules from the current <strong>Client List</strong> will be displayed on the <strong>Schedule Panel</strong>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The <code>schedule</code> command overwrites the client&#8217;s existing schedule with the new schedules given in the command.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect3">
+<h4 id="parameters-2"><a class="link" href="#parameters-2">Parameters</a></h4>
+<div class="paragraph">
+<p>This section acts as a summary of the important things to note when using <code>schedule</code>. The square bracket shows that it is optional and your command will still execute even if you do not enter them.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>schedule INDEX sch/DAY-STARTTIME-ENDTIME [sch/DAY-STARTTIME-ENDTIME]&#8230;&#8203;</code></p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 15%;">
+<col style="width: 85%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameters</th>
+<th class="tableblock halign-left valign-top">Important points to note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">INDEX</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">* Substitute <code>INDEX</code> with the index of the desired client to add the schedule to.<br></p>
+<p class="tableblock">* <code>INDEX</code> is compulsory and you have to specify it.<br></p>
+<p class="tableblock">* <code>INDEX</code> must be a positive number, and must be a valid index number for a client as displayed from the list of clients.<br></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DAY</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">* Substitute <code>DAY</code> with the first three letters of the day.<br>
+eg. MON / TUE / WED / THU / FRI / SAT / SUN</p>
+<p class="tableblock">* <code>DAY</code> is compulsory and you have to specify it.<br></p>
+<p class="tableblock">* <code>DAY</code> can only be one of the above seven values.<br></p>
+<p class="tableblock">* <code>DAY</code> is not case sensitive.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">STARTTIME</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">* Substitute <code>STARTTIME</code> with the starting time of the schedule slot.<br></p>
+<p class="tableblock">* <code>STARTTIME</code> is compulsory.</p>
+<p class="tableblock">* Range for <code>STARTTIME</code> is 0000-2359.<br></p>
+<p class="tableblock">* <code>STARTTIME</code> must always be earlier than or equal to <code>ENDTIME</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ENDTIME</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">* Substitute <code>ENDTIME</code> with the ending time of the schedule slot.<br></p>
+<p class="tableblock">* <code>ENDTIME</code> is compulsory.</p>
+<p class="tableblock">* Range for <code>ENDTIME</code> is 0000-2359.<br></p>
+<p class="tableblock">* <code>ENDTIME</code> must always be equal to or later than <code>STARTTIME</code>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="example-2"><a class="link" href="#example-2">Example</a></h4>
+<div class="paragraph">
+<p>Let&#8217;s say you want to schedule a weekly Monday 11:00am to 12:00pm slot for your client Alex Yeoh. Alex Yeoh is the first client on your <strong>Client List</strong>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UGScheduleDiagram1.png" alt="UGScheduleDiagram1">
+</div>
+</div>
+<div class="paragraph">
+<p>You can see that Alex Yeoh&#8217;s client index is <code>1</code>. Therefore, you can proceed to type the <code>schedule</code> command in the <strong>Command Box</strong> to assign a schedule slot to him.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UGScheduleDiagram2.png" alt="UGScheduleDiagram2">
+</div>
+</div>
+<div class="paragraph">
+<p>After you enter the command, you can see that the <strong>Result Box</strong> has notified you of the new overwritten schedule, and that Alex Yeoh&#8217;s schedule slot has appeared on the <strong>Schedule Panel</strong> on Monday.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UGScheduleDiagram3.png" alt="UGScheduleDiagram3">
+</div>
+</div>
+<div class="paragraph">
+<p>Now let&#8217;s say you want to add multiple schedules to Bernice Yu: Monday 8:00am to 10:00pm and Tuesday 4:00pm to 6:00pm. You can do that by adding both of these timings into the <code>schedule</code> command following the same format as above.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UGScheduleDiagram4.png" alt="UGScheduleDiagram4">
+</div>
+</div>
+<div class="paragraph">
+<p>Now enter the command, and you&#8217;ll see that Bernice&#8217;s schedules also show up on the <strong>Schedule Panel</strong>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UGScheduleDiagram5.png" alt="UGScheduleDiagram5">
+</div>
+</div>
+<div class="paragraph">
+<p>Finally, let&#8217;s say Alex no longer has any schedule slots, and you want to clear it. Simply type in <code>schedule 1 sch/</code> in the <strong>Command Box</strong> to clear his schedule, and you should see this.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UGScheduleDiagram6.png" alt="UGScheduleDiagram6">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="common-errors-problems-2"><a class="link" href="#common-errors-problems-2">Common Errors/Problems</a></h4>
+<div class="paragraph">
+<p>You might face some errors or difficulties when you use <code>schedule</code>. In this section, you will be able to understand these errors and resolve them.</p>
+</div>
+<div class="paragraph">
+<p><strong>Overlapping schedules</strong></p>
+</div>
+<div class="paragraph">
+<p>You might encounter the message that "One or more of your input schedules have overlapping time periods. Please check again." This means that there is a overlapping time period between at least two of your input schedules. In this case as shown below, the first schedule <code>sch/MON-1100-1200</code> conflicts with the second schedule <code>sch/MON-1200-1300</code> because the end time of the first schedule overlaps with the start time of the second schedule.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UGScheduleDiagram7.png" alt="UGScheduleDiagram7">
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Overlapping schedules are not allowed between schedules within the same client. However, <strong>different clients</strong> can have overlapping schedules with each other as it is a possible scenario that you as a gym coach can coach multiple clients at once, and that additional clients can join/leave the session as other sessions are ongoing.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>Invalid command format</strong></p>
+</div>
+<div class="paragraph">
+<p>You might encounter the error message from the <strong>Result Box</strong> specifying the format that you should be using for the <code>schedule</code> command. This means that there are one or more errors in the format of your input for the <code>schedule</code> command. In the example input shown below, <code>schedule 2 sch/TUESDAY-800-1:00</code>, there are multiple errors. First, the <code>DAY</code> should be three letters. Next, the <code>STARTTIME</code> and <code>ENDTIME</code> should follow the HHmm format. The correct input for this should be <code>schedule 2 sch/TUE-0800-1300</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UGScheduleDiagram8.png" alt="UGScheduleDiagram8">
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="list-all-clients-code-list-c-code-ng-ming-liang"><a class="link" href="#list-all-clients-code-list-c-code-ng-ming-liang">List all clients: <code>list-c</code> ---Ng Ming Liang</a></h3>
+<div class="paragraph">
+<p>You can list all clients on the <strong>Client List</strong>. This is useful when your <strong>Client List</strong> has been filtered by the <code>filter-c</code> command, and you want to view all clients again. When using <code>list-c</code>, there will be no difference to the <strong>Client List</strong> if it is already showing all clients.</p>
+</div>
+<div class="sect3">
+<h4 id="parameters-3"><a class="link" href="#parameters-3">Parameters</a></h4>
+<div class="paragraph">
+<p>Format: <code>list-c</code></p>
+</div>
+<div class="paragraph">
+<p>The command is simply <code>list-c</code>, and has no additional parameters.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="example-3"><a class="link" href="#example-3">Example</a></h4>
+<div class="paragraph">
+<p>Let&#8217;s say you start off with the full <strong>Client List</strong> as shown below.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UGListCDiagram0.png" alt="UGListCDiagram0">
+</div>
+</div>
+<div class="paragraph">
+<p>Now, let&#8217;s say you use the command <code>filter-c</code> to filter the clients with the <code>Paleo</code> tag as such:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UGListCDiagram2.png" alt="UGListCDiagram2">
+</div>
+</div>
+<div class="paragraph">
+<p>Your <strong>Client List</strong> will now display only the clients that have the <code>Paleo</code> tag. In this example, the only client that fit this requirement is <code>Alex Yeoh</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UGListCDiagram3.png" alt="UGListCDiagram3">
+</div>
+</div>
+<div class="paragraph">
+<p>Let&#8217;s say you are done with the filter, and want to list all your clients on the <strong>Client List</strong> again. Simply enter `list-c`into the <strong>Command Box</strong> and you should be able to see the following:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UGListCDiagram4.png" alt="UGListCDiagram4">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="common-errors-problems-3"><a class="link" href="#common-errors-problems-3">Common errors / problems</a></h4>
+<div class="paragraph">
+<p><strong>No clients shown on the Client List</strong></p>
+</div>
+<div class="paragraph">
+<p>You may be greeted with the following scene. This means that there are no clients in your FitBiz. You can begin adding clients by using the <code>add-c</code> command. Do refer to the <code>add-c</code> section in this document for help regarding <code>add-c</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UGListCDiagram1.png" alt="UGListCDiagram1">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="model-component-ng-ming-liang"><a class="link" href="#model-component-ng-ming-liang">Model component --Ng Ming Liang</a></h3>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ModelClassDiagram.png" alt="ModelClassDiagram">
+</div>
+<div class="title">Figure 1. Structure of the Model Component</div>
+</div>
+<div class="paragraph">
+<p><strong>API</strong> : <a href="{repoURL}/src/main/java/seedu/address/model/Model.java"><code>Model.java</code></a></p>
+</div>
+<div class="paragraph">
+<p>The <code>Model</code>,</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>stores a <code>UserPref</code> object that represents the user&#8217;s preferences</p>
+</li>
+<li>
+<p>stores a <code>ClientInView</code> to represent the current selected <code>Client</code> selected by the <code>view-c</code> command</p>
+</li>
+<li>
+<p>stores <code>FitBiz</code></p>
+</li>
+<li>
+<p>stores <code>Client</code>, <code>Sports</code>, <code>Tag</code>, <code>Schedule</code> and <code>Exercise</code> packages, where <code>Client</code> utilises the latter packages as attributes</p>
+</li>
+<li>
+<p>exposes an unmodifiable <code>ObservableList&lt;Client&gt;</code> that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.</p>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+As a more OOP model, we can choose to store a <code>Tag</code> list in <code>FitBiz</code>, which <code>Client</code> can reference. This would allow <code>FitBiz</code> to only require one <code>Tag</code> object per unique <code>Tag</code>, instead of each <code>Client</code> needing their own <code>Tag</code> object. An example of how such a model may look like is given below. For simplicity, we have omitted the rest of the attributes that <code>Client</code> has. Refer back to the diagram above for more details.<br>
+<br>
+<span class="image"><img src="../images/BetterModelClassDiagram.png" alt="BetterModelClassDiagram"></span>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="scheduling-for-a-client-ng-ming-liang"><a class="link" href="#scheduling-for-a-client-ng-ming-liang">Scheduling for a Client --- Ng Ming Liang</a></h3>
+<div class="paragraph">
+<p>This feature allows for a user to assign a weekly schedule to a client. Timings are represented in the 24-hour format <code>HHmm</code>. Each client can have none or multiple schedules that do not have overlapping timings. Multiple clients are allowed to have overlapping timings with each other.</p>
+</div>
+<div class="sect3">
+<h4 id="implementation"><a class="link" href="#implementation">Implementation</a></h4>
+<div class="paragraph">
+<p>This scheduling mechanism is facilitated by <code>ScheduleCommand</code> which extends <code>Command</code>. The format of the command is given by:</p>
+</div>
+<div class="paragraph">
+<p><code>schedule INDEX sch/DAY-STARTTIME-ENDTIME [sch/DAY-STARTTIME-ENDTIME] &#8230;&#8203;</code></p>
+</div>
+<div class="paragraph">
+<p>When using this command, at least one valid complete schedule parameter must be specified. The user can follow up with additional optional valid schedule parameters in order to assign more schedules to the same client. The following 3 examples are all valid usages of the <code>schedule</code> command:</p>
+</div>
+<div class="paragraph">
+<p><strong>Example Commands</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>schedule 1 sch/MON-1100-1300</code></p>
+</li>
+<li>
+<p><code>schedule 2 sch/MON-1100-1300 sch/TUE-1100-1300 sch/SAT-1800-2000</code></p>
+</li>
+<li>
+<p><code>schedule 3 sch/</code></p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Elaboration on Example Commands</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>This command instance schedules <code>Client</code> with index 1 to have a schedule slot on every Monday, 11:00am to 1:00pm.</p>
+</li>
+<li>
+<p>This command instance schedules <code>Client</code> with index 2 to have schedule slots on every Monday 11:00am to 1:00pm, Tuesday 11:00am to 1:00pm, and Saturday 6:00pm to 8:00pm.</p>
+</li>
+<li>
+<p>This command instance schedules <code>Client</code> with index 3 to have no schedule slots, that is essentially clearing the schedule of <code>Client</code> with index 3. The <code>sch/</code> parameter is required when clearing the schedule.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Do note that the schedule parameters given in the <code>schedule</code> command will entirely overwrite the client&#8217;s current list of schedules.</p>
+</div>
+<div class="paragraph">
+<p>The list of schedules of each client are structured as a <code>ScheduleList</code>, which is a wrapper class for an <code>ArrayList</code> of <code>Schedule</code> objects. Each <code>Client</code> contains one <code>ScheduleList</code> attribute to keep track of all <code>Schedule</code> assigned to it. If there are no assigned <code>Schedule</code> for the <code>Client</code>, then the <code>ScheduleList</code> simply contains an empty <code>ArrayList</code> of <code>Schedule</code>.</p>
+</div>
+<div class="paragraph">
+<p><code>Schedule</code> comprises three attributes:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>Day</code></p>
+</li>
+<li>
+<p><code>StartTime</code></p>
+</li>
+<li>
+<p><code>EndTime</code></p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><code>Day</code> wraps the enum <code>DayEnum.Weekday</code> and represents the day of the week the schedule takes place on.</p>
+</div>
+<div class="paragraph">
+<p><code>StartTime</code> and <code>EndTime</code> represent the start time and end time of the schedule in the "HHmm" format respectively.</p>
+</div>
+<div class="paragraph">
+<p>The relations between these classes are shown in the class diagram below.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ScheduleClassDiagram.png" alt="ScheduleClassDiagram">
+</div>
+</div>
+<div class="paragraph">
+<p>These attributes are bounded by these characteristics:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Each <code>Client</code> can only contain unique <code>Schedule</code>, that is, there are no overlaps in timings between any two <code>Schedule</code> in the <code>ScheduleList</code>. This is ensured by <code>ScheduleCommandParser#checkIfOverlaps()</code></p>
+</li>
+<li>
+<p>Overlapping timings between the <code>Schedule</code> of different <code>Client</code> is allowed</p>
+</li>
+<li>
+<p>The maximum timeframe between <code>StartTime</code> and <code>EndTime</code> is from <code>0000</code> to <code>2359</code></p>
+</li>
+<li>
+<p><code>StartTime</code> cannot be later than <code>EndTime</code></p>
+</li>
+<li>
+<p><code>Day</code> can only take up the 7 values of the week (MON/TUE/WED/THU/FRI/SAT/SUN)</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Here is an activity diagram displaying the steps taken when FitBiz receives a user input for the <code>schedule</code> command:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ScheduleActivityDiagram.png" alt="ScheduleActivityDiagram">
+</div>
+</div>
+<div class="paragraph">
+<p>In the following sequence diagram, we trace the execution for when the user decides to enter the command <code>schedule 1 day/mon st/1100 et/1200</code> into FitBiz. For simplicity, we will refer to this command input as <code>commandText</code>:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ScheduleSequenceDiagram.png" alt="ScheduleSequenceDiagram">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
+<div class="paragraph">
+<p>In designing this feature, we had to consider the alternative ways in which we can choose to store the information of a schedule. One option of storing the relevant information (day, start, end times) for a schedule was simply to concatenate these values into a single String, for example, <code>"monday-1100-1200"</code>. However, we found that this did not exploit the desirable principles of Object-Oriented Programming. As respective sanity checks had to be done for the day
+and timing, wrapping each of these properties into their wrapper classes allowed for better modularity and organisation of these attributes. For example, <code>Day#isValidDay</code> handles the validation of the input for day and <code>Time#isValidTimingFormat</code> handles the validation of time.</p>
+</div>
+<div class="paragraph">
+<p>Considerations also then had to be made for how to contain multiple <code>Schedule</code>. The current implementation uses the <code>ArrayList</code> data structure to hold multiple <code>Schedule</code>. Other considered alternative for <code>ScheduleList</code> was <code>HashSet</code>.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Data Structure</th>
+<th class="tableblock halign-left valign-top">Pros</th>
+<th class="tableblock halign-left valign-top">Cons</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ArrayList</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Elements can be sorted and retrieved in ascending order</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Does not ensure that its elements are unique</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">HashSet</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Ensures no duplicate values</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Does not return elements in order</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><strong>Displaying the Schedule Panel</strong></p>
+</div>
+<div class="paragraph">
+<p>The schedules of all the clients are displayed in a time-sorted manner on the <code>SchedulePanel</code> of the main FitBiz GUI as shown in the picture below, demarcated by the red rectangle:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/SchedulePanelGUIExample.png" alt="SchedulePanelGUIExample">
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>SchedulePanel</code> extends <code>UiPart&lt;Region&gt;</code> and takes in a <code>ScheduleDay</code> class. <code>ScheduleDay</code> is similar to <code>ScheduleList</code>, the difference being:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>ScheduleDay</code> wraps an ArrayList of <code>Schedule</code> for a specific <code>Day</code></p>
+</li>
+<li>
+<p><code>ScheduleList</code> wraps an ArrayList of <code>Schedule</code> for a specific <code>Client</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>As the nature of the <code>SchedulePanel</code> was to display a sorted collection of <code>Schedule</code>, we chose <code>ArrayList</code> as the underlying data structure, due to the ability to sort the ArrayList via a comparator that compares <code>Schedule</code> according to their <code>Day</code> and <code>StartTime</code>. The code snippet below shows how the <code>Schedule</code> are being sorted using an anonymous comparator in the constructor for <code>ScheduleDay</code>:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>this.scheduleList.sort(Comparator.comparingInt(o -&gt; o.getStartTime().getDirectTimeInt()));</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In addition, we also harnessed the capability of the <code>HashSet</code> to ensure no overlaps between <code>Schedule</code> within each <code>Client</code>, which is implemented by <code>ScheduleCommandParser#checkIfOverlaps</code>. As the ArrayList of <code>Schedule</code> is being populated in the constructor of <code>ScheduleDay</code>, we used a <code>HashSet</code> to check for any overlapping <code>Schedule</code>. The <code>equals</code> method of <code>Schedule</code> was overriden to consider overlapping timeframes between <code>StartTime</code> and <code>EndTime</code> to be equal.</p>
+</div>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 11:26:11 UTC</div></div></div></body></html>
