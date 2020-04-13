@@ -15,7 +15,7 @@
 <li><a href="#Design-Architecture">2.1. Architecture</a></li>
 <li><a href="#Design-Ui">2.2. UI component</a></li>
 <li><a href="#Design-Logic">2.3. Logic component</a></li>
-<li><a href="#Design-Model">2.4. Model component --Ng Ming Liang</a></li>
+<li><a href="#Design-Model">2.4. Model component</a></li>
 <li><a href="#Design-Storage">2.5. Storage component</a></li>
 <li><a href="#Design-Commons">2.6. Common classes</a></li>
 </ul>
@@ -251,7 +251,7 @@ The following class plays an important role at the architecture level:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Design-Model"><a class="link" href="#Design-Model">2.4. Model component --Ng Ming Liang</a></h3>
+<h3 id="Design-Model"><a class="link" href="#Design-Model">2.4. Model component</a></h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/ModelClassDiagram.png" alt="ModelClassDiagram">
@@ -907,7 +907,7 @@ The choice of a DFS approach as opposed to a Breadth-First Search (BFS) approach
 <div class="sect3">
 <h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.5.2. Design Considerations</a></h4>
 <div class="paragraph">
-<p>In designing this feature, we had to consider the alternative ways in which we can choose to store the information of a schedule. One option of storing the relevant information (day, start, end times) for a schedule was simply to concatenate these values into a single String, for example, <code>"monday-1100-1200"</code>. However, we found that this did not exploit the desirable principles of Object-Oriented Programming. As respective sanity checks had to be done for the day
+<p>In designing this feature, we had to consider the alternative ways in which we can choose to store the information of a schedule. One option of storing the relevant information (day, start, end times) for a schedule was simply to concatenate these values into a single String, for example, <code>monday-1100-1200</code>. However, we found that this did not exploit the desirable principles of Object-Oriented Programming. As respective sanity checks had to be done for the day
 and timing, wrapping each of these properties into their wrapper classes allowed for better modularity and organisation of these attributes. For example, <code>Day#isValidDay</code> handles the validation of the input for day and <code>Time#isValidTimingFormat</code> handles the validation of time.</p>
 </div>
 <div class="paragraph">
@@ -921,20 +921,20 @@ and timing, wrapping each of these properties into their wrapper classes allowed
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Data Structure</th>
-<th class="tableblock halign-left valign-top">Pros</th>
-<th class="tableblock halign-left valign-top">Cons</th>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top">ArrayList</th>
+<th class="tableblock halign-left valign-top">HashSet</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ArrayList</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Elements can be sorted and retrieved in ascending order</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Ensuring no overlaps</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Does not ensure that its elements are unique</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Ensures no duplicate values</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">HashSet</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Ensures no duplicate values</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Ensuring order of elements</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Elements can be sorted and retrieved in ascending order</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Does not return elements in order</p></td>
 </tr>
 </tbody>
@@ -2991,4 +2991,4 @@ Expected: No graph displayed, error stating "Invalid command format!" with the c
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 14:19:13 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 14:30:21 UTC</div></div></div></body></html>
