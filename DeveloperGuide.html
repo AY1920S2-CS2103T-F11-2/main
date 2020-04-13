@@ -47,14 +47,15 @@
 <li><a href="#launch-and-shutdown">F.1. Launch and Shutdown</a></li>
 <li><a href="#command-autocomplete">F.2. Command autocomplete</a></li>
 <li><a href="#deleting-a-client">F.3. Deleting a client</a></li>
-<li><a href="#saving-data">F.4. Saving data</a></li>
-<li><a href="#filtering-the-client-list">F.5. Filtering the client list</a></li>
-<li><a href="#adding-new-client-into-fitbiz">F.6. Adding new client into FitBiz</a></li>
-<li><a href="#scheduling-clients">F.7. Scheduling clients</a></li>
-<li><a href="#listing-all-clients">F.8. Listing all clients</a></li>
-<li><a href="#editing-a-client">F.9. Editing a client</a></li>
-<li><a href="#viewing-a-client">F.10. Viewing a client</a></li>
-<li><a href="#viewing-a-graph-of-an-exercise">F.11. Viewing a graph of an exercise</a></li>
+<li><a href="#adding-an-exercise">F.4. Adding an exercise</a></li>
+<li><a href="#saving-data">F.5. Saving data</a></li>
+<li><a href="#filtering-the-client-list">F.6. Filtering the client list</a></li>
+<li><a href="#adding-new-client-into-fitbiz">F.7. Adding new client into FitBiz</a></li>
+<li><a href="#scheduling-clients">F.8. Scheduling clients</a></li>
+<li><a href="#listing-all-clients">F.9. Listing all clients</a></li>
+<li><a href="#editing-a-client">F.10. Editing a client</a></li>
+<li><a href="#viewing-a-client">F.11. Viewing a client</a></li>
+<li><a href="#viewing-a-graph-of-an-exercise">F.12. Viewing a graph of an exercise</a></li>
 </ul>
 </li>
 </ul>
@@ -1010,12 +1011,13 @@ and timing, wrapping each of these properties into their wrapper classes allowed
 </ol>
 </div>
 <div class="paragraph">
-<p>All instances of <code>Exercise</code> of a client will be contained in the client&#8217;s <code>UniqueExerciseList</code>. There is an additional class <code>PersonalBest</code> which is also associated to <code>Exercise</code>. It is omitted and will discuss in (&#8230;&#8203;) section due to its high significance. Below shows a UML class diagram which shows <code>Exercise</code> class interactions.</p>
+<p>All instances of <code>Exercise</code> of a client will be contained in the client&#8217;s <code>UniqueExerciseList</code>. There is an additional class <code>PersonalBest</code> which is also associated to <code>Exercise</code>. It is omitted and will discuss in <a href="#personal-best-li-zi-ying">Section 3.7, &#8220;Personal Best --- Li Zi Ying&#8221;</a> section due to its high significance. Below shows a UML class diagram which shows <code>Exercise</code> class interactions.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/ExerciseClassDiagram.png" alt="ExerciseClassDiagram">
 </div>
+<div class="title">Figure 15. Simplified Class Diagram for Exercise</div>
 </div>
 <div class="paragraph">
 <p>An important point to note about our implementation of <code>Exercise</code> is the method, <code>isSameExercise()</code>. We will consider two <code>Exercise</code> as the same if <code>isSameExercise()</code> returns true.</p>
@@ -1041,6 +1043,7 @@ Two <code>Exercise</code> are equal only if <strong>all</strong> attributes are 
 <div class="content">
 <img src="images/IsSameExerciseObjectDiagram.png" alt="IsSameExerciseObjectDiagram">
 </div>
+<div class="title">Figure 16. Object diagram of two instances of Exercise objects</div>
 </div>
 <div class="paragraph">
 <p>The two <code>Exercise</code> only have different values in <code>ExerciseSets</code> but equal values in:</p>
@@ -1069,7 +1072,7 @@ Two <code>Exercise</code> are equal only if <strong>all</strong> attributes are 
 </div>
 </div>
 <div class="sect4">
-<h5 id="execution-flow-of-exercise-commands"><a class="link" href="#execution-flow-of-exercise-commands">Execution flow of Exercise Commands</a></h5>
+<h5 id="execution-flow-of-exercise-commands"><a class="link" href="#execution-flow-of-exercise-commands">Execution flow of exercise commands</a></h5>
 <div class="paragraph">
 <p>The exercise commands edits the client&#8217;s <code>UniqueExerciseList</code>. Currently, there are 3 exercise commands.</p>
 </div>
@@ -1093,6 +1096,7 @@ Two <code>Exercise</code> are equal only if <strong>all</strong> attributes are 
 <div class="content">
 <img src="images/ExerciseCommandActivityDiagram.png" alt="ExerciseCommandActivityDiagram">
 </div>
+<div class="title">Figure 17. Activity Diagram for exercise commands</div>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -1136,6 +1140,7 @@ Two <code>Exercise</code> are equal only if <strong>all</strong> attributes are 
 <div class="content">
 <img src="images/AddExerciseCommandSequenceDiagram.png" alt="AddExerciseCommandSequenceDiagram">
 </div>
+<div class="title">Figure 18. Sequence Diagram for AddExerciseCommand</div>
 </div>
 <div class="paragraph">
 <p><code>AddExerciseCommand</code> checks if there is an client being viewed. For this instance, we will consider the positive case where indeed there is a client being viewed. <code>AddExerciseCommand</code> will retrieve the client being viewed from the <code>Model</code> so that details like the existing exercise list of the client can be obtained. The sequence diagram illustrates the execution flow of <code>addToSorted(Exercise)</code> to obtain details of the <code>Exercise</code> being added and exising <code>Exercise</code> in <code>UniqueExerciseList</code>.</p>
@@ -1144,6 +1149,7 @@ Two <code>Exercise</code> are equal only if <strong>all</strong> attributes are 
 <div class="content">
 <img src="images/AddExerciseCommandSequenceDiagramPart2.png" alt="AddExerciseCommandSequenceDiagramPart2">
 </div>
+<div class="title">Figure 19. Sequence Diagram for the addToSorted Method</div>
 </div>
 <div class="paragraph">
 <p><code>UniqueExerciseList</code> loops through the exercises in the list. and calls <code>getExerciseDate()</code> and <code>getExerciseName()</code>. The <code>LocalDate</code> and exercise name in <code>String</code> type are then used for comparision. The sequence diagram below illustrates the conditional checks during the comparision.</p>
@@ -1152,6 +1158,7 @@ Two <code>Exercise</code> are equal only if <strong>all</strong> attributes are 
 <div class="content">
 <img src="images/AddExerciseCommandSequenceDiagramPart3.png" alt="AddExerciseCommandSequenceDiagramPart3">
 </div>
+<div class="title">Figure 20. Sequence Diagram for conditional checks in addToSorted Method</div>
 </div>
 <div class="paragraph">
 <p>The conditional checks are such that <code>UniqueExerciseList</code> maintain sorted by descending chronological order, followed by alphabetical order for exercises with the same dates.</p>
@@ -1176,7 +1183,7 @@ if (dateComparision &gt; 0) {
 </div>
 </div>
 <div class="paragraph">
-<p><code>Arrays.sort()</code> can be used to sort the exercises in <code>UniqueExerciseList</code> after every addition. However, the worse case time complexity of <code>Arrays.sort()</code> is <code>O(nlogn)</code>. This custom insertion sort will guarantee an <code>O(n)</code> time complexity to insert the new <code>Exercise</code> correctly. This is as efficient as it gets as any insertion will already incur an O(n) time complexity to first check if the internal list contains the same exercise. It is important to keep the time complexity low as clients can have many exercises.</p>
+<p><code>Arrays.sort()</code> can be used to sort the exercises in <code>UniqueExerciseList</code> after every addition. However, the worse case time complexity of <code>Arrays.sort()</code> is O(nlogn). This custom insertion sort will guarantee an O(n) time complexity to insert the new <code>Exercise</code> correctly. This is as efficient as it gets as any insertion will already incur an O(n) time complexity to first check if the internal list contains the same exercise. It is important to keep the time complexity low as clients can have many exercises.</p>
 </div>
 </div>
 </div>
@@ -1229,7 +1236,7 @@ if (dateComparision &gt; 0) {
 </tbody>
 </table>
 <div class="paragraph">
-<p>We decided to use the first approach of storing the exercises with the associated client and have all the clients data in one JSON file. By code wise, each <code>JsonAdaptedClient</code> will have a list of <code>JsonAdaptedExercise</code>.</p>
+<p>We decided to use the first approach of storing the exercises with the associated client and have all the clients data in one JSON file. By codewise, each <code>JsonAdaptedClient</code> will have a list of <code>JsonAdaptedExercise</code>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1290,7 +1297,7 @@ if (dateComparision &gt; 0) {
 <div class="content">
 <img src="images/PersonalBestClassDiagram.png" alt="PersonalBestClassDiagram">
 </div>
-<div class="title">Figure 15. Simplified Class Diagram for Personal Best</div>
+<div class="title">Figure 21. Simplified Class Diagram for Personal Best</div>
 </div>
 <div class="paragraph">
 <p>In the following sequence diagram, we trace the execution for when the user decides to enter the command <code>view-c</code> into FitBiz:</p>
@@ -1299,7 +1306,7 @@ if (dateComparision &gt; 0) {
 <div class="content">
 <img src="images/PersonalBestSequenceDiagram.png" alt="PersonalBestSequenceDiagram">
 </div>
-<div class="title">Figure 16. Sequence Diagram of the View#execute Method for Personal Best</div>
+<div class="title">Figure 22. Sequence Diagram of the View#execute Method for Personal Best</div>
 </div>
 <div class="paragraph">
 <p>The explanation for the sequence diagram is as follows: when the user inputs <code>view-c</code>, <code>add-e</code>, <code>edit-c</code> or <code>delete-c</code>, <code>PersonalBestFinder#generateAndSetPersonalBest</code> is called, taking the client currently in view as the parameter. <code>PersonalBestFinder#generateAndSetPersonalBest</code> then retrieves client&#8217;s list of exercises using <code>Client#getExerciseList</code> and creates a new <code>HashMap</code>, where the <code>key</code> is <code>ExerciseName</code> and the <code>value</code> is <code>Exercise</code>. Then the personal bests of each exercise of the client in view are generated using the above considerations. Finally the list of personal bests is set using <code>PersonalBest#setPersonalBest</code>.</p>
@@ -1365,7 +1372,7 @@ if (dateComparision &gt; 0) {
 <div class="content">
 <img src="images/GraphClassDiagram.png" alt="GraphClassDiagram">
 </div>
-<div class="title">Figure 17. Simplified Class Diagram for Graph</div>
+<div class="title">Figure 23. Simplified Class Diagram for Graph</div>
 </div>
 <div class="paragraph">
 <p>These attributes are bounded by these characteristics:
@@ -1381,7 +1388,7 @@ if (dateComparision &gt; 0) {
 <div class="content">
 <img src="images/GraphCommandActivityDiagram.png" alt="GraphCommandActivityDiagram">
 </div>
-<div class="title">Figure 18. Activity Diagram for Graph Command</div>
+<div class="title">Figure 24. Activity Diagram for Graph Command</div>
 </div>
 <div class="paragraph">
 <p>The behaviour of this feature determines the graph plotted of the exercise specified based on these considerations:</p>
@@ -1409,7 +1416,7 @@ if (dateComparision &gt; 0) {
 <div class="content">
 <img src="images/GraphSequenceDiagram.png" alt="GraphSequenceDiagram">
 </div>
-<div class="title">Figure 19. Sequence Diagram for Graph Command</div>
+<div class="title">Figure 25. Sequence Diagram for Graph Command</div>
 </div>
 <div class="paragraph">
 <p>The explanation is as follows: when the user inputs <code>graph</code> with all relevant arguments input correctly, a new <code>GraphCommand()</code> is created, taking the newly created <code>Graph</code> object as parameter.</p>
@@ -2672,7 +2679,54 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-data"><a class="link" href="#saving-data">F.4. Saving data</a></h3>
+<h3 id="adding-an-exercise"><a class="link" href="#adding-an-exercise">F.4. Adding an exercise</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Adding an exercise to the client in view&#8217;s exercise table</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: View a client using the <code>view-c</code> command. A list of exercises done by the client can be seen in the exercise table. It is possible to have no exercises recorded at the moment.</p>
+</li>
+<li>
+<p>Test case: Substitute DATE with the current date<br>
+<code>add-e n/bench press date/DATE reps/30 sets/4 ew/10</code><br>
+Expected: The added exercise can be seen in the exercise table. A success message stating that there is a new exercise recorded will also be shown in the result box.</p>
+</li>
+<li>
+<p>Test case: Substitute DATE with the current date<br>
+<code>add-e n/pushup date/DATE</code><br>
+Expected: The added exercise can be seen in the exercise table. A success message stating that there is a new exercise recorded will also be shown in the result box.</p>
+</li>
+<li>
+<p>Test case: Substitute DATE with the day after the current date<br>
+<code>add-e n/bench press date/DATE reps/30 sets/4 ew/10</code><br>
+Expected: No exercise added. An error message stating that the valid range for date will be shown.</p>
+</li>
+<li>
+<p>Test case: Substitute DATE with the current date<br>
+<code>add-e n/pushup d/DATE reps/ten</code><br>
+Expected: No exercise added. An error message stating that input for reps have to be a whole number from 1 to 9999 will be shown.</p>
+</li>
+<li>
+<p><code>add-e n/pushup</code><br>
+Expected: No exercise added. An error message stating "invalid command format!" and a description on how to use <code>add-e</code> command will be shown.</p>
+</li>
+<li>
+<p>Test case: Substitute DATE with the current date<br>
+<code>add-e n/pushup d/DATE sets/4</code><br>
+<code>add-e n/pushup d/DATE sets/2</code><br>
+Expected: No exercise added. An error message stating that the exercise already exists and ask user to increment the existing exercise will be shown.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="saving-data"><a class="link" href="#saving-data">F.5. Saving data</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -2689,7 +2743,7 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="filtering-the-client-list"><a class="link" href="#filtering-the-client-list">F.5. Filtering the client list</a></h3>
+<h3 id="filtering-the-client-list"><a class="link" href="#filtering-the-client-list">F.6. Filtering the client list</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -2719,7 +2773,7 @@ Expected: Client with <code>Tag</code> <code>normal</code> and <code>vegetarian<
 </div>
 </div>
 <div class="sect2">
-<h3 id="adding-new-client-into-fitbiz"><a class="link" href="#adding-new-client-into-fitbiz">F.6. Adding new client into FitBiz</a></h3>
+<h3 id="adding-new-client-into-fitbiz"><a class="link" href="#adding-new-client-into-fitbiz">F.7. Adding new client into FitBiz</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -2753,7 +2807,7 @@ Expected: Error "This phone number and/or email already exists in FitBiz." shown
 </div>
 </div>
 <div class="sect2">
-<h3 id="scheduling-clients"><a class="link" href="#scheduling-clients">F.7. Scheduling clients</a></h3>
+<h3 id="scheduling-clients"><a class="link" href="#scheduling-clients">F.8. Scheduling clients</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -2804,7 +2858,7 @@ TUE Time: 17:00 - 19:00</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-all-clients"><a class="link" href="#listing-all-clients">F.8. Listing all clients</a></h3>
+<h3 id="listing-all-clients"><a class="link" href="#listing-all-clients">F.9. Listing all clients</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -2822,7 +2876,7 @@ Expected: Listed all clients</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="editing-a-client"><a class="link" href="#editing-a-client">F.9. Editing a client</a></h3>
+<h3 id="editing-a-client"><a class="link" href="#editing-a-client">F.10. Editing a client</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -2871,7 +2925,7 @@ Expected: Edited Client: <code>CLIENT INFORMATION</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="viewing-a-client"><a class="link" href="#viewing-a-client">F.10. Viewing a client</a></h3>
+<h3 id="viewing-a-client"><a class="link" href="#viewing-a-client">F.11. Viewing a client</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -2900,7 +2954,7 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="viewing-a-graph-of-an-exercise"><a class="link" href="#viewing-a-graph-of-an-exercise">F.11. Viewing a graph of an exercise</a></h3>
+<h3 id="viewing-a-graph-of-an-exercise"><a class="link" href="#viewing-a-graph-of-an-exercise">F.12. Viewing a graph of an exercise</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -2937,4 +2991,4 @@ Expected: No graph displayed, error stating "Invalid command format!" with the c
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 11:26:11 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 12:02:21 UTC</div></div></div></body></html>
