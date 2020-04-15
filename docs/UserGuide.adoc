@@ -706,7 +706,7 @@ image::ug-delete-4.png[]
 To correct this, you have to enter a valid `INDEX` that is not more than the number of clients in the client list.
 // end::delete-c-command[]
 // tag::view-c-command[]
-
+[[view-c-command]]
 === View a client profile: `view-c` --- Li Zi Ying
 
 You might want to view the complete information of a certain client in your client list. This complete information includes the client's full details, their exercise table and personal best table. `view-c INDEX` shows all available information of the client at the specified index.
