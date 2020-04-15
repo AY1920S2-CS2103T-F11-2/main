@@ -817,14 +817,11 @@ You might face some errors or difficulties when you use `add-e`. In this section
 ===== Duplicate exercises
 You might wonder why the application shows you a duplicate exercise error when the details of the exercises you entered are different.
 
-You want to add an exercise such that the new exercise and the exercise highlighted below have the same name, date, reps and exercise weight. 
-
-
-
-
-You enter `add-e n/Bench Press d/12-02-2020 reps/4 ew/100 sets/2`.
+You want to add an exercise such that the new exercise and the exercise highlighted below have the same name, date, reps and exercise weight. Sets not included.
 
 image::ug-addeDuplicatePart1.png[]
+
+You enter `add-e n/Bench Press d/12-02-2020 reps/4 ew/100 sets/2`.
 
 *Result Box* will show that you have a duplicate exercise.
 
@@ -906,7 +903,7 @@ You might face some errors or difficulties when you use `edit-e`. In this sectio
 ===== Duplicate exercises
 You might wonder why the application shows you a duplicate exercise error when you do not have a duplicate of the edited exercise.
 
-You want to edit an exercise such that the new exercise and the exercise highlighted below have the same name, date, reps and exercise weight. 
+You want to edit an exercise such that the new exercise and the exercise highlighted below have the same name, date, reps and exercise weight. Sets not included.
 
 image::ug-editeDuplicatePart1.png[]
 
