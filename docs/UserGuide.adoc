@@ -773,15 +773,11 @@ The table belows shows the parameters for `add-e` and the important points to no
 | `n/NAME` + |
 * Substitute `NAME` with the name of the exercise. +
 
-* `n/NAME` is compulsory and you have to specify it. +
-
 * `n/NAME` is case sensitive. +
 e.g. An exercise named `pushup` will be considered to have a different name as an exercise named `Pushup`.
 
 | `d/DATE` + |
 * Substitute `DATE` with the date of the exercise. +
-
-* `d/DATE` is compulsory and you have to specify it. +
 
 * `DATE` must be of the form `DD-MM-YYYY` (ie. 02-07-2020 for 2nd July 2020)
 
@@ -874,8 +870,6 @@ The table below shows the parameters for `edit-e` and the important points to no
 | Parameter | Important points to note
 | `INDEX` + |
 * Substitute `INDEX` with the index of the exercise shown on the table. +
-
-* `INDEX` is compulsory and you have to specify it. +
 
 | `[n/NAME]` + |
 * Substitute `NAME` with the name of the exercise. +
