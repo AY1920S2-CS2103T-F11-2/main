@@ -984,31 +984,35 @@ To solve this, we suggest you delete the exercise you want to edit and increment
 *Format*: `delete-e INDEX`
 
 [NOTE]
-This command can only be used when you have a client in view; make sure you know how to view a client first. Refer to <<view-c-command>> for more information.
+This command can only be used when you have a client in view; make sure you know how to view a client first. Refer to the <<view-c-command, `view-c`>> command for more information.
 
 [WARNING]
-Deleting an exercise from FitBiz is permanent and *cannot be undone*.
+Deleting an exercise from FitBiz is *permanent* and *cannot be undone*.
 
 ==== Parameters
+
+This section shows the parameters and the important things to note about them.
 
 [options='header']
 [cols="15%,85%"]
 |===
-| Parameters | Important points to note
-| `INDEX` + | Substitute `INDEX` with the actual index of the exercise shown on the *Exercise Table*
+| Parameter | Important points to note
+| `INDEX` a| * Substitute `INDEX` with the actual index of the exercise shown on the *Exercise Table*
 
-Must be a positive integer (eg. 1, 2, 3, ...)
+* Must be a positive integer (eg. 1, 2, 3, ...)
 |===
 
 ==== Example
 
-. First, ensure that you are currently viewing a client by using the `view-c` command:
+Suppose you want to delete an exercise previously saved to a client.
+
+. First, ensure that you are currently viewing the client by using the `view-c` command:
 +
 image::delete-e-1.png[]
 . Say for example that you want to delete the fifth exercise found on the **Exercise Table** (the one named "Bench Press" done on "07-04-2020"), simply enter `delete-e 5`:
 +
 image::delete-e-2.png[]
-. After the command has been successfully executed, the specified exercise should have been deleted. Notice also, in the *Personal Best Table* that the personal best for "Bench Press" has also been automatically updated to reflect this change:
+. After the command has been successfully executed, the specified exercise will no longer appear in the *Exercise Table*. Notice also, in the *Personal Best Table* that the personal best for "Bench Press" has been automatically updated to reflect this change:
 +
 image::delete-e-3.png[]
 
@@ -1127,20 +1131,26 @@ image::UGScheduleDiagram8.png[]
 
 `export` allows you to export your client's recorded exercises into a spreadsheet format which you can then easily save or share with your clients. Note that this will create a CSV file, which you can view and open in other applications like Microsoft Excel, or Google Sheets (as shown in the example later).
 
-*format*: `export`
+*Format*: `export`
 
-[NOTE]
-This command can only be used when you have a client in view; make sure you know how to view a client first. Refer to <<view-c-command>> for more information.
-
-==== Quick summary
+Some key points to note:
 
 * Only the exercises of the current client in view will be exported
 * Exported files will be saved in the `/exports` directory
 * The name of the exported file will be the client's name followed by the `.csv` file extension (eg. `Alex Yeoh.csv`)
 
+[NOTE]
+This command can only be used when you have a client in view; make sure you know how to view a client first. Refer to the <<view-c-command, `view-c`>> command for more information.
+
+==== Parameters
+
+The command is simply `export`, and has no additional parameters.
+
 ==== Example
 
-. First, ensure that you are currently viewing a client by using the `view-c` command:
+Let's say that you want to export a client's exercises, either to save it for yourself or send a copy to him. Here is what you need to do:
+
+. First, ensure that you are currently viewing the client (Alex Yeoh in this example) by using the `view-c` command:
 +
 image::export-1.png[]
 . Now, if the client you are viewing currently has recorded exercises in the *Exercise Table*, simply execute the `export` command
