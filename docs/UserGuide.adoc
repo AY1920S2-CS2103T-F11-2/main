@@ -231,7 +231,7 @@ e.g. Typing `find-c Hans Bo` will show clients `Hans Gruber` and `Bo Yang` and n
 
 ==== Example
 
-Let's say that you want to find a client named "Bryan Low" in *Client List*. 
+Let's say that you want to find a client named "Bryan Low" in *Client List*.
 
 . Type `find-c bryan` into *Command Box*, and press `Enter` to execute it.
 +
