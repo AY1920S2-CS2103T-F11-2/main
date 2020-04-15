@@ -221,20 +221,17 @@ e.g. You can enter `find-c bryan low`.
 
 * `KEYWORD` are case insensitive. +
 e.g. Typing `find-c hans` will show clients even with the name `Hans`. +
-For a better understanding, you can refer to the example section .
 
 * The words used for `KEYWORD` have to match at least one word in the name of the clients. +
 e.g. Typing `find-c Bry` will not show clients with the name `Bryan`. +
-For a detailed explanation, you can refer to the commons errors / problems section.
 
 * Clients matching at least one `KEYWORD` will be returned and does not require all the words in their name to match. +
 e.g. Typing `find-c Hans Bo` will show clients `Hans Gruber` and `Bo Yang` and not necessarily just client `Hans Bo`. +
-For a detailed explanation, you can refer to the commons errors / problems section.
 |====================
 
 ==== Example
 
-Let's say that you want to find a client named "Bryan Low" in *Client List*. You can simply use the `find-c` command as shown.
+Let's say that you want to find a client named "Bryan Low" in *Client List*. 
 
 . Type `find-c bryan` into *Command Box*, and press `Enter` to execute it.
 +
@@ -764,7 +761,7 @@ To correct this, you have to enter a valid `INDEX` that is not more than the num
 *Format*: `add-e n/EXERCISE_NAME d/DATE [ew/EXERCISE_WEIGHT] [reps/REPS] [sets/SETS]`
 
 ==== Parameters
-This section acts as a summary of the important things to note when using `add-e` including their parameters. The square bracket shows that it is optional and your command will still execute even if you do not enter them.
+This section acts as a summary of the important things to note when using `add-e` including their parameters.
 
 [options='header']
 [cols="15%,85%"]
@@ -790,21 +787,15 @@ e.g. An exercise named `pushup` will be considered to have a different name as a
 | `[reps/REPS]` + |
 * Substitute `REPS` with the reps of the exercise. +
 
-* `reps/REPS` is optional.
-
 * Range for `REPS` is 1-9999. +
 
 | `[sets/SETS]` + |
 * Substitute `SETS` with the sets of the exercise. +
 
-* `sets/SETS` is optional.
-
 * Range for `SETS` is 1-9999. +
 
 | `[ew/WEIGHT]` + |
 * Substitute `Weight` with the weight of the exercise. +
-
-* `ew/WEIGHT` is optional.
 
 * Range for `WEIGHT` is 1-9999. +
 |====================
@@ -819,7 +810,6 @@ Reps: 4 +
 Weight: 100 +
 Sets: 4 +
 |============
-You can use the `add-e` command to add the exercise as shown.
 
 . View the client that you want to add the exercise to. For information on how to view the client, you can refer to the `view-c` section. For this example, we will add the exercise to the first client in the list, `Alex Yeoh`. After you entered `view-c 1`, you will see `Alex Yeoh` detailed information and a table of his recorded exercises.
 +
@@ -867,7 +857,7 @@ To solve this, we suggest incrementing the sets of the existing exercise by usin
 *Format*: `edit-e INDEX [n/EXERCISE_NAME] [d/DATE] [ew/EXERCISE_WEIGHT] [reps/REPS] [sets/SETS]`
 
 ==== Parameters
-This section acts as a summary of the important things to note when using `edit-e` including their parameters. The square bracket shows that it is optional and your command will still execute even if you do not enter them. However, at least one of them have to be specified.
+This section acts as a summary of the important things to note when using `edit-e` including their parameters.
 
 [options='header']
 [cols="15%,85%"]
@@ -881,15 +871,11 @@ This section acts as a summary of the important things to note when using `edit-
 | `[n/NAME]` + |
 * Substitute `NAME` with the name of the exercise. +
 
-* `n/NAME` is optional. +
-
 * `n/NAME` is case sensitive. +
 e.g. An exercise named `pushup` will be considered to have a different name as an exercise named `Pushup`.
 
 |`[d/DATE]` + |
 * Substitute `DATE` with the date of the exercise. +
-
-* `d/DATE` is optional. +
 
 * `DATE` must be of the form `DD-MM-YYYY` (ie. 02-07-2020 for 2nd July 2020) +
 
@@ -898,21 +884,15 @@ e.g. An exercise named `pushup` will be considered to have a different name as a
 | `[reps/REPS]` + |
 * Substitute `REPS` with the reps of the exercise. +
 
-* `reps/REPS` is optional.
-
 * Range for `REPS` is 1-9999. +
 
 | `[sets/SETS]` + |
 * Substitute `SETS` with the sets of the exercise. +
 
-* `sets/SETS` is optional.
-
 * Range for `SETS` is 1-9999. +
 
 | `[ew/WEIGHT]` + |
 * Substitute `Weight` with the weight of the exercise. +
-
-* `ew/WEIGHT` is optional.
 
 * Range for `WEIGHT` is 1-9999. +
 |====================
@@ -1348,8 +1328,8 @@ Examples:
 
 // tag::commands[]
 == Command Summary
-
 === General Commands
+The table below shows the general commands.
 
 [width="100%",cols="20%,<30%",options="header",]
 |=======================================================================
@@ -1360,6 +1340,7 @@ Examples:
 |=======================================================================
 
 === Client Commands
+The table below shows the commands that finds a client or manipulates the client's information.
 
 [width="100%",cols="20%,<30%",options="header",]
 |=======================================================================
@@ -1375,6 +1356,7 @@ Examples:
 |=======================================================================
 
 === Exercise Commands
+The table below shows the commands that manipulate the details of the exercises done by the client.
 
 [width="100%",cols="20%,<30%",options="header",]
 |=======================================================================
