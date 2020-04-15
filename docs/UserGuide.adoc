@@ -760,6 +760,9 @@ To correct this, you have to enter a valid `INDEX` that is not more than the num
 
 *Format*: `add-e n/EXERCISE_NAME d/DATE [ew/EXERCISE_WEIGHT] [reps/REPS] [sets/SETS]`
 
+[NOTE]
+This command can only be used when you have a client in view; make sure you know how to view a client first. Refer to <<view-c-command>> for more information.
+
 ==== Parameters
 This section acts as a summary of the important things to note when using `add-e` including their parameters.
 
@@ -856,6 +859,12 @@ To solve this, we suggest incrementing the sets of the existing exercise by usin
 
 *Format*: `edit-e INDEX [n/EXERCISE_NAME] [d/DATE] [ew/EXERCISE_WEIGHT] [reps/REPS] [sets/SETS]`
 
+[NOTE]
+This command can only be used when you have a client in view; make sure you know how to view a client first. Refer to <<view-c-command>> for more information.
+
+[WARNING]
+Editing an exercise from FitBiz is permanent and *cannot be undone*.
+
 ==== Parameters
 This section acts as a summary of the important things to note when using `edit-e` including their parameters.
 
@@ -896,6 +905,10 @@ e.g. An exercise named `pushup` will be considered to have a different name as a
 
 * Range for `WEIGHT` is 1-9999. +
 |====================
+
+[NOTE]
+ At least one of the optional fields must be provided.
+
 ==== Example
 Let's say that you want to edit an exercise done by the client you are currently viewing. The exercise that you want to edit is the one highlighted in the photo below.
 
