@@ -199,7 +199,7 @@ image::UGListCDiagram5.png[]
 // tag::find-c[]
 
 === Find clients by name: `find-c` --- Yong Jie
-`find-c` allows you to find clients with the names that are specified in your input. You might have many clients and finding a particular client by scrolling through the entire *Client List* might be troublesome and difficult. Use `find-c` to find the client you are looking for.
+`find-c` allows you to find clients with the keywords that are specified in your input. You might have many clients and finding a particular client by scrolling through the entire *Client List* might be troublesome and difficult. Use `find-c` to find the client you are looking for.
 
 *Format*: `find-c KEYWORD [KEYWORD]...`
 
@@ -211,9 +211,6 @@ The table belows shows the parameters for `find-c` and the important things to n
 |====================
 | Parameter | Important points to note
 | `KEYWORD` |
-
-* At least one `KEYWORD` must be entered.
-
 * Substitute `KEYWORD` with the names you want to search with +
 
 * You can use multiple `KEYWORD`. +
@@ -228,6 +225,8 @@ e.g. Typing `find-c Bry` will not show clients with the name `Bryan`. +
 * Clients matching at least one `KEYWORD` will be returned and does not require all the words in their name to match. +
 e.g. Typing `find-c Hans Bo` will show clients `Hans Gruber` and `Bo Yang` and not necessarily just client `Hans Bo`. +
 |====================
+[NOTE]
+ At least one `KEYWORD` must be provided.
 
 ==== Example
 
@@ -256,15 +255,11 @@ You want to find the client named "Bryan Low" in *Client List*. Below shows that
 
 image::ug-findcIncompleteNamePart1.png[]
 
-Type `find-c bry` into *Command Box*, and press `Enter` to execute it.
+Enter `find-c bry` into *Command Box*. You will obtain "0 clients listed!" in *Result Box*.
 
 image::ug-findcIncompleteNamePart2.png[]
 
-You will obtain "0 clients listed!" in *Result Box*.
-
-image::ug-findcIncompleteNamePart3.png[]
-
-This is because the name that you have entered is incomplete and does not match any word in the name of any of the clients. To correct this, you have to enter `find-c bryan` as seen in the example.
+To correct this, you have to enter `find-c bryan` as seen in the example.
 
 ===== Using multiple KEYWORD
 
@@ -275,11 +270,9 @@ You want to find the client named "Bryan Low" in *Client List*.
 
 Type `find-c bryan low` in to *Command Box*, and press `Enter` to execute it.
 
-image::ug-findcMultiplePart1.png[]
-
 You will obtain clients which have `bryan` in their name or `low` in the name. In the case below, there are 3 clients. `Bryan Low`, `Bryan Tan` and `Alice Low`.
 
-image::ug-findcMultiplePart2.png[]
+image::ug-findcMultiple.png[]
 
 You can try to enter keywords for `NAME` that are more specific to the client you are looking for. This will help to keep your search more scoped.
 
@@ -800,7 +793,7 @@ e.g. An exercise named `pushup` will be considered to have a different name as a
 |====================
 
 ==== Example
-Let's say that you want to add an exercise with the following details: +
+Let's say that you want to add an exercise to `Alex Yeoh`. The details of the exercise: +
 [width="50%"]
 |============
 Name: Bench Press +
@@ -810,21 +803,13 @@ Weight: 100 +
 Sets: 4 +
 |============
 
-. View the client that you want to add the exercise to. For this example, we will add the exercise to the first client in the list, `Alex Yeoh`. After you entered `view-c 1`, you will see `Alex Yeoh` detailed information and a table of his recorded exercises.
+. Enter the `view-c` command to view `Alex Yeoh`. You will see a table of his recorded exercises.
 +
 image::ug-addeExamplePart1.png[]
-. Now type the information of the exercise, matching each detail of the exercise to the parameter. In this case, you will have to type `add-e n/Bench press d/12-02-2020 reps/4 ew/100 sets/4` into *Command Box*. Press enter to execute it. To recap,
-+
-[width="50%"]
-|============
-The name of the exercise after `n/` +
-The date of the exercise after `d/` +
-The reps of the exercise after `reps/` +
-The weight of the exercise after `ew/` +
-The sets of the exercise after `sets/` +
-|============
+. Type the information of the exercise, matching each detail of the exercise to the parameter. In this case, type `add-e n/Bench press d/12-02-2020 reps/4 ew/100 sets/4` into *Command Box*. Press enter to execute it. 
+
 image::ug-addeExamplePart2.png[]
-. After it has been successfully entered, *Result Box* will display the recorded exercise. You will also be able to see the recorded exercise in the *Exercise Table*.
+. After it has been successfully entered, *Result Box* will display that exercise has been sucessfully recorded. You will also be able to see the recorded exercise in the *Exercise Table*.
 +
 image::ug-addeExamplePart3.png[]
 
@@ -904,19 +889,13 @@ e.g. An exercise named `pushup` will be considered to have a different name as a
  At least one of the optional fields must be provided.
 
 ==== Example
-Let's say that you want to edit an exercise done by the client you are currently viewing. The exercise that you want to edit is the one highlighted in the photo below.
+Let's say that you want to edit the exercise, "Bench Press". The exercise currently has 4 reps and weight of 100. However, you might want to change the values to 8 reps and 50kg. You can use the `edit-e` command to edit the exercise as shown.
 
 image::ug-editeExamplePart1.png[]
 
-The exercise, "Bench Press", currently is 4 reps and weight of 100. However, they might be entered wrongly and you want to change the values. You can use the `edit-e` command to edit the exercise as shown.
-
-. Identify the index of the exercise in *Exercise Table*. From the photo above, the index is 2. Type `edit-e 2 reps/8 ew/50` into *Command Box*. Press enter to execute it. To recap,
+. Identify the index of "Bench Press" in *Exercise Table*. From the photo above, the index is 2. Type `edit-e 2 reps/8 ew/50` into *Command Box*. Press enter to execute it. To recap,
 +
-[width="50%"]
-|============
-The reps of the exercise after `reps/` +
-The weight of the exercise after `ew/` +
-|============
+
 image::ug-editeExamplePart2.png[]
 . After it has been successfully entered, *Result Box* will display a success message that the exercise has been edited. You will also be able to see the edited exercise in *Exercise Table*.
 +
