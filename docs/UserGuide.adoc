@@ -199,7 +199,7 @@ image::UGListCDiagram5.png[]
 // tag::find-c[]
 
 === Find clients by name: `find-c` --- Yong Jie
-`find-c` allows you to find clients with the names that are specified in your input. You might have many clients and finding a particular client by scrolling through the entire *Client List* might be troublesome and difficult. `find-c` is the command for you.
+`find-c` allows you to find clients with the names that are specified in your input. You might have many clients and finding a particular client by scrolling through the entire *Client List* might be troublesome and difficult.
 
 *Format*: `find-c KEYWORD [KEYWORD]...`
 
@@ -209,7 +209,7 @@ This section acts as a summary of the important things to note when using `find-
 [options='header']
 [cols="15%,85%"]
 |====================
-| Parameters | Important points to note
+| Parameter | Important points to note
 | `KEYWORD` |
 
 * At least one `KEYWORD` must be entered.
@@ -219,7 +219,7 @@ This section acts as a summary of the important things to note when using `find-
 * You can use multiple `KEYWORD`. +
 e.g. You can enter `find-c bryan low`.
 
-* `KEYWORD` are case insensitive. +
+* `KEYWORD` is case insensitive. +
 e.g. Typing `find-c hans` will show clients even with the name `Hans`. +
 
 * The words used for `KEYWORD` have to match at least one word in the name of the clients. +
@@ -249,7 +249,7 @@ image::ug-findcExamplePart3.png[]
 You might face some errors or difficulties when you `find-c`. In this section, you will be able to understand these errors and resolve them. You will also get a better understanding of the reply from the result box when using `find-c`.
 
 ===== Using incomplete KEYWORD
-You might wonder why `find-c` do not show the clients even though the client is clearly in your client list records. It might be possible that you have entered an incomplete name and does not match any word in the name of that client. The example below might help you understand better.
+You might wonder why `find-c` do not show the clients even though the client is clearly in your client list records. It might be possible that you have entered an incomplete name and does not match any word in the name of that client.
 
 Example:
 You want to find the client named "Bryan Low" in *Client List*. Below shows that "Bryan Low" indeed exists and is recorded.
@@ -268,7 +268,7 @@ This is because the name that you have entered is incomplete and does not match 
 
 ===== Using multiple KEYWORD
 
-You might wonder why the application shows more clients than you intended. It might be possible that you have misunderstood how the `KEYWORD` parameter gets the client you are finding. The application will show clients as long as one of the words of the client match a keyword you use for name. The example below might help you understand better.
+You might wonder why the application shows more clients than you intended. It might be possible that you have misunderstood how the `KEYWORD` parameter gets the client you are finding. The application will show clients as long as one of the words of the client match a keyword you use for name.
 
 Example:
 You want to find the client named "Bryan Low" in *Client List*.
@@ -766,7 +766,7 @@ This section acts as a summary of the important things to note when using `add-e
 [options='header']
 [cols="15%,85%"]
 |====================
-| Parameters | Important points to note
+| Parameter | Important points to note
 | `n/NAME` + |
 * Substitute `NAME` with the name of the exercise. +
 
@@ -833,7 +833,7 @@ image::ug-addeExamplePart3.png[]
 You might face some errors or difficulties when you use `add-e`. In this section, you will be able to understand these errors and resolve them.
 
 ===== Duplicate exercises
-You might wonder why the application shows you a duplicate exercise error when the details of the exercises you entered are different. It is likely that only the sets differ between the two exercises. The example below might help you understand better.
+You might wonder why the application shows you a duplicate exercise error when the details of the exercises you entered are different. It is likely that only the sets differ between the two exercises.
 
 You might have the following exercise in *Exercise Table*.
 
@@ -862,7 +862,7 @@ This section acts as a summary of the important things to note when using `edit-
 [options='header']
 [cols="15%,85%"]
 |====================
-| Parameters | Important points to note
+| Parameter | Important points to note
 | `INDEX` + |
 * Substitute `INDEX` with the index of the exercise shown on the table. +
 
@@ -919,7 +919,7 @@ image::ug-editeExamplePart3.png[]
 You might face some errors or difficulties when you use `edit-e`. In this section, you will be able to understand these errors and resolve them.
 
 ===== Duplicate exercises
-You might wonder why the application shows you a duplicate exercise error when you do not have a duplicate of the edited exercise. It is likely that only the sets differ between the two exercises. The example below might help you understand better.
+You might wonder why the application shows you a duplicate exercise error when you do not have a duplicate of the edited exercise. It is likely that only the sets differ between the two exercises.
 
 You might have the following exercise in *Exercise Table*.
 
