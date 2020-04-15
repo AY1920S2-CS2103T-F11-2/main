@@ -199,12 +199,12 @@ image::UGListCDiagram5.png[]
 // tag::find-c[]
 
 === Find clients by name: `find-c` --- Yong Jie
-`find-c` allows you to find clients with the names that are specified in your input. You might have many clients and finding a particular client by scrolling through the entire *Client List* might be troublesome and difficult.
+`find-c` allows you to find clients with the names that are specified in your input. You might have many clients and finding a particular client by scrolling through the entire *Client List* might be troublesome and difficult. Use `find-c` to find the client you are looking for.
 
 *Format*: `find-c KEYWORD [KEYWORD]...`
 
 ==== Parameters
-This section acts as a summary of the important things to note when using `find-c` including their parameters.
+The table belows shows the parameters for `find-c` and the important things to note for each of them.
 
 [options='header']
 [cols="15%,85%"]
@@ -246,7 +246,7 @@ image::ug-findcExamplePart2.png[]
 image::ug-findcExamplePart3.png[]
 
 ==== Common errors / problems
-You might face some errors or difficulties when you `find-c`. In this section, you will be able to understand these errors and resolve them. You will also get a better understanding of the reply from the result box when using `find-c`.
+You might face some errors or difficulties when you `find-c`. In this section, you will be able to understand these errors and resolve them.
 
 ===== Using incomplete KEYWORD
 You might wonder why `find-c` do not show the clients even though the client is clearly in your client list records. It might be possible that you have entered an incomplete name and does not match any word in the name of that client.
@@ -764,7 +764,7 @@ To correct this, you have to enter a valid `INDEX` that is not more than the num
 This command can only be used when you have a client in view; make sure you know how to view a client first. Refer to <<view-c-command>> for more information.
 
 ==== Parameters
-This section acts as a summary of the important things to note when using `add-e` including their parameters.
+The table belows shows the parameters for `add-e` and the important points to note for each of them.
 
 [options='header']
 [cols="15%,85%"]
@@ -814,7 +814,7 @@ Weight: 100 +
 Sets: 4 +
 |============
 
-. View the client that you want to add the exercise to. For information on how to view the client, you can refer to the `view-c` section. For this example, we will add the exercise to the first client in the list, `Alex Yeoh`. After you entered `view-c 1`, you will see `Alex Yeoh` detailed information and a table of his recorded exercises.
+. View the client that you want to add the exercise to. For this example, we will add the exercise to the first client in the list, `Alex Yeoh`. After you entered `view-c 1`, you will see `Alex Yeoh` detailed information and a table of his recorded exercises.
 +
 image::ug-addeExamplePart1.png[]
 . Now type the information of the exercise, matching each detail of the exercise to the parameter. In this case, you will have to type `add-e n/Bench press d/12-02-2020 reps/4 ew/100 sets/4` into *Command Box*. Press enter to execute it. To recap,
@@ -866,7 +866,7 @@ This command can only be used when you have a client in view; make sure you know
 Editing an exercise from FitBiz is permanent and *cannot be undone*.
 
 ==== Parameters
-This section acts as a summary of the important things to note when using `edit-e` including their parameters.
+The table below shows the parameters for `edit-e` and the important points to note for each of them.
 
 [options='header']
 [cols="15%,85%"]
