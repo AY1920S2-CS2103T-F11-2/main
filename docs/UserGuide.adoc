@@ -210,7 +210,7 @@ The table belows shows the parameters for `find-c` and the important things to n
 [cols="15%,85%"]
 |====================
 | Parameter | Important points to note
-| `KEYWORD` |
+| `KEYWORD` + a|
 * Substitute `KEYWORD` with the names you want to search with +
 
 * You can use multiple `KEYWORD`. +
@@ -250,7 +250,6 @@ You might face some errors or difficulties when you `find-c`. In this section, y
 ===== Using incomplete KEYWORD
 You might wonder why `find-c` do not show the clients even though the client is clearly in your client list records. It might be possible that you have entered an incomplete name and does not match any word in the name of that client.
 
-Example:
 You want to find the client named "Bryan Low" in *Client List*. Below shows that "Bryan Low" indeed exists and is recorded.
 
 image::ug-findcIncompleteNamePart1.png[]
@@ -265,7 +264,6 @@ To correct this, you have to enter `find-c bryan` as seen in the example.
 
 You might wonder why the application shows more clients than you intended. It might be possible that you have misunderstood how the `KEYWORD` parameter gets the client you are finding. The application will show clients as long as one of the words of the client match a keyword you use for name.
 
-Example:
 You want to find the client named "Bryan Low" in *Client List*.
 
 Type `find-c bryan low` in to *Command Box*, and press `Enter` to execute it.
@@ -763,30 +761,30 @@ The table belows shows the parameters for `add-e` and the important points to no
 [cols="15%,85%"]
 |====================
 | Parameter | Important points to note
-| `n/NAME` + |
+| `n/NAME` + a|
 * Substitute `NAME` with the name of the exercise. +
 
 * `n/NAME` is case sensitive. +
 e.g. An exercise named `pushup` will be considered to have a different name as an exercise named `Pushup`.
 
-| `d/DATE` + |
+| `d/DATE` + a|
 * Substitute `DATE` with the date of the exercise. +
 
 * `DATE` must be of the form `DD-MM-YYYY` (ie. 02-07-2020 for 2nd July 2020)
 
 * The range of `DATE` is from one year before the current date to the current date (inclusive).
 
-| `[reps/REPS]` + |
+| `[reps/REPS]` + a|
 * Substitute `REPS` with the reps of the exercise. +
 
 * Range for `REPS` is 1-9999. +
 
-| `[sets/SETS]` + |
+| `[sets/SETS]` + a|
 * Substitute `SETS` with the sets of the exercise. +
 
 * Range for `SETS` is 1-9999. +
 
-| `[ew/WEIGHT]` + |
+| `[ew/WEIGHT]` + a|
 * Substitute `Weight` with the weight of the exercise. +
 
 * Range for `WEIGHT` is 1-9999. +
@@ -808,28 +806,29 @@ Sets: 4 +
 
 . Type the information of the exercise, matching each detail of the exercise to the parameter. In this case, type `add-e n/Bench press d/12-02-2020 reps/4 ew/100 sets/4` into *Command Box*. Press enter to execute it. 
 +
-image::ug-addeExamplePart2.png[]
+image::ug-addeExamplePart1.png[]
 . After it has been successfully entered, *Result Box* will display that exercise has been sucessfully recorded. You will also be able to see the recorded exercise in the *Exercise Table*.
 +
-image::ug-addeExamplePart3.png[]
+image::ug-addeExamplePart2.png[]
 
 ==== Common errors / problems
 You might face some errors or difficulties when you use `add-e`. In this section, you will be able to understand these errors and resolve them.
 
 ===== Duplicate exercises
-You might wonder why the application shows you a duplicate exercise error when the details of the exercises you entered are different. It is likely that only the sets differ between the two exercises.
+You might wonder why the application shows you a duplicate exercise error when the details of the exercises you entered are different.
 
-You might have the following exercise in *Exercise Table*.
+You want to add an exercise such that the new exercise and the exercise highlighted below have the same name, date, reps and exercise weight. 
+
+
+
+
+You enter `add-e n/Bench Press d/12-02-2020 reps/4 ew/100 sets/2`.
 
 image::ug-addeDuplicatePart1.png[]
 
-If you were to enter `add-e n/Bench Press d/12-02-2020 reps/4 ew/100 sets/2` into *Command Box*, the only information that is different is the number of sets.
-
-image::ug-addeDuplicatePart2.png[]
-
 *Result Box* will show that you have a duplicate exercise.
 
-image::ug-addeDuplicatePart3.png[]
+image::ug-addeDuplicatePart2.png[]
 
 To solve this, we suggest incrementing the sets of the existing exercise by using the `edit-e` command. This will help to keep your exercises consolidated and the table compact. For information on using `edit-e`, you may want to refer to the next section `Edit a client's exercise: edit-e`.
 // end::add-e[]
@@ -853,33 +852,33 @@ The table below shows the parameters for `edit-e` and the important points to no
 [cols="15%,85%"]
 |====================
 | Parameter | Important points to note
-| `INDEX` + |
+| `INDEX` + a|
 * Substitute `INDEX` with the index of the exercise shown on the table. +
 
-| `[n/NAME]` + |
+| `[n/NAME]` + a|
 * Substitute `NAME` with the name of the exercise. +
 
 * `n/NAME` is case sensitive. +
 e.g. An exercise named `pushup` will be considered to have a different name as an exercise named `Pushup`.
 
-|`[d/DATE]` + |
+|`[d/DATE]` + a|
 * Substitute `DATE` with the date of the exercise. +
 
 * `DATE` must be of the form `DD-MM-YYYY` (ie. 02-07-2020 for 2nd July 2020) +
 
 * The range of `DATE` is from one year before the current date to the current date (inclusive).
 
-| `[reps/REPS]` + |
+| `[reps/REPS]` + a|
 * Substitute `REPS` with the reps of the exercise. +
 
 * Range for `REPS` is 1-9999. +
 
-| `[sets/SETS]` + |
+| `[sets/SETS]` + a|
 * Substitute `SETS` with the sets of the exercise. +
 
 * Range for `SETS` is 1-9999. +
 
-| `[ew/WEIGHT]` + |
+| `[ew/WEIGHT]` + a|
 * Substitute `Weight` with the weight of the exercise. +
 
 * Range for `WEIGHT` is 1-9999. +
@@ -905,19 +904,17 @@ image::ug-editeExamplePart3.png[]
 You might face some errors or difficulties when you use `edit-e`. In this section, you will be able to understand these errors and resolve them.
 
 ===== Duplicate exercises
-You might wonder why the application shows you a duplicate exercise error when you do not have a duplicate of the edited exercise. It is likely that only the sets differ between the two exercises.
+You might wonder why the application shows you a duplicate exercise error when you do not have a duplicate of the edited exercise.
 
-You might have the following exercise in *Exercise Table*.
+You want to edit an exercise such that the new exercise and the exercise highlighted below have the same name, date, reps and exercise weight. 
 
 image::ug-editeDuplicatePart1.png[]
 
-If you were to enter `edit-e 2 n/Bench Press d/12-02-2020 reps/4 ew/100 sets/2` into *Command Box*, the only information that is different is the number of sets.
-
-image::ug-editeDuplicatePart2.png[]
+You enter `edit-e 1 d/12-02-2020 ew/50`.
 
 *Result Box* will show that you have a duplicate exercise.
 
-image::ug-editeDuplicatePart3.png[]
+image::ug-editeDuplicatePart2.png[]
 
 To solve this, we suggest you delete the exercise you want to edit and increment the sets of the existing exercise by using the `edit-e` command. This will help to keep your exercises consolidated and the table compact.
 // end::edit-e[]
