@@ -34,8 +34,25 @@ In this guide, we cover:
 * How to navigate the Graphical User Interface (GUI)
 * How to use the Command Line Interface (CLI)
 * Syntax of the commands available in FitBiz
-* Common use cases for each command
+* Examples and common use cases for each command
 * Common problems encountered by users
+
+Note the following markups used in this User Guide:
+
+* `Monospace words with grey background`: denote a command, or a specific text that you should type
+* *Bold words*: denote some important information, or may refer to a specific GUI section
+* kbd:[Words with border]: denote a specific key on the keyboard (eg. kbd:[Tab])
+
+Note also, that we use the following symbols in this User Guide:
+
+[TIP]
+This denotes some useful advice: sections with this symbol may be skipped.
+
+[NOTE]
+This denotes some additional information: sections with this symbol should at least be skimmed.
+
+[WARNING]
+This denotes a warning: sections with this symbol must be read very carefully.
 
 [[understanding-the-gui]]
 === Understanding the Graphical User Interface (GUI)
@@ -57,7 +74,7 @@ image::Ui-annotated.png[]
 ** **Personal Best Table**: this displays the personal bests of the exercises done by the current _client in view_
 
 [TIP]
-If this is your first time using FitBiz and you have just started up the application, you may realise that the *Client View* section is missing. This is because you are currently not viewing a client. Refer to <<view-c-command>> for more information about what you need to do.
+If this is your first time using FitBiz and you have just started up the application, you may realise that the *Client View* section is missing. This is because you are currently not viewing a client. Refer to the <<view-c-command, `view-c`>> command for more information about what you need to do.
 
 // tag::understanding-the-cli[]
 [[understanding-the-cli]]
@@ -103,7 +120,7 @@ image::autocomplete-1.png[]
 Immediately, you should have noticed three things:
 
 . All the parameter prefixes pertaining to the `add-c` command have been automatically completed for you
-. Your caret is placed right after the `n/` for you to type your parameter
+. Your https://en.wikipedia.org/wiki/Caret_navigation[caret] (also known as the "text cursor") is placed right after the `n/` for you to type your parameter
 . The **Result Box** shows you the usage of the `add-c` command
 
 Now, you can also press the kbd:[Tab] key repeatedly to go to the next parameter prefix, instead of wasting time using your mouse.
@@ -124,31 +141,33 @@ The autocompletion of the parameter prefixes are only for these commands: `add-c
 
 == Quick Start
 
+Follow the steps here if you want to dive straight into using FitBiz:
+
 . Ensure you have Java 11 or above installed in your Computer
 . Download the latest `FitBiz.jar` link:{repoURL}/releases[here]
-. Move the `FitBiz.jar` file to the folder you want to use as the home folder of this application (to reduce clutter, an empty folder is recommended as files will be generated)
+. Move the `FitBiz.jar` file to the folder you want to use as the home folder for this application (to reduce clutter, an empty folder is recommended as numerous files will be created)
 . Double-click the file to start the app. The following GUI should appear in a few seconds:
 +
 image::Ui.png[]
-. Type the command in the *Command Box* and press kbd:[Enter] to execute it
+. To _execute_ a command, type the command in the *Command Box* and press kbd:[Enter]
 ** For example, executing the `help` command will lead you to this page
 
-====
-* Refer to the <<understanding-the-gui, GUI>> and <<understanding-the-cli, CLI>> guides if you need help navigating this application
-* Refer to <<Commands>> for the details and syntax of each command
-====
+[TIP]
+Refer to the <<understanding-the-gui, GUI>> and <<understanding-the-cli, CLI>> guides if you need help navigating this application. Refer to <<Commands>> for the details and syntax of the available commands.
 
 == Commands
 
-====
 This section introduces the syntax and the usages of the commands available in FitBiz. In explaining the syntax, we will adhere to the following format:
 
+====
 * Words in `UPPER_SNAKE_CASE` are the parameters to be supplied by the user
 ** e.g. in `add-c n/NAME`, `NAME` is a parameter which can be used as `add-c n/John Doe`
+* Parameter prefixes, or just prefixes, refer to the prefix right before a parameter
+** e.g. in `n/NAME`, `n/` is the prefix for the parameter `NAME`
 * Items in square brackets are optional
-** e.g. `n/NAME [t/TAG]` can be used as `n/John Doe t/friend` or as `n/John Doe`
+** e.g. `n/NAME [t/TAG]` can be used as `n/John Doe t/Normal` or as `n/John Doe`
 * Items with `…` after them can be used multiple times including zero times
-** e.g. `[t/TAG]…` can be used as (i.e. 0 times), `t/friend`, `t/friend t/family` etc.
+** e.g. `[t/TAG]…` can be used as (i.e. 0 times), `t/Paleo`, `t/Paleo t/Normal` etc.
 * Parameters can be in any order
 ** e.g. if the command specifies `n/NAME p/PHONE_NUMBER`, `p/PHONE_NUMBER n/NAME` is also acceptable
 ====
