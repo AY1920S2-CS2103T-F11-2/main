@@ -793,7 +793,7 @@ e.g. An exercise named `pushup` will be considered to have a different name as a
 |====================
 
 ==== Example
-Let's say that you want to add an exercise to `Alex Yeoh`. The details of the exercise: +
+Let's say that you want to add an exercise to "Alex Yeoh". The details of the exercise: +
 [width="50%"]
 |============
 Name: Bench Press +
@@ -803,11 +803,11 @@ Weight: 100 +
 Sets: 4 +
 |============
 
-. Enter the `view-c` command to view `Alex Yeoh`. You will see a table of his recorded exercises.
+. Use the `view-c` command to view "Alex Yeoh".
 +
-image::ug-addeExamplePart1.png[]
-. Type the information of the exercise, matching each detail of the exercise to the parameter. In this case, type `add-e n/Bench press d/12-02-2020 reps/4 ew/100 sets/4` into *Command Box*. Press enter to execute it. 
 
+. Type the information of the exercise, matching each detail of the exercise to the parameter. In this case, type `add-e n/Bench press d/12-02-2020 reps/4 ew/100 sets/4` into *Command Box*. Press enter to execute it. 
++
 image::ug-addeExamplePart2.png[]
 . After it has been successfully entered, *Result Box* will display that exercise has been sucessfully recorded. You will also be able to see the recorded exercise in the *Exercise Table*.
 +
