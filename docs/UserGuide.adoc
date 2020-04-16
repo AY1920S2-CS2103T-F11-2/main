@@ -245,7 +245,7 @@ image::ug-findcExamplePart2.png[]
 image::ug-findcExamplePart3.png[]
 
 ==== Common errors / problems
-You might face some errors or difficulties when you `find-c`. In this section, you will be able to understand these errors and resolve them.
+Here are some common errors and problems when using `find-c`:
 
 ===== Using incomplete KEYWORD
 You might wonder why `find-c` do not show the clients even though the client is clearly in your client list records. It might be possible that you have entered an incomplete name and does not match any word in the name of that client.
@@ -254,7 +254,7 @@ You want to find the client named "Bryan Low" in *Client List*. Below shows that
 
 image::ug-findcIncompleteNamePart1.png[]
 
-Enter `find-c bry` into *Command Box*. You will obtain "0 clients listed!" in *Result Box*.
+Enter `find-c bry` into *Command Box*. *Result Box* will show "0 clients listed!".
 
 image::ug-findcIncompleteNamePart2.png[]
 
@@ -807,12 +807,12 @@ Sets: 4 +
 . Type the information of the exercise, matching each detail of the exercise to the parameter. In this case, type `add-e n/Bench press d/12-02-2020 reps/4 ew/100 sets/4` into *Command Box*. Press enter to execute it. 
 +
 image::ug-addeExamplePart1.png[]
-. After it has been successfully entered, *Result Box* will display that exercise has been sucessfully recorded. You will also be able to see the recorded exercise in the *Exercise Table*.
+. After the command has been successfully executed, *Result Box* will notify that the exercise has been recorded. You will also be able to see the recorded exercise in the *Exercise Table*.
 +
 image::ug-addeExamplePart2.png[]
 
 ==== Common errors / problems
-You might face some errors or difficulties when you use `add-e`. In this section, you will be able to understand these errors and resolve them.
+Here are some common errors and problems when using `add-e`:
 
 ===== Duplicate exercises
 You might wonder why the application shows you a duplicate exercise error when the details of the exercises you entered are different.
@@ -898,7 +898,7 @@ image::ug-editeExamplePart2.png[]
 image::ug-editeExamplePart3.png[]
 
 ==== Common errors / problems
-You might face some errors or difficulties when you use `edit-e`. In this section, you will be able to understand these errors and resolve them.
+Here are some common errors and problems when using `edit-e`:
 
 ===== Duplicate exercises
 You might wonder why the application shows you a duplicate exercise error when you do not have a duplicate of the edited exercise.
@@ -1336,7 +1336,7 @@ The table below shows the commands that finds a client or manipulates the client
 |=======================================================================
 
 === Exercise Commands
-The table below shows the commands that manipulate the details of the exercises done by the client.
+The table below shows the commands that manipulate the details of the exercises done by a client.
 
 [width="100%",cols="20%,<30%",options="header",]
 |=======================================================================
