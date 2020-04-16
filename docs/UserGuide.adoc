@@ -679,43 +679,38 @@ In the example above, the `EMAIL` field was faulty. This behaviour of FitBiz als
 // tag::delete-c-command[]
 === Delete a client: `delete-c` --- Li Zi Ying
 
-You find that your client list contains a client who is no longer working with you and you would like to remove his details from your client list. `delete-c` allows you to delete the client at the specified index from your list of clients.
+You want to remove the details of a client who is no longer working with you. `delete-c` allows you to delete the client at the specified index from your client list.
 
 *Format*: `delete-c INDEX`
 
 ==== Parameters
 
-This section acts as a summary of the important things to note when using `delete-c` including their parameters.
+This section shows the parameters of `delete-c` and the important things to note about them:
 
 [options='header']
 [cols="15%,85%"]
 |====================
-| Parameters | Important points to note
-| `INDEX` + |
-`INDEX` refers to the index number shown in the displayed client list +
+| Parameter | Important points to note
+| `INDEX` + a|
+* `INDEX` refers to the index number shown in the displayed client list +
 
-`INDEX` must be a positive integer (ie. 1, 2, 3, ...) +
+* `INDEX` must be a positive integer (ie. 1, 2, 3, ...) +
+
+* `INDEX` is compulsory
 |====================
 
 ==== Examples
-Let’s say that you want to delete the client named "Alex Yeoh" in client list. You can simply use the `delete-c` command as shown.
+Suppose that you want to delete the client "Alex Yeoh" in the client list. You can simply use the `delete-c` command as shown.
 
 . Type `delete-c 1` into the Command Box and press `Enter` to execute it.
 +
 image::ug-delete-1.png[]
-. Result Box will display the message of the details of the deleted client. You can now see that the Client List no longer contains the deleted client.
+. Result Box will display a success message including details of the deleted client. You can now see that the Client List no longer contains the deleted client.
 +
 image::ug-delete-2.png[]
 
 ==== Common errors/problems
-You might face some errors or difficulties when you use `delete-c`. In this section, you will be able to understand these errors and resolve them.
-
-===== No index specified
-If you type in `delete-c` without specifying the `INDEX`, no client will be deleted and an error message will be shown.
-
-image::ug-delete-3.png[]
-
-This happens because there is no `INDEX` specified. To correct this, you have to enter a valid `INDEX` after `delete-c`.
+Here are some common errors and problems that you may encounter:
 
 ===== Index out of range
 If you key in an `INDEX` that is out of range, that is if there are only 4 clients in the list but you try to key in `delete-c 5`, no client will be deleted and an error message will be shown.
@@ -728,27 +723,28 @@ To correct this, you have to enter a valid `INDEX` that is not more than the num
 [[view-c-command]]
 === View a client profile: `view-c` --- Li Zi Ying
 
-You might want to view the complete information of a certain client in your client list. This complete information includes the client's full details, their exercise table and personal best table. `view-c INDEX` shows all available information of the client at the specified index.
+You might want to view the complete information of a certain client in your client list. `view-c INDEX` shows all available information of the client at the specified index.
 
 *Format*: `view-c INDEX`
 
 ==== Parameters
-This section acts as a summary of the important things to note when using `view-c` including their parameters.
+This section shows the parameters of `view-c` and the important things to note about them:
 
 [options='header']
 [cols="15%,85%"]
 |====================
-| Parameters | Important points to note
-| `INDEX` + |
-`INDEX` refers to the index number shown in the displayed client list +
+| Parameter | Important points to note
+| `INDEX` + a|
+* `INDEX` refers to the index number shown in the displayed client list +
 
-`INDEX` must be a positive integer (ie. 1, 2, 3, ...) +
+* `INDEX` must be a positive integer (ie. 1, 2, 3, ...) +
 
+* `INDEX` is compulsory + 
 |====================
 
 ==== Examples
 
-Let’s say that you want to view the details of the client named "Alex Yeoh" in client list. You can simply use the `view-c` command as shown.
+Let’s say that you want to view the details of the client  "Alex Yeoh" in the client list. You can simply use the `view-c` command as shown.
 
 . Type `view-c 1` into the Command Box and press `Enter` to execute it.
 +
@@ -759,14 +755,7 @@ image::ug-view-1.png[]
 image::ug-view-2.png[]
 
 ==== Common errors/problems
-You might face some errors or difficulties when you use `view-c`. In this section, you will be able to understand these errors and resolve them.
-
-===== No index specified
-If you type in `view-c` without specifying the `INDEX`, no client will be viewed and an error message will be shown.
-
-image::ug-view-3.png[]
-
-This happens because there is no `INDEX` specified. To correct this, you have to enter a valid `INDEX` after `view-c`.
+Here are some common errors and problems that you may encounter:
 
 ===== Index out of range
 If you key in an `INDEX` that is out of range, that is if there are only 5 clients in the list but you try to key in `view-c 10`, no client will be viewed and an error message will be shown.
@@ -1240,54 +1229,54 @@ image::FilterTagSuccess.png[]
 
 ==== Parameters
 
-This section acts as a summary of important things to note when using `graph` including their parameters.
+This section shows the parameters of `graph` and the important things to note about them:
 
 [options='header']
 [cols="15%,85%"]
 |====================
-| Parameters | Important points to note
-| `n/EXERCISE_NAME` + |
-Substitute `EXERCISE_NAME` with the name of the exercise. +
+| Parameter | Important points to note
+| `n/EXERCISE_NAME` + a|
+* Substitute `EXERCISE_NAME` with the name of the exercise. +
 
-`n/EXERCISE_NAME` is compulsory and you have to specify it. +
+* `n/EXERCISE_NAME` is compulsory and you have to specify it. +
 
-`n/EXERCISE_NAME` is case sensitive. +
+* `n/EXERCISE_NAME` is case sensitive. +
 e.g. An exercise `pushup` will be considered to be different from the exercise `Pushup`.
 
-| `a/Y_AXIS` + |
-Substitute `Y_AXIS` with the y-axis of your choice. +
+| `a/Y_AXIS` + a|
+* Substitute `Y_AXIS` with the y-axis of your choice. +
 
-`Y_AXIS` is compulsory and you have to specify it. +
+* `Y_AXIS` is compulsory and you have to specify it. +
 
-`Y_AXIS` must either be `reps` or `weight` (case insensitive), allowing you to specify the exercise attribute you wish to focus on +
+* `Y_AXIS` must either be `reps` or `weight` (case insensitive), allowing you to specify the exercise attribute you wish to focus on +
 e.g. `Reps`, `weigHt` and `WEIGHT` will be valid inputs for `Y_AXIS`. +
 
-| `sd/START_DATE` + |
-Substitute `START_DATE` with the start date of your graph. +
+| `sd/START_DATE` + a|
+* Substitute `START_DATE` with the start date of your graph. +
 
-`sd/START_DATE` is compulsory and you have to specify it. +
+* `sd/START_DATE` is compulsory and you have to specify it. +
 
-`START_DATE` must be of the form `DD-MM-YYYY` (ie. 02-07-2020 for 2nd July 2020) +
+* `START_DATE` must be of the form `DD-MM-YYYY` (ie. 02-07-2020 for 2nd July 2020) +
 
-The range of `START_DATE` is from one year before the current date to the current date (inclusive). +
+* The range of `START_DATE` is from one year before the current date to the current date (inclusive). +
 
-`START_DATE` cannot be chronologically after `END_DATE` +
+* `START_DATE` cannot be chronologically after `END_DATE` +
 
-| `ed/END_DATE` + |
-Substitute `END_DATE` with the end date of your graph +
+| `ed/END_DATE` + a|
+* Substitute `END_DATE` with the end date of your graph +
 
-`ed/END_DATE` is compulsory and you have to specify it. +
+* `ed/END_DATE` is compulsory and you have to specify it. +
 
-`END_DATE` must be of the form `DD-MM-YYYY` (ie. 02-07-2020 for 2nd July 2020) +
+* `END_DATE` must be of the form `DD-MM-YYYY` (ie. 02-07-2020 for 2nd July 2020) +
 
-The range of `END_DATE` is from one year before the current date to the current date (inclusive). +
+* The range of `END_DATE` is from one year before the current date to the current date (inclusive). +
 
-`END_DATE` cannot be chronologically before `START_DATE` +
+* `END_DATE` cannot be chronologically before `START_DATE` +
 |====================
 
 ==== Example
 
-Let's say that you wish to view the exercise graph of `Alex Yeoh` for the exercise `Sumo Deadlift` from the date `01-01-2020` to `13-04-2020` and you want to focus on the `weight` he lifted during the exercise.
+Suppose that you wish to view the exercise graph of `Alex Yeoh` for the exercise `Sumo Deadlift` from the  `01-01-2020` to `13-04-2020` and you want to focus on the `weight` he lifted during the exercise.
 
 You can use the `graph` command to view the graph of the exercise following the steps as shown:
 
@@ -1305,7 +1294,7 @@ image::ug-graph-3.png[]
 image::ug-graph-4.png[]
 
 ==== Common errors/problems
-You might face some errors or difficulties when you use `graph`. In this section, you will be able to understand these errors and resolve them. You will also get a better understanding of the reply from the Result Box when using `graph`.
+Here are some common errors and problems that you may encounter:
 
 ===== No exercise within stipulated timeframe
 If you have keyed in the `graph` command in the correct format but the graph is not appearing, you might want to check the start and end dates in your command. In the example below, the exercise clearly exists in the exercise list, but not within the stipuated timeframe. Therefore the graph will not be displayed.
@@ -1323,7 +1312,7 @@ To correct this, change the timeframe to one where there is at least one existin
 
 If you have keyed in the `graph` command in the correct format but the graph is not appearing, you might want to check the y-axis in your command. In the example below, the exercise clearly exists in the exercise list, but there are no inputs for the stipulated y-axis. Therefore the graph will not be displayed.
 
-. The exercise `Push Up` clearly exists in the given timeframe. However, there are no inputs for weight as seen in the exercise table.
+. The exercise `Push Up` clearly exists in the given timeframe. However, there are no inputs for `weight` as seen in the exercise table.
 +
 image::ug-graph-7.png[]
 . The graph will not appear and an error message will be shown.
@@ -1332,18 +1321,6 @@ image::ug-graph-8.png[]
 
 To correct this, change the axis to one where there is at least one non-empty input of the  exercise in the current exercise list. You could also choose to view another exercise's graph instead.
 
-===== Invalid time frame
-
-If you have keyed in the `graph` command in the command box but the graph is not appearing, you might want to check the start and end dates. In the example below, the command format looks correct but the start date is later than the end date. This is not allowed and therefore the graph will not be displayed.
-
-. The start date `01-04-2020` is chronologically later than the end date `01-02-2020`.
-+
-image::ug-graph-9.png[]
-. The graph will not appear and an error message will be shown.
-+
-image::ug-graph-10.png[]
-
-To correct this, the start date has to be earlier or the same as the end date.
 // end::graph-command[]
 === View schedule for the day/week: `view-s` [Coming in v2.0]
 
