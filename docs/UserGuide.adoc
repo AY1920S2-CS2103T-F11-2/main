@@ -739,7 +739,7 @@ This section shows the parameters of `view-c` and the important things to note a
 
 * `INDEX` must be a positive integer (ie. 1, 2, 3, ...) +
 
-* `INDEX` is compulsory + 
+* `INDEX` is compulsory +
 |====================
 
 ==== Examples
