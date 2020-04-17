@@ -232,7 +232,7 @@ e.g. Typing `find-c Hans Bo` will show clients `Hans Gruber` and `Bo Yang` and n
 
 Let's say that you want to find a client named "Bryan Low" in *Client List*.
 
-. Type `find-c bryan` into *Command Box*, and press `Enter` to execute it.
+. Type `find-c bryan` into *Command Box*, and press kbd:[ENTER] to execute it.
 +
 image::ug-findcExamplePart1.png[]
 
@@ -804,7 +804,7 @@ Sets: 4 +
 . Use the `view-c` command to view "Alex Yeoh".
 +
 
-. Type the information of the exercise, matching each detail of the exercise to the parameter. In this case, type `add-e n/Bench press d/12-02-2020 reps/4 ew/100 sets/4` into *Command Box*. Press enter to execute it.
+. Type the information of the exercise, matching each detail of the exercise to the parameter. In this case, type `add-e n/Bench press d/12-02-2020 reps/4 ew/100 sets/4` into *Command Box*. Press kbd:[ENTER] to execute it.
 +
 image::ug-addeExamplePart1.png[]
 . After the command has been successfully executed, *Result Box* will notify that the exercise has been recorded. You will also be able to see the recorded exercise in the *Exercise Table*.
@@ -889,7 +889,7 @@ Let's say that you want to edit the exercise, "Bench Press". The exercise curren
 
 image::ug-editeExamplePart1.png[]
 
-. Identify the index of "Bench Press" in *Exercise Table*. From the photo above, the index is 2. Type `edit-e 2 reps/8 ew/50` into *Command Box*. Press enter to execute it. To recap,
+. Identify the index of "Bench Press" in *Exercise Table*. From the photo above, the index is 2. Type `edit-e 2 reps/8 ew/50` into *Command Box*. Press kbd:[ENTER] to execute it. To recap,
 +
 
 image::ug-editeExamplePart2.png[]
@@ -907,7 +907,7 @@ You want to edit an exercise such that the new exercise and the exercise highlig
 
 image::ug-editeDuplicatePart1.png[]
 
-You enter `edit-e 1 d/12-02-2020 ew/50`.
+Enter `edit-e 1 d/12-02-2020 ew/50`.
 
 *Result Box* will show that you have a duplicate exercise.
 
