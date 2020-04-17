@@ -206,45 +206,6 @@ This section introduces the syntax and the usages of the commands available in F
 
 Entering `help` into FitBiz will redirect you to this User Guide website.
 
-// tag::list-c[]
-=== List all clients: `list-c` ---Ng Ming Liang
-
-You can list all clients on the *Client List*. This is useful when your *Client List* has been filtered by the `filter-c` command, and you want to view all clients again. When using `list-c`, there will be no difference to the *Client List* if it is already showing all clients.
-
-*Format*: `list-c`
-
-==== Parameters
-
-The command is simply `list-c`, and has no additional parameters.
-
-==== Example
-
-Let's say you start off with the full *Client List* as shown below.
-
-image::UGListCDiagram0.png[]
-
-Now, let's say you use the command `filter-c` to filter the clients with the `Paleo` tag as such:
-
-image::UGListCDiagram2.png[]
-
-Your *Client List* will now display only the clients that have the `Paleo` tag. In this example, the only client that fit this requirement is `Alex Yeoh`.
-
-image::UGListCDiagram3.png[]
-
-Let's say you are done with the filter, and want to list all your clients on the *Client List* again. Simply enter `list-c`into the *Command Box* and you should be able to see the following:
-
-image::UGListCDiagram4.png[]
-
-==== Common errors / problems
-
-*No clients shown on the Client List*
-
-You may be greeted with the following scene. This means that there are no clients in your FitBiz. You can begin adding clients by using the `add-c` command. Do refer to the `add-c` section in this document for help regarding `add-c`.
-
-image::UGListCDiagram5.png[]
-
-// end::list-c[]
-
 // tag::find-c[]
 
 === Find clients by name: `find-c` --- Yong Jie
@@ -502,161 +463,147 @@ To solve this issue, ensure that any new client you add does not have the same p
 
 ==== Parameters
 
-This section acts as a summary of the important things to note when using `edit-c` and its parameters. The square bracket shows that it is optional and your command will still execute even if you do not enter them. However, at least one of them have to be specified. The ellipsis after a parameter `...` means that there can be multiple of that same type of parameter.
+This section acts as a summary of the important things to note when using `edit-c` and its parameters.
 
 [options='header']
 [cols="15%,85%"]
 |====================
-| Parameters | Important points to note
-| `INDEX` + |
-* Substitute `INDEX` with the index of the desired client to edit. +
+| Parameter | Important points to note
+| `INDEX` a|
+* Substitute `INDEX` with the index of the desired client to edit +
 
-* `INDEX` is compulsory and you have to specify it. +
+* `INDEX` must be a positive number, and must be a valid index number for a client as displayed from the list of clients +
 
-* `INDEX` must be a positive number, and must be a valid index number for a client as displayed from the list of clients. +
+| `[n/NAME]` a|
+* Substitute `NAME` with the name of the client
 
-| `[n/NAME]` + |
-* Substitute `NAME` with the name of the client.
+* `NAME` should only contain alphanumeric characters, spaces and commas, and it should not be blank
 
-* `NAME` should only contain alphanumeric characters, spaces and commas, and it should not be blank.
 
-* `NAME` is optional.
+| `[p/PHONE]` a|
+* Substitute `PHONE` with the phone number of the client +
 
-| `[p/PHONE]` + |
-* Substitute `PHONE` with the phone number of the client. +
+* `PHONE` should only contain numbers +
 
-* `PHONE` should only contain numbers. +
+* `PHONE` should be at least 3 digits long
 
-* `PHONE` should be at least 3 digits long.
 
-* `PHONE` is optional.
-
-| `[e/EMAIL]` + |
-* Substitute `EMAIL` with the email of the client. +
+| `[e/EMAIL]` a|
+* Substitute `EMAIL` with the email of the client +
 
 * `EMAIL` should be of the format `xxx@yyy`, where: +
 
 * `xxx` should only contain alphanumeric characters and the set of special characters* shown below this table
 
-* `yyy` must be at least 2 characters long, start and end with alphanumeric characters, and consist of alphanumeric characters, a period or a hyphen for the characters in between, if any.
+* `yyy` must be at least 2 characters long, start and end with alphanumeric characters, and consist of alphanumeric characters, a period or a hyphen for the characters in between, if any
 
-* `EMAIL` is optional.
 
-| `[a/ADDRESS]` + |
+| `[a/ADDRESS]` a|
 
-* Substitute `ADDRESS` as the address of the client.
+* Substitute `ADDRESS` as the address of the client
 
-* `ADDRESS` can take any value, but it should not be blank, or start with a whitespace.
+* `ADDRESS` can take any value, but it should not be blank, or start with a whitespace
 
-* `ADDRESS` is optional.
 
-| `[g/GENDER]` + |
+| `[g/GENDER]` a|
 
-* Substitute `GENDER` with the gender of the client.
+* Substitute `GENDER` with the gender of the client
 
 * `GENDER` is case insensitive
 
-* `GENDER` can only be `male` or `m`, `female` or `f`, or `others` or `o`.
+* `GENDER` can only be `male` or `m`, `female` or `f`, or `others` or `o`
 
-* `GENDER` is optional.
+| `[b/BIRTHDAY]` a|
 
-| `[b/BIRTHDAY]` + |
-
-* Substitute `BIRTHDAY` with the birthday of the client.
+* Substitute `BIRTHDAY` with the birthday of the client
 
 * `BIRTHDAY` should be in the format DD-MM-YYYY
 
-* `BIRTHDAY` cannot exceed the current date.
+* `BIRTHDAY` cannot exceed the current date
 
-* `BIRTHDAY` cannot be earlier than 120 years from the current year.
+* `BIRTHDAY` cannot be earlier than 120 years from the current year
 
-* `BIRTHDAY` is optional.
-| `[cw/CURRENT_WEIGHT]` + |
+| `[cw/CURRENT_WEIGHT]` a|
 
-* Substitute `CURRENT_WEIGHT` with the current weight of the client.
+* Substitute `CURRENT_WEIGHT` with the current weight of the client
 
 * `CURRENT_WEIGHT` must take the value of a whole or decimal number(eg. 65 or 86.22)
 
 * `CURRENT_WEIGHT` can only have a maximum of 3 digits before the decimal place and a maximum of 2 digits after the decimal place (eg. 101.25 or 120.20)
 
-* `CURRENT_WEIGHT` is optional.
-| `[tw/TARGET_WEIGHT]` + |
+| `[tw/TARGET_WEIGHT]` a|
 
-* Substitute `TARGET_WEIGHT` with the target weight for the client.
+* Substitute `TARGET_WEIGHT` with the target weight for the client
 
 * `TARGET_WEIGHT` must take the value of a whole or decimal number(eg. 65 or 86.22)
 
 * `TARGET_WEIGHT` can only have a maximum of 3 digits before the decimal place and a maximum of 2 digits after the decimal place (eg. 101.25 or 120.20)
 
-* `TARGET_WEIGHT` is optional.
-| `[h/HEIGHT]` + |
+| `[h/HEIGHT]` a|
 
-* Substitute `HEIGHT` with the height of the client.
+* Substitute `HEIGHT` with the height of the client
 
-* `HEIGHT` must either be a whole or decimal number.
+* `HEIGHT` must either be a whole or decimal number
 
 * `HEIGHT` can only have a maximum of 3 digits before the decimal place and a maximum of 2 digits after the decimal place (eg. 101.25 or 120.20)
 
-* `HEIGHT` is optional.
-| `[s/SPORT]` + |
+| `[s/SPORT]` a|
 
-* Substitute `SPORT` with the sports of the client.
+* Substitute `SPORT` with the sports of the client
 
-* `SPORT` should only contain alphanumeric characters and spaces.
+* `SPORT` should only contain alphanumeric characters and spaces
 
-* Sports given in this command will overwrite all of the client's existing sports.
+* Sports given in this command will overwrite all of the client's existing sports
 
-* `SPORT` is optional.
-| `[t/TAG]` + |
+| `[t/TAG]` a|
 
-* Substitute `TAG` with a tag for the client.
+* Substitute `TAG` with a tag for the client
 
-* `TAG` should only contain alphanumeric characters.
+* `TAG` should only contain alphanumeric characters
 
 * Tags given in the command will overwrite the Client's existing tags
 
 * You can remove all of the client's tags by typing `t/` without specifying any `TAG`
 
-* `TAG` is optional.
+| `[r/REMARK]` a|
 
-| `[r/REMARK]` + |
+* Substitute `REMARK` with remarks for the client
 
-* Substitute `REMARK` with remarks for the client.
+* `REMARK` should be alphanumeric
 
-* `REMARK` should be alphanumeric.
-
-* Any whitespace at the start of `REMARK` will be removed.
-
-* `REMARK` is optional.
+* Any whitespace at the start of `REMARK` will be removed
 
 |====================
-\*The set of special characters are `!#$%&'*+/=?`{|}~^.-`
+\*The set of special characters are: +
+`!#$%&'*+/=?{|}~^.-
 [NOTE]
  At least one of the optional fields must be provided.
 
 ==== Example
 
-Let's say you want to edit the address and assign 3 sports (Tennis, Hockey, Badminton) to client `Irfan Ibrahim`. From the `Client List`, you can see that his client `INDEX` is 3.
+Let's say you want to edit the address and assign 3 sports (Tennis, Hockey, Badminton) to client Irfan Ibrahim.
 
+. You can refer to the *Client List* to find that his client `INDEX` is 3.
++
 image::UGEditCDiagram1.png[]
-
-Next, you can enter the command `edit-c 3 a/New Address #123456 s/Tennis s/Hockey s/Badminton` in the *Command Box*.
-
++
+. You can enter the command `edit-c 3 a/New Address #123456 s/Tennis s/Hockey s/Badminton` in the *Command Box*.
++
 image::UGEditCDiagram2.png[]
-
-Enter the command, and you should see that the *Result Box* displays the edited client's information, and that the *Client List* has updated `Irfan Ibrahim` to show the new changes.
++
+. You should see that the *Result Box* displays the edited client's information, and that the *Client List* has updated Irfan Ibrahim to show the new changes.
 
 image::UGEditCDiagram3.png[]
 
 ==== Common Errors/Problems
 
-You might face some errors or difficulties when you use edit-e. In this section, you will be able to understand these errors and resolve them.
+You might face some errors or difficulties when you use `edit-e`. In this section, you will be able to understand these errors and resolve them.
 
 *Result box not displaying updated client's information*
 
 When you use `edit-c`, instead of seeing the updated client's information in the *Result Box*, you might sometimes encounter an error message informing you about the specifications for the format of the command. This error message varies according to the mistake detected in the parameters given. For simplicity, let's look at one example scenario.
 
-Let's say you attempt to edit the email of `Irfan Ibrahim` and happen to give an incorrect format of the email that does not follow the rules given in the parameters table above for `EMAIL`. Consider the following command: `edit-c 3 e/invalidEmail`.
+Let's say you attempt to edit the email of Irfan Ibrahim and happen to give an incorrect format of the email that does not follow the rules given in the parameters table above for `EMAIL`. Consider the following command: `edit-c 3 e/invalidEmail`.
 
 image::UGEditCDiagram4.png[]
 
@@ -988,71 +935,68 @@ The `schedule` command overwrites the client's existing schedule with the new sc
 
 ==== Parameters
 
-This section acts as a summary of the important things to note when using `schedule`. The square bracket shows that it is optional and your command will still execute even if you do not enter them.
+This section acts as a summary of the important things to note when using `schedule`.
 
 [options='header']
 [cols="15%,85%"]
 |====================
-| Parameters | Important points to note
-| `INDEX` + |
-* Substitute `INDEX` with the index of the desired client to add the schedule to. +
+| Parameter | Important points to note
+| `INDEX` a|
+* Substitute `INDEX` with the index of the desired client to add the schedule to +
 
-* `INDEX` is compulsory and you have to specify it. +
+* `INDEX` must be a positive number, and must be a valid index number for a client as displayed from the list of clients +
 
-* `INDEX` must be a positive number, and must be a valid index number for a client as displayed from the list of clients. +
-
-| `DAY` + |
-* Substitute `DAY` with the first three letters of the day. +
+| `DAY` a|
+* Substitute `DAY` with the first three letters of the day +
 eg. MON / TUE / WED / THU / FRI / SAT / SUN
 
-* `DAY` is compulsory and you have to specify it. +
+* `DAY` can only be one of the above seven values +
 
-* `DAY` can only be one of the above seven values. +
+* `DAY` is not case sensitive
 
-* `DAY` is not case sensitive.
+| `STARTTIME` a|
+* Substitute `STARTTIME` with the starting time of the schedule slot +
 
-| `STARTTIME` + |
-* Substitute `STARTTIME` with the starting time of the schedule slot. +
+* Range for `STARTTIME` is 0000-2359 +
 
-* `STARTTIME` is compulsory.
+* `STARTTIME` must always be earlier than or equal to `ENDTIME`
 
-* Range for `STARTTIME` is 0000-2359. +
+| `ENDTIME` a|
+* Substitute `ENDTIME` with the ending time of the schedule slot +
 
-* `STARTTIME` must always be earlier than or equal to `ENDTIME`.
+* Range for `ENDTIME` is 0000-2359 +
 
-| `ENDTIME` + |
-* Substitute `ENDTIME` with the ending time of the schedule slot. +
-
-* `ENDTIME` is compulsory.
-
-* Range for `ENDTIME` is 0000-2359. +
-
-* `ENDTIME` must always be equal to or later than `STARTTIME`.
+* `ENDTIME` must always be equal to or later than `STARTTIME`
 |====================
 
 ==== Example
 
-Let's say you want to schedule a weekly Monday 11:00am to 12:00pm slot for your client Alex Yeoh. Alex Yeoh is the first client on your *Client List*.
+Imagine that you want to schedule a few sessions for your clients. Let's begin with assigning one schedule slot for Alex Yeoh: Monday 11:00am to 12:00pm. First, let's look at how we can assign one schedule slot to Alex Yeoh.
 
+. Observing from the *Client List*, you can see that Alex Yeoh's client index is `1`.
++
 image::UGScheduleDiagram1.png[]
-
-You can see that Alex Yeoh's client index is `1`. Therefore, you can proceed to type the `schedule` command in the *Command Box* to assign a schedule slot to him.
-
++
+. You can proceed to type the `schedule` command in the *Command Box* to assign the schedule slot to him as shown in the picture below.
++
 image::UGScheduleDiagram2.png[]
-
-After you enter the command, you can see that the *Result Box* has notified you of the new overwritten schedule, and that Alex Yeoh's schedule slot has appeared on the *Schedule Panel* on Monday.
-
++
+. After entering the command, you should see that the *Result Box* notifies you of the new overwritten schedule, and that Alex Yeoh's schedule slot has appeared on the *Schedule Panel* on Monday.
++
 image::UGScheduleDiagram3.png[]
-
-Now let's say you want to add multiple schedules to Bernice Yu: Monday 8:00am to 10:00pm and Tuesday 4:00pm to 6:00pm. You can do that by adding both of these timings into the `schedule` command following the same format as above.
++
+. Now that you have successfully schedule for Alex Yeoh, let's say you also want multiple schedule slots to your client. For example, two schedules to Bernice Yu: Monday 8:00am to 10:00pm and Tuesday 4:00pm to 6:00pm.
+You can do this by adding both of these timings into the `schedule` command following the same format as shown below.
++
 
 image::UGScheduleDiagram4.png[]
 
-Now enter the command, and you'll see that Bernice's schedules also show up on the *Schedule Panel*.
-
++
+. Now enter the command, and you'll see that Bernice's schedules also show up on the *Schedule Panel*.
++
 image::UGScheduleDiagram5.png[]
-
-Finally, let's say Alex no longer has any schedule slots, and you want to clear it. Simply type in `schedule 1 sch/` in the *Command Box* to clear his schedule, and you should see this.
++
+. Finally, if Alex no longer has any schedule slots and you want to clear his schedule, simply type in `schedule 1 sch/` in the *Command Box* to clear his schedule, and you should see this.
 
 image::UGScheduleDiagram6.png[]
 
@@ -1187,6 +1131,42 @@ This error occurs because `TAG` only accepts letters and numbers but not spaces.
 image::FilterTagCorrectCommand.png[]
 
 // end::filter-c-command[]
+
+// tag::list-c[]
+=== List all clients: `list-c` ---Ng Ming Liang
+
+You can list all clients on the *Client List*. This is useful when your *Client List* has been filtered and you want to view all clients again. When using `list-c`, there will be no difference made to the *Client List* if it is already showing all clients.
+
+*Format*: `list-c`
+
+==== Parameters
+
+The command is simply `list-c`, and has no additional parameters.
+
+==== Example
+
+Imagine you have a filtered *Client List*, and you want to view all of your clients again. An example scenario of your filtered *Client List* is shown below, which is displaying Alex Yeoh.
+
+
+image::UGListCDiagram3.png[]
+
+To get your *Client List* to show all your clients again, enter `list-c` into the *Command Box* and you should be able to see the following:
+
+image::UGListCDiagram4.png[]
+
+If successful, you should be able to see "Listed all clients" in the *Result Box* and all of your clients in the *Client List*.
+
+==== Common errors / problems
+
+The following might be a common problem when trying to use the `list-c` command.
+
+*No clients shown on the Client List*
+
+You may be greeted with the following scene. This means that there are no clients in your FitBiz. You can begin adding clients by using the `add-c` command. Do refer to the `add-c` section in this document for help regarding `add-c`.
+
+image::UGListCDiagram5.png[]
+
+// end::list-c[]
 
 // tag::graph-command[]
 === Display visualisations of training progress: `graph` --- Li Zi Ying
