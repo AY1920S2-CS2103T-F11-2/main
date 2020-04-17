@@ -179,44 +179,40 @@ Entering `help` into FitBiz will redirect you to this User Guide website.
 // tag::find-c[]
 
 === Find clients by name: `find-c` --- Yong Jie
-`find-c` allows you to find clients with the names that are specified in your input. You might have many clients and finding a particular client by scrolling through the entire *Client List* might be troublesome and difficult. `find-c` is the command for you.
+`find-c` allows you to find clients with the keywords that are specified in your input. You might have many clients and finding a particular client by scrolling through the entire *Client List* might be troublesome and difficult. Use `find-c` to find the client you are looking for.
 
 *Format*: `find-c KEYWORD [KEYWORD]...`
 
 ==== Parameters
-This section acts as a summary of the important things to note when using `find-c` including their parameters.
+The table belows shows the parameters for `find-c` and the important things to note for each of them.
 
 [options='header']
 [cols="15%,85%"]
 |====================
-| Parameters | Important points to note
-| `KEYWORD` |
-
-* At least one `KEYWORD` must be entered.
-
+| Parameter | Important points to note
+| `KEYWORD` + a|
 * Substitute `KEYWORD` with the names you want to search with +
 
 * You can use multiple `KEYWORD`. +
 e.g. You can enter `find-c bryan low`.
 
-* `KEYWORD` are case insensitive. +
+* `KEYWORD` is case insensitive. +
 e.g. Typing `find-c hans` will show clients even with the name `Hans`. +
-For a better understanding, you can refer to the example section .
 
 * The words used for `KEYWORD` have to match at least one word in the name of the clients. +
 e.g. Typing `find-c Bry` will not show clients with the name `Bryan`. +
-For a detailed explanation, you can refer to the commons errors / problems section.
 
 * Clients matching at least one `KEYWORD` will be returned and does not require all the words in their name to match. +
 e.g. Typing `find-c Hans Bo` will show clients `Hans Gruber` and `Bo Yang` and not necessarily just client `Hans Bo`. +
-For a detailed explanation, you can refer to the commons errors / problems section.
 |====================
+[NOTE]
+ At least one `KEYWORD` must be provided.
 
 ==== Example
 
-Let's say that you want to find a client named "Bryan Low" in *Client List*. You can simply use the `find-c` command as shown.
+Let's say that you want to find a client named "Bryan Low" in *Client List*.
 
-. Type `find-c bryan` into *Command Box*, and press `Enter` to execute it.
+. Type `find-c bryan` into *Command Box*, and press kbd:[ENTER] to execute it.
 +
 image::ug-findcExamplePart1.png[]
 
@@ -229,40 +225,32 @@ image::ug-findcExamplePart2.png[]
 image::ug-findcExamplePart3.png[]
 
 ==== Common errors / problems
-You might face some errors or difficulties when you `find-c`. In this section, you will be able to understand these errors and resolve them. You will also get a better understanding of the reply from the result box when using `find-c`.
+Here are some common errors and problems when using `find-c`:
 
 ===== Using incomplete KEYWORD
-You might wonder why `find-c` do not show the clients even though the client is clearly in your client list records. It might be possible that you have entered an incomplete name and does not match any word in the name of that client. The example below might help you understand better.
+You might wonder why `find-c` do not show the clients even though the client is clearly in your client list records. It might be possible that you have entered an incomplete name and does not match any word in the name of that client.
 
-Example:
 You want to find the client named "Bryan Low" in *Client List*. Below shows that "Bryan Low" indeed exists and is recorded.
 
 image::ug-findcIncompleteNamePart1.png[]
 
-Type `find-c bry` into *Command Box*, and press `Enter` to execute it.
+Enter `find-c bry` into *Command Box*. *Result Box* will show "0 clients listed!".
 
 image::ug-findcIncompleteNamePart2.png[]
 
-You will obtain "0 clients listed!" in *Result Box*.
-
-image::ug-findcIncompleteNamePart3.png[]
-
-This is because the name that you have entered is incomplete and does not match any word in the name of any of the clients. To correct this, you have to enter `find-c bryan` as seen in the example.
+To correct this, you have to enter `find-c bryan` as seen in the example.
 
 ===== Using multiple KEYWORD
 
-You might wonder why the application shows more clients than you intended. It might be possible that you have misunderstood how the `KEYWORD` parameter gets the client you are finding. The application will show clients as long as one of the words of the client match a keyword you use for name. The example below might help you understand better.
+You might wonder why the application shows more clients than you intended. It might be possible that you have misunderstood how the `KEYWORD` parameter gets the client you are finding. The application will show clients as long as one of the words of the client match a keyword you use for name.
 
-Example:
 You want to find the client named "Bryan Low" in *Client List*.
 
 Type `find-c bryan low` in to *Command Box*, and press `Enter` to execute it.
 
-image::ug-findcMultiplePart1.png[]
-
 You will obtain clients which have `bryan` in their name or `low` in the name. In the case below, there are 3 clients. `Bryan Low`, `Bryan Tan` and `Alice Low`.
 
-image::ug-findcMultiplePart2.png[]
+image::ug-findcMultiple.png[]
 
 You can try to enter keywords for `NAME` that are more specific to the client you are looking for. This will help to keep your search more scoped.
 
@@ -717,54 +705,47 @@ To correct this, you have to enter a valid `INDEX` that is not more than the num
 
 *Format*: `add-e n/EXERCISE_NAME d/DATE [ew/EXERCISE_WEIGHT] [reps/REPS] [sets/SETS]`
 
+[NOTE]
+This command can only be used when you have a client in view; make sure you know how to view a client first. Refer to <<view-c-command>> for more information.
+
 ==== Parameters
-This section acts as a summary of the important things to note when using `add-e` including their parameters. The square bracket shows that it is optional and your command will still execute even if you do not enter them.
+The table belows shows the parameters for `add-e` and the important points to note for each of them.
 
 [options='header']
 [cols="15%,85%"]
 |====================
-| Parameters | Important points to note
-| `n/NAME` + |
+| Parameter | Important points to note
+| `n/NAME` + a|
 * Substitute `NAME` with the name of the exercise. +
-
-* `n/NAME` is compulsory and you have to specify it. +
 
 * `n/NAME` is case sensitive. +
 e.g. An exercise named `pushup` will be considered to have a different name as an exercise named `Pushup`.
 
-| `d/DATE` + |
+| `d/DATE` + a|
 * Substitute `DATE` with the date of the exercise. +
-
-* `d/DATE` is compulsory and you have to specify it. +
 
 * `DATE` must be of the form `DD-MM-YYYY` (ie. 02-07-2020 for 2nd July 2020)
 
 * The range of `DATE` is from one year before the current date to the current date (inclusive).
 
-| `[reps/REPS]` + |
+| `[reps/REPS]` + a|
 * Substitute `REPS` with the reps of the exercise. +
-
-* `reps/REPS` is optional.
 
 * Range for `REPS` is 1-9999. +
 
-| `[sets/SETS]` + |
+| `[sets/SETS]` + a|
 * Substitute `SETS` with the sets of the exercise. +
-
-* `sets/SETS` is optional.
 
 * Range for `SETS` is 1-9999. +
 
-| `[ew/WEIGHT]` + |
+| `[ew/WEIGHT]` + a|
 * Substitute `Weight` with the weight of the exercise. +
-
-* `ew/WEIGHT` is optional.
 
 * Range for `WEIGHT` is 1-9999. +
 |====================
 
 ==== Example
-Let's say that you want to add an exercise with the following details: +
+Let's say that you want to add an exercise to "Alex Yeoh". The details of the exercise: +
 [width="50%"]
 |============
 Name: Bench Press +
@@ -773,43 +754,32 @@ Reps: 4 +
 Weight: 100 +
 Sets: 4 +
 |============
-You can use the `add-e` command to add the exercise as shown.
 
-. View the client that you want to add the exercise to. For information on how to view the client, you can refer to the `view-c` section. For this example, we will add the exercise to the first client in the list, `Alex Yeoh`. After you entered `view-c 1`, you will see `Alex Yeoh` detailed information and a table of his recorded exercises.
+. Use the `view-c` command to view "Alex Yeoh".
++
+
+. Type the information of the exercise, matching each detail of the exercise to the parameter. In this case, type `add-e n/Bench press d/12-02-2020 reps/4 ew/100 sets/4` into *Command Box*. Press kbd:[ENTER] to execute it.
 +
 image::ug-addeExamplePart1.png[]
-. Now type the information of the exercise, matching each detail of the exercise to the parameter. In this case, you will have to type `add-e n/Bench press d/12-02-2020 reps/4 ew/100 sets/4` into *Command Box*. Press enter to execute it. To recap,
+. After the command has been successfully executed, *Result Box* will notify that the exercise has been recorded. You will also be able to see the recorded exercise in the *Exercise Table*.
 +
-[width="50%"]
-|============
-The name of the exercise after `n/` +
-The date of the exercise after `d/` +
-The reps of the exercise after `reps/` +
-The weight of the exercise after `ew/` +
-The sets of the exercise after `sets/` +
-|============
 image::ug-addeExamplePart2.png[]
-. After it has been successfully entered, *Result Box* will display the recorded exercise. You will also be able to see the recorded exercise in the *Exercise Table*.
-+
-image::ug-addeExamplePart3.png[]
 
 ==== Common errors / problems
-You might face some errors or difficulties when you use `add-e`. In this section, you will be able to understand these errors and resolve them.
+Here are some common errors and problems when using `add-e`:
 
 ===== Duplicate exercises
-You might wonder why the application shows you a duplicate exercise error when the details of the exercises you entered are different. It is likely that only the sets differ between the two exercises. The example below might help you understand better.
+You might wonder why the application shows you a duplicate exercise error when the details of the exercises you entered are different.
 
-You might have the following exercise in *Exercise Table*.
+You want to add an exercise such that the new exercise and the exercise highlighted below have the same name, date, reps and exercise weight. Sets not included.
 
 image::ug-addeDuplicatePart1.png[]
 
-If you were to enter `add-e n/Bench Press d/12-02-2020 reps/4 ew/100 sets/2` into *Command Box*, the only information that is different is the number of sets.
-
-image::ug-addeDuplicatePart2.png[]
+You enter `add-e n/Bench Press d/12-02-2020 reps/4 ew/100 sets/2`.
 
 *Result Box* will show that you have a duplicate exercise.
 
-image::ug-addeDuplicatePart3.png[]
+image::ug-addeDuplicatePart2.png[]
 
 To solve this, we suggest incrementing the sets of the existing exercise by using the `edit-e` command. This will help to keep your exercises consolidated and the table compact. For information on using `edit-e`, you may want to refer to the next section `Edit a client's exercise: edit-e`.
 // end::add-e[]
@@ -820,92 +790,82 @@ To solve this, we suggest incrementing the sets of the existing exercise by usin
 
 *Format*: `edit-e INDEX [n/EXERCISE_NAME] [d/DATE] [ew/EXERCISE_WEIGHT] [reps/REPS] [sets/SETS]`
 
+[NOTE]
+This command can only be used when you have a client in view; make sure you know how to view a client first. Refer to <<view-c-command>> for more information.
+
+[WARNING]
+Editing an exercise from FitBiz is permanent and *cannot be undone*.
+
 ==== Parameters
-This section acts as a summary of the important things to note when using `edit-e` including their parameters. The square bracket shows that it is optional and your command will still execute even if you do not enter them. However, at least one of them have to be specified.
+The table below shows the parameters for `edit-e` and the important points to note for each of them.
 
 [options='header']
 [cols="15%,85%"]
 |====================
-| Parameters | Important points to note
-| `INDEX` + |
+| Parameter | Important points to note
+| `INDEX` + a|
 * Substitute `INDEX` with the index of the exercise shown on the table. +
 
-* `INDEX` is compulsory and you have to specify it. +
-
-| `[n/NAME]` + |
+| `[n/NAME]` + a|
 * Substitute `NAME` with the name of the exercise. +
-
-* `n/NAME` is optional. +
 
 * `n/NAME` is case sensitive. +
 e.g. An exercise named `pushup` will be considered to have a different name as an exercise named `Pushup`.
 
-|`[d/DATE]` + |
+|`[d/DATE]` + a|
 * Substitute `DATE` with the date of the exercise. +
-
-* `d/DATE` is optional. +
 
 * `DATE` must be of the form `DD-MM-YYYY` (ie. 02-07-2020 for 2nd July 2020) +
 
 * The range of `DATE` is from one year before the current date to the current date (inclusive).
 
-| `[reps/REPS]` + |
+| `[reps/REPS]` + a|
 * Substitute `REPS` with the reps of the exercise. +
-
-* `reps/REPS` is optional.
 
 * Range for `REPS` is 1-9999. +
 
-| `[sets/SETS]` + |
+| `[sets/SETS]` + a|
 * Substitute `SETS` with the sets of the exercise. +
-
-* `sets/SETS` is optional.
 
 * Range for `SETS` is 1-9999. +
 
-| `[ew/WEIGHT]` + |
+| `[ew/WEIGHT]` + a|
 * Substitute `Weight` with the weight of the exercise. +
-
-* `ew/WEIGHT` is optional.
 
 * Range for `WEIGHT` is 1-9999. +
 |====================
+
+[NOTE]
+ At least one of the optional fields must be provided.
+
 ==== Example
-Let's say that you want to edit an exercise done by the client you are currently viewing. The exercise that you want to edit is the one highlighted in the photo below.
+Let's say that you want to edit the exercise, "Bench Press". The exercise currently has 4 reps and weight of 100. However, you might want to change the values to 8 reps and 50kg. You can use the `edit-e` command to edit the exercise as shown.
 
 image::ug-editeExamplePart1.png[]
 
-The exercise, "Bench Press", currently is 4 reps and weight of 100. However, they might be entered wrongly and you want to change the values. You can use the `edit-e` command to edit the exercise as shown.
-
-. Identify the index of the exercise in *Exercise Table*. From the photo above, the index is 2. Type `edit-e 2 reps/8 ew/50` into *Command Box*. Press enter to execute it. To recap,
+. Identify the index of "Bench Press" in *Exercise Table*. From the photo above, the index is 2. Type `edit-e 2 reps/8 ew/50` into *Command Box*. Press kbd:[ENTER] to execute it. To recap,
 +
-[width="50%"]
-|============
-The reps of the exercise after `reps/` +
-The weight of the exercise after `ew/` +
-|============
+
 image::ug-editeExamplePart2.png[]
 . After it has been successfully entered, *Result Box* will display a success message that the exercise has been edited. You will also be able to see the edited exercise in *Exercise Table*.
 +
 image::ug-editeExamplePart3.png[]
 
 ==== Common errors / problems
-You might face some errors or difficulties when you use `edit-e`. In this section, you will be able to understand these errors and resolve them.
+Here are some common errors and problems when using `edit-e`:
 
 ===== Duplicate exercises
-You might wonder why the application shows you a duplicate exercise error when you do not have a duplicate of the edited exercise. It is likely that only the sets differ between the two exercises. The example below might help you understand better.
+You might wonder why the application shows you a duplicate exercise error when you do not have a duplicate of the edited exercise.
 
-You might have the following exercise in *Exercise Table*.
+You want to edit an exercise such that the new exercise and the exercise highlighted below have the same name, date, reps and exercise weight. Sets not included.
 
 image::ug-editeDuplicatePart1.png[]
 
-If you were to enter `edit-e 2 n/Bench Press d/12-02-2020 reps/4 ew/100 sets/2` into *Command Box*, the only information that is different is the number of sets.
-
-image::ug-editeDuplicatePart2.png[]
+Enter `edit-e 1 d/12-02-2020 ew/50`.
 
 *Result Box* will show that you have a duplicate exercise.
 
-image::ug-editeDuplicatePart3.png[]
+image::ug-editeDuplicatePart2.png[]
 
 To solve this, we suggest you delete the exercise you want to edit and increment the sets of the existing exercise by using the `edit-e` command. This will help to keep your exercises consolidated and the table compact.
 // end::edit-e[]
@@ -1324,8 +1284,8 @@ Examples:
 
 // tag::commands[]
 == Command Summary
-
 === General Commands
+The table below shows the general commands.
 
 [width="100%",cols="20%,<30%",options="header",]
 |=======================================================================
@@ -1336,6 +1296,7 @@ Examples:
 |=======================================================================
 
 === Client Commands
+The table below shows the commands that finds a client or manipulates the client's information.
 
 [width="100%",cols="20%,<30%",options="header",]
 |=======================================================================
@@ -1351,6 +1312,7 @@ Examples:
 |=======================================================================
 
 === Exercise Commands
+The table below shows the commands that manipulate the details of the exercises done by a client.
 
 [width="100%",cols="20%,<30%",options="header",]
 |=======================================================================
