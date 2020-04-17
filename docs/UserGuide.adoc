@@ -1132,7 +1132,7 @@ If you find that you are unable to execute this command successfully, there are 
 
 `graph` allows you to see the graphical visualisation of a client’s exercise progress within a specified timeframe, so that you can easily track your client's progress and improvement.
 
-*Format*: `n/EXERCISE_NAME a/Y_AXIS sd/START_DATE ed/END_DATE`
+*Format*: `graph n/EXERCISE_NAME a/Y_AXIS sd/START_DATE ed/END_DATE`
 
 ==== Parameters
 
