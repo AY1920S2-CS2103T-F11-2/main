@@ -69,8 +69,8 @@ In this guide, we cover:
 
 Note the following markups used in this User Guide:
 
-* `Monospace words with grey background`: denote a command, or a specific text that you should type
-* *Bold words*: denote some important information, or may refer to a specific GUI section
+* `Words with monospace font`: denote a command, or a specific text that you should type
+* *Words with bold font*: denote some important information, or may refer to a specific GUI section
 * kbd:[Words with border]: denote a specific key on the keyboard (eg. kbd:[Tab], kbd:[Enter])
 
 Note also, that we use the following symbols in this User Guide:
