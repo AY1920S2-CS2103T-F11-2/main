@@ -479,63 +479,63 @@ This section acts as a summary of the important things to note when using `edit-
 |====================
 | Parameter | Important points to note
 | `INDEX` a|
-* Substitute `INDEX` with the index of the desired client to edit. +
+* Substitute `INDEX` with the index of the desired client to edit +
 
-* `INDEX` must be a positive number, and must be a valid index number for a client as displayed from the list of clients. +
+* `INDEX` must be a positive number, and must be a valid index number for a client as displayed from the list of clients +
 
 | `[n/NAME]` a|
-* Substitute `NAME` with the name of the client.
+* Substitute `NAME` with the name of the client
 
-* `NAME` should only contain alphanumeric characters, spaces and commas, and it should not be blank.
+* `NAME` should only contain alphanumeric characters, spaces and commas, and it should not be blank
 
 
 | `[p/PHONE]` a|
-* Substitute `PHONE` with the phone number of the client. +
+* Substitute `PHONE` with the phone number of the client +
 
-* `PHONE` should only contain numbers. +
+* `PHONE` should only contain numbers +
 
-* `PHONE` should be at least 3 digits long.
+* `PHONE` should be at least 3 digits long
 
 
 | `[e/EMAIL]` a|
-* Substitute `EMAIL` with the email of the client. +
+* Substitute `EMAIL` with the email of the client +
 
 * `EMAIL` should be of the format `xxx@yyy`, where: +
 
 * `xxx` should only contain alphanumeric characters and the set of special characters* shown below this table
 
-* `yyy` must be at least 2 characters long, start and end with alphanumeric characters, and consist of alphanumeric characters, a period or a hyphen for the characters in between, if any.
+* `yyy` must be at least 2 characters long, start and end with alphanumeric characters, and consist of alphanumeric characters, a period or a hyphen for the characters in between, if any
 
 
 | `[a/ADDRESS]` a|
 
-* Substitute `ADDRESS` as the address of the client.
+* Substitute `ADDRESS` as the address of the client
 
-* `ADDRESS` can take any value, but it should not be blank, or start with a whitespace.
+* `ADDRESS` can take any value, but it should not be blank, or start with a whitespace
 
 
 | `[g/GENDER]` a|
 
-* Substitue `GENDER` with the gender of the client.
+* Substitue `GENDER` with the gender of the client
 
 * `GENDER` is case insensitive
 
-* `GENDER` can only be `male` or `m`, `female` or `f`, or `others` or `o`.
+* `GENDER` can only be `male` or `m`, `female` or `f`, or `others` or `o`
 
 
 | `[b/BIRTHDAY]` a|
 
-* Substitue `BIRTHDAY` with the birthday of the client.
+* Substitue `BIRTHDAY` with the birthday of the client
 
 * `BIRTHDAY` should be in the format DD-MM-YYYY
 
-* `BIRTHDAY` cannot exceed the current date.
+* `BIRTHDAY` cannot exceed the current date
 
-* `BIRTHDAY` cannot be earlier than 120 years from the current year.
+* `BIRTHDAY` cannot be earlier than 120 years from the current year
 
 | `[cw/CURRENT_WEIGHT]` a|
 
-* Substitute `CURRENT_WEIGHT` with the current weight of the client.
+* Substitute `CURRENT_WEIGHT` with the current weight of the client
 
 * `CURRENT_WEIGHT` must take the value of a whole or decimal number(eg. 65 or 86.22)
 
@@ -543,7 +543,7 @@ This section acts as a summary of the important things to note when using `edit-
 
 | `[tw/TARGET_WEIGHT]` a|
 
-* Substitute `TARGET_WEIGHT` with the target weight for the client.
+* Substitute `TARGET_WEIGHT` with the target weight for the client
 
 * `TARGET_WEIGHT` must take the value of a whole or decimal number(eg. 65 or 86.22)
 
@@ -551,19 +551,19 @@ This section acts as a summary of the important things to note when using `edit-
 
 | `[h/HEIGHT]` a|
 
-* Substitue `HEIGHT` with the height of the client.
+* Substitue `HEIGHT` with the height of the client
 
-* `HEIGHT` must either be a whole or decimal number.
+* `HEIGHT` must either be a whole or decimal number
 
 * `HEIGHT` can only have a maximum of 3 digits before the decimal place and a maximum of 2 digits after the decimal place (eg. 101.25 or 120.20)
 
 | `[s/SPORT]` a|
 
-* Substitute `SPORT` with the sports of the client.
+* Substitute `SPORT` with the sports of the client
 
-* `SPORT` should only contain alphanumeric characters and spaces.
+* `SPORT` should only contain alphanumeric characters and spaces
 
-* Sports given in this command will overwrite all of the client's existing sports.
+* Sports given in this command will overwrite all of the client's existing sports
 
 | `[t/TAG]` a|
 
@@ -979,31 +979,31 @@ This section acts as a summary of the important things to note when using `sched
 |====================
 | Parameter | Important points to note
 | `INDEX` a|
-* Substitute `INDEX` with the index of the desired client to add the schedule to. +
+* Substitute `INDEX` with the index of the desired client to add the schedule to +
 
-* `INDEX` must be a positive number, and must be a valid index number for a client as displayed from the list of clients. +
+* `INDEX` must be a positive number, and must be a valid index number for a client as displayed from the list of clients +
 
 | `DAY` a|
-* Substitute `DAY` with the first three letters of the day. +
+* Substitute `DAY` with the first three letters of the day +
 eg. MON / TUE / WED / THU / FRI / SAT / SUN
 
-* `DAY` can only be one of the above seven values. +
+* `DAY` can only be one of the above seven values +
 
-* `DAY` is not case sensitive.
+* `DAY` is not case sensitive
 
 | `STARTTIME` a|
-* Substitute `STARTTIME` with the starting time of the schedule slot. +
+* Substitute `STARTTIME` with the starting time of the schedule slot +
 
-* Range for `STARTTIME` is 0000-2359. +
+* Range for `STARTTIME` is 0000-2359 +
 
-* `STARTTIME` must always be earlier than or equal to `ENDTIME`.
+* `STARTTIME` must always be earlier than or equal to `ENDTIME`
 
 | `ENDTIME` a|
-* Substitute `ENDTIME` with the ending time of the schedule slot. +
+* Substitute `ENDTIME` with the ending time of the schedule slot +
 
-* Range for `ENDTIME` is 0000-2359. +
+* Range for `ENDTIME` is 0000-2359 +
 
-* `ENDTIME` must always be equal to or later than `STARTTIME`.
+* `ENDTIME` must always be equal to or later than `STARTTIME`
 |====================
 
 ==== Example
