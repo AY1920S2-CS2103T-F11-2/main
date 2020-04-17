@@ -889,7 +889,7 @@ Deleting an exercise from FitBiz is *permanent* and *cannot be undone*.
 
 ==== Parameters
 
-This section shows the parameters and the important things to note about them.
+This section shows the parameters for `delete-e` and the important things to note about them.
 
 [options='header']
 [cols="15%,85%"]
