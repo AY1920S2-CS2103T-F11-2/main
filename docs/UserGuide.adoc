@@ -322,7 +322,7 @@ This section shows the parameters of `add-c` and the important things to note ab
 [options='header']
 [cols="15%,85%"]
 |====================
-| Parameter | Important point to note
+| Parameter | Important points to note
 | `n/NAME` + a|
 * Substitute `NAME` with the name of the client.
 
@@ -450,14 +450,13 @@ Here are some common problems you might encounter and the solutions.
 
 If you are adding a client and miss out any of the compulsory parameters. You will not be able to add the client.
 
-For example, when you want to add a `Rachel Tan` into FitBiz but did not include the compulsory field `a/ADDRESS`
+For example, when you want to add a `Rachel Tan` into FitBiz but did not include the compulsory field `a/ADDRESS`.
 
 After entering the command, the following error message will be shown.
 
 image::AddNoAddressError.png[]
 
 To solve this error, ensure that all compulsory parameters are included when adding a client. The compulsory parameters include: `n/NAME`, `p/PHONE`, `e/EMAIl` and `a/ADDRESS`.
-
 
 *Adding clients with the same phone number or email*
 
@@ -1151,7 +1150,7 @@ This section shows the parameters of `add-c` and the important things to note.
 [options='header']
 [cols= "15%,85%"]
 |===
-|Parameter | Important notes
+|Parameter | Important things to note
 | `[t/TAG]` + a|
 * `TAG` is the tag of the clients you want to match and list. +
 
