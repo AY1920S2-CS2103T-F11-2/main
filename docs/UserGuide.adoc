@@ -1374,5 +1374,4 @@ The table below shows the other commands which do not directly interact with cli
 |`view-s TYPE` *[v2.0]*| Shows schedule for today or time specified.
 |=======================================================================
 
-
 // end::commands[]
