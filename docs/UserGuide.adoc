@@ -856,8 +856,9 @@ The table below shows the parameters for `edit-e` and the important points to no
 |====================
 | Parameter | Important points to note
 | `INDEX` + a|
-* Substitute `INDEX` with the index of the exercise shown on the table. +
+* Substitute `INDEX` with the actual index of the exercise shown on the *Exercise Table*.
 
+* Must be a positive integer (eg. 1, 2, 3, ...).
 | `[n/NAME]` + a|
 * Substitute `NAME` with the name of the exercise. +
 
@@ -944,9 +945,9 @@ This section shows the parameters and the important things to note about them.
 [cols="15%,85%"]
 |===
 | Parameter | Important points to note
-| `INDEX` a| * Substitute `INDEX` with the actual index of the exercise shown on the *Exercise Table*
+| `INDEX` a| * Substitute `INDEX` with the actual index of the exercise shown on the *Exercise Table*.
 
-* Must be a positive integer (eg. 1, 2, 3, ...)
+* Must be a positive integer (eg. 1, 2, 3, ...).
 |===
 
 ==== Example
