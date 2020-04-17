@@ -338,7 +338,7 @@ Tag: Vegetarian
 +
 image::AddExampleCommand.png[]
 +
-. Press enter to execute.
+. Press kbd:[Enter] to execute.
 +
 . After Amanda has been successfully added to the clients list, the result will be displayed as shown.
 
@@ -363,7 +363,7 @@ To solve this error, ensure that all compulsory parameters are included when add
 
 In FitBiz, you cannot add 2 clients with the either same phone number or email.
 
-For example, you have client with the email `RachelTan@dmail.com` and you want to add another client with the same email.
+For example, you have a client with the email `RachelTan@dmail.com` and you want to add another client with the same email.
 
 image::AddSameEmailCommand.png[]
 
@@ -371,7 +371,7 @@ The following error message will be shown.
 
 image::AddSameEmailError.png[]
 
-To solve this issue, ensure that any new client you add does not have the same phone number or email as existing client.
+To solve this issue, ensure that any new client you add does not have the same phone number or email as an existing client.
 
 // end::add-c-command[]
 
@@ -542,7 +542,7 @@ This section acts as a summary of the important things to note when using `edit-
 
 |====================
 \*The set of special characters are: +
-`!#$%&'*+/=?{|}~^.-
+`!#$%&'*+/=?{|}~^.-`
 [NOTE]
  At least one of the optional fields must be provided.
 
@@ -715,7 +715,7 @@ When you have many clients and want to filter and display a group by their `Tag`
 *Format*: `filter-c [t/TAG]... [s/SPORT]...`
 
 ==== Parameters
-This section shows the parameters of `filter-c` and the important points to note.
+This section shows the parameters of `filter-c` and the important points to note:
 
 [options='header']
 [cols= "15%,85%"]
@@ -752,7 +752,7 @@ Let's say you want to filter your list of clients and only display those with th
 +
 image::FilterExampleCommand.png[]
 +
-. Press enter to execute.
+. Press kbd:[Enter] to execute.
 +
 . The clients with the matching tag and sport will be displayed as shown.
 
@@ -869,7 +869,7 @@ image::UGScheduleDiagram2.png[]
 +
 image::UGScheduleDiagram3.png[]
 +
-. Now that you have successfully schedule for Alex Yeoh, let's say you also want multiple schedule slots to your client. For example, two schedules to Bernice Yu: Monday 8:00am to 10:00pm and Tuesday 4:00pm to 6:00pm.
+. Now that you have successfully scheduled for Alex Yeoh, let's say you also want multiple schedule slots to your client. For example, two schedules to Bernice Yu: Monday 8:00am to 10:00pm and Tuesday 4:00pm to 6:00pm.
 You can do this by adding both of these timings into the `schedule` command following the same format as shown below.
 +
 
@@ -951,7 +951,7 @@ e.g. An exercise named `pushup` will be considered to have a different name as a
 |====================
 
 ==== Example
-Let's say that you want to add an exercise to "Alex Yeoh". The details of the exercise: +
+Let's say that you want to add an exercise to "Alex Yeoh". The details of the exercise are as follows: +
 [width="50%"]
 |============
 Name: Bench Press +
@@ -1046,7 +1046,7 @@ e.g. An exercise named `pushup` will be considered to have a different name as a
  At least one of the optional fields must be provided.
 
 ==== Example
-Let's say that you want to edit the exercise, "Bench Press". The exercise currently has 4 reps and weight of 100. However, you might want to change the values to 8 reps and 50kg. You can use the `edit-e` command to edit the exercise as shown.
+Let's say that you want to edit the exercise, "Bench Press". The exercise currently has 4 reps and weight of 100kg. However, you might want to change the values to 8 reps and 50kg. You can use the `edit-e` command to edit the exercise as shown.
 
 image::ug-editeExamplePart1.png[]
 
@@ -1127,22 +1127,16 @@ If you find that you are unable to execute this command successfully, there are 
 
 // end::delete-e-command[]
 
-
-
-
-
-
-
 // tag::graph-command[]
 === Display visualisations of training progress: `graph` --- Li Zi Ying
 
-`graph` allows you to see a graphical visualisation of a client’s exercise progress within a specified timeframe, so that you can easily track your client's progress and improvement.
+`graph` allows you to see the graphical visualisation of a client’s exercise progress within a specified timeframe, so that you can easily track your client's progress and improvement.
 
 *Format*: `n/EXERCISE_NAME a/Y_AXIS sd/START_DATE ed/END_DATE`
 
 ==== Parameters
 
-This section shows the parameters of `graph` and the important things to note about them:
+This section shows the parameters of `graph` and  important things to note about them:
 
 [options='header']
 [cols="15%,85%"]
@@ -1185,7 +1179,7 @@ Suppose that you wish to view the exercise graph of `Alex Yeoh` for the exercise
 
 You can use the `graph` command to view the graph of the exercise following the steps as shown:
 
-. First view the client that you want to view the exercise graph of. For information on how to view the client, you can refer to the `view-c` section. For this example, we will view the graph of `Alex Yeoh`, who is the first client in the *Client List*. After entering `view-c 1`, you will see the full detailed information and a table of recorded exercises of client `Alex Yeoh`.
+. First view the client that you want to display the exercise graph of. For information on how to view the client, you can refer to the `view-c` section. For this example, we will view the graph of `Alex Yeoh`, who is the first client in the *Client List*. After entering `view-c 1`, you will see the full detailed information and a table of recorded exercises of client `Alex Yeoh`.
 +
 image::ug-graph-1.png[]
 . Next, simply type the graph command `graph n/Sumo Deadlift a/weight sd/01-01-2020 ed/13-04-2020` into the Command Box.
