@@ -305,29 +305,25 @@ After setting up the program, the first thing you might want to do is to add you
 
 ==== Parameters
 
-This section summarises the format and important information to note while using the `add-c` command.
+This section shows the parameters of `add-c` and the important things to note.
 
 [options='header']
 [cols="15%,85%"]
 |====================
-| Parameters | Important points to note
-| `n/NAME` + |
+| Parameter | Important points to note
+| `n/NAME` + a|
 * Substitute `NAME` with the name of the client.
 
 * `NAME` should only contain alphanumeric characters, spaces and commas, and it should not be blank.
 
-* `NAME` is compulsory.
-
-| `p/PHONE` + |
+| `p/PHONE` + a|
 * Substitute `PHONE` with the phone number of the client. +
 
 * `PHONE` should only contain numbers. +
 
 * `PHONE` should be at least 3 digits long.
 
-* `PHONE` is compulsory.
-
-| `e/EMAIL` + |
+| `e/EMAIL` + a|
 * Substitute `EMAIL` with the email of the client. +
 
 * `EMAIL` should be of the format `xxx@yyy`, where: +
@@ -336,29 +332,23 @@ This section summarises the format and important information to note while using
 
 * `yyy` must be at least 2 characters long, start and end with alphanumeric characters, and consist of alphanumeric characters, a period or a hyphen for the characters in between, if any.
 
-* `EMAIL` is compulsory.
-
-| `a/ADDRESS` + |
+| `a/ADDRESS` + a|
 
 * Substitute `ADDRESS` as the address of the client.
 
 * `ADDRESS` can take any value, but it should not be blank, or start with a whitespace.
 
-* `ADDRESS` is compulsory.
+| `[g/GENDER]` + a|
 
-| `[g/GENDER]` + |
-
-* Substitue `GENDER` with the gender of the client.
+* Substitute `GENDER` with the gender of the client.
 
 * `GENDER` is case insensitive
 
 * `GENDER` can only be `male` or `m`, `female` or `f`, or `others` or `o`.
 
-* `GENDER` is optional.
+| `[b/BIRTHDAY]` + a|
 
-| `[b/BIRTHDAY]` + |
-
-* Substitue `BIRTHDAY` with the birthday of the client.
+* Substitute `BIRTHDAY` with the birthday of the client.
 
 * `BIRTHDAY` should be in the format DD-MM-YYYY
 
@@ -366,8 +356,7 @@ This section summarises the format and important information to note while using
 
 * `BIRTHDAY` cannot be earlier than 120 years from the current year.
 
-* `BIRTHDAY` is optional.
-| `[cw/CURRENT_WEIGHT]` + |
+| `[cw/CURRENT_WEIGHT]` + a|
 
 * Substitute `CURRENT_WEIGHT` with the current weight of the client.
 
@@ -375,8 +364,7 @@ This section summarises the format and important information to note while using
 
 * `CURRENT_WEIGHT` can only have a maximum of 3 digits before the decimal place and a maximum of 2 digits after the decimal place (eg. 101.25 or 120.20)
 
-* `CURRENT_WEIGHT` is optional.
-| `[tw/TARGET_WEIGHT]` + |
+| `[tw/TARGET_WEIGHT]` + a|
 
 * Substitute `TARGET_WEIGHT` with the target weight for the client.
 
@@ -384,17 +372,15 @@ This section summarises the format and important information to note while using
 
 * `TARGET_WEIGHT` can only have a maximum of 3 digits before the decimal place and a maximum of 2 digits after the decimal place (eg. 101.25 or 120.20)
 
-* `TARGET_WEIGHT` is optional.
-| `[h/HEIGHT]` + |
+| `[h/HEIGHT]` + a|
 
-* Substitue `HEIGHT` with the height of the client.
+* Substitute `HEIGHT` with the height of the client.
 
 * `HEIGHT` must either be a whole or decimal number.
 
 * `HEIGHT` can only have a maximum of 3 digits before the decimal place and a maximum of 2 digits after the decimal place (eg. 101.25 or 120.20)
 
-* `HEIGHT` is optional.
-| `[s/SPORT]` + |
+| `[s/SPORT]` + a|
 
 * Substitute `SPORT` with the sports of the client.
 
@@ -402,10 +388,9 @@ This section summarises the format and important information to note while using
 
 * Sports given in this command will overwrite all of the client's existing sports.
 
-* `SPORT` is optional.
-| `[t/TAG]` + |
+| `[t/TAG]` + a|
 
-* Substitue `TAG` with a tag for the client.
+* Substitute `TAG` with a tag for the client.
 
 * `TAG` should only contain alphanumeric characters.
 
@@ -413,17 +398,13 @@ This section summarises the format and important information to note while using
 
 * You can remove all of the client's tags by typing `t/` without specifying any `TAG`
 
-* `TAG` is optional.
-
-| `[r/REMARK]` + |
+| `[r/REMARK]` + a|
 
 * Substitute `REMARK` with remarks for the client.
 
 * `REMARK` should be alphanumeric.
 
 * Any whitespace at the start of `REMARK` will be removed.
-
-* `REMARK` is optional.
 
 |====================
 \*The set of special characters are `!#$%&'*+/=?`{|}~^.-`
@@ -451,29 +432,21 @@ image::AddExampleCommand.png[]
 image::AddExampleSuccess.png[]
 
 ==== Common errors/ problems:
-If you are facing errors or difficulty adding a client, you can refer to the common errors and problems listed below and resolve your error using the solution given.
+Here are some common problems you might encounter and the solutions.
 
-. *Compulsory fields missing*
-+
+*Compulsory fields missing*
+
 If you are adding a client and miss out any of the compulsory parameters. You will not be able to add the client.
-+
-For example, when you want to add a `Rachel Tan` into FitBiz but did not include the compulsory field `a/ADDRESS`
-+
-image::AddNoAddress.png[]
-+
-After pressing enter, the following error message will be shown.
-+
+
+For example, when you want to add a `Rachel Tan` into FitBiz but did not include the compulsory field `a/ADDRESS`.
+
+After entering the command, the following error message will be shown.
+
 image::AddNoAddressError.png[]
-+
-To solve this error, ensure that all compulsory parameters are included when adding a client. The compulsory parameters include: `n/NAME`, `p/PHONE`, `e/EMAIl` and `a/ADDRESS`. To continue with the same example, the command will now include Rachel's address.
-+
-image::AddWithAddressCommand.png[]
-+
-The result of successfully adding Rachel will show the following
-+
-image::AddAddressSuccess.png[]
-+
-. *Adding clients with the same phone number or email*
+
+To solve this error, ensure that all compulsory parameters are included when adding a client. The compulsory parameters include: `n/NAME`, `p/PHONE`, `e/EMAIl` and `a/ADDRESS`.
+
+*Adding clients with the same phone number or email*
 
 In FitBiz, you cannot add 2 clients with the either same phone number or email.
 
@@ -549,7 +522,7 @@ This section acts as a summary of the important things to note when using `edit-
 
 | `[g/GENDER]` + |
 
-* Substitue `GENDER` with the gender of the client.
+* Substitute `GENDER` with the gender of the client.
 
 * `GENDER` is case insensitive
 
@@ -559,7 +532,7 @@ This section acts as a summary of the important things to note when using `edit-
 
 | `[b/BIRTHDAY]` + |
 
-* Substitue `BIRTHDAY` with the birthday of the client.
+* Substitute `BIRTHDAY` with the birthday of the client.
 
 * `BIRTHDAY` should be in the format DD-MM-YYYY
 
@@ -588,7 +561,7 @@ This section acts as a summary of the important things to note when using `edit-
 * `TARGET_WEIGHT` is optional.
 | `[h/HEIGHT]` + |
 
-* Substitue `HEIGHT` with the height of the client.
+* Substitute `HEIGHT` with the height of the client.
 
 * `HEIGHT` must either be a whole or decimal number.
 
@@ -606,7 +579,7 @@ This section acts as a summary of the important things to note when using `edit-
 * `SPORT` is optional.
 | `[t/TAG]` + |
 
-* Substitue `TAG` with a tag for the client.
+* Substitute `TAG` with a tag for the client.
 
 * `TAG` should only contain alphanumeric characters.
 
@@ -1123,39 +1096,43 @@ If you find that you are unable to execute this command successfully, there are 
 [[]]
 === Filter clients based on attribute: `filter-c` --- Toh Ker Wei
 
-When you have many clients and want to filter the list of clients to view a specific group, you can use the command `filter-c` to filter clients based on their tags or their sports.
+When you have many clients and want to filter and display a group by their `Tag` or `Sport`, you can use the command `filter-c` to filter clients based on their tags or their sports.
 
 *Format*: `filter-c [t/TAG]... [s/SPORT]...`
 
 ==== Parameters
+This section shows the parameters of `filter-c` and the important points to note.
 
 [options='header']
 [cols= "15%,85%"]
 |===
-|Parameter | Important notes
-| `[t/TAG]` + | `TAG` is the tag of the clients you want to match and list. +
+|Parameter | Important points to note
+| `[t/TAG]` + a|
+* `TAG` is the tag of the clients you want to match and list. +
 
-`TAG` is case-insensitive. +
+* `TAG` is case-insensitive. +
 e.g. `healthy` will match `Healthy`
 
-`TAG` should only contain letters or numbers. +
+* `TAG` should only contain letters or numbers. +
 e.g. `monday` or `obese200kg`
 
-|`[s/SPORT]` + | `SPORT` is the sport of the clients you want to match and list. +
+|`[s/SPORT]` + a|
 
-`SPORT` is case-insensitive. +
+* `SPORT` is the sport of the clients you want to match and list.
+
+* `SPORT` is case-insensitive. +
 e.g.  `track and field` returns the same result as `Track And Field`
 
-`SPORT` should only contain letters, numbers or spaces.
+* `SPORT` should only contain letters, numbers or spaces. +
 e.g. `sumo wrestling` or `100m sprint`
 
-Order of words in `SPORT` does not matter
+* Order of words in `SPORT` does not matter +
 e.g. `track and field` returns the same result as `field and track`
 |===
 
 ==== Example
 
-Let's say you want to filter through your list of clients and only display those with the tag `healthy` and play the sport `badminton`.
+Let's say you want to filter your list of clients and only display those with the tag `healthy` and play the sport `badminton`.
 
 . Type the command `filter-c t/healthy s/badminton` into the command box.
 +
@@ -1170,21 +1147,14 @@ image::FilterExampleSuccess.png[]
 ==== Common error/ problem
 *Tags with spaces*
 
-When you want to filter the clients list with multiple tags like `healthy` and `sporty`, you might enter the command shown below.
-
-image::FilterTagCommand.png[]
-
-You will then encounter the error `Tags names should be alphanumeric`.
+When you want to filter the clients list with multiple tags like `healthy` and `sporty`, you might encounter the error `Tags names should be alphanumeric`.
 
 image::FilterTagError.png[]
 
-This error occurs because `TAG` only accepts letters and numbers but not spaces. To solve the problem, add an additional delimiter for each tag you want to specify. Note that sports does not require multiple delimiter.
+This error occurs because `TAG` only accepts letters and numbers but not spaces. To solve the problem, add an additional delimiter `t/` for each tag you want to specify. Note that sports does not require multiple delimiters.
 
 image::FilterTagCorrectCommand.png[]
 
-The list of successfully filter clients will then be displayed.
-
-image::FilterTagSuccess.png[]
 // end::filter-c-command[]
 
 // tag::graph-command[]
