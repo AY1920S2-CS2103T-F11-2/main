@@ -278,11 +278,11 @@ You want to find the client named "Bryan Low" in *Client List*.
 
 Type `find-c bryan low` in to *Command Box*, and press `Enter` to execute it.
 
-You will obtain clients which have `bryan` in their name or `low` in the name. In the case below, there are 3 clients. `Bryan Low`, `Bryan Tan` and `Alice Low`.
+You will obtain clients who either have `bryan` in their name, or `low` in their name. In the case below, there are 3 clients: `Bryan Low`, `Bryan Tan` and `Alice Low`.
 
 image::ug-findcMultiple.png[]
 
-You can try to enter keywords for `NAME` that are more specific to the client you are looking for. This will help to keep your search more scoped.
+You can try to enter keywords that are specific to the client that you are looking for to help you locate the correct client.
 
 // end::find-c[]
 
