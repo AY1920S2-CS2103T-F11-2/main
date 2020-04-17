@@ -309,7 +309,7 @@ This section summarises the format and important information to note while using
 
 | `[g/GENDER]` + |
 
-* Substitue `GENDER` with the gender of the client.
+* Substitute `GENDER` with the gender of the client.
 
 * `GENDER` is case insensitive
 
@@ -319,7 +319,7 @@ This section summarises the format and important information to note while using
 
 | `[b/BIRTHDAY]` + |
 
-* Substitue `BIRTHDAY` with the birthday of the client.
+* Substitute `BIRTHDAY` with the birthday of the client.
 
 * `BIRTHDAY` should be in the format DD-MM-YYYY
 
@@ -348,7 +348,7 @@ This section summarises the format and important information to note while using
 * `TARGET_WEIGHT` is optional.
 | `[h/HEIGHT]` + |
 
-* Substitue `HEIGHT` with the height of the client.
+* Substitute `HEIGHT` with the height of the client.
 
 * `HEIGHT` must either be a whole or decimal number.
 
@@ -366,7 +366,7 @@ This section summarises the format and important information to note while using
 * `SPORT` is optional.
 | `[t/TAG]` + |
 
-* Substitue `TAG` with a tag for the client.
+* Substitute `TAG` with a tag for the client.
 
 * `TAG` should only contain alphanumeric characters.
 
@@ -504,7 +504,7 @@ This section acts as a summary of the important things to note when using `edit-
 
 | `[g/GENDER]` a|
 
-* Substitue `GENDER` with the gender of the client
+* Substitute `GENDER` with the gender of the client
 
 * `GENDER` is case insensitive
 
@@ -513,7 +513,7 @@ This section acts as a summary of the important things to note when using `edit-
 
 | `[b/BIRTHDAY]` a|
 
-* Substitue `BIRTHDAY` with the birthday of the client
+* Substitute `BIRTHDAY` with the birthday of the client
 
 * `BIRTHDAY` should be in the format DD-MM-YYYY
 
@@ -539,7 +539,7 @@ This section acts as a summary of the important things to note when using `edit-
 
 | `[h/HEIGHT]` a|
 
-* Substitue `HEIGHT` with the height of the client
+* Substitute `HEIGHT` with the height of the client
 
 * `HEIGHT` must either be a whole or decimal number
 
