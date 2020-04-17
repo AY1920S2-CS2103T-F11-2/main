@@ -352,7 +352,7 @@ This section shows the parameters of `add-c` and the important things to note ab
 
 | `[g/GENDER]` + a|
 
-* Substitude `GENDER` with the gender of the client.
+* Substitute `GENDER` with the gender of the client.
 
 * `GENDER` is case insensitive
 
@@ -360,7 +360,7 @@ This section shows the parameters of `add-c` and the important things to note ab
 
 | `[b/BIRTHDAY]` + a|
 
-* Substitude `BIRTHDAY` with the birthday of the client.
+* Substitute `BIRTHDAY` with the birthday of the client.
 
 * `BIRTHDAY` should be in the format DD-MM-YYYY
 
@@ -386,7 +386,7 @@ This section shows the parameters of `add-c` and the important things to note ab
 
 | `[h/HEIGHT]` + a|
 
-* Substitude `HEIGHT` with the height of the client.
+* Substitute `HEIGHT` with the height of the client.
 
 * `HEIGHT` must either be a whole or decimal number.
 
@@ -402,7 +402,7 @@ This section shows the parameters of `add-c` and the important things to note ab
 
 | `[t/TAG]` + a|
 
-* Substitude `TAG` with a tag for the client.
+* Substitute `TAG` with a tag for the client.
 
 * `TAG` should only contain alphanumeric characters.
 
@@ -447,17 +447,17 @@ image::AddExampleSuccess.png[]
 Here are some common problems you might encounter and the solutions.
 
 *Compulsory fields missing*
-+
+
 If you are adding a client and miss out any of the compulsory parameters. You will not be able to add the client.
-+
+
 For example, when you want to add a `Rachel Tan` into FitBiz but did not include the compulsory field `a/ADDRESS`
-+
+
 After entering the command, the following error message will be shown.
-+
+
 image::AddNoAddressError.png[]
-+
+
 To solve this error, ensure that all compulsory parameters are included when adding a client. The compulsory parameters include: `n/NAME`, `p/PHONE`, `e/EMAIl` and `a/ADDRESS`.
-+
+
 
 *Adding clients with the same phone number or email*
 
@@ -535,7 +535,7 @@ This section acts as a summary of the important things to note when using `edit-
 
 | `[g/GENDER]` + |
 
-* Substitude `GENDER` with the gender of the client.
+* Substitute `GENDER` with the gender of the client.
 
 * `GENDER` is case insensitive
 
@@ -545,7 +545,7 @@ This section acts as a summary of the important things to note when using `edit-
 
 | `[b/BIRTHDAY]` + |
 
-* Substitude `BIRTHDAY` with the birthday of the client.
+* Substitute `BIRTHDAY` with the birthday of the client.
 
 * `BIRTHDAY` should be in the format DD-MM-YYYY
 
@@ -574,7 +574,7 @@ This section acts as a summary of the important things to note when using `edit-
 * `TARGET_WEIGHT` is optional.
 | `[h/HEIGHT]` + |
 
-* Substitude `HEIGHT` with the height of the client.
+* Substitute `HEIGHT` with the height of the client.
 
 * `HEIGHT` must either be a whole or decimal number.
 
@@ -592,7 +592,7 @@ This section acts as a summary of the important things to note when using `edit-
 * `SPORT` is optional.
 | `[t/TAG]` + |
 
-* Substitude `TAG` with a tag for the client.
+* Substitute `TAG` with a tag for the client.
 
 * `TAG` should only contain alphanumeric characters.
 
