@@ -227,13 +227,13 @@ The table belows shows the parameters for `find-c` and the important things to n
 e.g. You can enter `find-c bryan low`.
 
 * `KEYWORD` is case insensitive. +
-e.g. Typing `find-c hans` will show clients even with the name `Hans`. +
+e.g. Typing `find-c hans` will show clients even with the name "Hans". +
 
 * The words used for `KEYWORD` have to match at least one word in the name of the clients. +
-e.g. Typing `find-c Bry` will not show clients with the name `Bryan`. +
+e.g. Typing `find-c Bry` will not show clients with the name "Bryan". +
 
 * Clients matching at least one `KEYWORD` will be returned and does not require all the words in their name to match. +
-e.g. Typing `find-c Hans Bo` will show clients `Hans Gruber` and `Bo Yang` and not necessarily just client `Hans Bo`. +
+e.g. Typing `find-c Hans Bo` will show clients "Hans Gruber" and "Bo Yang" and not necessarily just client "Hans Bo". +
 |====================
 [NOTE]
  At least one `KEYWORD` must be provided.
@@ -788,7 +788,7 @@ To solve this, we suggest incrementing the sets of the existing exercise by usin
 
 // tag::edit-e[]
 === Edit a client's exercise: `edit-e` --- YongJie
-`edits-e` allows edit an existing exercise done by the client that you are currently viewing. You will be able to see the updated exercise in *Exercise Table*.
+`edits-e` allows you to edit an existing exercise done by the client that you are currently viewing. You will be able to see the updated exercise in *Exercise Table*.
 
 *Format*: `edit-e INDEX [n/EXERCISE_NAME] [d/DATE] [ew/EXERCISE_WEIGHT] [reps/REPS] [sets/SETS]`
 
@@ -796,7 +796,7 @@ To solve this, we suggest incrementing the sets of the existing exercise by usin
 This command can only be used when you have a client in view; make sure you know how to view a client first. Refer to <<view-c-command>> for more information.
 
 [WARNING]
-Editing an exercise from FitBiz is permanent and *cannot be undone*.
+Editing an exercise in FitBiz is permanent and *cannot be undone*.
 
 ==== Parameters
 The table below shows the parameters for `edit-e` and the important points to note for each of them.
