@@ -472,7 +472,7 @@ To solve this issue, ensure that any new client you add does not have the same p
 
 ==== Parameters
 
-This section acts as a summary of the important things to note when using `edit-c` and its parameters. The square bracket shows that it is optional and your command will still execute even if you do not enter them. However, at least one of them have to be specified. The ellipsis after a parameter `...` means that there can be multiple of that same type of parameter.
+This section acts as a summary of the important things to note when using `edit-c` and its parameters.
 
 [options='header']
 [cols="15%,85%"]
@@ -481,8 +481,6 @@ This section acts as a summary of the important things to note when using `edit-
 | `INDEX` + |
 Substitute `INDEX` with the index of the desired client to edit. +
 
-`INDEX` is compulsory and you have to specify it. +
-
 `INDEX` must be a positive number, and must be a valid index number for a client as displayed from the list of clients. +
 
 | `[n/NAME]` + |
@@ -490,7 +488,6 @@ Substitute `NAME` with the name of the client.
 
 `NAME` should only contain alphanumeric characters, spaces and commas, and it should not be blank.
 
-`NAME` is optional.
 
 | `[p/PHONE]` + |
 Substitute `PHONE` with the phone number of the client. +
@@ -499,7 +496,6 @@ Substitute `PHONE` with the phone number of the client. +
 
 `PHONE` should be at least 3 digits long.
 
-`PHONE` is optional.
 
 | `[e/EMAIL]` + |
 Substitute `EMAIL` with the email of the client. +
@@ -510,7 +506,6 @@ Substitute `EMAIL` with the email of the client. +
 
 `yyy` must be at least 2 characters long, start and end with alphanumeric characters, and consist of alphanumeric characters, a period or a hyphen for the characters in between, if any.
 
-`EMAIL` is optional.
 
 | `[a/ADDRESS]` + |
 
@@ -518,7 +513,6 @@ Substitute `ADDRESS` as the address of the client.
 
 `ADDRESS` can take any value, but it should not be blank, or start with a whitespace.
 
-`ADDRESS` is optional.
 
 | `[g/GENDER]` + |
 
@@ -528,7 +522,6 @@ Substitue `GENDER` with the gender of the client.
 
 `GENDER` can only be `male` or `m`, `female` or `f`, or `others` or `o`.
 
-`GENDER` is optional.
 
 | `[b/BIRTHDAY]` + |
 
@@ -540,7 +533,6 @@ Substitue `BIRTHDAY` with the birthday of the client.
 
 `BIRTHDAY` cannot be earlier than 120 years from the current year.
 
-`BIRTHDAY` is optional.
 | `[cw/CURRENT_WEIGHT]` + |
 
 Substitute `CURRENT_WEIGHT` with the current weight of the client.
@@ -549,7 +541,6 @@ Substitute `CURRENT_WEIGHT` with the current weight of the client.
 
 `CURRENT_WEIGHT` can only have a maximum of 3 digits before the decimal place and a maximum of 2 digits after the decimal place (eg. 101.25 or 120.20)
 
-`CURRENT_WEIGHT` is optional.
 | `[tw/TARGET_WEIGHT]` + |
 
 Substitute `TARGET_WEIGHT` with the target weight for the client.
@@ -558,7 +549,6 @@ Substitute `TARGET_WEIGHT` with the target weight for the client.
 
 `TARGET_WEIGHT` can only have a maximum of 3 digits before the decimal place and a maximum of 2 digits after the decimal place (eg. 101.25 or 120.20)
 
-`TARGET_WEIGHT` is optional.
 | `[h/HEIGHT]` + |
 
 Substitue `HEIGHT` with the height of the client.
@@ -567,7 +557,6 @@ Substitue `HEIGHT` with the height of the client.
 
 `HEIGHT` can only have a maximum of 3 digits before the decimal place and a maximum of 2 digits after the decimal place (eg. 101.25 or 120.20)
 
-`HEIGHT` is optional.
 | `[s/SPORT]` + |
 
 Substitute `SPORT` with the sports of the client.
@@ -576,28 +565,23 @@ Substitute `SPORT` with the sports of the client.
 
 Sports given in this command will overwrite all of the client's existing sports.
 
-`SPORT` is optional.
 | `[t/TAG]` + |
 
-Substitue `TAG` with a tag for the client.
+Substitute `TAG` with a tag for the client
 
-`TAG` should only contain alphanumeric characters.
+`TAG` should only contain alphanumeric characters
 
 Tags given in the command will overwrite the Client's existing tags
 
 You can remove all of the client's tags by typing `t/` without specifying any `TAG`
 
-`TAG` is optional.
-
 | `[r/REMARK]` + |
 
-Substitute `REMARK` with remarks for the client.
+Substitute `REMARK` with remarks for the client
 
-`REMARK` should be alphanumeric.
+`REMARK` should be alphanumeric
 
-Any whitespace at the start of `REMARK` will be removed.
-
-`REMARK` is optional.
+Any whitespace at the start of `REMARK` will be removed
 
 |====================
 \*The set of special characters are: +
@@ -1006,15 +990,11 @@ This section acts as a summary of the important things to note when using `sched
 | `INDEX` + |
 Substitute `INDEX` with the index of the desired client to add the schedule to. +
 
-`INDEX` is compulsory and you have to specify it. +
-
 `INDEX` must be a positive number, and must be a valid index number for a client as displayed from the list of clients. +
 
 | `DAY` + |
 Substitute `DAY` with the first three letters of the day. +
 eg. MON / TUE / WED / THU / FRI / SAT / SUN
-
-`DAY` is compulsory and you have to specify it. +
 
 `DAY` can only be one of the above seven values. +
 
@@ -1023,16 +1003,12 @@ eg. MON / TUE / WED / THU / FRI / SAT / SUN
 | `STARTTIME` + |
 Substitute `STARTTIME` with the starting time of the schedule slot. +
 
-`STARTTIME` is compulsory.
-
 Range for `STARTTIME` is 0000-2359. +
 
 `STARTTIME` must always be earlier than or equal to `ENDTIME`.
 
 | `ENDTIME` + |
 Substitute `ENDTIME` with the ending time of the schedule slot. +
-
-`ENDTIME` is compulsory.
 
 Range for `ENDTIME` is 0000-2359. +
 
