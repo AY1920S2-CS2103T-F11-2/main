@@ -41,7 +41,7 @@ Note the following markups used in this User Guide:
 
 * `Monospace words with grey background`: denote a command, or a specific text that you should type
 * *Bold words*: denote some important information, or may refer to a specific GUI section
-* kbd:[Words with border]: denote a specific key on the keyboard (eg. kbd:[Tab])
+* kbd:[Words with border]: denote a specific key on the keyboard (eg. kbd:[Tab], kbd:[Enter])
 
 Note also, that we use the following symbols in this User Guide:
 
@@ -174,7 +174,7 @@ This section introduces the syntax and the usages of the commands available in F
 
 === View help: `help`
 
-Entering `help` into FitBiz will bring you right here! 😬
+Entering `help` into FitBiz will redirect you to this User Guide website.
 
 // tag::find-c[]
 
@@ -725,6 +725,7 @@ To correct this, you have to enter a valid `INDEX` that is not more than the num
 // end::view-c-command[]
 
 // tag::add-e[]
+[[add-e-command]]
 === Add a client's exercise: `add-e`  --- YongJie
 `add-e` allows you to record an exercise done by the client that you are currently viewing. You will be able to see the exercises recorded and their information in the *Exercise Table*.
 
@@ -932,31 +933,35 @@ To solve this, we suggest you delete the exercise you want to edit and increment
 *Format*: `delete-e INDEX`
 
 [NOTE]
-This command can only be used when you have a client in view; make sure you know how to view a client first. Refer to <<view-c-command>> for more information.
+This command can only be used when you have a client in view; make sure you know how to view a client first. Refer to the <<view-c-command, `view-c`>> command for more information.
 
 [WARNING]
-Deleting an exercise from FitBiz is permanent and *cannot be undone*.
+Deleting an exercise from FitBiz is *permanent* and *cannot be undone*.
 
 ==== Parameters
+
+This section shows the parameters and the important things to note about them.
 
 [options='header']
 [cols="15%,85%"]
 |===
-| Parameters | Important points to note
-| `INDEX` + | Substitute `INDEX` with the actual index of the exercise shown on the *Exercise Table*
+| Parameter | Important points to note
+| `INDEX` a| * Substitute `INDEX` with the actual index of the exercise shown on the *Exercise Table*
 
-Must be a positive integer (eg. 1, 2, 3, ...)
+* Must be a positive integer (eg. 1, 2, 3, ...)
 |===
 
 ==== Example
 
-. First, ensure that you are currently viewing a client by using the `view-c` command:
+Suppose you want to delete an exercise that was previously added to a client. Here is what you need to do:
+
+. First, ensure that you are currently viewing the correct client by using the `view-c` command:
 +
 image::delete-e-1.png[]
-. Say for example that you want to delete the fifth exercise found on the **Exercise Table** (the one named "Bench Press" done on "07-04-2020"), simply enter `delete-e 5`:
+. Say for example that you want to delete the fifth exercise found on the **Exercise Table** (the one named "Bench Press" done on "07-04-2020"), simply execute `delete-e 5`:
 +
 image::delete-e-2.png[]
-. After the command has been successfully executed, the specified exercise should have been deleted. Notice also, in the *Personal Best Table* that the personal best for "Bench Press" has also been automatically updated to reflect this change:
+. After the command has been successfully executed, the specified exercise will no longer appear in the *Exercise Table*. Notice also, in the *Personal Best Table* that the personal best for "Bench Press" has been automatically updated to reflect this change:
 +
 image::delete-e-3.png[]
 
@@ -964,8 +969,8 @@ image::delete-e-3.png[]
 
 If you find that you are unable to execute this command successfully, there are a few things you can check:
 
-. Ensure that you are currently viewing a client using the `view-c` command. If you are indeed viewing a client, the *Client View* should not be empty.
-. Ensure that you actually have exercises to delete and that the `INDEX` specified is correct. If the client does indeed have recorded exercises, the *Exercise Table* should not be empty.
+. Ensure that you are currently viewing the correct client using the <<view-c-command, `view-c`>> command. If you are indeed viewing a client, the *Client View* should not be empty.
+. Ensure that the client actually has some exercises to delete and that the `INDEX` specified matches the actual index shown in the **Exercise Table**. If the client does indeed have recorded exercises, the *Exercise Table* should not be empty.
 
 // end::delete-e-command[]
 
@@ -1072,30 +1077,35 @@ image::UGScheduleDiagram8.png[]
 
 `export` allows you to export your client's recorded exercises into a spreadsheet format which you can then easily save or share with your clients. Note that this will create a CSV file, which you can view and open in other applications like Microsoft Excel, or Google Sheets (as shown in the example later).
 
-*format*: `export`
+*Format*: `export`
 
-[NOTE]
-This command can only be used when you have a client in view; make sure you know how to view a client first. Refer to <<view-c-command>> for more information.
-
-==== Quick summary
+Some key points to note:
 
 * Only the exercises of the current client in view will be exported
-* Exported files will be saved in the `/exports` directory
+* Exported files will be saved in the `/exports` folder, located in the same directory as `FitBiz.jar`
 * The name of the exported file will be the client's name followed by the `.csv` file extension (eg. `Alex Yeoh.csv`)
+
+[NOTE]
+This command can only be used when you have a client in view; make sure you know how to view a client first. Refer to the <<view-c-command, `view-c`>> command for more information.
+
+==== Parameters
+
+The command is simply `export`, and has no additional parameters.
 
 ==== Example
 
-. First, ensure that you are currently viewing a client by using the `view-c` command:
+Let's say that you want to export a client's exercises, either to save it for yourself or send a copy to him. Here is what you need to do:
+
+. First, ensure that you are currently viewing the correct client (Alex Yeoh in this example) by using the `view-c` command. Ensure also, that his **Exercise Table** is not empty and showing at least one exercise.
 +
 image::export-1.png[]
-. Now, if the client you are viewing currently has recorded exercises in the *Exercise Table*, simply execute the `export` command
-. The exercises should have been successfully exported, if the following success message is shown:
+. Now, simply execute the `export` command to export all of Alex's exercises. The following success message should be shown:
 +
 image::export-2.png[]
-. Now, simply use your favourite file explorer to locate the `exports` folder, which should be created in the same directory as `FitBiz.jar`. In the `exports` folder, you will then find your exported CSV file:
+. Now, simply use your favourite file explorer to locate the `exports` folder, which should be created in the same directory as `FitBiz.jar`. In the `exports` folder, you will then find the exported CSV file, `Alex Yeoh.csv` (highlighted in red borders):
 +
 image::export-3.png[]
-. If you have a spreadsheet software (like Microsoft Excel) installed on your computer, you can easily view the CSV file by launching it. In our example, we have https://support.google.com/docs/answer/40608?co=GENIE.Platform%3DDesktop&hl=en[imported it into Google Sheets] instead:
+. If you have a spreadsheet software (like Microsoft Excel) installed on your computer, you can easily view the CSV file by launching the file just like you would any other file (eg. by double clicking on it). In our example, we have https://support.google.com/docs/answer/40608?co=GENIE.Platform%3DDesktop&hl=en[imported it into Google Sheets] instead:
 +
 image::export-4.png[]
 
@@ -1103,8 +1113,8 @@ image::export-4.png[]
 
 If you find that you are unable to execute this command successfully, there are a few things you can check:
 
-. Ensure that you are currently viewing a client using the `view-c` command. If you are indeed viewing a client, the *Client View* should not be empty.
-. Ensure that you actually do have exercises recorded for the client currently in view using the `add-e` command. If the client does indeed have recorded exercises, the *Exercise Table* should not be empty.
+. Ensure that you are currently viewing the correct client using the <<view-c-command, `view-c`>> command. If you are indeed viewing a client, the *Client View* should not be empty.
+. Ensure that you have at least one recorded exercise for the client currently in view. Remember that you can add exercises using the <<add-e-command, `add-e`>> command. If the client does indeed have recorded exercises, the *Exercise Table* should not be empty.
 
 // end::export-command[]
 
