@@ -317,7 +317,7 @@ After setting up the program, the first thing you might want to do is to add you
 
 ==== Parameters
 
-This section shows the parameters of `add-c` and the imporant things to note about them:
+This section shows the parameters of `add-c` and the important things to note about them:
 
 [options='header']
 [cols="15%,85%"]
@@ -352,7 +352,7 @@ This section shows the parameters of `add-c` and the imporant things to note abo
 
 | `[g/GENDER]` + a|
 
-* Substitue `GENDER` with the gender of the client.
+* Substitude `GENDER` with the gender of the client.
 
 * `GENDER` is case insensitive
 
@@ -360,7 +360,7 @@ This section shows the parameters of `add-c` and the imporant things to note abo
 
 | `[b/BIRTHDAY]` + a|
 
-* Substitue `BIRTHDAY` with the birthday of the client.
+* Substitude `BIRTHDAY` with the birthday of the client.
 
 * `BIRTHDAY` should be in the format DD-MM-YYYY
 
@@ -386,7 +386,7 @@ This section shows the parameters of `add-c` and the imporant things to note abo
 
 | `[h/HEIGHT]` + a|
 
-* Substitue `HEIGHT` with the height of the client.
+* Substitude `HEIGHT` with the height of the client.
 
 * `HEIGHT` must either be a whole or decimal number.
 
@@ -402,7 +402,7 @@ This section shows the parameters of `add-c` and the imporant things to note abo
 
 | `[t/TAG]` + a|
 
-* Substitue `TAG` with a tag for the client.
+* Substitude `TAG` with a tag for the client.
 
 * `TAG` should only contain alphanumeric characters.
 
@@ -446,7 +446,7 @@ image::AddExampleSuccess.png[]
 ==== Common errors/ problems:
 Here are some common problems you might encounter and the solutions.
 
-. *Compulsory fields missing*
+*Compulsory fields missing*
 +
 If you are adding a client and miss out any of the compulsory parameters. You will not be able to add the client.
 +
@@ -459,7 +459,7 @@ image::AddNoAddressError.png[]
 To solve this error, ensure that all compulsory parameters are included when adding a client. The compulsory parameters include: `n/NAME`, `p/PHONE`, `e/EMAIl` and `a/ADDRESS`.
 +
 
-. *Adding clients with the same phone number or email*
+*Adding clients with the same phone number or email*
 
 In FitBiz, you cannot add 2 clients with the either same phone number or email.
 
@@ -535,7 +535,7 @@ This section acts as a summary of the important things to note when using `edit-
 
 | `[g/GENDER]` + |
 
-* Substitue `GENDER` with the gender of the client.
+* Substitude `GENDER` with the gender of the client.
 
 * `GENDER` is case insensitive
 
@@ -545,7 +545,7 @@ This section acts as a summary of the important things to note when using `edit-
 
 | `[b/BIRTHDAY]` + |
 
-* Substitue `BIRTHDAY` with the birthday of the client.
+* Substitude `BIRTHDAY` with the birthday of the client.
 
 * `BIRTHDAY` should be in the format DD-MM-YYYY
 
@@ -574,7 +574,7 @@ This section acts as a summary of the important things to note when using `edit-
 * `TARGET_WEIGHT` is optional.
 | `[h/HEIGHT]` + |
 
-* Substitue `HEIGHT` with the height of the client.
+* Substitude `HEIGHT` with the height of the client.
 
 * `HEIGHT` must either be a whole or decimal number.
 
@@ -592,7 +592,7 @@ This section acts as a summary of the important things to note when using `edit-
 * `SPORT` is optional.
 | `[t/TAG]` + |
 
-* Substitue `TAG` with a tag for the client.
+* Substitude `TAG` with a tag for the client.
 
 * `TAG` should only contain alphanumeric characters.
 
@@ -1163,7 +1163,7 @@ e.g. `monday` or `obese200kg`
 
 |`[s/SPORT]` + a|
 
-* SPORT` is the sport of the clients you want to match and list.
+* `SPORT` is the sport of the clients you want to match and list.
 
 * `SPORT` is case-insensitive. +
 e.g.  `track and field` returns the same result as `Track And Field`
