@@ -696,13 +696,12 @@ This section shows the parameters of `delete-c` and the important things to note
 
 * `INDEX` must be a positive integer (ie. 1, 2, 3, ...) +
 
-* `INDEX` is compulsory
 |====================
 
 ==== Examples
 Suppose that you want to delete the client "Alex Yeoh" in the client list. You can simply use the `delete-c` command as shown.
 
-. Type `delete-c 1` into the Command Box and press `Enter` to execute it.
+. Type `delete-c 1` into the Command Box and press kbd:[Enter] to execute it.
 +
 image::ug-delete-1.png[]
 . Result Box will display a success message including details of the deleted client. You can now see that the Client List no longer contains the deleted client.
@@ -738,15 +737,13 @@ This section shows the parameters of `view-c` and the important things to note a
 * `INDEX` refers to the index number shown in the displayed client list +
 
 * `INDEX` must be a positive integer (ie. 1, 2, 3, ...) +
-
-* `INDEX` is compulsory +
 |====================
 
 ==== Examples
 
 Let’s say that you want to view the details of the client  "Alex Yeoh" in the client list. You can simply use the `view-c` command as shown.
 
-. Type `view-c 1` into the Command Box and press `Enter` to execute it.
+. Type `view-c 1` into the Command Box and press kbd:[Enter] to execute it.
 +
 image::ug-view-1.png[]
 +
@@ -1238,23 +1235,17 @@ This section shows the parameters of `graph` and the important things to note ab
 | `n/EXERCISE_NAME` + a|
 * Substitute `EXERCISE_NAME` with the name of the exercise. +
 
-* `n/EXERCISE_NAME` is compulsory and you have to specify it. +
-
 * `n/EXERCISE_NAME` is case sensitive. +
 e.g. An exercise `pushup` will be considered to be different from the exercise `Pushup`.
 
 | `a/Y_AXIS` + a|
 * Substitute `Y_AXIS` with the y-axis of your choice. +
 
-* `Y_AXIS` is compulsory and you have to specify it. +
-
 * `Y_AXIS` must either be `reps` or `weight` (case insensitive), allowing you to specify the exercise attribute you wish to focus on +
 e.g. `Reps`, `weigHt` and `WEIGHT` will be valid inputs for `Y_AXIS`. +
 
 | `sd/START_DATE` + a|
 * Substitute `START_DATE` with the start date of your graph. +
-
-* `sd/START_DATE` is compulsory and you have to specify it. +
 
 * `START_DATE` must be of the form `DD-MM-YYYY` (ie. 02-07-2020 for 2nd July 2020) +
 
@@ -1264,8 +1255,6 @@ e.g. `Reps`, `weigHt` and `WEIGHT` will be valid inputs for `Y_AXIS`. +
 
 | `ed/END_DATE` + a|
 * Substitute `END_DATE` with the end date of your graph +
-
-* `ed/END_DATE` is compulsory and you have to specify it. +
 
 * `END_DATE` must be of the form `DD-MM-YYYY` (ie. 02-07-2020 for 2nd July 2020) +
 
@@ -1286,7 +1275,7 @@ image::ug-graph-1.png[]
 . Next, simply type the graph command `graph n/Sumo Deadlift a/weight sd/01-01-2020 ed/13-04-2020` into the Command Box.
 +
 image::ug-graph-2.png[]
-. The graph will appear separately in a window.
+. The graph will appear in a separate window.
 +
 image::ug-graph-3.png[]
 . You will see the Result Box informing you of the current graph displayed. Note that any changes made using `add-e, edit-e, delete-e` will not be reflected in the graph.
