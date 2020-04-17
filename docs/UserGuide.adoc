@@ -1292,13 +1292,13 @@ The table below shows the commands which directly interact with a client.
 |=======================================================================
 |Command | Summary
 |`add-c n/NAME p/PHONE_NUMBER e/EMAIL [t/TAG]…`| Adds a new client into FitBiz.
-|`delete-c INDEX`| Deletes a client and its associated exercises.
+|`delete-c INDEX`| Deletes a client and all of his/her exercises.
 |`edit-c INDEX [n/NAME] [p/PHONE] [e/EMAIL] [t/TAG]…​`| Edits an existing client.
-|`filter-c [t/TAG]... [s/Sport]...`| Filters the list of clients based on specified tags or sports.
-|`find-c KEYWORD [KEYWORD]...`| Filters the list of clients based on specified name.
-|`list-c`| Displays the list of clients in FitBiz.
+|`filter-c [t/TAG]... [s/Sport]...`| Filters the list of clients based on the specified tags or sports.
+|`find-c KEYWORD [KEYWORD]...`| Filters the list of clients based on the specified name.
+|`list-c`| Displays the list of all the clients in FitBiz.
 |`schedule INDEX sch/DAY-STARTTIME-ENDTIME`| Assigns a schedule to a client.
-|`view-c INDEX`| Shows detailed information of a client.
+|`view-c INDEX`| Shows all the information pertaining to a client.
 |=======================================================================
 
 === Exercise commands
@@ -1307,10 +1307,10 @@ The table below shows the commands which directly interact with an exercise.
 [width="100%",cols="20%,<30%",options="header",]
 |=======================================================================
 |Command | Summary
-|`add-e n/EXERCISE_NAME d/DATE ew/WEIGHT reps/REPS sets/SETS`| Adds a new exercise to the client being viewed.
-|`delete-e INDEX`| Deletes an exercise in the exercise list of the client being viewed.
-|`edit-e INDEX [n/EXERCISE_NAME] [d/DATE] [ew/WEIGHT] [reps/REPS] [sets/SETS]`| Edits the exercise details of the client being viewed.
-|`graph n/NAME a/AXIS sd/STARTDATE ed/ENDDATE`| Shows a graph of the exercise progress done by a client between the indicated dates.
+|`add-e n/EXERCISE_NAME d/DATE ew/WEIGHT reps/REPS sets/SETS`| Adds a new exercise to the client in view.
+|`delete-e INDEX`| Deletes an exercise from the client in view.
+|`edit-e INDEX [n/EXERCISE_NAME] [d/DATE] [ew/WEIGHT] [reps/REPS] [sets/SETS]`| Edits the details of an exercise of the client in view.
+|`graph n/NAME a/AXIS sd/STARTDATE ed/ENDDATE`| Shows a progress graph of the exercises done by a client between the indicated dates.
 |=======================================================================
 
 === General commands
@@ -1319,9 +1319,9 @@ The table below shows the other commands which do not directly interact with cli
 [width="100%",cols="20%,<30%",options="header",]
 |=======================================================================
 |Command | Summary
-|`export INDEX`| Exports client's training record to a CSV file.
-|`help`| Shows all available commands and their description.
-|`view-s TYPE` *[v2.0]*| Shows schedule for today or time specified.
+|`export INDEX`| Exports the exercises of the client in view to a CSV file.
+|`help`| Redirects the user to this User Guide website.
+|`view-s TYPE` *[v2.0]*| Shows schedule for today or for the specified time.
 |=======================================================================
 
 // end::commands[]
