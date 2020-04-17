@@ -478,110 +478,110 @@ This section acts as a summary of the important things to note when using `edit-
 [cols="15%,85%"]
 |====================
 | Parameter | Important points to note
-| `INDEX` + |
-Substitute `INDEX` with the index of the desired client to edit. +
+| `INDEX` a|
+* Substitute `INDEX` with the index of the desired client to edit. +
 
-`INDEX` must be a positive number, and must be a valid index number for a client as displayed from the list of clients. +
+* `INDEX` must be a positive number, and must be a valid index number for a client as displayed from the list of clients. +
 
-| `[n/NAME]` + |
-Substitute `NAME` with the name of the client.
+| `[n/NAME]` a|
+* Substitute `NAME` with the name of the client.
 
-`NAME` should only contain alphanumeric characters, spaces and commas, and it should not be blank.
-
-
-| `[p/PHONE]` + |
-Substitute `PHONE` with the phone number of the client. +
-
-`PHONE` should only contain numbers. +
-
-`PHONE` should be at least 3 digits long.
+* `NAME` should only contain alphanumeric characters, spaces and commas, and it should not be blank.
 
 
-| `[e/EMAIL]` + |
-Substitute `EMAIL` with the email of the client. +
+| `[p/PHONE]` a|
+* Substitute `PHONE` with the phone number of the client. +
 
-`EMAIL` should be of the format `xxx@yyy`, where: +
+* `PHONE` should only contain numbers. +
 
-`xxx` should only contain alphanumeric characters and the set of special characters* shown below this table
-
-`yyy` must be at least 2 characters long, start and end with alphanumeric characters, and consist of alphanumeric characters, a period or a hyphen for the characters in between, if any.
+* `PHONE` should be at least 3 digits long.
 
 
-| `[a/ADDRESS]` + |
+| `[e/EMAIL]` a|
+* Substitute `EMAIL` with the email of the client. +
 
-Substitute `ADDRESS` as the address of the client.
+* `EMAIL` should be of the format `xxx@yyy`, where: +
 
-`ADDRESS` can take any value, but it should not be blank, or start with a whitespace.
+* `xxx` should only contain alphanumeric characters and the set of special characters* shown below this table
 
-
-| `[g/GENDER]` + |
-
-Substitue `GENDER` with the gender of the client.
-
-`GENDER` is case insensitive
-
-`GENDER` can only be `male` or `m`, `female` or `f`, or `others` or `o`.
+* `yyy` must be at least 2 characters long, start and end with alphanumeric characters, and consist of alphanumeric characters, a period or a hyphen for the characters in between, if any.
 
 
-| `[b/BIRTHDAY]` + |
+| `[a/ADDRESS]` a|
 
-Substitue `BIRTHDAY` with the birthday of the client.
+* Substitute `ADDRESS` as the address of the client.
 
-`BIRTHDAY` should be in the format DD-MM-YYYY
+* `ADDRESS` can take any value, but it should not be blank, or start with a whitespace.
 
-`BIRTHDAY` cannot exceed the current date.
 
-`BIRTHDAY` cannot be earlier than 120 years from the current year.
+| `[g/GENDER]` a|
 
-| `[cw/CURRENT_WEIGHT]` + |
+* Substitue `GENDER` with the gender of the client.
 
-Substitute `CURRENT_WEIGHT` with the current weight of the client.
+* `GENDER` is case insensitive
 
-`CURRENT_WEIGHT` must take the value of a whole or decimal number(eg. 65 or 86.22)
+* `GENDER` can only be `male` or `m`, `female` or `f`, or `others` or `o`.
 
-`CURRENT_WEIGHT` can only have a maximum of 3 digits before the decimal place and a maximum of 2 digits after the decimal place (eg. 101.25 or 120.20)
 
-| `[tw/TARGET_WEIGHT]` + |
+| `[b/BIRTHDAY]` a|
 
-Substitute `TARGET_WEIGHT` with the target weight for the client.
+* Substitue `BIRTHDAY` with the birthday of the client.
 
-`TARGET_WEIGHT` must take the value of a whole or decimal number(eg. 65 or 86.22)
+* `BIRTHDAY` should be in the format DD-MM-YYYY
 
-`TARGET_WEIGHT` can only have a maximum of 3 digits before the decimal place and a maximum of 2 digits after the decimal place (eg. 101.25 or 120.20)
+* `BIRTHDAY` cannot exceed the current date.
 
-| `[h/HEIGHT]` + |
+* `BIRTHDAY` cannot be earlier than 120 years from the current year.
 
-Substitue `HEIGHT` with the height of the client.
+| `[cw/CURRENT_WEIGHT]` a|
 
-`HEIGHT` must either be a whole or decimal number.
+* Substitute `CURRENT_WEIGHT` with the current weight of the client.
 
-`HEIGHT` can only have a maximum of 3 digits before the decimal place and a maximum of 2 digits after the decimal place (eg. 101.25 or 120.20)
+* `CURRENT_WEIGHT` must take the value of a whole or decimal number(eg. 65 or 86.22)
 
-| `[s/SPORT]` + |
+* `CURRENT_WEIGHT` can only have a maximum of 3 digits before the decimal place and a maximum of 2 digits after the decimal place (eg. 101.25 or 120.20)
 
-Substitute `SPORT` with the sports of the client.
+| `[tw/TARGET_WEIGHT]` a|
 
-`SPORT` should only contain alphanumeric characters and spaces.
+* Substitute `TARGET_WEIGHT` with the target weight for the client.
 
-Sports given in this command will overwrite all of the client's existing sports.
+* `TARGET_WEIGHT` must take the value of a whole or decimal number(eg. 65 or 86.22)
 
-| `[t/TAG]` + |
+* `TARGET_WEIGHT` can only have a maximum of 3 digits before the decimal place and a maximum of 2 digits after the decimal place (eg. 101.25 or 120.20)
 
-Substitute `TAG` with a tag for the client
+| `[h/HEIGHT]` a|
 
-`TAG` should only contain alphanumeric characters
+* Substitue `HEIGHT` with the height of the client.
 
-Tags given in the command will overwrite the Client's existing tags
+* `HEIGHT` must either be a whole or decimal number.
 
-You can remove all of the client's tags by typing `t/` without specifying any `TAG`
+* `HEIGHT` can only have a maximum of 3 digits before the decimal place and a maximum of 2 digits after the decimal place (eg. 101.25 or 120.20)
 
-| `[r/REMARK]` + |
+| `[s/SPORT]` a|
 
-Substitute `REMARK` with remarks for the client
+* Substitute `SPORT` with the sports of the client.
 
-`REMARK` should be alphanumeric
+* `SPORT` should only contain alphanumeric characters and spaces.
 
-Any whitespace at the start of `REMARK` will be removed
+* Sports given in this command will overwrite all of the client's existing sports.
+
+| `[t/TAG]` a|
+
+* Substitute `TAG` with a tag for the client
+
+* `TAG` should only contain alphanumeric characters
+
+* Tags given in the command will overwrite the Client's existing tags
+
+* You can remove all of the client's tags by typing `t/` without specifying any `TAG`
+
+| `[r/REMARK]` a|
+
+* Substitute `REMARK` with remarks for the client
+
+* `REMARK` should be alphanumeric
+
+* Any whitespace at the start of `REMARK` will be removed
 
 |====================
 \*The set of special characters are: +
@@ -987,32 +987,32 @@ This section acts as a summary of the important things to note when using `sched
 [cols="15%,85%"]
 |====================
 | Parameter | Important points to note
-| `INDEX` + |
-Substitute `INDEX` with the index of the desired client to add the schedule to. +
+| `INDEX` a|
+* Substitute `INDEX` with the index of the desired client to add the schedule to. +
 
-`INDEX` must be a positive number, and must be a valid index number for a client as displayed from the list of clients. +
+* `INDEX` must be a positive number, and must be a valid index number for a client as displayed from the list of clients. +
 
-| `DAY` + |
-Substitute `DAY` with the first three letters of the day. +
+| `DAY` a|
+* Substitute `DAY` with the first three letters of the day. +
 eg. MON / TUE / WED / THU / FRI / SAT / SUN
 
-`DAY` can only be one of the above seven values. +
+* `DAY` can only be one of the above seven values. +
 
-`DAY` is not case sensitive.
+* `DAY` is not case sensitive.
 
-| `STARTTIME` + |
-Substitute `STARTTIME` with the starting time of the schedule slot. +
+| `STARTTIME` a|
+* Substitute `STARTTIME` with the starting time of the schedule slot. +
 
-Range for `STARTTIME` is 0000-2359. +
+* Range for `STARTTIME` is 0000-2359. +
 
-`STARTTIME` must always be earlier than or equal to `ENDTIME`.
+* `STARTTIME` must always be earlier than or equal to `ENDTIME`.
 
-| `ENDTIME` + |
-Substitute `ENDTIME` with the ending time of the schedule slot. +
+| `ENDTIME` a|
+* Substitute `ENDTIME` with the ending time of the schedule slot. +
 
-Range for `ENDTIME` is 0000-2359. +
+* Range for `ENDTIME` is 0000-2359. +
 
-`ENDTIME` must always be equal to or later than `STARTTIME`.
+* `ENDTIME` must always be equal to or later than `STARTTIME`.
 |====================
 
 ==== Example
