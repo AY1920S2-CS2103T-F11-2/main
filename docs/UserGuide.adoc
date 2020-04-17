@@ -41,7 +41,7 @@ Note the following markups used in this User Guide:
 
 * `Monospace words with grey background`: denote a command, or a specific text that you should type
 * *Bold words*: denote some important information, or may refer to a specific GUI section
-* kbd:[Words with border]: denote a specific key on the keyboard (eg. kbd:[Tab])
+* kbd:[Words with border]: denote a specific key on the keyboard (eg. kbd:[Tab], kbd:[Enter])
 
 Note also, that we use the following symbols in this User Guide:
 
@@ -174,7 +174,7 @@ This section introduces the syntax and the usages of the commands available in F
 
 === View help: `help`
 
-Entering `help` into FitBiz will bring you right here! 😬
+Entering `help` into FitBiz will redirect you to this User Guide website.
 
 // tag::list-c[]
 === List all clients: `list-c` ---Ng Ming Liang
@@ -1010,7 +1010,7 @@ Suppose you want to delete an exercise that was previously added to a client. He
 . First, ensure that you are currently viewing the correct client by using the `view-c` command:
 +
 image::delete-e-1.png[]
-. Say for example that you want to delete the fifth exercise found on the **Exercise Table** (the one named "Bench Press" done on "07-04-2020"), simply enter `delete-e 5`:
+. Say for example that you want to delete the fifth exercise found on the **Exercise Table** (the one named "Bench Press" done on "07-04-2020"), simply execute `delete-e 5`:
 +
 image::delete-e-2.png[]
 . After the command has been successfully executed, the specified exercise will no longer appear in the *Exercise Table*. Notice also, in the *Personal Best Table* that the personal best for "Bench Press" has been automatically updated to reflect this change:
@@ -1157,7 +1157,7 @@ image::export-1.png[]
 . Now, simply execute the `export` command to export all of Alex's exercises. The following success message should be shown:
 +
 image::export-2.png[]
-. Now, simply use your favourite file explorer to locate the `exports` folder, which should be created in the same directory as `FitBiz.jar`. In the `exports` folder, you will then find the exported CSV file, `Alex Yeoh.csv` (highlighted in red):
+. Now, simply use your favourite file explorer to locate the `exports` folder, which should be created in the same directory as `FitBiz.jar`. In the `exports` folder, you will then find the exported CSV file, `Alex Yeoh.csv` (highlighted in red borders):
 +
 image::export-3.png[]
 . If you have a spreadsheet software (like Microsoft Excel) installed on your computer, you can easily view the CSV file by launching the file just like you would any other file (eg. by double clicking on it). In our example, we have https://support.google.com/docs/answer/40608?co=GENIE.Platform%3DDesktop&hl=en[imported it into Google Sheets] instead:
