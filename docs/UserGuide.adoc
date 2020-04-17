@@ -1,8 +1,8 @@
 = FitBiz - User Guide
+By: CS2103T-F11-2 | Since: Feb 2020 | Licence: MIT
 :site-section: UserGuide
-:toc:
-:toc-title:
-:toc-placement: preamble
+:toc: macro
+:toc-title: Table of Contents
 :sectnums:
 :imagesDir: images
 :stylesDir: stylesheets
@@ -14,7 +14,37 @@ ifdef::env-github[]
 endif::[]
 :repoURL: https://github.com/AY1920S2-CS2103T-F11-2/main
 
-By: `CS2103T-F11-2` Since: `Feb 2020` Licence: `MIT`
+// some vertical space
+{zwsp} +
+{zwsp} +
+{zwsp} +
+{zwsp} +
+
+[.text-center]
+image::logo.png[width=256]
+[.text-center]
+_Revolutionising the fitness industry_
+
+---
+
+[.text-center]
+*Choo Qi Le Aaron +
+Fong Yong Jie +
+Li Zi Ying +
+Ng Ming Liang +
+Toh Ker Wei*
+
+// some vertical space
+{zwsp} +
+{zwsp} +
+{zwsp} +
+{zwsp} +
+
+<<<
+
+toc::[]
+
+<<<
 
 [[overview]]
 == Overview
@@ -39,8 +69,8 @@ In this guide, we cover:
 
 Note the following markups used in this User Guide:
 
-* `Monospace words with grey background`: denote a command, or a specific text that you should type
-* *Bold words*: denote some important information, or may refer to a specific GUI section
+* `Words with monospace font`: denote a command, or a specific text that you should type
+* *Words with bold font*: denote some important information, or may refer to a specific GUI section
 * kbd:[Words with border]: denote a specific key on the keyboard (eg. kbd:[Tab], kbd:[Enter])
 
 Note also, that we use the following symbols in this User Guide:
@@ -829,8 +859,9 @@ The table below shows the parameters for `edit-e` and the important points to no
 |====================
 | Parameter | Important points to note
 | `INDEX` + a|
-* Substitute `INDEX` with the index of the exercise shown on the table. +
+* Substitute `INDEX` with the actual index of the exercise shown on the *Exercise Table*.
 
+* Must be a positive integer (eg. 1, 2, 3, ...).
 | `[n/NAME]` + a|
 * Substitute `NAME` with the name of the exercise. +
 
@@ -917,9 +948,9 @@ This section shows the parameters and the important things to note about them.
 [cols="15%,85%"]
 |===
 | Parameter | Important points to note
-| `INDEX` a| * Substitute `INDEX` with the actual index of the exercise shown on the *Exercise Table*
+| `INDEX` a| * Substitute `INDEX` with the actual index of the exercise shown on the *Exercise Table*.
 
-* Must be a positive integer (eg. 1, 2, 3, ...)
+* Must be a positive integer (eg. 1, 2, 3, ...).
 |===
 
 ==== Example
@@ -1273,19 +1304,9 @@ Examples:
 
 // tag::commands[]
 == Command Summary
-=== General Commands
-The table below shows the general commands.
 
-[width="100%",cols="20%,<30%",options="header",]
-|=======================================================================
-|Command | Summary
-|`export INDEX`| Exports client's training record to a CSV file.
-|`help`| Shows all available commands and their description.
-|`view-s TYPE` [v2.0]| Shows schedule for today or time specified.
-|=======================================================================
-
-=== Client Commands
-The table below shows the commands that finds a client or manipulates the client's information.
+=== Client commands
+The table below shows the commands which directly interact with a client.
 
 [width="100%",cols="20%,<30%",options="header",]
 |=======================================================================
@@ -1300,8 +1321,8 @@ The table below shows the commands that finds a client or manipulates the client
 |`view-c INDEX`| Shows detailed information of a client.
 |=======================================================================
 
-=== Exercise Commands
-The table below shows the commands that manipulate the details of the exercises done by a client.
+=== Exercise commands
+The table below shows the commands which directly interact with an exercise.
 
 [width="100%",cols="20%,<30%",options="header",]
 |=======================================================================
@@ -1311,4 +1332,16 @@ The table below shows the commands that manipulate the details of the exercises 
 |`edit-e INDEX [n/EXERCISE_NAME] [d/DATE] [ew/WEIGHT] [reps/REPS] [sets/SETS]`| Edits the exercise details of the client being viewed.
 |`graph n/NAME a/AXIS sd/STARTDATE ed/ENDDATE`| Shows a graph of the exercise progress done by a client between the indicated dates.
 |=======================================================================
+
+=== General commands
+The table below shows the other commands which do not directly interact with clients or exercises.
+
+[width="100%",cols="20%,<30%",options="header",]
+|=======================================================================
+|Command | Summary
+|`export INDEX`| Exports client's training record to a CSV file.
+|`help`| Shows all available commands and their description.
+|`view-s TYPE` *[v2.0]*| Shows schedule for today or time specified.
+|=======================================================================
+
 // end::commands[]
