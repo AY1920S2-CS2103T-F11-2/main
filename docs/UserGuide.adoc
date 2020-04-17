@@ -1145,12 +1145,12 @@ When you have many clients and want to filter and display a group by their `Tag`
 *Format*: `filter-c [t/TAG]... [s/SPORT]...`
 
 ==== Parameters
-This section shows the parameters of `add-c` and the important things to note.
+This section shows the parameters of `add-c` and the important points to note.
 
 [options='header']
 [cols= "15%,85%"]
 |===
-|Parameter | Important things to note
+|Parameter | Important points to note
 | `[t/TAG]` + a|
 * `TAG` is the tag of the clients you want to match and list. +
 
