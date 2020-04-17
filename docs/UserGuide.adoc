@@ -254,7 +254,7 @@ image::ug-findcExamplePart2.png[]
 +
 image::ug-findcExamplePart3.png[]
 
-==== Common errors / problems
+==== Common errors and problems
 Here are some common errors and problems when using `find-c`:
 
 ===== Using incomplete KEYWORD
@@ -319,9 +319,9 @@ This section shows the parameters of `add-c` and the important things to note.
 
 * `EMAIL` should be of the format `xxx@yyy`, where: +
 
-* `xxx` should only contain alphanumeric characters and the set of special characters* shown below this table
+** `xxx` should only contain alphanumeric characters and the set of special characters* shown below this table
 
-* `yyy` must be at least 2 characters long, start and end with alphanumeric characters, and consist of alphanumeric characters, a period or a hyphen for the characters in between, if any
+** `yyy` must be at least 2 characters long, start and end with alphanumeric characters, and consist of alphanumeric characters, a period or a hyphen for the characters in between, if any.
 
 | `a/ADDRESS` + a|
 
@@ -422,7 +422,7 @@ image::AddExampleCommand.png[]
 
 image::AddExampleSuccess.png[]
 
-==== Common errors/ problems:
+==== Common errors and problems
 Here are some common problems you might encounter and the solutions.
 
 *Compulsory fields missing*
@@ -493,9 +493,9 @@ This section acts as a summary of the important things to note when using `edit-
 
 * `EMAIL` should be of the format `xxx@yyy`, where: +
 
-* `xxx` should only contain alphanumeric characters and the set of special characters* shown below this table
+** `xxx` should only contain alphanumeric characters and the set of special characters* shown below this table
 
-* `yyy` must be at least 2 characters long, start and end with alphanumeric characters, and consist of alphanumeric characters, a period or a hyphen for the characters in between, if any
+** `yyy` must be at least 2 characters long, start and end with alphanumeric characters, and consist of alphanumeric characters, a period or a hyphen for the characters in between, if any
 
 
 | `[a/ADDRESS]` a|
@@ -595,11 +595,11 @@ image::UGEditCDiagram2.png[]
 
 image::UGEditCDiagram3.png[]
 
-==== Common Errors/Problems
+==== Common errors and problems
 
 You might face some errors or difficulties when you use `edit-e`. In this section, you will be able to understand these errors and resolve them.
 
-*Result box not displaying updated client's information*
+===== Result box not displaying updated client's information
 
 When you use `edit-c`, instead of seeing the updated client's information in the *Result Box*, you might sometimes encounter an error message informing you about the specifications for the format of the command. This error message varies according to the mistake detected in the parameters given. For simplicity, let's look at one example scenario.
 
@@ -646,7 +646,7 @@ image::ug-delete-1.png[]
 +
 image::ug-delete-2.png[]
 
-==== Common errors/problems
+==== Common errors and problems
 Here are some common errors and problems that you may encounter:
 
 ===== Index out of range
@@ -689,7 +689,7 @@ image::ug-view-1.png[]
 +
 image::ug-view-2.png[]
 
-==== Common errors/problems
+==== Common errors and problems
 Here are some common errors and problems that you may encounter:
 
 ===== Index out of range
@@ -767,7 +767,7 @@ image::ug-addeExamplePart1.png[]
 +
 image::ug-addeExamplePart2.png[]
 
-==== Common errors / problems
+==== Common errors and problems
 Here are some common errors and problems when using `add-e`:
 
 ===== Duplicate exercises
@@ -854,7 +854,7 @@ image::ug-editeExamplePart2.png[]
 +
 image::ug-editeExamplePart3.png[]
 
-==== Common errors / problems
+==== Common errors and problems
 Here are some common errors and problems when using `edit-e`:
 
 ===== Duplicate exercises
@@ -914,7 +914,7 @@ image::delete-e-2.png[]
 +
 image::delete-e-3.png[]
 
-==== Common errors/problems
+==== Common errors and problems
 
 If you find that you are unable to execute this command successfully, there are a few things you can check:
 
@@ -1000,11 +1000,11 @@ image::UGScheduleDiagram5.png[]
 
 image::UGScheduleDiagram6.png[]
 
-==== Common Errors/Problems
+==== Common errors and problems
 
 You might face some errors or difficulties when you use `schedule`. In this section, you will be able to understand these errors and resolve them.
 
-*Overlapping schedules*
+===== Overlapping schedules
 
 You might encounter the message that "One or more of your input schedules have overlapping time periods. Please check again." This means that there is a overlapping time period between at least two of your input schedules. In this case as shown below, the first schedule `sch/MON-1100-1200` conflicts with the second schedule `sch/MON-1200-1300` because the end time of the first schedule overlaps with the start time of the second schedule.
 
@@ -1013,7 +1013,7 @@ image::UGScheduleDiagram7.png[]
 [NOTE]
 Overlapping schedules are not allowed between schedules within the same client. However, *different clients* can have overlapping schedules with each other as it is a possible scenario that you as a gym coach can coach multiple clients at once, and that additional clients can join/leave the session as other sessions are ongoing.
 
-*Invalid command format*
+===== Invalid command format
 
 You might encounter the error message from the *Result Box* specifying the format that you should be using for the `schedule` command. This means that there are one or more errors in the format of your input for the `schedule` command. In the example input shown below, `schedule 2 sch/TUESDAY-800-1:00`, there are multiple errors. First, the `DAY` should be three letters. Next, the `STARTTIME` and `ENDTIME` should follow the HHmm format. The correct input for this should be `schedule 2 sch/TUE-0800-1300`.
 
@@ -1058,7 +1058,7 @@ image::export-3.png[]
 +
 image::export-4.png[]
 
-==== Common errors/problems
+==== Common errors and problems
 
 If you find that you are unable to execute this command successfully, there are a few things you can check:
 
@@ -1119,7 +1119,7 @@ image::FilterExampleCommand.png[]
 
 image::FilterExampleSuccess.png[]
 
-==== Common error/ problem
+==== Common errors and problems
 *Tags with spaces*
 
 When you want to filter the clients list with multiple tags like `healthy` and `sporty`, you might encounter the error `Tags names should be alphanumeric`.
@@ -1156,11 +1156,11 @@ image::UGListCDiagram4.png[]
 
 If successful, you should be able to see "Listed all clients" in the *Result Box* and all of your clients in the *Client List*.
 
-==== Common errors / problems
+==== Common errors and problems
 
 The following might be a common problem when trying to use the `list-c` command.
 
-*No clients shown on the Client List*
+===== No clients shown on the Client List
 
 You may be greeted with the following scene. This means that there are no clients in your FitBiz. You can begin adding clients by using the `add-c` command. Do refer to the `add-c` section in this document for help regarding `add-c`.
 
@@ -1233,7 +1233,7 @@ image::ug-graph-3.png[]
 +
 image::ug-graph-4.png[]
 
-==== Common errors/problems
+==== Common errors and problems
 Here are some common errors and problems that you may encounter:
 
 ===== No exercise within stipulated timeframe
