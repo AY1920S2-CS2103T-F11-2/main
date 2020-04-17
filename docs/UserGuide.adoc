@@ -176,42 +176,6 @@ This section introduces the syntax and the usages of the commands available in F
 
 Entering `help` into FitBiz will bring you right here! 😬
 
-// tag::list-c[]
-=== List all clients: `list-c` ---Ng Ming Liang
-
-You can list all clients on the *Client List*. This is useful when your *Client List* has been filtered and you want to view all clients again. When using `list-c`, there will be no difference to the *Client List* if it is already showing all clients.
-
-*Format*: `list-c`
-
-==== Parameters
-
-The command is simply `list-c`, and has no additional parameters.
-
-==== Example
-
-Imagine you have a filtered *Client List*, and you want to view all of your clients again. An example scenario of your filtered *Client List* is shown below, which is displaying Alex Yeoh.
-
-
-image::UGListCDiagram3.png[]
-
-To get your *Client List* to show all your clients again, enter `list-c`into the *Command Box* and you should be able to see the following:
-
-image::UGListCDiagram4.png[]
-
-If successful, you should be able to see "Listed all clients" in the *Result Box* and all of your clients in the *Client List*.
-
-==== Common errors / problems
-
-The following might be a common problem when trying to use the `list-c` command. 
-
-*No clients shown on the Client List*
-
-You may be greeted with the following scene. This means that there are no clients in your FitBiz. You can begin adding clients by using the `add-c` command. Do refer to the `add-c` section in this document for help regarding `add-c`.
-
-image::UGListCDiagram5.png[]
-
-// end::list-c[]
-
 // tag::find-c[]
 
 === Find clients by name: `find-c` --- Yong Jie
@@ -1033,7 +997,7 @@ The `schedule` command overwrites the client's existing schedule with the new sc
 
 ==== Parameters
 
-This section acts as a summary of the important things to note when using `schedule`. The square bracket shows that it is optional and your command will still execute even if you do not enter them.
+This section acts as a summary of the important things to note when using `schedule`.
 
 [options='header']
 [cols="15%,85%"]
@@ -1077,11 +1041,7 @@ Range for `ENDTIME` is 0000-2359. +
 
 ==== Example
 
-Imagine that you want to schedule Alex Yeoh with the following slot: +
-
-* Monday 11:00am to 12:00pm +
-
-and also schedule two slots for Bernice Yu. First, let's look at how we can assign one schedule slot to Alex Yeoh.
+Imagine that you want to schedule a few sessions for your clients. Let's begin with assigning one schedule slot for Alex Yeoh: Monday 11:00am to 12:00pm. First, let's look at how we can assign one schedule slot to Alex Yeoh.
 
 . Observing from the *Client List*, you can see that Alex Yeoh's client index is `1`.
 +
@@ -1095,8 +1055,8 @@ image::UGScheduleDiagram2.png[]
 +
 image::UGScheduleDiagram3.png[]
 +
-. Now that you have successfully schedule for Alex Yeoh, let's move on to add the two schedules to Bernice Yu: Monday 8:00am to 10:00pm and Tuesday 4:00pm to 6:00pm.
-You can do that by adding both of these timings into the `schedule` command following the same format as shown below.
+. Now that you have successfully schedule for Alex Yeoh, let's say you also want multiple schedule slots to your client. For example, two schedules to Bernice Yu: Monday 8:00am to 10:00pm and Tuesday 4:00pm to 6:00pm.
+You can do this by adding both of these timings into the `schedule` command following the same format as shown below.
 +
 
 image::UGScheduleDiagram4.png[]
@@ -1239,6 +1199,42 @@ The list of successfully filter clients will then be displayed.
 
 image::FilterTagSuccess.png[]
 // end::filter-c-command[]
+
+// tag::list-c[]
+=== List all clients: `list-c` ---Ng Ming Liang
+
+You can list all clients on the *Client List*. This is useful when your *Client List* has been filtered and you want to view all clients again. When using `list-c`, there will be no difference made to the *Client List* if it is already showing all clients.
+
+*Format*: `list-c`
+
+==== Parameters
+
+The command is simply `list-c`, and has no additional parameters.
+
+==== Example
+
+Imagine you have a filtered *Client List*, and you want to view all of your clients again. An example scenario of your filtered *Client List* is shown below, which is displaying Alex Yeoh.
+
+
+image::UGListCDiagram3.png[]
+
+To get your *Client List* to show all your clients again, enter `list-c` into the *Command Box* and you should be able to see the following:
+
+image::UGListCDiagram4.png[]
+
+If successful, you should be able to see "Listed all clients" in the *Result Box* and all of your clients in the *Client List*.
+
+==== Common errors / problems
+
+The following might be a common problem when trying to use the `list-c` command. 
+
+*No clients shown on the Client List*
+
+You may be greeted with the following scene. This means that there are no clients in your FitBiz. You can begin adding clients by using the `add-c` command. Do refer to the `add-c` section in this document for help regarding `add-c`.
+
+image::UGListCDiagram5.png[]
+
+// end::list-c[]
 
 // tag::graph-command[]
 === Display visualisations of training progress: `graph` --- Li Zi Ying
