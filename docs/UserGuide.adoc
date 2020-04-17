@@ -49,6 +49,8 @@ toc::[]
 [[overview]]
 == Overview
 
+Welcome to the _FitBiz User Guide_! This section introduces you to FitBiz and guides you through the basic layout of the application. After reading this section, you should have a deeper understanding of what FitBiz is and how it can help solve your problems.
+
 === About FitBiz
 
 FitBiz is a fitness business management tool tailor made for fitness coaches to manage their clients. From managing your client's profile to planning your schedules, FitBiz will surely ease the pain and monotony of managing a small to medium client portfolio.
@@ -1272,9 +1274,9 @@ Format: `view-s TYPE`
 
 Examples:
 
-* `view schedule today`
+* `view-s today`
 ** Shows the schedule for today
-* `view schedule week`
+* `view-s week`
 ** Shows the schedule of the current week
 
 == FAQ
@@ -1284,6 +1286,8 @@ Examples:
 
 // tag::commands[]
 == Command Summary
+
+In this section, we give a quick summary of all the commands available in FitBiz.
 
 === Client commands
 The table below shows the commands which directly interact with a client.
