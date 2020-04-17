@@ -1226,7 +1226,7 @@ If successful, you should be able to see "Listed all clients" in the *Result Box
 
 ==== Common errors / problems
 
-The following might be a common problem when trying to use the `list-c` command. 
+The following might be a common problem when trying to use the `list-c` command.
 
 *No clients shown on the Client List*
 
